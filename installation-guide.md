@@ -1,16 +1,16 @@
 # How to install the Kernseife ATC Check
 
 ## Prerequisits
-A Kernseife Classification Json File
+* Kernseife Classification Json File
 
-Authorizations: 
+* Authorizations
 All which is included in the Standard Role: SAP_SATC_QE
 Additionally: SYCM_API
 ![image](https://github.com/user-attachments/assets/4eb94ebd-5c31-4090-8a81-a1bc5790d295)
 
-A workbench Transport Request.
+* Workbench Transport Request.
 
-Download the latest release from the Release Page (.zip file)
+* Latest release from the Release Page (.zip file)
 
 ## Import the Kernseife ATC Check into target system (using [abapGit](https://github.com/abapGit/abapGit))
 Run the standalone version of abapGit using transaction `ZABAPGIT` or executing the report in ZABAPGIT_STANDALONE.
@@ -52,7 +52,7 @@ Execute Report ZKNSF_CLASSIFICATION_MANAGR
 Click on "Upload Classic API File".
 Select the Classification Json File.
 
-Now you are able to use the Kernseife ATC Check.
+
 
 ## Create Check Variant
 
@@ -69,3 +69,5 @@ Enable the "Check for Enhancement Technology".
 In every case you need to activate the "Kernseife: Usage of APIs" Check.
 
 ![image](https://github.com/user-attachments/assets/e9ad498f-52fa-45c0-85ea-73ef50119ca4)
+
+Congratulations, you are now able to use the Kernseife ATC Check.
