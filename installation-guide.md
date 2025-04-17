@@ -1,7 +1,11 @@
 # How to install the Kernseife ATC Check
 
 ## Prerequisits
-* Kernseife Classification Json File
+* ABAP Test Cockpit (ATC) on a system with SAP S/4HANA 2023 (or higher)
+
+* As this check is based on the "3-Tier Model" Check, it is necessary to have [SAP Note 3565942](https://me.sap.com/notes/3565942) implemented in your system.
+
+* Kernseife Classification JSON File
 
 * Authorizations
 All which is included in the Standard Role: SAP_SATC_QE
