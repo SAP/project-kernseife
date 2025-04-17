@@ -60,7 +60,8 @@ Go to Transaction SCI and create a new check variant.
 We recommend to copy the standard variant ABAP_CLOUD_DEVELOPMENT_3TIER as a base.
 Make sure the new Variant is a public one and not a personal one.
 
-![image](https://github.com/user-attachments/assets/5046e9fd-9a35-4297-b888-0b9278251272)
+<img width="420" alt="image" src="https://github.com/user-attachments/assets/46166da6-90f7-4407-a651-595961e2ee5e" />
+
 
 If you used ABAP_CLOUD_DEVELOPMENT_3TIER, you should
 Disable the "Usage of Released APIs" Check.
