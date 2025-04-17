@@ -8,7 +8,7 @@ Project Kernseife is an open-source custom ATC Check for ABAP systems that enabl
 
 ## Requirements and Setup
 
-*Insert a short description what is required to get your project running...*
+[How-To Guide for Installation](https://github.com/SAP/project-kernseife/blob/main/installation-guide.md)
 
 ## Support, Feedback, Contributing
 
