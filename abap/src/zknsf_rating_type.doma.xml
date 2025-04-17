@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DOMA" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD01V>
+    <DOMNAME>ZKNSF_RATING_TYPE</DOMNAME>
+    <DATATYPE>CHAR</DATATYPE>
+    <LENG>000001</LENG>
+    <OUTPUTLEN>000001</OUTPUTLEN>
+    <VALEXI>X</VALEXI>
+    <DOMMASTER>E</DOMMASTER>
+   </DD01V>
+   <DD07V_TAB>
+    <DD07V>
+     <VALPOS>0001</VALPOS>
+     <DOMVALUE_L>I</DOMVALUE_L>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0002</VALPOS>
+     <DOMVALUE_L>W</DOMVALUE_L>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0003</VALPOS>
+     <DOMVALUE_L>E</DOMVALUE_L>
+    </DD07V>
+    <DD07V>
+     <VALPOS>0004</VALPOS>
+     <DOMVALUE_L>S</DOMVALUE_L>
+    </DD07V>
+   </DD07V_TAB>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD01_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>Kernseife: Rating Type</DDTEXT>
+    </item>
+   </DD01_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
