@@ -1,0 +1,424 @@
+_schema-version: "3.1"
+ID: kernseife
+version: 1.0.0
+description: "Kernseife Project"
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+  landscape: dev
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm run build
+        - npm run build:bundle
+modules:
+  # --------------------- SERVER MODULE ------------------------
+  - name: kernseife-srv
+    # ------------------------------------------------------------
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+      memory: 1760MB
+      disk-quota: 1GB
+    build-parameters:
+      builder: custom
+      commands: [] 
+      ignore:
+        - node_modules/
+    requires:
+      - name: kernseife-db
+      - name: kernseife-auth
+      - name: kernseife-destination
+      - name: kernseife-cloud-logging
+      - name: kernseife-autoscaler
+        parameters:
+          config:
+            instance_min_count: 1
+            instance_max_count: 2
+            scaling_rules:
+              - "metric_type": "memoryutil"
+                "threshold": 80
+                "operator": ">="
+                "adjustment": "+1"
+              - "metric_type": "memoryutil"
+                "threshold": 60
+                "operator": "<"
+                "adjustment": "-1"
+              - "metric_type": "cpu"
+                "threshold": 80
+                "operator": ">="
+                "adjustment": "+1"
+              - "metric_type": "cpu"
+                "threshold": 30
+                "operator": "<"
+                "adjustment": "-1"
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: "${default-url}"
+
+  # -------------------- SIDECAR MODULE ------------------------
+  - name: kernseife-db-deployer
+    # -----------------------------------------------------------
+    type: hdb
+    path: gen/db
+    build-parameters:
+      builder: custom
+      commands: [] 
+      ignore:
+        - node_modules/
+    requires:
+      - name: kernseife-srv
+      - name: kernseife-db
+      - name: kernseife-auth
+    parameters:
+      buildpack: nodejs_buildpack
+  # ------------------ APPLICATION CONTENT ---------------------
+  - name: kernseife-app-content
+    # ------------------------------------------------------------
+    type: com.sap.application.content
+    path: app
+    requires:
+      - name: kernseife-destination
+      - name: kernseife-html5-repo-host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - name: view-classification-app
+          artifacts:
+            - view-classification.zip
+          target-path: resources/
+        - name: manage-classification-app
+          artifacts:
+            - manage-classification.zip
+          target-path: resources/
+        - name: manage-release-state-app
+          artifacts:
+            - manage-release-state.zip
+          target-path: resources/
+        - name: manage-extension-app
+          artifacts:
+            - manage-extension.zip
+          target-path: resources/
+        - name: manage-development-object-app
+          artifacts:
+            - manage-development-object.zip
+          target-path: resources/
+        - name: monitor-job-app
+          artifacts:
+            - monitor-job.zip
+          target-path: resources/
+        - name: import-center-app
+          artifacts:
+            - import-center.zip
+          target-path: resources/
+        - name: analyze-score-app
+          artifacts:
+            - analyze-score.zip
+          target-path: resources/
+        - name: analyze-overview-app
+          artifacts:
+            - analyze-overview.zip
+          target-path: resources/
+        - name: configure-framework-app
+          artifacts:
+            - configure-framework.zip
+          target-path: resources/
+        - name: configure-rating-app
+          artifacts:
+            - configure-rating.zip
+          target-path: resources/
+        - name: configure-system-app
+          artifacts:
+            - configure-system.zip
+          target-path: resources/
+        - name: configure-default-app
+          artifacts:
+            - configure-default.zip
+          target-path: resources/
+  - name: kernseife-destination-content
+    type: com.sap.application.content
+    requires:
+      - name: kernseife-destination
+        parameters:
+          content-target: true
+      - name: kernseife-html5-repo-host
+        parameters:
+          service-key:
+            name: kernseife-html5-repo-host-key
+      - name: kernseife-auth
+        parameters:
+          service-key:
+            name: kernseife-auth-key
+    parameters:
+      content:
+        instance:
+          destinations:
+            - Name: kernseife-html5-repo-host
+              ServiceInstanceName: kernseife-html5-app-host-service
+              ServiceKeyName: kernseife-html5-repo-host-key
+              sap.cloud.service: kernseife
+            - Authentication: OAuth2UserTokenExchange
+              Name: kernseife-auth
+              ServiceInstanceName: kernseife-auth
+              ServiceKeyName: kernseife-auth-key
+              sap.cloud.service: kernseife
+          existing_destinations_policy: update
+    build-parameters:
+      no-source: true
+
+  # ------------- APPLICATION: View Classification ----------------
+  - name: view-classification-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/view-classification
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: Manage Classification ----------------
+  - name: manage-classification-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/manage-classification
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: Release State ----------------
+  - name: manage-release-state-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/manage-release-state
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: Manage Extensions ----------------
+  - name: manage-extension-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/manage-extension
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: Development Object ----------------
+  - name: manage-development-object-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/manage-development-object
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: Monitor Jobs ----------------
+  - name: monitor-job-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/monitor-job
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: Import Center ----------------
+  - name: import-center-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/import-center
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: Score ALP ----------------
+  - name: analyze-score-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/analyze-score
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: Overview Page ----------------
+  - name: analyze-overview-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/analyze-overview
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: Framework Config ----------------
+  - name: configure-framework-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/configure-framework
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: Rating Config ----------------
+  - name: configure-rating-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/configure-rating
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: System Config ----------------
+  - name: configure-system-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/configure-system
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+  # ------------- APPLICATION: Default Config ----------------
+  - name: configure-default-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/configure-default
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms:
+        []
+
+resources:
+  # ------------------------------------------------------------
+  - name: kernseife-db
+    # ------------------------------------------------------------
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+      service-name: kernseife-db
+
+  # ------------------------------------------------------------
+  - name: kernseife-auth
+    # ------------------------------------------------------------
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: kernseife-${space}
+        tenant-mode: dedicated
+        role-collections:
+          - name: "kernseife-admin-${space}"
+            description: Kernseife Admin
+            role-template-references:
+              - $XSAPPNAME.admin
+
+  # ------------------------------------------------------------
+  - name: kernseife-html5-repo-host
+    # ------------------------------------------------------------
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+      service-name: kernseife-html5-app-host-service
+
+  # ------------------------------------------------------------
+  - name: kernseife-destination
+    # ------------------------------------------------------------
+    type: org.cloudfoundry.managed-service
+    requires:
+      - name: srv-api
+    parameters:
+      service: destination
+      service-plan: lite
+      config:
+        version: 1.0.0
+        HTML5Runtime_enabled: true
+        init_data:
+          instance:
+            existing_destinations_policy: update
+            destinations:
+              - Name: kernseife-srv
+                URL: ~{srv-api/srv-url}
+                Authentication: NoAuthentication
+                Type: HTTP
+                ProxyType: Internet
+                HTML5.ForwardAuthToken: true
+                HTML5.DynamicDestination: true
+                timeout: 360000
+              - Name: ui5
+                Authentication: NoAuthentication
+                ProxyType: Internet
+                Type: HTTP
+                URL: https://ui5.sap.com
+
+  # ----------------- AUTOSCALER  ------------------------------------
+  - name: kernseife-autoscaler
+    # ------------------------------------------------------------------
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: autoscaler
+      service-name: kernseife-autoscaler
+      service-plan: standard
+  - name: kernseife-cloud-logging
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: cloud-logging
+      service-plan: standard
+      config:
+        ingest_otlp:
+          enabled: false

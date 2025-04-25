@@ -1,0 +1,26 @@
+{
+  "name": "configure-rating",
+  "version": "1.0.1",
+  "description": "Configure Rating App",
+  "keywords": [
+    "ui5",
+    "openui5",
+    "sapui5"
+  ],
+  "main": "webapp/index.html",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "ui5 build preload --clean-dest --include-task=generateCachebusterInfo",
+    "start": "ui5 serve"
+  },
+  "devDependencies": {
+    "@sap/eslint-plugin-ui5-jsdocs": "2.0.5",
+    "@sap/ux-specification": "^1.124.11",
+    "@sap/ux-ui5-tooling": "1.14.1",
+    "@ui5/cli": "^3.11.6",
+    "eslint": "8.57.0",
+    "ui5-task-zipper": "^3.4.0"
+  }
+}

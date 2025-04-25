@@ -1,0 +1,31 @@
+{
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.admin",
+      "description": "admin"
+    },
+    {
+      "name": "$XSAPPNAME.viewer",
+      "description": "viewer"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "admin",
+      "description": "Kernseife Administrator",
+      "scope-references": [
+        "$XSAPPNAME.admin"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "viewer",
+      "description": "Kernseife Viewer",
+      "scope-references": [
+        "$XSAPPNAME.viewer"
+      ],
+      "attribute-references": []
+    }
+  ]
+}

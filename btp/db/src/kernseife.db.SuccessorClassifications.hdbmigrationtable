@@ -1,0 +1,11 @@
+== version=1
+COLUMN TABLE kernseife_db_SuccessorClassifications (
+  code NVARCHAR(5000) NOT NULL,
+  title NVARCHAR(5000),
+  criticality_code NVARCHAR(5000),
+  obsolete BOOLEAN DEFAULT FALSE,
+  custom BOOLEAN DEFAULT TRUE,
+  PRIMARY KEY(code)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN kernseife_db_Criticality AS criticality ON (criticality.code = criticality_code)
+)

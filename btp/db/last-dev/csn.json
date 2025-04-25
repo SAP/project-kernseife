@@ -1,0 +1,3174 @@
+{
+  "namespace": "kernseife.db",
+  "definitions": {
+    "kernseife.db.DevelopmentObjects": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "objectType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTTYPE"
+        },
+        "objectName": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTNAME"
+        },
+        "devClass": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "DEVCLASS"
+        },
+        "systemId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SYSTEMID"
+        },
+        "system": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Systems",
+          "on": [
+            {
+              "ref": [
+                "system",
+                "sid"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "systemId"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "SYSTEM"
+        },
+        "extension_ID": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "EXTENSION_ID"
+        },
+        "extension": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Extensions",
+          "on": [
+            {
+              "ref": [
+                "extension",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "extension_ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "EXTENSION"
+        },
+        "cleanCoreLevel": {
+          "type": "cds.Association",
+          "target": "kernseife.db.CleanCoreLevel",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "cleanCoreLevel_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "cleanCoreLevel",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "cleanCoreLevel_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CLEANCORELEVEL"
+        },
+        "cleanCoreLevel_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "cleanCoreLevel",
+          "@cds.persistence.name": "CLEANCORELEVEL_CODE"
+        },
+        "cleanCoreScore": {
+          "type": "cds.Decimal",
+          "precision": 4,
+          "scale": 2,
+          "@cds.persistence.name": "CLEANCORESCORE"
+        },
+        "namespace": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "NAMESPACE"
+        },
+        "languageVersion": {
+          "type": "cds.Association",
+          "target": "kernseife.db.LanguageVersions",
+          "on": [
+            {
+              "ref": [
+                "languageVersion",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "languageVersion_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "LANGUAGEVERSION"
+        },
+        "languageVersion_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "LANGUAGEVERSION_CODE"
+        },
+        "latestScoringImportId": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "LATESTSCORINGIMPORTID"
+        },
+        "findingList": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "kernseife.db.ScoringRecords",
+          "on": [
+            {
+              "ref": [
+                "findingList",
+                "objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "findingList",
+                "objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "objectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "findingList",
+                "devClass"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "devClass"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "findingList",
+                "systemId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "systemId"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "findingList",
+                "import_ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "latestScoringImportId"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "FINDINGLIST"
+        },
+        "findingListAggregated": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "kernseife.db.ScoringFindingsAggregated",
+          "on": [
+            {
+              "ref": [
+                "findingListAggregated",
+                "objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "findingListAggregated",
+                "objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "objectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "findingListAggregated",
+                "devClass"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "devClass"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "findingListAggregated",
+                "systemId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "systemId"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "findingListAggregated",
+                "importId"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "latestScoringImportId"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "FINDINGLISTAGGREGATED"
+        },
+        "score": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "SCORE"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_DEVELOPMENTOBJECTS"
+    },
+    "kernseife.db.ReleaseStates": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "tadirObjectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TADIROBJECTTYPE"
+        },
+        "tadirObjectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TADIROBJECTNAME"
+        },
+        "objectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTTYPE"
+        },
+        "objectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTNAME"
+        },
+        "softwareComponent": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SOFTWARECOMPONENT"
+        },
+        "applicationComponent": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "APPLICATIONCOMPONENT"
+        },
+        "releaseInfo": {
+          "type": "cds.Association",
+          "target": "kernseife.db.ReleaseInfo",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "releaseInfo_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "releaseInfo",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "releaseInfo_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "RELEASEINFO"
+        },
+        "releaseInfo_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "releaseInfo",
+          "@cds.persistence.name": "RELEASEINFO_CODE"
+        },
+        "classicInfo": {
+          "type": "cds.Association",
+          "target": "kernseife.db.ClassicInfo",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "classicInfo_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "classicInfo",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classicInfo_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CLASSICINFO"
+        },
+        "classicInfo_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classicInfo",
+          "@cds.persistence.name": "CLASSICINFO_CODE"
+        },
+        "releaseLevel": {
+          "type": "cds.Association",
+          "target": "kernseife.db.ReleaseLevel",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "releaseLevel_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "releaseLevel",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "releaseLevel_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "RELEASELEVEL"
+        },
+        "releaseLevel_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "releaseLevel",
+          "@cds.persistence.name": "RELEASELEVEL_CODE"
+        },
+        "successorClassification": {
+          "type": "cds.Association",
+          "target": "kernseife.db.SuccessorClassifications",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "successorClassification_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "successorClassification",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "successorClassification_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "SUCCESSORCLASSIFICATION"
+        },
+        "successorClassification_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "successorClassification",
+          "@cds.persistence.name": "SUCCESSORCLASSIFICATION_CODE"
+        },
+        "successorConceptName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SUCCESSORCONCEPTNAME"
+        },
+        "successorList": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "kernseife.db.ReleaseStateSuccessors",
+          "on": [
+            {
+              "ref": [
+                "successorList",
+                "releaseState_ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "SUCCESSORLIST"
+        },
+        "labelList": {
+          "type": "cds.LargeString",
+          "@cds.persistence.name": "LABELLIST"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_RELEASESTATES"
+    },
+    "kernseife.db.ReleaseStateSuccessors": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "releaseState": {
+          "type": "cds.Association",
+          "target": "kernseife.db.ReleaseStates",
+          "keys": [
+            {
+              "ref": [
+                "ID"
+              ],
+              "as": "ID",
+              "$generatedFieldName": "releaseState_ID"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "releaseState",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "releaseState_ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "RELEASESTATE"
+        },
+        "releaseState_ID": {
+          "type": "cds.String",
+          "length": 36,
+          "@odata.foreignKey4": "releaseState",
+          "@cds.persistence.name": "RELEASESTATE_ID"
+        },
+        "tadirObjectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TADIROBJECTTYPE"
+        },
+        "tadirObjectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TADIROBJECTNAME"
+        },
+        "objectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTTYPE"
+        },
+        "objectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTNAME"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_RELEASESTATESUCCESSORS"
+    },
+    "kernseife.db.Classifications": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "tadirObjectType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TADIROBJECTTYPE"
+        },
+        "tadirObjectName": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TADIROBJECTNAME"
+        },
+        "objectType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTTYPE"
+        },
+        "objectName": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTNAME"
+        },
+        "applicationComponent": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "APPLICATIONCOMPONENT"
+        },
+        "subType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SUBTYPE"
+        },
+        "softwareComponent": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SOFTWARECOMPONENT"
+        },
+        "frameworkUsageList": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "kernseife.db.FrameworkUsages",
+          "on": [
+            {
+              "ref": [
+                "frameworkUsageList",
+                "classification_tadirObjectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "tadirObjectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "frameworkUsageList",
+                "classification_tadirObjectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "tadirObjectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "frameworkUsageList",
+                "classification_objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "frameworkUsageList",
+                "classification_objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "objectName"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "FRAMEWORKUSAGELIST"
+        },
+        "adoptionEffort": {
+          "type": "cds.Association",
+          "target": "kernseife.db.AdoptionEffort",
+          "on": [
+            {
+              "ref": [
+                "adoptionEffort",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "adoptionEffort_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "ADOPTIONEFFORT"
+        },
+        "adoptionEffort_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "ADOPTIONEFFORT_CODE"
+        },
+        "comment": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "COMMENT"
+        },
+        "referenceCount": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "REFERENCECOUNT"
+        },
+        "releaseLevel": {
+          "type": "cds.Association",
+          "target": "kernseife.db.ReleaseLevel",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "releaseLevel_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "releaseLevel",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "releaseLevel_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "RELEASELEVEL"
+        },
+        "releaseLevel_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "releaseLevel",
+          "@cds.persistence.name": "RELEASELEVEL_CODE"
+        },
+        "releaseState": {
+          "type": "cds.Association",
+          "target": "kernseife.db.ReleaseStates",
+          "on": [
+            {
+              "ref": [
+                "releaseState",
+                "tadirObjectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "tadirObjectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "releaseState",
+                "tadirObjectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "tadirObjectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "releaseState",
+                "objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "releaseState",
+                "objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "objectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "releaseState",
+                "applicationComponent"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "applicationComponent"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "RELEASESTATE"
+        },
+        "numberOfSimplificationNotes": {
+          "type": "cds.Integer",
+          "default": {
+            "val": 0
+          },
+          "@cds.persistence.name": "NUMBEROFSIMPLIFICATIONNOTES"
+        },
+        "successorClassification": {
+          "type": "cds.Association",
+          "target": "kernseife.db.SuccessorClassifications",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "successorClassification_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "successorClassification",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "successorClassification_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "SUCCESSORCLASSIFICATION"
+        },
+        "successorClassification_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "successorClassification",
+          "@cds.persistence.name": "SUCCESSORCLASSIFICATION_CODE"
+        },
+        "successorList": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "kernseife.db.ClassificationSuccessors",
+          "on": [
+            {
+              "ref": [
+                "successorList",
+                "classification_tadirObjectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "tadirObjectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "successorList",
+                "classification_tadirObjectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "tadirObjectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "successorList",
+                "classification_objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "successorList",
+                "classification_objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "objectName"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "SUCCESSORLIST"
+        },
+        "noteList": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "kernseife.db.Notes",
+          "on": [
+            {
+              "ref": [
+                "noteList",
+                "classification_tadirObjectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "tadirObjectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "noteList",
+                "classification_tadirObjectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "tadirObjectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "noteList",
+                "classification_objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "noteList",
+                "classification_objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "objectName"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "NOTELIST"
+        },
+        "rating": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Ratings",
+          "on": [
+            {
+              "ref": [
+                "rating",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "rating_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "RATING"
+        },
+        "rating_code": {
+          "type": "cds.String",
+          "length": 3,
+          "@cds.persistence.name": "RATING_CODE"
+        },
+        "codeSnippets": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "kernseife.db.CodeSnippets",
+          "on": [
+            {
+              "ref": [
+                "codeSnippets",
+                "classification_tadirObjectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "tadirObjectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "codeSnippets",
+                "classification_tadirObjectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "tadirObjectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "codeSnippets",
+                "classification_objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "codeSnippets",
+                "classification_objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "objectName"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CODESNIPPETS"
+        },
+        "totalScore": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "TOTALSCORE"
+        },
+        "developmentObjectList": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "kernseife.db.DevelopmentObjectsAggregated",
+          "on": [
+            {
+              "ref": [
+                "developmentObjectList",
+                "refObjectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "developmentObjectList",
+                "refObjectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "objectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "developmentObjectList",
+                "refApplicationComponent"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "applicationComponent"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "DEVELOPMENTOBJECTLIST"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_CLASSIFICATIONS"
+    },
+    "kernseife.db.CodeSnippets": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "classification": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Classifications",
+          "keys": [
+            {
+              "ref": [
+                "tadirObjectType"
+              ],
+              "as": "tadirObjectType",
+              "$generatedFieldName": "classification_tadirObjectType"
+            },
+            {
+              "ref": [
+                "tadirObjectName"
+              ],
+              "as": "tadirObjectName",
+              "$generatedFieldName": "classification_tadirObjectName"
+            },
+            {
+              "ref": [
+                "objectType"
+              ],
+              "as": "objectType",
+              "$generatedFieldName": "classification_objectType"
+            },
+            {
+              "ref": [
+                "objectName"
+              ],
+              "as": "objectName",
+              "$generatedFieldName": "classification_objectName"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "classification",
+                "tadirObjectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_tadirObjectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "tadirObjectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_tadirObjectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_objectName"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CLASSIFICATION"
+        },
+        "classification_tadirObjectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_TADIROBJECTTYPE"
+        },
+        "classification_tadirObjectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_TADIROBJECTNAME"
+        },
+        "classification_objectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_OBJECTTYPE"
+        },
+        "classification_objectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_OBJECTNAME"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "comment": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "COMMENT"
+        },
+        "coding": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "CODING"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_CODESNIPPETS"
+    },
+    "kernseife.db.Notes": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "classification": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Classifications",
+          "keys": [
+            {
+              "ref": [
+                "tadirObjectType"
+              ],
+              "as": "tadirObjectType",
+              "$generatedFieldName": "classification_tadirObjectType"
+            },
+            {
+              "ref": [
+                "tadirObjectName"
+              ],
+              "as": "tadirObjectName",
+              "$generatedFieldName": "classification_tadirObjectName"
+            },
+            {
+              "ref": [
+                "objectType"
+              ],
+              "as": "objectType",
+              "$generatedFieldName": "classification_objectType"
+            },
+            {
+              "ref": [
+                "objectName"
+              ],
+              "as": "objectName",
+              "$generatedFieldName": "classification_objectName"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "classification",
+                "tadirObjectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_tadirObjectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "tadirObjectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_tadirObjectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_objectName"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CLASSIFICATION"
+        },
+        "classification_tadirObjectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_TADIROBJECTTYPE"
+        },
+        "classification_tadirObjectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_TADIROBJECTNAME"
+        },
+        "classification_objectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_OBJECTTYPE"
+        },
+        "classification_objectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_OBJECTNAME"
+        },
+        "note": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "NOTE"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "noteClassification": {
+          "type": "cds.Association",
+          "target": "kernseife.db.NoteClassifications",
+          "on": [
+            {
+              "ref": [
+                "noteClassification",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "noteClassification_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "NOTECLASSIFICATION"
+        },
+        "noteClassification_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "NOTECLASSIFICATION_CODE"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_NOTES"
+    },
+    "kernseife.db.ClassificationSuccessors": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "classification": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Classifications",
+          "keys": [
+            {
+              "ref": [
+                "tadirObjectType"
+              ],
+              "as": "tadirObjectType",
+              "$generatedFieldName": "classification_tadirObjectType"
+            },
+            {
+              "ref": [
+                "tadirObjectName"
+              ],
+              "as": "tadirObjectName",
+              "$generatedFieldName": "classification_tadirObjectName"
+            },
+            {
+              "ref": [
+                "objectType"
+              ],
+              "as": "objectType",
+              "$generatedFieldName": "classification_objectType"
+            },
+            {
+              "ref": [
+                "objectName"
+              ],
+              "as": "objectName",
+              "$generatedFieldName": "classification_objectName"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "classification",
+                "tadirObjectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_tadirObjectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "tadirObjectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_tadirObjectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_objectName"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CLASSIFICATION"
+        },
+        "classification_tadirObjectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_TADIROBJECTTYPE"
+        },
+        "classification_tadirObjectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_TADIROBJECTNAME"
+        },
+        "classification_objectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_OBJECTTYPE"
+        },
+        "classification_objectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_OBJECTNAME"
+        },
+        "tadirObjectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TADIROBJECTTYPE"
+        },
+        "tadirObjectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TADIROBJECTNAME"
+        },
+        "objectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTTYPE"
+        },
+        "objectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTNAME"
+        },
+        "successorType": {
+          "type": "cds.Association",
+          "target": "kernseife.db.SuccessorTypes",
+          "on": [
+            {
+              "ref": [
+                "successorType",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "successorType_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "SUCCESSORTYPE"
+        },
+        "successorType_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SUCCESSORTYPE_CODE"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_CLASSIFICATIONSUCCESSORS"
+    },
+    "kernseife.db.Imports": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "type": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TYPE"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "status": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "STATUS"
+        },
+        "systemId": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SYSTEMID"
+        },
+        "comment": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "COMMENT"
+        },
+        "defaultRating": {
+          "type": "cds.String",
+          "length": 3,
+          "@cds.persistence.name": "DEFAULTRATING"
+        },
+        "system": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Systems",
+          "on": [
+            {
+              "ref": [
+                "system",
+                "sid"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "systemId"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "SYSTEM"
+        },
+        "file": {
+          "type": "cds.LargeBinary",
+          "@cds.persistence.name": "FILE"
+        },
+        "fileType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "FILETYPE"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_IMPORTS"
+    },
+    "kernseife.db.ScoringRecords": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "import": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Imports",
+          "keys": [
+            {
+              "ref": [
+                "ID"
+              ],
+              "as": "ID",
+              "$generatedFieldName": "import_ID"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "import",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "import_ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "IMPORT"
+        },
+        "import_ID": {
+          "type": "cds.String",
+          "length": 36,
+          "@odata.foreignKey4": "import",
+          "key": true,
+          "@cds.persistence.name": "IMPORT_ID"
+        },
+        "itemId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "ITEMID"
+        },
+        "objectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTTYPE"
+        },
+        "objectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTNAME"
+        },
+        "refObjectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "REFOBJECTTYPE"
+        },
+        "refObjectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "REFOBJECTNAME"
+        },
+        "refApplicationComponent": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "REFAPPLICATIONCOMPONENT"
+        },
+        "devClass": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "DEVCLASS"
+        },
+        "systemId": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SYSTEMID"
+        },
+        "releaseState": {
+          "type": "cds.Association",
+          "target": "kernseife.db.ReleaseStates",
+          "on": [
+            {
+              "ref": [
+                "releaseState",
+                "objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "refObjectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "releaseState",
+                "objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "refObjectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "releaseState",
+                "applicationComponent"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "refApplicationComponent"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "RELEASESTATE"
+        },
+        "developmentObject": {
+          "type": "cds.Association",
+          "target": "kernseife.db.DevelopmentObjects",
+          "on": [
+            {
+              "ref": [
+                "developmentObject",
+                "objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "developmentObject",
+                "objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "objectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "developmentObject",
+                "devClass"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "devClass"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "DEVELOPMENTOBJECT"
+        },
+        "classification": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Classifications",
+          "on": [
+            {
+              "ref": [
+                "classification",
+                "objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "refObjectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "refObjectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "applicationComponent"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "refApplicationComponent"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CLASSIFICATION"
+        },
+        "rating": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Ratings",
+          "on": [
+            {
+              "ref": [
+                "rating",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "rating_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "RATING"
+        },
+        "rating_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "RATING_CODE"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_SCORINGRECORDS"
+    },
+    "kernseife.db.SimplificationItems": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "objectType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTTYPE"
+        },
+        "objectName": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTNAME"
+        },
+        "softwareComponent": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SOFTWARECOMPONENT"
+        },
+        "note": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "NOTE"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "itemCount": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "ITEMCOUNT"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_SIMPLIFICATIONITEMS"
+    },
+    "kernseife.db.ObjectTypes": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "objectType": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTTYPE"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "category": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "CATEGORY"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_OBJECTTYPES"
+    },
+    "kernseife.db.Ratings": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "code": {
+          "type": "cds.String",
+          "length": 3,
+          "@cds.persistence.name": "CODE"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "score": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "SCORE"
+        },
+        "criticality": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Criticality",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "criticality_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "criticality",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "criticality_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CRITICALITY"
+        },
+        "criticality_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "criticality",
+          "@cds.persistence.name": "CRITICALITY_CODE"
+        },
+        "legacyRatingList": {
+          "type": "cds.Composition",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "kernseife.db.LegacyRatings",
+          "on": [
+            {
+              "ref": [
+                "legacyRatingList",
+                "rating_ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "LEGACYRATINGLIST"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_RATINGS"
+    },
+    "kernseife.db.LegacyRatings": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "rating": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Ratings",
+          "keys": [
+            {
+              "ref": [
+                "ID"
+              ],
+              "as": "ID",
+              "$generatedFieldName": "rating_ID"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "rating",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "rating_ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "RATING"
+        },
+        "rating_ID": {
+          "type": "cds.String",
+          "length": 36,
+          "@odata.foreignKey4": "rating",
+          "@cds.persistence.name": "RATING_ID"
+        },
+        "legacyRating": {
+          "type": "cds.String",
+          "length": 10,
+          "@cds.persistence.name": "LEGACYRATING"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_LEGACYRATINGS"
+    },
+    "kernseife.db.Frameworks": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "CODE"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "criticality": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Criticality",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "criticality_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "criticality",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "criticality_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CRITICALITY"
+        },
+        "criticality_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "criticality",
+          "@cds.persistence.name": "CRITICALITY_CODE"
+        },
+        "frameworkType_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "FRAMEWORKTYPE_CODE"
+        },
+        "frameworkType": {
+          "type": "cds.Association",
+          "target": "kernseife.db.FrameworkTypes",
+          "on": [
+            {
+              "ref": [
+                "frameworkType",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "frameworkType_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "FRAMEWORKTYPE"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_FRAMEWORKS"
+    },
+    "kernseife.db.FrameworkUsages": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "classification": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Classifications",
+          "keys": [
+            {
+              "ref": [
+                "tadirObjectType"
+              ],
+              "as": "tadirObjectType",
+              "$generatedFieldName": "classification_tadirObjectType"
+            },
+            {
+              "ref": [
+                "tadirObjectName"
+              ],
+              "as": "tadirObjectName",
+              "$generatedFieldName": "classification_tadirObjectName"
+            },
+            {
+              "ref": [
+                "objectType"
+              ],
+              "as": "objectType",
+              "$generatedFieldName": "classification_objectType"
+            },
+            {
+              "ref": [
+                "objectName"
+              ],
+              "as": "objectName",
+              "$generatedFieldName": "classification_objectName"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "classification",
+                "tadirObjectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_tadirObjectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "tadirObjectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_tadirObjectName"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "objectType"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_objectType"
+              ]
+            },
+            "and",
+            {
+              "ref": [
+                "classification",
+                "objectName"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "classification_objectName"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CLASSIFICATION"
+        },
+        "classification_tadirObjectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_TADIROBJECTTYPE"
+        },
+        "classification_tadirObjectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_TADIROBJECTNAME"
+        },
+        "classification_objectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_OBJECTTYPE"
+        },
+        "classification_objectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "classification",
+          "@cds.persistence.name": "CLASSIFICATION_OBJECTNAME"
+        },
+        "framework_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "FRAMEWORK_CODE"
+        },
+        "framework": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Frameworks",
+          "on": [
+            {
+              "ref": [
+                "framework",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "framework_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "FRAMEWORK"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_FRAMEWORKUSAGES"
+    },
+    "kernseife.db.SuccessorClassifications": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "code": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "CODE"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "criticality": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Criticality",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "criticality_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "criticality",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "criticality_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CRITICALITY"
+        },
+        "criticality_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "criticality",
+          "@cds.persistence.name": "CRITICALITY_CODE"
+        },
+        "obsolete": {
+          "type": "cds.Boolean",
+          "default": {
+            "val": false
+          },
+          "@cds.persistence.name": "OBSOLETE"
+        },
+        "custom": {
+          "type": "cds.Boolean",
+          "default": {
+            "val": true
+          },
+          "@cds.persistence.name": "CUSTOM"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_SUCCESSORCLASSIFICATIONS"
+    },
+    "kernseife.db.NoteClassifications": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "code": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "CODE"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "criticality": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Criticality",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "criticality_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "criticality",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "criticality_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CRITICALITY"
+        },
+        "criticality_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "criticality",
+          "@cds.persistence.name": "CRITICALITY_CODE"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_NOTECLASSIFICATIONS"
+    },
+    "kernseife.db.AdoptionEffort": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "code": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "CODE"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "criticality": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Criticality",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "criticality_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "criticality",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "criticality_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CRITICALITY"
+        },
+        "criticality_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "criticality",
+          "@cds.persistence.name": "CRITICALITY_CODE"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_ADOPTIONEFFORT"
+    },
+    "kernseife.db.Systems": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "sid": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SID"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "comment": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "COMMENT"
+        },
+        "customer": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Customers",
+          "on": [
+            {
+              "ref": [
+                "customer",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "customer_ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CUSTOMER"
+        },
+        "customer_ID": {
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "CUSTOMER_ID"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_SYSTEMS"
+    },
+    "kernseife.db.Customers": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "contact": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "CONTACT"
+        },
+        "prefix": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "PREFIX"
+        },
+        "systemList": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "kernseife.db.Systems",
+          "on": [
+            {
+              "ref": [
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "systemList",
+                "customer_ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "SYSTEMLIST"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_CUSTOMERS"
+    },
+    "kernseife.db.Extensions": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "system": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Systems",
+          "keys": [
+            {
+              "ref": [
+                "ID"
+              ],
+              "as": "ID",
+              "$generatedFieldName": "system_ID"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "system",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "system_ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "SYSTEM"
+        },
+        "system_ID": {
+          "type": "cds.String",
+          "length": 36,
+          "@odata.foreignKey4": "system",
+          "@cds.persistence.name": "SYSTEM_ID"
+        },
+        "cleanCoreLevel": {
+          "type": "cds.Association",
+          "target": "kernseife.db.CleanCoreLevel",
+          "keys": [
+            {
+              "ref": [
+                "code"
+              ],
+              "as": "code",
+              "$generatedFieldName": "cleanCoreLevel_code"
+            }
+          ],
+          "on": [
+            {
+              "ref": [
+                "cleanCoreLevel",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "cleanCoreLevel_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "CLEANCORELEVEL"
+        },
+        "cleanCoreLevel_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@odata.foreignKey4": "cleanCoreLevel",
+          "@cds.persistence.name": "CLEANCORELEVEL_CODE"
+        },
+        "developemtObjectList": {
+          "type": "cds.Association",
+          "cardinality": {
+            "max": "*"
+          },
+          "target": "kernseife.db.DevelopmentObjects",
+          "on": [
+            {
+              "ref": [
+                "developemtObjectList",
+                "extension_ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "DEVELOPEMTOBJECTLIST"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_EXTENSIONS"
+    },
+    "kernseife.db.Settings": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "initialDataUrl": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "INITIALDATAURL"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_SETTINGS"
+    },
+    "kernseife.db.Jobs": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "title": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TITLE"
+        },
+        "status": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "STATUS"
+        },
+        "type": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TYPE"
+        },
+        "progressCurrent": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "PROGRESSCURRENT"
+        },
+        "progressTotal": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "PROGRESSTOTAL"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_JOBS"
+    },
+    "kernseife.db.Modifications": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "objectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTTYPE"
+        },
+        "objectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTNAME"
+        },
+        "devClass": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "DEVCLASS"
+        },
+        "systemId": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SYSTEMID"
+        },
+        "type": {
+          "type": "cds.Association",
+          "target": "kernseife.db.ModificationTypes",
+          "on": [
+            {
+              "ref": [
+                "type",
+                "code"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "type_code"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "TYPE"
+        },
+        "type_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "TYPE_CODE"
+        },
+        "extension_ID": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "EXTENSION_ID"
+        },
+        "extension": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Extensions",
+          "on": [
+            {
+              "ref": [
+                "extension",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "extension_ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "EXTENSION"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_MODIFICATIONS"
+    },
+    "kernseife.db.Enhancements": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 36,
+          "@cds.persistence.name": "ID"
+        },
+        "createdAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "CREATEDAT"
+        },
+        "createdBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "CREATEDBY"
+        },
+        "modifiedAt": {
+          "type": "cds.Timestamp",
+          "@cds.persistence.name": "MODIFIEDAT"
+        },
+        "modifiedBy": {
+          "type": "cds.String",
+          "length": 255,
+          "@cds.persistence.name": "MODIFIEDBY"
+        },
+        "objectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTTYPE"
+        },
+        "objectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTNAME"
+        },
+        "devClass": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "DEVCLASS"
+        },
+        "systemId": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SYSTEMID"
+        },
+        "extension_ID": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "EXTENSION_ID"
+        },
+        "extension": {
+          "type": "cds.Association",
+          "target": "kernseife.db.Extensions",
+          "on": [
+            {
+              "ref": [
+                "extension",
+                "ID"
+              ]
+            },
+            "=",
+            {
+              "ref": [
+                "$self",
+                "extension_ID"
+              ]
+            }
+          ],
+          "@cds.persistence.name": "EXTENSION"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_ENHANCEMENTS"
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v5.8.2",
+    "flavor": "inferred",
+    "minified": true,
+    "build": "CDS Build v8.8.3"
+  },
+  "$version": "2.0"
+}

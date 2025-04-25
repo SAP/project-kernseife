@@ -1,0 +1,24 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "^/odata/v4/viewer/(.*)$",
+      "target": "/odata/v4/viewer/$1",
+      "authenticationType": "xsuaa",
+      "destination": "kernseife-srv"
+    },
+    {
+      "source": "^/download",
+      "target": "/download",
+      "authenticationType": "xsuaa",
+      "destination": "kernseife-srv"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

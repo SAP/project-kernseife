@@ -1,0 +1,26 @@
+== version=1
+COLUMN TABLE kernseife_db_DevelopmentObjects (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  objectType NVARCHAR(5000) NOT NULL,
+  objectName NVARCHAR(5000) NOT NULL,
+  devClass NVARCHAR(5000) NOT NULL,
+  systemId NVARCHAR(5000) NOT NULL,
+  extension_ID NVARCHAR(5000),
+  cleanCoreLevel_code NVARCHAR(5000),
+  cleanCoreScore DECIMAL(4, 2),
+  namespace NVARCHAR(5000),
+  languageVersion_code NVARCHAR(5000),
+  latestScoringImportId NVARCHAR(5000),
+  "SCORE" INTEGER,
+  PRIMARY KEY(objectType, objectName, devClass, systemId)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN kernseife_db_Systems AS system ON (system.sid = systemId),
+  MANY TO ONE JOIN kernseife_db_Extensions AS extension ON (extension.ID = extension_ID),
+  MANY TO ONE JOIN kernseife_db_CleanCoreLevel AS cleanCoreLevel ON (cleanCoreLevel.code = cleanCoreLevel_code),
+  MANY TO ONE JOIN kernseife_db_LanguageVersions AS languageVersion ON (languageVersion.code = languageVersion_code),
+  MANY TO MANY JOIN kernseife_db_ScoringRecords AS findingList ON (findingList.objectType = objectType AND findingList.objectName = objectName AND findingList.devClass = devClass AND findingList.systemId = systemId AND findingList.import_ID = latestScoringImportId),
+  MANY TO MANY JOIN kernseife_db_ScoringFindingsAggregated AS findingListAggregated ON (findingListAggregated.objectType = objectType AND findingListAggregated.objectName = objectName AND findingListAggregated.devClass = devClass AND findingListAggregated.systemId = systemId AND findingListAggregated.importId = latestScoringImportId)
+)

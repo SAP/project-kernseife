@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "noEmit": true,
+        "target": "ES2021",
+        "lib": [
+            "ES2021",
+            "ES2022.Object",
+            "DOM"
+        ],
+        "module": "NodeNext",
+        "moduleResolution": "nodenext",
+        "esModuleInterop": true,
+        "declaration": false,
+        "noFallthroughCasesInSwitch": true,
+        "useDefineForClassFields": true,
+        "strictPropertyInitialization": false,
+        "noImplicitAny": false,
+        "allowJs": true,
+        "strict": true,
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "paths": {
+            "#cds-models/*": [
+                "./@cds-models/*/index.ts"
+            ]
+        }
+    },
+    "include": [
+        "./test/**/*",
+        "./*.mjs"
+    ]
+}

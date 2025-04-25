@@ -1,0 +1,15 @@
+== version=1
+COLUMN TABLE kernseife_db_Systems (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  sid NVARCHAR(5000),
+  title NVARCHAR(5000),
+  comment NVARCHAR(5000),
+  customer_ID NVARCHAR(36),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN kernseife_db_Customers AS customer ON (customer.ID = customer_ID)
+)

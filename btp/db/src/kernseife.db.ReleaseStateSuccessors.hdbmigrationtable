@@ -1,0 +1,12 @@
+== version=1
+COLUMN TABLE kernseife_db_ReleaseStateSuccessors (
+  ID NVARCHAR(36) NOT NULL,
+  releaseState_ID NVARCHAR(36),
+  tadirObjectType NVARCHAR(5000),
+  tadirObjectName NVARCHAR(5000),
+  objectType NVARCHAR(5000),
+  objectName NVARCHAR(5000),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN kernseife_db_ReleaseStates AS releaseState ON (releaseState.ID = releaseState_ID)
+)

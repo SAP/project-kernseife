@@ -1,0 +1,18 @@
+== version=1
+COLUMN TABLE kernseife_db_Modifications (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  objectType NVARCHAR(5000),
+  objectName NVARCHAR(5000),
+  devClass NVARCHAR(5000),
+  systemId NVARCHAR(5000),
+  type_code NVARCHAR(5000),
+  extension_ID NVARCHAR(5000),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN kernseife_db_ModificationTypes AS type ON (type.code = type_code),
+  MANY TO ONE JOIN kernseife_db_Extensions AS extension ON (extension.ID = extension_ID)
+)

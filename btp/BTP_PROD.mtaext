@@ -1,0 +1,12 @@
+_schema-version: '3.1'
+ID: kernseife-prod
+
+extends: kernseife
+
+parameters:
+  landscape: prod
+
+resources:
+  - name: kernseife-db
+    parameters:
+      service-name: kernseife-prod-db

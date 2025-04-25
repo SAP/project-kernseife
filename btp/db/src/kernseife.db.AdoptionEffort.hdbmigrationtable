@@ -1,0 +1,9 @@
+== version=1
+COLUMN TABLE kernseife_db_AdoptionEffort (
+  code NVARCHAR(5000) NOT NULL,
+  title NVARCHAR(5000),
+  criticality_code NVARCHAR(5000),
+  PRIMARY KEY(code)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN kernseife_db_Criticality AS criticality ON (criticality.code = criticality_code)
+)

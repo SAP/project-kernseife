@@ -1,0 +1,14 @@
+== version=1
+COLUMN TABLE kernseife_db_Jobs (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  title NVARCHAR(5000),
+  status NVARCHAR(5000),
+  type NVARCHAR(5000),
+  progressCurrent INTEGER,
+  progressTotal INTEGER,
+  PRIMARY KEY(ID)
+)

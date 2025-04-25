@@ -1,0 +1,15 @@
+_schema-version: '3.1'
+ID: kernseife-dev
+
+extends: kernseife
+
+parameters:
+  landscape: dev
+
+resources:
+  - name: kernseife-db
+    parameters:
+      service-name: kernseife-dev-db
+  - name: kernseife-cloud-logging
+    parameters:
+      service-plan: dev

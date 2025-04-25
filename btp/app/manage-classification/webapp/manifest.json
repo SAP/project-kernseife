@@ -1,0 +1,282 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "manageclassification",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.13.1",
+      "toolsId": "b1729452-80e7-4f44-a4b0-f775075706cf"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "odata/v4/admin/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "Classifications-manage": {
+          "semanticObject": "Classifications",
+          "action": "manage",
+          "title": "{{flpTitle}}",
+          "subTitle": "{{flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "icon": "sap-icon://activity-assigned-to-goal",
+          "indicatorDataSource": {
+            "dataSource": "mainService",
+            "path": "Classifications/$count?$filter=(IsActiveEntity%20eq%20true)",
+            "refresh": 1000
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.platform.cf": {
+    "ui5VersionNumber": "1.134.x"
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.134.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.fe.templates": {},
+        "sap.f": {},
+        "sap.ui.codeeditor": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "manageclassification.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+        },
+        "routerClass": "sap.f.routing.Router"
+      },
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ClassificationList",
+          "target": [
+            "ClassificationList"
+          ]
+        },
+        {
+          "pattern": "Classifications({key}):?query:",
+          "name": "ClassificationObjectPage",
+          "target": [
+            "ClassificationList",
+            "ClassificationObjectPage"
+          ]
+        },
+        {
+          "pattern": "Classifications({key})/codeSnippets({key2}):?query:",
+          "name": "Classifications_codeSnippetsObjectPage",
+          "target": [
+            "ClassificationList",
+            "ClassificationObjectPage",
+            "Classifications_codeSnippetsObjectPage"
+          ]
+        }
+      ],
+      "targets": {
+        "ClassificationList": {
+          "type": "Component",
+          "id": "ClassificationList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Classifications",
+              "variantManagement": "Page",
+              "navigation": {
+                "Classifications": {
+                  "detail": {
+                    "route": "ClassificationObjectPage"
+                  }
+                }
+              },
+              "initialLoad": "Enabled",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "personalization": {
+                      "sort": true,
+                      "column": true,
+                      "filter": true
+                    },
+                    "enableMassEdit": true
+                  },
+                  "actions": {
+                    "DataFieldForAction::AdminService.assignFramework": {
+                      "enableOnSelect": "multi"
+                    }
+                  }
+                }
+              },
+              "defaultTemplateAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#table",
+              "content": {
+                "header": {
+                  "actions": {
+                    "downloadClassificationLegacy": {
+                      "press": "manageclassification.extension.controller.ClassificationController.downloadClassificationLegacy",
+                      "visible": false,
+                      "enabled": true,
+                      "text": "{i18n>downloadClassificationLegacy}"
+                    },
+                    "downloadClassificationStandard": {
+                      "press": "manageclassification.extension.controller.ClassificationController.downloadClassificationStandard",
+                      "visible": false,
+                      "enabled": true,
+                      "text": "{i18n>downloadClassificationStandard}"
+                    },
+                    "downloadClassificationCustom": {
+                      "press": "manageclassification.extension.controller.ClassificationController.downloadClassificationCustom",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "{i18n>downloadClassificationCustom}"
+                    },
+                    "downloadClassificationCloud": {
+                      "press": "manageclassification.extension.controller.ClassificationController.downloadClassificationCloud",
+                      "visible": false,
+                      "enabled": true,
+                      "text": "{i18n>downloadClassificationCloud}"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
+        },
+        "ClassificationObjectPage": {
+          "type": "Component",
+          "id": "ClassificationObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/Classifications",
+              "navigation": {
+                "codeSnippets": {
+                  "detail": {
+                    "route": "Classifications_codeSnippetsObjectPage"
+                  }
+                }
+              }
+            }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/Classifications({key})"
+        },
+        "Classifications_codeSnippetsObjectPage": {
+          "type": "Component",
+          "id": "Classifications_codeSnippetsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/Classifications/codeSnippets",
+              "navigation": {},
+              "editableHeaderContent": true,
+              "content": {
+                "body": {
+                  "sections": {
+                    "CodeEditor": {
+                      "template": "manageclassification.extension.fragment.CodeEditor",
+                      "title": "{i18n>codeEditor}"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "controlAggregation": "endColumnPages",
+          "contextPattern": "/Classifications({key})/codeSnippets({key2})"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "kernseife"
+  },
+  "sap.fe": {
+    "app": {
+      "hideDraft": {
+        "enabled": true
+      }
+    }
+  }
+}

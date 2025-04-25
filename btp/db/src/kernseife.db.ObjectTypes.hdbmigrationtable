@@ -1,0 +1,7 @@
+== version=1
+COLUMN TABLE kernseife_db_ObjectTypes (
+  objectType NVARCHAR(5000) NOT NULL,
+  title NVARCHAR(5000),
+  category NVARCHAR(5000),
+  PRIMARY KEY(objectType)
+)

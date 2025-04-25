@@ -1,0 +1,38 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "./gen/srv",
+    "rootDirs": [
+      "./srv",
+      "./@cds-models"
+    ],
+    "baseUrl": "./",
+    "moduleResolution": "Node16",
+    "target": "ES2022",
+    "module": "Node16",
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "sourceMap": false,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "types": [
+      "node"
+    ],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "paths": {
+      "#cds-models/*": [
+        "./@cds-models/*/index.ts"
+      ]
+    }
+  },
+  "include": [
+    "srv/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

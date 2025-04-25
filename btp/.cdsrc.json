@@ -1,0 +1,23 @@
+{
+    "cdsc": {
+        "newParser": true
+    },
+    "launchpad": {
+        "theme": "sap_horizon",
+        "version": "1.132.0"
+    },
+    "i18n": {
+        "preserved_locales": [
+            "en_GB"
+        ],
+        "default_language": "en"
+    },
+    "typer": {
+        "use_entities_proxy": true
+    },
+    "server": {
+        "body_parser": {
+            "limit": "10mb"
+        }
+    }
+}

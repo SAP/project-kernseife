@@ -1,0 +1,119 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+>
+    <Dialog
+        id="ImportDialogId"
+        title="{i18n>import}"
+        class="sapUiResponsiveContentPadding"
+        beforeOpen=".onBeforeOpen"
+        afterClose=".onAfterClose"
+    >
+        <content>
+            <Label
+                id="labelImportTypeId"
+                text="{i18n>importType}"
+                labelFor="importType"
+            />
+            <Select
+                id="importType"
+                autoAdjustWidth="false"
+                width="100%"
+                change="onChange"
+                forceSelection="false"
+                items="{
+						path: '/ImportTypes',
+						sorter: { path: 'title' }
+					}"
+            >
+                <core:Item
+                    id="uploadItem"
+                    key="{code}"
+                    text="{title}"
+                    tooltip="{reqSystemId} {defaultRating}"
+                />
+            </Select>
+            <Label
+                id="labelSystemId"
+                text="{i18n>systemId}"
+                labelFor="systemId"
+            />
+            <Select
+                id="systemId"
+                forceSelection="true"
+                autoAdjustWidth="false"
+                width="100%"
+                items="{
+						path: '/Systems',
+						sorter: { path: 'sid' }
+					}"
+            >
+                <core:Item
+                    id="systemItem"
+                    key="{sid}"
+                    text="{sid} ({title})"
+                />
+            </Select>
+            <Label
+                id="labelDefaultRating"
+                text="{i18n>defaultRating}"
+                labelFor="defaultRating"
+            />
+            <Select
+                id="defaultRating"
+                forceSelection="true"
+                autoAdjustWidth="false"
+                width="100%"
+                items="{
+						path: '/Ratings',
+						sorter: { path: 'code' }
+					}"
+            >
+                <core:Item
+                    id="defaultRatingItem"
+                    key="{code}"
+                    text="{code} - {title}"
+                />
+            </Select>
+            <Label
+                id="labelComment"
+                text="{i18n>comment}"
+                labelFor="comment"
+            />
+            <Input
+                id="comment"
+                width="100%"
+            />
+            <u:FileUploader
+                id="uploader"
+                fileType="csv,xls,xlsx,json"
+                multiple="false"
+                fileAllowed=".onFileAllowed"
+                fileEmpty=".onFileEmpty"
+                uploadComplete=".onUploadComplete"
+                typeMissmatch=".onTypeMismatch"
+                sendXHR="true"
+                useMultipart="false"
+                placeholder="{i18n>importPlaceholder}"
+                httpRequestMethod="Put"
+            />
+        </content>
+        <beginButton>
+            <Button
+                id="ok"
+                text="{i18n>OK}"
+                press=".onOk"
+                type="Emphasized"
+                enabled="false"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="cancel"
+                text="{i18n>cancel}"
+                press=".onCancel"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

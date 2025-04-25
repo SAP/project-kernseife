@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.deployment.json",
+    "compilerOptions": {
+        "outDir": "./gen/srv"
+    },
+    "exclude": [
+        "app",
+        "gen"
+    ]
+}

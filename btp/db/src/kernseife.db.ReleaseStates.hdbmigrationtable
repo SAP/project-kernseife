@@ -1,0 +1,23 @@
+== version=1
+COLUMN TABLE kernseife_db_ReleaseStates (
+  ID NVARCHAR(36) NOT NULL,
+  tadirObjectType NVARCHAR(5000),
+  tadirObjectName NVARCHAR(5000),
+  objectType NVARCHAR(5000),
+  objectName NVARCHAR(5000),
+  softwareComponent NVARCHAR(5000),
+  applicationComponent NVARCHAR(5000),
+  releaseInfo_code NVARCHAR(5000),
+  classicInfo_code NVARCHAR(5000),
+  releaseLevel_code NVARCHAR(5000),
+  successorClassification_code NVARCHAR(5000),
+  successorConceptName NVARCHAR(5000),
+  labelList NCLOB,
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN kernseife_db_ReleaseInfo AS releaseInfo ON (releaseInfo.code = releaseInfo_code),
+  MANY TO ONE JOIN kernseife_db_ClassicInfo AS classicInfo ON (classicInfo.code = classicInfo_code),
+  MANY TO ONE JOIN kernseife_db_ReleaseLevel AS releaseLevel ON (releaseLevel.code = releaseLevel_code),
+  MANY TO ONE JOIN kernseife_db_SuccessorClassifications AS successorClassification ON (successorClassification.code = successorClassification_code),
+  MANY TO MANY JOIN kernseife_db_ReleaseStateSuccessors AS successorList ON (successorList.releaseState_ID = ID)
+)

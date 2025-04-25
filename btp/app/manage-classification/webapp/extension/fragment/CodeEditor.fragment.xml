@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:macros="sap.fe.macros"
+	xmlns:editor="sap.ui.codeeditor">
+	<VBox id="box">
+		<editor:CodeEditor id="editor" type="abap" height="500px" editable="{ui>/isEditable}" value="{coding}" />
+	</VBox>
+</core:FragmentDefinition>

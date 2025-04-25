@@ -1,0 +1,10 @@
+== version=1
+COLUMN TABLE kernseife_db_SimplificationItems (
+  objectType NVARCHAR(5000) NOT NULL,
+  objectName NVARCHAR(5000) NOT NULL,
+  softwareComponent NVARCHAR(5000) NOT NULL,
+  note NVARCHAR(5000) NOT NULL,
+  title NVARCHAR(5000),
+  itemCount INTEGER,
+  PRIMARY KEY(objectType, objectName, softwareComponent, note)
+)

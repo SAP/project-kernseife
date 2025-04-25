@@ -1,0 +1,15 @@
+_schema-version: '3.1'
+ID: kernseife-test
+
+extends: kernseife
+
+parameters:
+  landscape: test
+
+resources:
+  - name: kernseife-db
+    parameters:
+      service-name: kernseife-test-db
+  - name: kernseife-cloud-logging
+    parameters:
+      service-plan: dev

@@ -1,0 +1,335 @@
+{
+    "services": {
+        "LaunchPage": {
+            "adapter": {
+                "config": {
+                    "catalogs": [],
+                    "groups": [
+                        {
+                            "id": "Analyze",
+                            "title": "Analyze",
+                            "isPreset": true,
+                            "isVisible": true,
+                            "isGroupLocked": false,
+                            "tiles": [
+                                {
+                                    "id": "AnalyzeScore",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Analyze Score",
+                                        "targetURL": "#Score-analyze"
+                                    }
+                                },
+                                {
+                                    "id": "AnalyzeOverview",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Analyze Overview",
+                                        "targetURL": "#Overview-analyze"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Manage",
+                            "title": "Manage",
+                            "isPreset": true,
+                            "isVisible": true,
+                            "isGroupLocked": false,
+                            "tiles": [
+                                {
+                                    "id": "ManageClassifications",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Manage Classifications",
+                                        "targetURL": "#Classifications-manage"
+                                    }
+                                },
+                                {
+                                    "id": "ManageDevelopmentObjects",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Manage DevelopmentObjects",
+                                        "targetURL": "#DevelopmentObjects-manage"
+                                    }
+                                },
+                                {
+                                    "id": "ManageReleaseStates",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Manage ReleaseStates",
+                                        "targetURL": "#ReleaseStates-manage"
+                                    }
+                                },
+                                {
+                                    "id": "ManageExtensions",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Manage Extensions",
+                                        "targetURL": "#Extensions-manage"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Monitor",
+                            "title": "Monitor",
+                            "isPreset": true,
+                            "isVisible": true,
+                            "isGroupLocked": false,
+                            "tiles": [
+                                {
+                                    "id": "MonitorJobs",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Monitor Jobs",
+                                        "targetURL": "#Jobs-monitor"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Import",
+                            "title": "Import",
+                            "isPreset": true,
+                            "isVisible": true,
+                            "isGroupLocked": false,
+                            "tiles": [
+                                {
+                                    "id": "ImportCenter",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Import Center",
+                                        "targetURL": "#Center-import"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": "Configure",
+                            "title": "Configure",
+                            "isPreset": true,
+                            "isVisible": true,
+                            "isGroupLocked": false,
+                            "tiles": [
+                                {
+                                    "id": "ConfigureRating",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Configure Rating",
+                                        "targetURL": "#Ratings-configure"
+                                    }
+                                },
+                                {
+                                    "id": "ConfigureFramework",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Configure Framework",
+                                        "targetURL": "#Framework-configure"
+                                    }
+                                },
+                                {
+                                    "id": "ConfigureSystems",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Configure Systems",
+                                        "targetURL": "#Systems-configure"
+                                    }
+                                },
+                                {
+                                    "id": "ConfigureDefaults",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Configure Defaults",
+                                        "targetURL": "#Defaults-configure"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "NavTargetResolution": {
+            "config": {
+                "enableClientSideTargetResolution": true
+            }
+        },
+        "ClientSideTargetResolution": {
+            "adapter": {
+                "config": {
+                    "inbounds": {
+                        "Score-analyze": {
+                            "semanticObject": "Score",
+                            "action": "analyze",
+                            "title": "Analyze Score",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=analyzescore",
+                                "url": "analyze-score/webapp"
+                            }
+                        },
+                        "Overview-analyze": {
+                            "semanticObject": "Overview",
+                            "action": "analyze",
+                            "title": "Analyze Overview",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=analyzeoverview",
+                                "url": "analyze-overview/webapp"
+                            }
+                        },
+                        "Classifications-manage": {
+                            "semanticObject": "Classifications",
+                            "action": "manage",
+                            "title": "Manage Classifications",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=manageclassification",
+                                "url": "manage-classification/webapp"
+                            }
+                        },
+                        "DevelopmentObjects-manage": {
+                            "semanticObject": "DevelopmentObjects",
+                            "action": "manage",
+                            "title": "Manage DevelopmentObjects",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=managedevelopmentobject",
+                                "url": "manage-development-object/webapp"
+                            }
+                        },
+                        "ReleaseStates-manage": {
+                            "semanticObject": "ReleaseStates",
+                            "action": "manage",
+                            "title": "Manage ReleaseStates",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=managereleasestate",
+                                "url": "manage-release-state/webapp"
+                            }
+                        },
+                        "Extensions-manage": {
+                            "semanticObject": "Extensions",
+                            "action": "manage",
+                            "title": "Manage Extensions",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=manageextension",
+                                "url": "manage-extension/webapp"
+                            }
+                        },
+                        "Systems-configure": {
+                            "semanticObject": "Systems",
+                            "action": "configure",
+                            "title": "Configure Systems",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=configuresystem",
+                                "url": "configure-system/webapp"
+                            }
+                        },
+                        "Defaults-configure": {
+                            "semanticObject": "Defaults",
+                            "action": "configure",
+                            "title": "Configure Defaults",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=configuredefault",
+                                "url": "configure-default/webapp"
+                            }
+                        },
+                        "Jobs-monitor": {
+                            "semanticObject": "Jobs",
+                            "action": "monitor",
+                            "title": "Monitor Jobs",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=monitorjob",
+                                "url": "monitor-job/webapp"
+                            }
+                        },
+                        "Ratings-configure": {
+                            "semanticObject": "Ratings",
+                            "action": "configure",
+                            "title": "Configure Ratings",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=configurerating",
+                                "url": "configure-rating/webapp"
+                            }
+                        },
+                        "Framework-configure": {
+                            "semanticObject": "Framework",
+                            "action": "configure",
+                            "title": "Configure Framework",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=configureframework",
+                                "url": "configure-framework/webapp"
+                            }
+                        },
+                        "Center-import": {
+                            "semanticObject": "Center",
+                            "action": "import",
+                            "title": "Import Center",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=importcenter",
+                                "url": "import-center/webapp"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
