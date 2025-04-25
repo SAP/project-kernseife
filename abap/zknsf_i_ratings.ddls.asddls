@@ -8,10 +8,9 @@
 }
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 define view entity ZKNSF_I_RATINGS
-  as select from zknsf_ratings
+  as select from    zknsf_ratings
 {
   key code,
-      title,
-      criticality,
-      score
+  title,
+  criticality
 }

@@ -30,85 +30,42 @@
      <ENTRY>Missing Rating</ENTRY>
      <LENGTH>24</LENGTH>
     </item>
-    <item>
-     <ID>I</ID>
-     <KEY>010</KEY>
-     <ENTRY>Standard ABAP</ENTRY>
-     <LENGTH>23</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>011</KEY>
-     <ENTRY>ABAP for Key Users</ENTRY>
-     <LENGTH>28</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>012</KEY>
-     <ENTRY>ABAP for Cloud Development</ENTRY>
-     <LENGTH>52</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>016</KEY>
-     <ENTRY>Reading from SAP database tables or table views</ENTRY>
-     <LENGTH>94</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>017</KEY>
-     <ENTRY>Updating SAP database tables or table views</ENTRY>
-     <LENGTH>86</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>018</KEY>
-     <ENTRY>Usage of SAP database tables in CDS views</ENTRY>
-     <LENGTH>82</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>019</KEY>
-     <ENTRY>Usage of SAP database tables as type definition</ENTRY>
-     <LENGTH>94</LENGTH>
-    </item>
-    <item>
-     <ID>I</ID>
-     <KEY>057</KEY>
-     <ENTRY>Track Language Version</ENTRY>
-     <LENGTH>46</LENGTH>
-    </item>
    </TPOOL>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
+     <CMPNAME>ATTRIBUTE_UTILS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Processes and checks attributes</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CHECKED_SYS_RELEASE_PROVIDER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Data provider for released apis</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CLASSIC_PROVIDER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Data provider for classic apis</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Constructror</DESCRIPT>
+     <DESCRIPT>Constructro</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
-     <CMPNAME>GET_MESSAGE_CODE</CMPNAME>
+     <CMPNAME>NON_SOURCE_PROCESSOR</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Get Check Message Codes</DESCRIPT>
+     <DESCRIPT>Fetches and processes non-source based usages</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
-     <CMPNAME>GET_MESSAGE_CODES</CMPNAME>
+     <CMPNAME>RELEASE_PROVIDER</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Define ATC Check Messages</DESCRIPT>
+     <DESCRIPT>Data provider for released apis</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
-     <CMPNAME>INFORM_LANGUAGE_VERSION</CMPNAME>
+     <CMPNAME>USAGE_PREPROCESSOR</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Report Language Version</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>SW_COMPONENT_LIST</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Software Component</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>TRACK_LANGUAGE_VERSION_ATTR</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Truth Value: True/False</DESCRIPT>
+     <DESCRIPT>Pre-processor for usages</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>

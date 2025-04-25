@@ -1,62 +1,51 @@
-CLASS zknsf_cl_classification_mangr DEFINITION
-  PUBLIC
-  INHERITING FROM cl_ycm_cc_classification_mangr
-  CREATE PUBLIC .
+class ZKNSF_CL_CLASSIFICATION_MANGR definition
+  public
+  inheriting from CL_YCM_CC_CLASSIFICATION_MANGR
+  create public .
 
-  PUBLIC SECTION.
+public section.
 
-    TYPES:
-      BEGIN OF ENUM custom_file_type STRUCTURE ty_custom_file_type,
+  types:
+    BEGIN OF ENUM custom_file_type STRUCTURE ty_custom_file_type,
         kernseife_custom,
         kernseife_legacy,
-      END OF ENUM  custom_file_type STRUCTURE ty_custom_file_type.
+      END OF ENUM  custom_file_type STRUCTURE ty_custom_file_type .
 
-    METHODS constructor
-      IMPORTING
-        !file_downloader TYPE REF TO if_ycm_cc_file_downloader OPTIONAL .
-    METHODS upload_custom_file
-      IMPORTING
-        !file_type    TYPE custom_file_type
-        !file_name    TYPE string
-        !file_content TYPE xstring
-        !uploader     TYPE syuname OPTIONAL
-      RAISING
-        cx_ycm_cc_provider_error .
-    METHODS get_custom_api_file_as_json
-      IMPORTING
-        !file_id      TYPE guid
-      RETURNING
-        VALUE(result) TYPE string
-      RAISING
-        cx_ycm_cc_provider_error .
+  methods CONSTRUCTOR
+    importing
+      !FILE_DOWNLOADER type ref to IF_YCM_CC_FILE_DOWNLOADER optional .
+  methods UPLOAD_CUSTOM_FILE
+    importing
+      !FILE_TYPE type CUSTOM_FILE_TYPE
+      !FILE_NAME type STRING
+      !FILE_CONTENT type STRING_TABLE
+      !UPLOADER type UNAME optional
+    raising
+      CX_YCM_CC_PROVIDER_ERROR .
 
-    METHODS delete_all
-        REDEFINITION .
-    METHODS delete_file
-        REDEFINITION .
-    METHODS get_api_files
-        REDEFINITION .
-    METHODS get_data
-        REDEFINITION .
-    METHODS get_apis
-        REDEFINITION .
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+  methods DELETE_ALL
+    redefinition .
+  methods DELETE_FILE
+    redefinition .
+  methods GET_DATA
+    redefinition .
+protected section.
+private section.
 
-    DATA file_downloader TYPE REF TO if_ycm_cc_file_downloader .
-    DATA cache_writer TYPE REF TO zknsf_cl_cache_write_api .
+  data FILE_DOWNLOADER type ref to IF_YCM_CC_FILE_DOWNLOADER .
+  data CACHE_WRITER type ref to ZKNSF_CL_CACHE_WRITE_API .
 
-    METHODS upload_xstring
-      IMPORTING
-        !url            TYPE string
-        !file_type      TYPE custom_file_type
-        !content        TYPE xstring
-        !source         TYPE string
-        !commit_hash    TYPE string OPTIONAL
-        !last_git_check TYPE timestamp OPTIONAL
-        !uploader       TYPE syuname OPTIONAL
-      RAISING
-        cx_ycm_cc_provider_error .
+  methods UPLOAD_XSTRING
+    importing
+      !URL type STRING
+      !FILE_TYPE type CUSTOM_FILE_TYPE
+      !CONTENT type XSTRING
+      !SOURCE type STRING
+      !COMMIT_HASH type STRING optional
+      !LAST_GIT_CHECK type TIMESTAMP optional
+      !UPLOADER type UNAME optional
+    raising
+      CX_YCM_CC_PROVIDER_ERROR .
 ENDCLASS.
 
 
@@ -73,15 +62,16 @@ CLASS ZKNSF_CL_CLASSIFICATION_MANGR IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD upload_custom_file.
+  method UPLOAD_CUSTOM_FILE.
+        DATA(content) = concat_lines_of( file_content ).
+    DATA(content_xstring) = cl_abap_codepage=>convert_to( content ).
 
-
-    upload_xstring( content   = file_content
+    upload_xstring( content   = content_xstring
                     url       = file_name
                     file_type = file_type
                     source    = source_local
                     uploader  = uploader ).
-  ENDMETHOD.
+  endmethod.
 
 
   METHOD upload_xstring.
@@ -124,73 +114,60 @@ CLASS ZKNSF_CL_CLASSIFICATION_MANGR IMPLEMENTATION.
 
 
   METHOD delete_all.
-    AUTHORITY-CHECK OBJECT 'SYCM_API' ID 'ACTVT' FIELD '06'.
+    AUTHORITY-CHECK OBJECT 'SYCM_API'
+              ID 'ACTVT'     FIELD '06'.
     IF sy-subrc <> 0.
       RAISE EXCEPTION NEW cx_ycm_cc_provider_error( msgno = '109' ).
     ENDIF.
 
-    cache_writer->delete_all( ).
+    DELETE FROM zknsf_api_cache.                        "#EC CI_NOWHERE
+    DELETE FROM zknsf_api_header.                       "#EC CI_NOWHERE
+    DELETE FROM zknsf_api_label.                        "#EC CI_NOWHERE
+    DELETE FROM zknsf_api_scsr.                         "#EC CI_NOWHERE
 
+    DELETE FROM zknsf_ratings.                          "#EC CI_NOWHERE
   ENDMETHOD.
 
 
   METHOD delete_file.
-    IF skip_authority_check = abap_false.
-      AUTHORITY-CHECK OBJECT 'SYCM_API' ID 'ACTVT' FIELD '06'.
+    SELECT SINGLE file_id FROM zknsf_api_header WHERE url = @url INTO @DATA(file_id) ##WARN_OK. "#EC CI_NOORDER
 
-      IF sy-subrc <> 0.
-        RAISE EXCEPTION NEW cx_ycm_cc_provider_error( msgno = '109' ).
-      ENDIF.
-    ENDIF.
+    DELETE FROM zknsf_api_label WHERE api_id IN ( SELECT api_id FROM zknsf_api_cache WHERE file_id = @file_id ).
+    DELETE FROM zknsf_api_scsr WHERE api_id IN ( SELECT api_id FROM zknsf_api_cache WHERE file_id = @file_id ).
+    DELETE FROM zknsf_api_cache WHERE file_id = @file_id.
+    DELETE FROM zknsf_api_header WHERE file_id = @file_id.
 
-    cache_writer->delete_file( url = url ).
+    DELETE FROM zknsf_ratings.                          "#EC CI_NOWHERE
   ENDMETHOD.
 
 
-  METHOD get_data.
-    "# Deprecated
-    result = get_api_files( ).
-  ENDMETHOD.
+  method GET_DATA.
+ data: data_file   type api_type.
 
+    authority-check object 'SYCM_API'
+              id 'ACTVT'     field '03'.
+    if sy-subrc <> 0.
+      raise exception new cx_ycm_cc_provider_error( msgno = '108' ).
+    endif.
 
-  METHOD get_apis.
-    AUTHORITY-CHECK OBJECT 'SYCM_API' ID 'ACTVT' FIELD '03'.
-    IF sy-subrc <> 0.
-      RAISE EXCEPTION NEW cx_ycm_cc_provider_error( msgno = '108' ).
-    ENDIF.
+    select * from zknsf_api_header into table @data(db_files). "#EC CI_NOWHERE
 
-    result = cache_writer->get_apis( file_id = file_id ).
-  ENDMETHOD.
+    loop at db_files assigning field-symbol(<file>).
+      move-corresponding <file> to data_file.
 
+      data_file-created = |{ <file>-created timestamp = environment }|.
 
-  METHOD get_api_files.
-    AUTHORITY-CHECK OBJECT 'SYCM_API' ID 'ACTVT' FIELD '03'.
-    IF sy-subrc <> 0.
-      RAISE EXCEPTION NEW cx_ycm_cc_provider_error( msgno = '108' ).
-    ENDIF.
+      if data_file-last_git_check <> 0.
 
-    result = cache_writer->get_api_files( ).
-  ENDMETHOD.
+        data_file-last_git_check = |{ <file>-last_git_check timestamp = environment }|.
 
+      endif.
 
-  METHOD get_custom_api_file_as_json.
-    AUTHORITY-CHECK OBJECT 'SYCM_API' ID 'ACTVT' FIELD '03'.
-    IF sy-subrc <> 0.
-      RAISE EXCEPTION NEW cx_ycm_cc_provider_error( msgno = '108' ).
-    ENDIF.
+      if <file>-data_type = ZKNSF_CL_CACHE_WRITE_API=>CO_DATA_TYPE_CUSTOM.
+        data_file-data_type = 'Kernseife'(001).
+      endif.
 
-    DATA(classic_api_aff) = cache_writer->get_custom_apis_aff( file_id ).
-
-    IF lines( classic_api_aff-object_classifications ) = 0.
-      RAISE EXCEPTION NEW cx_ycm_cc_provider_error( msgno = '118' ).
-    ENDIF.
-
-    DATA(compatibility_handler)  = NEW cl_ycm_cc_classic_api_compat( ).
-    DATA(content_handler) = cl_aff_content_handler_factory=>get_handler_for_json_compat( compatibility_handler ).
-    TRY.
-        result = cl_abap_codepage=>convert_from( content_handler->serialize( classic_api_aff ) ).
-      CATCH cx_aff_root INTO DATA(serialization_error).
-        RAISE EXCEPTION NEW cx_ycm_cc_provider_error( previous = serialization_error ).
-    ENDTRY.
-  ENDMETHOD.
+      append data_file to result.
+    endloop.
+  endmethod.
 ENDCLASS.

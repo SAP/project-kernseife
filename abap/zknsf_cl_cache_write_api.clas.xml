@@ -4,53 +4,20 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZKNSF_CL_CACHE_WRITE_API</CLSNAME>
-    <LANGU>E</LANGU>
+    <LANGU>D</LANGU>
     <DESCRIPT>Kernseife: API for released objects</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
+    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
    </VSEOCLASS>
-   <TPOOL>
-    <item>
-     <ID>I</ID>
-     <KEY>001</KEY>
-     <ENTRY>Kernseife</ENTRY>
-     <LENGTH>19</LENGTH>
-    </item>
-   </TPOOL>
    <DESCRIPTIONS_CLASS>
     <SEOCLASSTX>
      <LANGU>D</LANGU>
      <DESCRIPT>Kernseife: API for released objects</DESCRIPT>
     </SEOCLASSTX>
    </DESCRIPTIONS_CLASS>
-   <DESCRIPTIONS_SUB>
-    <SEOSUBCOTX>
-     <CMPNAME>CREATE_HEADER</CMPNAME>
-     <SCONAME>RESULT</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Kernseife: Header table for apis</DESCRIPT>
-    </SEOSUBCOTX>
-    <SEOSUBCOTX>
-     <CMPNAME>CREATE_HEADER</CMPNAME>
-     <SCONAME>RESULT</SCONAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Kernseife: Header table for apis</DESCRIPT>
-    </SEOSUBCOTX>
-    <SEOSUBCOTX>
-     <CMPNAME>GET_CUSTOM_APIS_AFF</CMPNAME>
-     <SCONAME>FILE_ID</SCONAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Globally Unique Identifier</DESCRIPT>
-    </SEOSUBCOTX>
-    <SEOSUBCOTX>
-     <CMPNAME>GET_DISPLAY_NAME_OF_STATE</CMPNAME>
-     <SCONAME>OLD_STATE</SCONAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>30 Characters</DESCRIPT>
-    </SEOSUBCOTX>
-   </DESCRIPTIONS_SUB>
   </asx:values>
  </asx:abap>
 </abapGit>

@@ -1,77 +1,50 @@
-CLASS zknsf_cl_api_usage DEFINITION
-  PUBLIC
-  INHERITING FROM cl_ycm_cc_check_api_usage
-  FINAL
-  CREATE PUBLIC .
+class ZKNSF_CL_API_USAGE definition
+  public
+  inheriting from CL_YCM_CC_CHECK_API_USAGE
+  final
+  create public .
 
-  PUBLIC SECTION.
+public section.
 
-    CONSTANTS:
-      BEGIN OF custom_message_codes,
-        no_class                    TYPE sci_errc VALUE 'NOC',
-        missing                     TYPE sci_errc VALUE 'MISSING',
-        db_tables_generic           TYPE sci_errc VALUE 'TBL',
-        db_tables_select            TYPE sci_errc VALUE 'TBLSEL',
-        db_tables_select_successor  TYPE sci_errc VALUE 'TBLSEL_SUC',
-        db_tables_update            TYPE sci_errc VALUE 'TBLUPD',
-        db_tables_update_successor  TYPE sci_errc VALUE 'TBLUPD_SUC',
-        db_tables_in_cds            TYPE sci_errc VALUE 'TBLCDS',
-        db_tables_in_cds_successor  TYPE sci_errc VALUE 'TBLCDS_SUC',
-        db_tables_as_type           TYPE sci_errc VALUE 'TBLTYP',
-        db_tables_as_type_successor TYPE sci_errc VALUE 'TBLTYP_SUC',
+  constants:
+    BEGIN OF custom_message_codes,
+        no_class TYPE sci_errc VALUE 'NOC',
+        missing  TYPE sci_errc VALUE 'MISSING',
       END OF custom_message_codes .
 
-    METHODS constructor .
+  methods CONSTRUCTOR .
+protected section.
 
-    METHODS get_attributes
-        REDEFINITION .
-    METHODS if_ci_test~query_attributes
-        REDEFINITION .
-    METHODS put_attributes
-        REDEFINITION .
-  PROTECTED SECTION.
+  data:
+    ratings TYPE SORTED TABLE OF zknsf_i_ratings WITH NON-UNIQUE  KEY primary_key COMPONENTS code .
 
-    DATA:
-      ratings TYPE SORTED TABLE OF zknsf_i_ratings WITH NON-UNIQUE  KEY primary_key COMPONENTS code .
+  methods GET_MESSAGE_CODES
+    importing
+      !MYNAME type SCI_CHK optional
+    returning
+      value(RESULT) type SCIMESSAGES .
 
-    METHODS get_message_codes
-      RETURNING
-        VALUE(result) TYPE scimessages .
-    METHODS inform_language_version
-      IMPORTING
-        !language_version TYPE if_abap_language_version=>ty_version .
-    METHODS get_message_code
-      IMPORTING
-        !code         TYPE zknsf_rating_code
-        !title        TYPE zknsf_rating_title
-        !kind         TYPE sychar01 DEFAULT 'E'
-      RETURNING
-        VALUE(result) TYPE scimessage .
+  methods EVALUATE_MESSAGE_CODE
+    redefinition .
+  methods GET_ALLOWED_USAGE_OBJECT_TYPES
+    redefinition .
+  methods COLLECT_ALL_SUCCESSORS
+    redefinition .
+private section.
 
-    METHODS collect_all_successors
-        REDEFINITION .
-    METHODS evaluate_message_code
-        REDEFINITION .
-    METHODS evaluate_tabl_message_code
-        REDEFINITION .
-    METHODS get_allowed_usage_object_types
-        REDEFINITION .
-    METHODS get_object_language_version
-        REDEFINITION .
-    METHODS get_usage_preprocessor
-        REDEFINITION .
-    METHODS inform_atc
-        REDEFINITION .
-  PRIVATE SECTION.
-    DATA: usage_preprocessor TYPE REF TO zknsf_cl_usage_preprocessor.
-    DATA:
-      sw_component_list TYPE SORTED TABLE OF dlvunit WITH UNIQUE DEFAULT KEY .
-    DATA track_language_version_attr TYPE abap_boolean .
+  class-data ATTRIBUTE_UTILS type ref to IF_YCM_CC_ATTRIBUTE_UTILS .
+  class-data CHECKED_SYS_RELEASE_PROVIDER type ref to IF_YCM_CC_PROVIDER_RELEASE_API .
+  class-data RELEASE_PROVIDER type ref to IF_YCM_CC_PROVIDER_RELEASE_API .
+  class-data CLASSIC_PROVIDER type ref to IF_YCM_CC_PROVIDER_CLASSIC_API .
+  class-data USAGE_PREPROCESSOR type ref to IF_YCM_CC_USAGE_PREPROCESSOR .
+  class-data NON_SOURCE_PROCESSOR type ref to IF_YCM_CC_NON_SOURCE_PROCESSOR .
+  data RELEASE_SOURCE_ATTR type SYCM_ATTR_RELEASE_SOURCE .
+  data CLASSIC_SOURCE_ATTR type SYCM_ATTR_CLASSIC_SOURCE .
 ENDCLASS.
 
 
 
-CLASS zknsf_cl_api_usage IMPLEMENTATION.
+CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
 
 
   METHOD constructor.
@@ -87,16 +60,11 @@ CLASS zknsf_cl_api_usage IMPLEMENTATION.
     uses_checksum       = abap_true.
     check_scope_enabled = abap_true.
 
-    INSERT LINES OF get_message_codes( ) INTO TABLE scimessages.
+    INSERT LINES OF get_message_codes( myname = myname ) INTO TABLE scimessages.
 
-
-    track_language_version_attr = abap_false.
-
-    SELECT DISTINCT software_component FROM zknsf_api_cache INTO TABLE @sw_component_list. "#EC CI_BYPASS "#EC CI_GENBUFF "#EC CI_NOWHERE
-
-
-    classic_source_attr = 'ZKNSF_CL_PROVIDER_WITH_CACHE' ##NO_TEXT.
+    " default values for check attributes
     release_source_attr = classification_source-checked_system.
+    classic_source_attr = 'ZKNSF_CL_PROVIDER_WITH_CACHE' ##NO_TEXT.
   ENDMETHOD.
 
 
@@ -112,20 +80,27 @@ CLASS zknsf_cl_api_usage IMPLEMENTATION.
     ENDIF.
 
     LOOP AT ratings INTO DATA(rating).
-      INSERT get_message_code(  code = rating-code kind = rating-criticality title = rating-title ) INTO TABLE result.
+      INSERT VALUE scimessage( test = myname
+                               code = rating-code
+                               kind = rating-criticality
+                               text = rating-title ) INTO TABLE result.
+
+      INSERT VALUE scimessage( test = myname
+                               code = |{ rating-code }_SUC|
+                               kind = rating-criticality
+                               text = |{ rating-title } ' (successor available)'| ) INTO TABLE result.
     ENDLOOP.
 
-    " Error Message Codes
-    INSERT get_message_code(  code = custom_message_codes-no_class title =  'Missing Classification'(001) ) INTO TABLE result.
-    INSERT get_message_code(  code = custom_message_codes-missing  title =  'Missing Rating'(002) ) INTO TABLE result.
+    " Try to insert again, in case it doesn't exist
+    INSERT VALUE scimessage( test = myname
+                             code = custom_message_codes-no_class
+                             kind = error
+                             text = 'Missing Classification'(001) ) INTO TABLE result.
 
-
-    " Language Version Message Codes
-    INSERT get_message_code( code = CONV zknsf_rating_code( if_abap_language_version=>gc_version-standard_source_code ) title = 'Standard ABAP'(010)                ) INTO TABLE result.
-    INSERT get_message_code( code = CONV zknsf_rating_code( if_abap_language_version=>gc_version-key_user )             title = 'ABAP for Key Users'(011)           ) INTO TABLE result.
-    INSERT get_message_code( code = CONV zknsf_rating_code( if_abap_language_version=>gc_version-sap_cloud_platform )   title = 'ABAP for Cloud Development'(012)   ) INTO TABLE result.
-
-
+    INSERT VALUE scimessage( test = myname
+                             code = custom_message_codes-missing
+                             kind = error
+                             text = 'Missing Rating'(002) ) INTO TABLE result.
   ENDMETHOD.
 
 
@@ -158,7 +133,6 @@ CLASS zknsf_cl_api_usage IMPLEMENTATION.
                                              ( low = 'NONT' )
                                              ( low = 'ENHS' )
                                              ( low = 'ENHO' )
-                                             ( low = 'SXSD' )
                   ).
   ENDMETHOD.
 
@@ -179,6 +153,7 @@ CLASS zknsf_cl_api_usage IMPLEMENTATION.
         RETURN.
       ENDIF.
 
+      "TODO Define if this makes sense
       IF release_status-state = if_aff_released_check_objs=>co_release_state-deprecated.
         RETURN message_codes-deprecated.
       ENDIF.
@@ -198,183 +173,5 @@ CLASS zknsf_cl_api_usage IMPLEMENTATION.
     SORT result.
     DELETE ADJACENT DUPLICATES FROM result COMPARING ALL FIELDS.
 
-  ENDMETHOD.
-
-
-  METHOD get_attributes.
-    EXPORT
-        track_language_version = track_language_version_attr
-    TO DATA BUFFER p_attributes.
-  ENDMETHOD.
-
-
-  METHOD get_object_language_version.
-    TRY.
-        p_version = super->get_object_language_version( ).
-
-        IF track_language_version_attr IS NOT INITIAL.
-          inform_language_version( language_version = p_version ).
-        ENDIF.
-        " Need to split the exception, otherwise the compiler can't handle the ambigious type
-      CATCH cx_ci_no_release_info INTO DATA(no_release_info).
-        p_version = if_abap_language_version=>gc_version-standard.
-        IF track_language_version_attr IS NOT INITIAL.
-          inform_language_version( language_version = p_version ).
-        ENDIF.
-        RAISE EXCEPTION no_release_info.
-      CATCH cx_ci_object_version_not_found INTO DATA(object_version_not_found).
-        p_version = if_abap_language_version=>gc_version-standard.
-        IF track_language_version_attr IS NOT INITIAL.
-          inform_language_version( language_version = p_version ).
-        ENDIF.
-        RAISE EXCEPTION object_version_not_found.
-    ENDTRY.
-
-  ENDMETHOD.
-
-
-  METHOD if_ci_test~query_attributes.
-
-    DATA(attributes) = VALUE sci_atttab( ( id   = 'trackLanguageVersion'
-                                           text = 'Track Language Version'(057)
-                                           ref  = REF #( track_language_version_attr )
-                                           kind = cl_ci_query_attributes=>c_attribute_kinds-checkbox ) ) ##NO_TEXT ##NO_TEXT.
-
-    DATA message TYPE c LENGTH 100.
-    attributes_ok = abap_true. " as we don't check anything
-
-
-    DATA(cancel) = cl_ci_query_attributes=>generic( p_name       = myname
-                                                    p_title      = 'Usage of APIs'(000)
-                                                    p_attributes = attributes
-                                                    p_display    = p_display
-                                                    p_message    = message ).
-
-    IF cancel = abap_true OR p_display = abap_true.
-      RETURN.
-    ENDIF.
-  ENDMETHOD.
-
-
-  METHOD inform_atc.
-    " Check if Object is not a Custom Object
-    IF message_code = custom_message_codes-no_class AND NOT line_exists( sw_component_list[ table_line = used_api-dlvunit ] ).
-      RETURN.
-    ENDIF.
-
-    " As this logic is implemented in a local class by standard, we can't reuse it...
-    DATA(has_successor) = xsdbool( lines( successors ) > 0 ).
-    DATA code_with_successor TYPE scimessage-code.
-    code_with_successor = COND #( WHEN has_successor = abap_true THEN |{ message_code }_SUC| ELSE message_code ).
-
-    DATA(available_message_codes) = get_message_codes( ).
-    IF line_exists( available_message_codes[ code = code_with_successor ] ) ##WARN_OK.
-      super->inform_atc(
-        message_code = code_with_successor
-        used_api     = used_api
-        successors   = successors
-      ).
-    ELSE.
-      super->inform_atc(
-        message_code = message_code
-        used_api     = used_api
-        successors   = successors
-      ).
-    ENDIF.
-
-  ENDMETHOD.
-
-
-  METHOD inform_language_version.
-
-    DATA code TYPE sci_errc.
-
-    " Report Source Code the Same...
-    IF language_version = if_abap_language_version=>gc_version-standard.
-      code = if_abap_language_version=>gc_version-standard_source_code.
-    ELSE.
-      code = language_version.
-    ENDIF.
-
-    IF object_type EQ 'APIS'. " Release Contracts don't have a language Version, so we ignore them completly
-      RETURN.
-    ENDIF.
-
-
-    IF language_version = if_abap_language_version=>gc_version-standard_source_code
-    AND usage_preprocessor->is_key_user_generated( object_type = object_type object_name = object_name ) = abap_true.
-      code = if_abap_language_version=>gc_version-key_user.
-    ENDIF.
-
-    inform(
-      p_code         = code
-      p_test         = myname
-      p_sub_obj_type = object_type
-      p_sub_obj_name = object_name
-      p_checksum_1   = -1 ).
-
-  ENDMETHOD.
-
-
-  METHOD put_attributes.
-
-    IMPORT
-       track_language_version = track_language_version_attr
-     FROM DATA BUFFER p_attributes.
-  ENDMETHOD.
-
-
-  METHOD evaluate_tabl_message_code.
-    DATA(code) = super->evaluate_tabl_message_code( used_api ).
-    " Map Standard Code to TBL_ Code to support Scoring and also increase priority to 1 for objects with successors
-    CASE code.
-      WHEN  message_codes-db_tables_in_cds.
-        RETURN custom_message_codes-db_tables_in_cds.
-      WHEN  message_codes-select_database.
-        RETURN custom_message_codes-db_tables_select.
-      WHEN message_codes-update_database.
-        RETURN custom_message_codes-db_tables_update.
-      WHEN OTHERS.
-        " This could mean this is used as a Type definition
-        TRY.
-            " Read Classification (as standard doesn't pass it into this method..
-            DATA(usages) = VALUE if_ycm_cc_usage_preprocessor=>ty_usages( ( trobjtype = used_api-trobjtype sobj_name = used_api-sobj_name object_type = used_api-object_type sub_key = used_api-sub_key ) ).
-            DATA(classic_provider) = NEW zknsf_cl_provider_with_cache( ).
-            DATA(classic_info) = classic_provider->if_ycm_cc_provider_classic_api~get_classifications( usages ).
-            DATA(classic_status) = VALUE #( classic_info[ object_type = used_api-object_type
-                                                          object_key  = used_api-sub_key ] OPTIONAL ).
-
-            IF classic_status IS NOT INITIAL.
-              IF classic_status-state = custom_message_codes-db_tables_generic.
-                RETURN custom_message_codes-db_tables_as_type.
-              ELSE.
-                " Structures => Just report the normal rating
-                RETURN classic_status-state.
-              ENDIF.
-            ELSE.
-              " No Classification
-              RETURN custom_message_codes-no_class.
-            ENDIF.
-          CATCH cx_ycm_cc_provider_error.
-            RETURN custom_message_codes-no_class.
-        ENDTRY.
-    ENDCASE.
-  ENDMETHOD.
-
-
-  METHOD get_message_code.
-    result = VALUE scimessage( test = myname
-                               code = code
-                               kind = kind
-                               text = title
-                             ).
-  ENDMETHOD.
-
-
- METHOD get_usage_preprocessor.
-    IF usage_preprocessor IS INITIAL.
-      usage_preprocessor = NEW zknsf_cl_usage_preprocessor( rfc_destination ).
-    ENDIF.
-    RETURN usage_preprocessor.
   ENDMETHOD.
 ENDCLASS.
