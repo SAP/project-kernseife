@@ -181,7 +181,7 @@ annotate service.Classifications with @(UI.LineItem: [
     {
         $Type            : 'UI.DataField',
         Value            : createdBy,
-        Label            : '{i18n>createdAt}',
+        Label            : '{i18n>createdBy}',
         ![@UI.Importance]: #Low,
     },
     {
