@@ -42,3 +42,5 @@ Makefile_*.mta
 
 # added by cds
 .cdsrc-private.json
+
+test/data/
