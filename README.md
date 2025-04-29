@@ -9,11 +9,10 @@ This check is an enhanced version of the 3-Tier Model ATC (see [SAP Note 3565942
 
 ## 🚀 Requirements and Setup
 
-- [📝 How-To Guide for the ATC Check Installation](https://github.com/SAP/project-kernseife/blob/main/installation-guide-abap.md)
-- [🌐 How-To Guide for the BTP App Installation](https://github.com/SAP/project-kernseife/blob/main/installation-guide-btp.md)
+[How-To Guide for Installation](https://github.com/SAP/project-kernseife/blob/main/installation-guide.md)
 
 ## Code of Conduct
-In open source projects usually the code of conduct is introduced to provide the necessary framework for healthy community interactions.
+
 
 ## Contributing
 Details on how the community interactions should be done to your code should be posted here. You can also link to a dedicated [Contribution Guidelines](CONTRIBUTING.md) file. 
