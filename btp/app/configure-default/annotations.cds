@@ -58,7 +58,7 @@ annotate service.Settings with @(
 );
 
 annotate service.inInitialData with {
-    @assert.format: '^[A-Z]{3,4}$'
+    @assert.format: '^[A-Z0-9]{3,4}$'
     prefix        @Common.Label: '{i18n>prefix}';
     contactPerson @Common.Label: '{i18n>contactPerson}';
     customerTitle @Common.Label: '{i18n>customerTitle}';
