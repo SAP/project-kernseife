@@ -1,0 +1,107 @@
+{
+    "ratingList": [
+        {
+          "code": "BF9",
+          "title": "Business Function - Avoid",
+          "criticality": "E",
+          "score": 9
+        },
+        {
+          "code": "BF1",
+          "title": "Business Function - Recommended",
+          "criticality": "I",
+          "score": 1
+        },
+        {
+          "code": "FW3",
+          "title": "Framework - Utility",
+          "criticality": "I",
+          "score": 3
+        },
+        {
+          "code": "BF5",
+          "title": "Business Function - Internal",
+          "criticality": "W",
+          "score": 5
+        },
+        {
+          "code": "FW1",
+          "title": "Framework - Recommended",
+          "criticality": "I",
+          "score": 1
+        },
+        {
+          "code": "MIG",
+          "title": "Migration required",
+          "criticality": "E",
+          "score": 0
+        },
+        {
+          "code": "BF0",
+          "title": "Business Function - Released",
+          "criticality": "S",
+          "score": 0
+        },
+        {
+          "code": "NOC",
+          "title": "Missing Classification",
+          "criticality": "E",
+          "score": 0
+        },
+        {
+          "code": "FW0",
+          "title": "Framework - Released",
+          "criticality": "S",
+          "score": 0
+        },
+        {
+          "code": "MSG",
+          "title": "Message Class",
+          "criticality": "I",
+          "score": 1
+        },
+        {
+          "code": "DDC",
+          "title": "DDIC - Complex",
+          "criticality": "I",
+          "score": 3
+        },
+        {
+          "code": "FW5",
+          "title": "Framework - Internal",
+          "criticality": "W",
+          "score": 5
+        },
+        {
+          "code": "BF3",
+          "title": "Business Function - Utility",
+          "criticality": "I",
+          "score": 3
+        },
+        {
+          "code": "TBL",
+          "title": "Database Table",
+          "criticality": "E",
+          "score": 10
+        },
+        {
+          "code": "DDS",
+          "title": "DDIC - Simple",
+          "criticality": "I",
+          "score": 1
+        },
+        {
+          "code": "ENH",
+          "title": "BADI",
+          "criticality": "I",
+          "score": 0
+        },
+        {
+          "code": "FW9",
+          "title": "Framework - Avoid",
+          "criticality": "E",
+          "score": 9
+        }
+       ],
+    "technologyList": []
+  }
