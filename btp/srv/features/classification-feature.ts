@@ -1,4 +1,9 @@
-import { Classification, Import, ReleaseState } from '#cds-models/kernseife/db';
+import {
+  Classification,
+  Import,
+  ObjectType,
+  ReleaseState
+} from '#cds-models/kernseife/db';
 import { Transaction, connect, entities, log, utils } from '@sap/cds';
 import { text } from 'node:stream/consumers';
 import papa from 'papaparse';
@@ -1001,10 +1006,38 @@ export const assignSuccessorByRef = async (
   return updatedClassification;
 };
 
+const determineSubType = async (
+  objectType: string,
+  objectName: string,
+  objectMetadataApi: any
+) => {
+  if (!objectMetadataApi) return objectType;
+  const { objectMetadata } = objectMetadataApi.entities;
+  // Determine Subtype
+  if (objectType == 'TABL') {
+    try {
+      const result = await objectMetadataApi.run(
+        SELECT(objectMetadata).where({
+          objectType: objectType,
+          objectName: objectName
+        })
+      );
+      if (result && result.length == 1) {
+        return result[0].subType;
+      } else {
+        LOG.error("Can't find Metadata", { objectType, objectName });
+      }
+    } catch (e) {
+      LOG.error('Error connecting to API_OBJECT_METADATA', e);
+    }
+  }
+  return objectType;
+};
+
 export const getMissingClassifications = async () => {
   try {
     const objectMetadataApi = await connect.to('API_OBJECT_METADATA');
-    const { objectMetadata } = objectMetadataApi.entities;
+
     const releaseStateMap = await getReleaseStateMap();
     const classificationSet = await getClassificationSet();
     const classificationList = [] as any[];
@@ -1012,37 +1045,39 @@ export const getMissingClassifications = async () => {
     LOG.info(`Classification Count: ${classificationSet.size}`);
     LOG.info(`ReleaseState Count: ${releaseStateMap.size}`);
 
-    releaseStateMap.forEach(async (value, key) => {
-      if (!classificationSet.has(key)) {
-        LOG.info(`Processing ${key})}`);
-        try {
-          const result = await objectMetadataApi.run(
-            SELECT(objectMetadata).where({
-              objectType: value.tadirObjectType,
-              objectName: value.tadirObjectName
-            })
-          );
-
-          if (result && result.length == 1) {
-            // Missing Classification
-            classificationList.push({
-              tadirObjectType: result.tadirObjectType,
-              tadirObjectName: result.tadirObjectName,
-              objectType: value.objectType,
-              objectName: value.objectName,
-              softwareComponent: value.softwareComponent,
-              applicationComponent: value.applicationComponent,
-              subType: result.subType
-            });
-          } else {
-            LOG.error("Can't find Metadata", value);
-          }
-        } catch (e) {
-          LOG.error('Error connecting to API_OBJECT_METADATA', e);
-        }
+    for (const [key, value] of releaseStateMap) {
+      if (
+        !value.objectName ||
+        !value.objectType ||
+        !value.tadirObjectType ||
+        !value.tadirObjectName
+      ) {
+        LOG.warn('Invalid Classification', { value });
+        continue;
       }
-    });
-    LOG.error('###### Return ########');
+      if (!classificationSet.has(key)) {
+        const subType = await determineSubType(
+          value.objectType.length > 4
+            ? value.tadirObjectType
+            : value.objectType,
+          value.objectType.length > 4
+            ? value.tadirObjectName
+            : value.objectName,
+          objectMetadataApi
+        );
+
+        // Missing Classification
+        classificationList.push({
+          tadirObjectType: value.tadirObjectType,
+          tadirObjectName: value.tadirObjectName,
+          objectType: value.objectType,
+          objectName: value.objectName,
+          softwareComponent: value.softwareComponent,
+          applicationComponent: value.applicationComponent,
+          subType: subType
+        });
+      }
+    }
     return classificationList;
   } catch (e) {
     LOG.error('Error connecting to API_OBJECT_METADATA', e);

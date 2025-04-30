@@ -110,7 +110,7 @@
         "[production]": {
           "credentials": {
             "path": "/sap/opu/odata4/sap/zapi_ks_object_metadata/srvd_a2x/sap/zapi_ks_object_metadata/0001",
-            "destination": "kernseife"
+            "destination": "kernseife-s4"
           }
         }
       }

@@ -31,7 +31,7 @@ export const getReleaseStateMap = async (): Promise<
   Map<string, ReleaseState>
 > => {
   const releaseStates = await SELECT.from(cds.entities.ReleaseStates, (r) => {
-    r.tadirObjectType,
+      r.tadirObjectType,
       r.tadirObjectName,
       r.objectType,
       r.objectName,
