@@ -1,10 +1,5 @@
-import {
-  Classification,
-  Import,
-  ObjectType,
-  ReleaseState
-} from '#cds-models/kernseife/db';
-import { Transaction, connect, entities, log, utils } from '@sap/cds';
+import { Classification, Import } from '#cds-models/kernseife/db';
+import { Transaction, connect, db, entities, log, utils } from '@sap/cds';
 import { text } from 'node:stream/consumers';
 import papa from 'papaparse';
 import { getReleaseStateMap, updateReleaseState } from './releaseState-feature';
@@ -12,6 +7,7 @@ import {
   ClassificationImport,
   ClassificationKey
 } from '../types/classification';
+import e from 'express';
 
 const LOG = log('ClassificationFeature');
 
@@ -203,8 +199,40 @@ export const updateTotalScoreAndReferenceCount = async (classification) => {
   return true;
 };
 
+const determineRatingPrefix = (
+  classification: Classification,
+  suffix: string
+) => {
+  if (
+    classification.applicationComponent == 'BC' ||
+    classification.applicationComponent?.startsWith('BC-') ||
+    classification.applicationComponent == 'CA' ||
+    classification.applicationComponent?.startsWith('CA-') ||
+    classification.softwareComponent == 'SAP_BASIS'
+  ) {
+    return 'FW' + suffix;
+  } else {
+    return 'BF' + suffix;
+  }
+};
+
 const getDefaultRatingCode = (classification: Classification) => {
-  return NO_CLASS;
+  switch (classification.releaseLevel_code) {
+    case 'RELEASED':
+      return determineRatingPrefix(classification, '0');
+    case 'DEPRECATED':
+      return determineRatingPrefix(classification, '9');
+    case 'CLASSIC':
+      return determineRatingPrefix(classification, '1');
+    case 'INTERNAL':
+      return determineRatingPrefix(classification, '5');
+    case 'NOT_TO_BE_RELEASED':
+    case 'STABLE':
+    case 'NO_API':
+      return determineRatingPrefix(classification, '9');
+    default:
+      return NO_CLASS;
+  }
 };
 
 // Can't use the enum, cause CDS TS Support sucks!
@@ -220,6 +248,107 @@ export const convertCriticalityToMessageType = (criticality) => {
       return 'S';
     default:
       return 'X';
+  }
+};
+
+export const importInitialClassification = async (csv: string) => {
+  const tx = db.tx();
+  const result = papa.parse<any>(csv, {
+    header: true,
+    skipEmptyLines: true
+  });
+
+  const classificationRecordList = result.data
+    .map((classificationRecord) => ({
+      // Map Attribues
+      tadirObjectType:
+        classificationRecord.tadirObjectType ||
+        classificationRecord.TADIROBJECTTYPE ||
+        classificationRecord.tadirobjecttype,
+      tadirObjectName:
+        classificationRecord.tadirObjectName ||
+        classificationRecord.TADIROBJECTNAME ||
+        classificationRecord.tadirobjectname,
+      objectType:
+        classificationRecord.objectType ||
+        classificationRecord.OBJECTTYPE ||
+        classificationRecord.objecttype,
+      objectName:
+        classificationRecord.objectName ||
+        classificationRecord.OBJECTNAME ||
+        classificationRecord.objectname,
+      softwareComponent:
+        classificationRecord.softwareComponent ||
+        classificationRecord.SOFTWARECOMPONENT ||
+        classificationRecord.softwarecomponent,
+      applicationComponent:
+        classificationRecord.applicationComponent ||
+        classificationRecord.APPLICATIONCOMPONENT ||
+        classificationRecord.applicationcomponent,
+      subType: classificationRecord.subType || classificationRecord.SUBTYPE
+    }))
+    .filter((classificationRecord) => {
+      if (
+        !classificationRecord.tadirObjectType ||
+        !classificationRecord.tadirObjectName ||
+        !classificationRecord.objectType ||
+        !classificationRecord.objectName ||
+        !classificationRecord.subType ||
+        !classificationRecord.applicationComponent ||
+        !classificationRecord.softwareComponent
+      ) {
+        LOG.warn('Invalid ClassificationRecord', { classificationRecord });
+        return false;
+      }
+      return true;
+    });
+
+  if (!classificationRecordList || classificationRecordList.length == 0) {
+    throw new Error('No valid Classification Records Found');
+  }
+
+  // Get all ReleaseStates
+  const releaseStateMap = await getReleaseStateMap();
+
+  const chunkSize = 50;
+  for (let i = 0; i < classificationRecordList.length; i += chunkSize) {
+    LOG.info(
+      `Processing ${i} to ${i + chunkSize} (${classificationRecordList.length})`
+    );
+    const chunk = classificationRecordList.slice(i, i + chunkSize);
+    const classificationInsert = [] as Classification[];
+
+    for (const classificationRecord of chunk) {
+      // Create a new Classification
+      const classification = {
+        objectType: classificationRecord.objectType,
+        objectName: classificationRecord.objectName,
+        tadirObjectType: classificationRecord.tadirObjectType,
+        tadirObjectName: classificationRecord.tadirObjectName,
+        applicationComponent: classificationRecord.applicationComponent,
+        softwareComponent: classificationRecord.softwareComponent,
+        subType: classificationRecord.subType
+          ? classificationRecord.subType
+          : classificationRecord.objectType,
+        releaseLevel_code: 'undefined',
+        successorClassification_code: 'undefined',
+        referenceCount: 0,
+        comment: ''
+      } as Classification;
+
+      updateReleaseState(classification, releaseStateMap);
+      await updateSimplifications(classification);
+
+      // Set default rating code
+      classification.rating_code = getDefaultRatingCode(classification);
+
+      classificationInsert.push(classification);
+    }
+
+    if (classificationInsert.length > 0) {
+      await INSERT.into(entities.Classifications).entries(classificationInsert);
+      await tx.commit();
+    }
   }
 };
 
@@ -281,9 +410,6 @@ export const importMissingClassifications = async (
     throw new Error('No valid Findings Found');
   }
 
-  // Get all releaseState
-  const releaseStateMap = await getReleaseStateMap();
-
   if (
     classificationRecordList == null ||
     classificationRecordList.length == 0
@@ -291,6 +417,9 @@ export const importMissingClassifications = async (
     LOG.info('No Records to import');
     return;
   }
+
+  // Get all releaseState
+  const releaseStateMap = await getReleaseStateMap();
 
   LOG.info(
     `Importing Classification Records ${classificationRecordList.length}`
@@ -454,8 +583,8 @@ const cleanupClassification = async (classification, objectMetadataApi) => {
         classification.comment = 'No Metadata found';
       }
       updatedMetadata = true;
-    } catch (e) {
-      LOG.error('Error connecting to API_OBJECT_METADATA', e);
+    } catch (ex) {
+      LOG.error('Error connecting to API_OBJECT_METADATA', ex);
     }
   }
 
@@ -849,8 +978,8 @@ export const importCloudClassifications = async (
               classificationImport.softwareComponent =
                 result[0].softwareComponent;
             }
-          } catch (e) {
-            LOG.error('Error connecting to API_OBJECT_METADATA', e);
+          } catch (ex) {
+            LOG.error('Error connecting to API_OBJECT_METADATA', ex);
           }
         }
 
@@ -1027,8 +1156,8 @@ const determineSubType = async (
       } else {
         LOG.error("Can't find Metadata", { objectType, objectName });
       }
-    } catch (e) {
-      LOG.error('Error connecting to API_OBJECT_METADATA', e);
+    } catch (ex) {
+      LOG.error('Error connecting to API_OBJECT_METADATA', ex);
     }
   }
   return objectType;
@@ -1079,8 +1208,8 @@ export const getMissingClassifications = async () => {
       }
     }
     return classificationList;
-  } catch (e) {
-    LOG.error('Error connecting to API_OBJECT_METADATA', e);
+  } catch (ex) {
+    LOG.error('Error connecting to API_OBJECT_METADATA', ex);
     return [];
   }
 };

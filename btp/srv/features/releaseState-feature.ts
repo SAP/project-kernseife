@@ -60,13 +60,14 @@ export const determineReleaseLevel = (releaseState) => {
     return 'DEPRECATED';
   } else if (releaseState.classicInfo_code === 'classicAPI') {
     return 'CLASSIC';
+  } else if (releaseState.releaseInfo_code === 'notToBeReleasedStable') {
+    return 'STABLE';
   } else if (releaseState.classicInfo_code === 'internalAPI') {
     return 'INTERNAL';
   } else if (releaseState.classicInfo_code === 'noAPI') {
     return 'NO_API';
   } else if (
-    releaseState.releaseInfo_code === 'notToBeReleased' ||
-    releaseState.releaseInfo_code === 'notToBeReleasedStable'
+    releaseState.releaseInfo_code === 'notToBeReleased'
   ) {
     return 'NOT_TO_BE_RELEASED';
   }

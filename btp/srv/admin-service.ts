@@ -144,7 +144,9 @@ export default (srv: Service) => {
     if (!contactPerson || !prefix || !customerTitle) {
       return req.error(400, `Missing mandatory parameter`);
     }
-    await createInitialData(contactPerson, prefix, customerTitle);
+    const configUrl = req.data.configUrl;
+    const classificationUrl = req.data.classificationUrl;
+    await createInitialData(contactPerson, prefix, customerTitle, configUrl, classificationUrl);
   });
 
   srv.on('loadReleaseState', async () => {

@@ -140,7 +140,7 @@
                                     "id": "ConfigureDefaults",
                                     "tileType": "sap.ushell.ui.tile.StaticTile",
                                     "properties": {
-                                        "title": "Configure Defaults",
+                                        "title": "Setup",
                                         "targetURL": "#Defaults-configure"
                                     }
                                 }

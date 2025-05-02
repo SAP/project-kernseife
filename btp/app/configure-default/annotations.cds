@@ -29,10 +29,7 @@ annotate service.Settings with @(
     },
     UI.FieldGroup #setup             : {
         $Type: 'UI.FieldGroupType',
-        Data : [{
-            $Type: 'UI.DataField',
-            Value: initialDataUrl,
-        }],
+        Data : [],
     },
     UI.Facets                        : [
         {
@@ -59,17 +56,19 @@ annotate service.Settings with @(
 
 annotate service.inInitialData with {
     @assert.format: '^[A-Z0-9]{3,4}$'
-    prefix        @Common.Label: '{i18n>prefix}';
-    contactPerson @Common.Label: '{i18n>contactPerson}';
-    customerTitle @Common.Label: '{i18n>customerTitle}';
+    prefix            @Common.Label: '{i18n>prefix}';
+    contactPerson     @Common.Label: '{i18n>contactPerson}';
+    customerTitle     @Common.Label: '{i18n>customerTitle}';
+    @assert.format: '[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.json)'
+    configUrl         @Common.Label: '{i18n>configUrl}';
+    @assert.format: '[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.csv)'
+    classificationUrl @Common.Label: '{i18n>classificationUrl}';
 }
-
 
 annotate service.Settings with {
 
-    modifiedBy             @Common.Label: '{i18n>modifiedBy}';
-    modifiedAt             @Common.Label: '{i18n>modifiedAt}';
-    createdBy              @Common.Label: '{i18n>createdBy}';
-    createdAt              @Common.Label: '{i18n>createdAt}';
-    initialDataUrl         @Common.Label: '{i18n>initialDataUrl}';
+    modifiedBy @Common.Label: '{i18n>modifiedBy}';
+    modifiedAt @Common.Label: '{i18n>modifiedAt}';
+    createdBy  @Common.Label: '{i18n>createdBy}';
+    createdAt  @Common.Label: '{i18n>createdAt}';
 };

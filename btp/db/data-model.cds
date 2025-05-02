@@ -845,7 +845,7 @@ entity Extensions : cuid, managed {
 @cds.persistence.journal
 entity Settings : managed {
     key ID             : String(36);
-        initialDataUrl : String;
+        
 }
 
 @cds.persistence.journal

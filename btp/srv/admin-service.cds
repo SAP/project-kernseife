@@ -126,16 +126,25 @@ service AdminService @(requires: 'admin') {
         }
 
     type inInitialData       : {
-        customerTitle : String(30);
-        contactPerson : String;
-        prefix        : String(6);
+        customerTitle     : String(30);
+        contactPerson     : String;
+        prefix            : String(6);
+        configUrl         : String;
+        classificationUrl : String;
     }
 
             @odata.draft.enabled
     entity Settings                      as projection on db.Settings
         actions {
             @Common.IsActionCritical: true
-            action createInitialData( @mandatory contactPerson : inInitialData : contactPerson, @mandatory prefix : inInitialData : prefix, @mandatory customerTitle : inInitialData : customerTitle);
+            action createInitialData(
+            @mandatory contactPerson : inInitialData                          : contactPerson,
+                                     @mandatory prefix : inInitialData        : prefix,
+                                     @mandatory customerTitle : inInitialData : customerTitle,
+                                     configUrl : inInitialData                : configUrl @UI.ParameterDefaultValue: 'https://raw.githubusercontent.com/SAP/project-kernseife/refs/heads/main/defaultSetup.json',
+                                     classificationUrl : inInitialData        : classificationUrl @UI.ParameterDefaultValue: 'https://raw.githubusercontent.com/SAP/project-kernseife/refs/heads/main/defaultClassification.csv'
+
+            );
         };
 
     entity Jobs                          as projection on db.Jobs;
