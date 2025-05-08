@@ -2923,11 +2923,6 @@
           "type": "cds.String",
           "length": 36,
           "@cds.persistence.name": "ID"
-        },
-        "initialDataUrl": {
-          "type": "cds.String",
-          "length": 5000,
-          "@cds.persistence.name": "INITIALDATAURL"
         }
       },
       "@cds.persistence.name": "KERNSEIFE_DB_SETTINGS"
@@ -3168,7 +3163,7 @@
     "creator": "CDS Compiler v5.8.2",
     "flavor": "inferred",
     "minified": true,
-    "build": "CDS Build v8.8.3"
+    "build": "CDS Build v8.9.2"
   },
   "$version": "2.0"
 }

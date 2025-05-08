@@ -177,7 +177,7 @@ service AdminService @(requires: 'admin') {
         classificationLegacy   : LargeBinary;
 
         @(Core.MediaType                 : 'application/json')
-        @Core.ContentDisposition.Filename: 'classificationStandardy.json'
+        @Core.ContentDisposition.Filename: 'classificationStandard.json'
         @Core.ContentDisposition.Type    : 'inline'
         classificationStandard : LargeBinary;
 

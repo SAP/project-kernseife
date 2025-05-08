@@ -831,7 +831,7 @@ export const getClassificationJsonCustom = async () => {
       c.releaseLevel_code,
       c.releaseState((r) => r.labelList),
       c.successorList();
-  }).where({ releaseLevel_code: { not: { in: ['RELEASED', 'DEPRECATED'] } } });
+  });
   const classificationJson = {
     formatVersion: '1',
     ratings,

@@ -31,7 +31,6 @@ export const uploadFile = async (
 
   switch (importType) {
     case 'SCORING':
-    case 'LANGUAGE_VERSION':
       {
         if (!systemId) {
           throw new Error('No SystemId provided');
