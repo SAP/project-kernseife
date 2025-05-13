@@ -180,12 +180,6 @@
               "content": {
                 "header": {
                   "actions": {
-                    "downloadClassificationLegacy": {
-                      "press": "manageclassification.extension.controller.ClassificationController.downloadClassificationLegacy",
-                      "visible": false,
-                      "enabled": true,
-                      "text": "{i18n>downloadClassificationLegacy}"
-                    },
                     "downloadClassificationStandard": {
                       "press": "manageclassification.extension.controller.ClassificationController.downloadClassificationStandard",
                       "visible": false,

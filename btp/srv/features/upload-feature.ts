@@ -1,9 +1,7 @@
 import { Import } from '#cds-models/kernseife/db';
 import { entities, log, services, utils } from '@sap/cds';
-import * as XLSX from 'xlsx';
 import {
   importCloudClassifications,
-  massUpdateClassifications
 } from './classification-feature';
 import { runAsJob } from './jobs-feature';
 
@@ -87,36 +85,14 @@ export const uploadFile = async (
         });
       }
       break;
-    case 'MASSUPDATE_CLASSIFICATIONS':
-      {
-        const workbook = XLSX.read(file, {
-          type: 'buffer',
-          cellText: true,
-          cellDates: true,
-          dateNF: 'dd"."mm"."yyyy',
-          cellNF: true
-        });
-
-        let sheet = workbook.Sheets['Classification'];
-        if (!sheet) sheet = workbook.Sheets[workbook.SheetNames[0]];
-
-        const jsonData = XLSX.utils.sheet_to_json(sheet);
-        await runAsJob(
-          'Mass Update Classifications',
-          'MASSUPDATE_CLASSIFICATIONS',
-          jsonData.length,
-          (tx, progress) => massUpdateClassifications(jsonData, tx, progress)
-        );
-      }
-      break;
-    case 'CLASSIFICATION':
+    case 'IMPORT_CLOUD_CLASSIFICATION':
       {
         const content = file.toString();
         const classificationImport = JSON.parse(content).classifications;
 
         await runAsJob(
           'Import Cloud Classifications',
-          'IMPORT_CLOUD_CLASSIFICATIONS',
+          'IMPORT_CLOUD_CLASSIFICATION',
           classificationImport.length,
           (tx, progress) =>
             importCloudClassifications(classificationImport, tx, progress)

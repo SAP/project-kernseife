@@ -37,8 +37,7 @@
     "express": "^4.21.2",
     "helmet": "^8.1.0",
     "is-ci": "^4.1.0",
-    "papaparse": "^5.5.2",
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz"
+    "papaparse": "^5.5.2"
   },
   "devDependencies": {
     "@cap-js/cds-test": "^0.3.0",

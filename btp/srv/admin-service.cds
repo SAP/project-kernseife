@@ -56,7 +56,6 @@ service AdminService @(requires: 'admin') {
             @odata.draft.bypass
     entity Classifications               as projection on db.Classifications
         actions {
-            action cleanupClassification()                                                    returns Classifications;
             @(Common.SideEffects: {TargetEntities: ['in/frameworkUsageList'], })
             action assignFramework( @mandatory frameworkCode : inFramework   : code)          returns Classifications;
             @(Common.SideEffects: {TargetEntities: ['in/frameworkUsageList'], })
@@ -164,18 +163,9 @@ service AdminService @(requires: 'admin') {
 
     action loadReleaseState();
 
-    @Common.IsActionCritical: true
-    @(Common.SideEffects: {TargetEntities: ['/AdminService.EntityContainer/Classifications'], })
-    action cleanupClassificationAll();
-
     @odata.singleton
     @cds.persistence.skip
     entity Downloads {
-        @(Core.MediaType                 : 'application/json')
-        @Core.ContentDisposition.Filename: 'classificationLegacy.json'
-        @Core.ContentDisposition.Type    : 'inline'
-        classificationLegacy   : LargeBinary;
-
         @(Core.MediaType                 : 'application/json')
         @Core.ContentDisposition.Filename: 'classificationStandard.json'
         @Core.ContentDisposition.Type    : 'inline'

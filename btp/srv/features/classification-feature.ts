@@ -552,94 +552,6 @@ export const importMissingClassificationsById = async (
   );
 };
 
-const cleanupClassification = async (classification, objectMetadataApi) => {
-  const updatedSimplifications = await updateSimplifications(classification);
-  const updatedScoreAndReferences =
-    await updateTotalScoreAndReferenceCount(classification);
-
-  let updatedMetadata = false;
-  if (
-    !classification.applicationComponent ||
-    classification.softwareComponent == '#N/A' ||
-    !classification.softwareComponent ||
-    classification.subType == 'TABL'
-  ) {
-    // Call metadata service
-    try {
-      const { objectMetadata } = objectMetadataApi.entities;
-      const result = await objectMetadataApi.run(
-        SELECT(objectMetadata).where({
-          objectType: classification.tadirObjectType,
-          objectName: classification.tadirObjectName
-        })
-      );
-      if (result && result.length == 1) {
-        classification.softwareComponent = result[0].softwareComponent;
-        classification.subType = result[0].subType;
-        classification.devClass = result[0].devClass;
-        if (classification.comment === 'No Metadata found')
-          classification.comment = '';
-      } else {
-        classification.comment = 'No Metadata found';
-      }
-      updatedMetadata = true;
-    } catch (ex) {
-      LOG.error('Error connecting to API_OBJECT_METADATA', ex);
-    }
-  }
-
-  if (updatedSimplifications || updatedScoreAndReferences || updatedMetadata) {
-    await UPDATE(entities.Classifications).set(classification).where({
-      tadirObjectType: classification.tadirObjectType,
-      tadirObjectName: classification.tadirObjectName,
-      objectName: classification.objectName,
-      objectType: classification.objectType
-    });
-  }
-  return classification;
-};
-
-export const cleanupClassificationAll = async (tx, updateProgress) => {
-  const objectMetadataApi = await connect.to('API_OBJECT_METADATA');
-  const count = await getClassificationCount();
-  await updateProgress(1);
-  await tx.commit();
-  LOG.info('Cleanup Classifications ' + count);
-  const chunkSize = 50;
-  let totalProgress = 0;
-  let offset = 0;
-  for (let i = 0; i < count; i += chunkSize) {
-    const classificationList = await SELECT.from(
-      entities.Classifications,
-      getAllClassificationColumns
-    )
-      .where({ softwareComponent: '#N/A' })
-      .limit(chunkSize, offset);
-    LOG.info(
-      'Cleanup Classifications Chunk ' +
-        i +
-        ' - ' +
-        (i + classificationList.length)
-    );
-    for (const classification of classificationList) {
-      await cleanupClassification(classification, objectMetadataApi);
-      totalProgress++;
-    }
-    await tx.commit();
-    await updateProgress(totalProgress);
-
-    offset = offset + chunkSize;
-  }
-};
-
-export const cleanupClassificationByRef = async (ref) => {
-  const objectMetadataApi = await connect.to('API_OBJECT_METADATA');
-  const classification = await SELECT.one.from(ref);
-  await cleanupClassification(classification, objectMetadataApi);
-  const updatedClassification = await SELECT.one.from(ref);
-  return updatedClassification;
-};
-
 export const getClassificationKeywordMap = async () => {
   // Load all Classifications so we can check if they exist
   const objectTypeList = await SELECT.from(entities.ObjectTypes)
@@ -668,114 +580,6 @@ export const getClassificationKeywordMap = async () => {
   );
 
   return classificationMap;
-};
-
-export const massUpdateClassifications = async (
-  jsonData,
-  tx,
-  updateProgress
-) => {
-  // read existing Classifications
-  const classificationMap = (
-    await SELECT.from(entities.Classifications, getAllClassificationColumns)
-  ).reduce((map, classification) => {
-    const key =
-      classification.objectType +
-      classification.objectName +
-      (classification.applicationComponent || '');
-    map[key] = classification;
-    return map;
-  }, {});
-
-  let progressCount = 0;
-  const chunkSize = 200;
-  for (let i = 0; i < jsonData.length; i += chunkSize) {
-    LOG.info(`Processing ${i} to ${i + chunkSize} (${jsonData.length})`);
-    const chunk = jsonData.slice(i, i + chunkSize);
-
-    const updatedClassifications = [] as any[];
-
-    for (const classification of chunk) {
-      progressCount++;
-      // As the UI shows the SubType, we need to map it to the actual Object Type
-      const objectType = mapSubTypeToType(classification['Type']);
-      const objectName = classification['Name'];
-      const applicationComponent =
-        classification['Application Component'] || '';
-      const key = objectType + objectName + applicationComponent;
-      const existingClassification = classificationMap[key];
-      if (existingClassification) {
-        let updated = false;
-        // Check if any changeable Property was updated
-        if (
-          existingClassification.rating_code != classification['Rating Code'] &&
-          Boolean(classification['Rating Code'])
-        ) {
-          //  LOG.info(`Updated Classification ${existingClassification.rating_code} Rating to ${classification["Rating Code"]}`);
-          existingClassification.rating_code =
-            classification['Rating Code'] || NO_CLASS; // Default value
-          updated = true;
-        }
-
-        if (
-          existingClassification.adoptionEffort_code !=
-            classification['Adoption Effort'] &&
-          Boolean(classification['Adoption Effort'])
-        ) {
-          existingClassification.adoptionEffort_code =
-            classification['Adoption Effort'] || undefined;
-          updated = true;
-        }
-
-        if (
-          existingClassification.comment != classification['Comment'] &&
-          Boolean(classification['Comment'])
-        ) {
-          //  LOG.info(`Updated Classification ${existingClassification.comment} Comment to ${classification["Comment"]}`);
-          existingClassification.comment = classification['Comment'] || '';
-          updated = true;
-        }
-
-        if (updated) {
-          updatedClassifications.push(existingClassification);
-        }
-      } else {
-        LOG.warn(
-          `Classification ${classification['Type']} ${classification['Name']} not found`,
-          classification
-        );
-      }
-    }
-
-    if (updatedClassifications.length > 0) {
-      await UPSERT.into(entities.Classifications).entries(
-        updatedClassifications
-      );
-      if (tx) {
-        await tx.commit();
-      }
-    }
-
-    await updateProgress(progressCount);
-
-    LOG.info(`Updated ${updatedClassifications.length} Classifications`);
-  }
-};
-
-export const getClassificationJsonLegacy = async () => {
-  const classifications = await SELECT.from(entities.Classifications, (c) => {
-    c.objectType, c.objectName, c.rating_code;
-  });
-
-  const classificationJson = {
-    formatVersion: '1.0',
-    scoringClassifications: classifications.map((classification) => ({
-      type: classification.objectType,
-      name: classification.objectName,
-      rating: classification.rating_code || NO_CLASS
-    }))
-  };
-  return classificationJson;
 };
 
 export const getClassificationJsonStandard = async () => {
@@ -949,8 +753,6 @@ export const importCloudClassifications = async (
 
   const classificationMap = await getClassificationMap();
 
-  const objectMetadataApi = await connect.to('API_OBJECT_METADATA');
-
   let progressCount = 0;
   LOG.error('Importing ' + classificationList.length + ' Classifications');
   const chunkSize = Math.min(classificationList.length, 25);
@@ -965,24 +767,6 @@ export const importCloudClassifications = async (
       const classificationKey = getClassificationKey(classificationImport);
       // Check if already exists
       if (!classificationMap[classificationKey]) {
-        if (!classificationImport.softwareComponent && objectMetadataApi) {
-          try {
-            const { objectMetadata } = objectMetadataApi.entities;
-            const result = await objectMetadataApi.run(
-              SELECT(objectMetadata).where({
-                objectType: classificationImport.objectType,
-                objectName: classificationImport.objectName
-              })
-            );
-            if (result && result.length == 1) {
-              classificationImport.softwareComponent =
-                result[0].softwareComponent;
-            }
-          } catch (ex) {
-            LOG.error('Error connecting to API_OBJECT_METADATA', ex);
-          }
-        }
-
         // Create a new Classification
         const classification = {
           objectType: classificationImport.objectType,

@@ -4,12 +4,9 @@ import { PassThrough, Readable } from 'stream';
 import {
   assignFrameworkByRef,
   assignSuccessorByRef,
-  cleanupClassificationAll,
-  cleanupClassificationByRef,
   getClassificationCount,
   getClassificationJsonCloud,
   getClassificationJsonCustom,
-  getClassificationJsonLegacy,
   getClassificationJsonStandard,
   getMissingClassifications,
   importMissingClassificationsById
@@ -18,10 +15,6 @@ import {
   calculateCleanCoreScoreAll,
   calculateScoreAll,
   calculateScoreByRef,
-  determineCleanCoreLevelAll,
-  determineCleanCoreLevelByRef,
-  determineNamespaceAll,
-  getDevelopmentObjectCount,
   importLanguageVersionById,
   importScoringById
 } from './features/developmentObject-feature';
@@ -33,7 +26,6 @@ import {
 } from './features/extension-feature';
 import { runAsJob } from './features/jobs-feature';
 import {
-  getReleaseStateCount,
   loadReleaseState,
   updateClassificationsFromReleaseStates
 } from './features/releaseState-feature';
@@ -240,40 +232,6 @@ export default (srv: Service) => {
     await calculateCleanCoreScoreAll();
   });
 
-  srv.on('determineNamespaceAll', async (req) => {
-    return await determineNamespaceAll();
-  });
-
-  srv.on('determineCleanCoreLevel', async (req) => {
-    return await determineCleanCoreLevelByRef(req.subject);
-  });
-
-  srv.on('determineCleanCoreLevelAll', async () => {
-    const count = await getDevelopmentObjectCount();
-    LOG.info('CLeaning up Clean Core Level in ' + count + ' Objects');
-    await runAsJob(
-      'Cleanup Clean Core Level',
-      'CLEANUP_CLEAN_CORE_LEVEL',
-      count,
-      determineCleanCoreLevelAll
-    );
-  });
-
-  srv.on('cleanupClassificationAll', async () => {
-    const count = await getClassificationCount();
-    LOG.info('CLeaning up ' + count + ' Classifications');
-    await runAsJob(
-      'Cleanup Classifications',
-      'CLEANUP_CLASSIFICATIONS',
-      count,
-      cleanupClassificationAll
-    );
-  });
-
-  srv.on('cleanupClassification', async (req) => {
-    return await cleanupClassificationByRef(req.subject);
-  });
-
   srv.before(
     'DELETE',
     ['SuccessorClassifications', 'SuccessorClassifications.drafts'],
@@ -297,9 +255,6 @@ export default (srv: Service) => {
     LOG.info('Download', { downloadType, mimetype, filename });
     let content;
     switch (downloadType) {
-      case 'classificationLegacy':
-        content = await getClassificationJsonLegacy();
-        break;
       case 'classificationStandard':
         content = await getClassificationJsonStandard();
         break;

@@ -141,10 +141,6 @@ sap.ui.define(
           oDialog.open();
         });
       },
-      downloadClassificationLegacy: function () {
-        const serviceUrl = this.getModel().getServiceUrl();
-        window.open(serviceUrl + "Downloads/classificationLegacy", "_blank")
-      },
       downloadClassificationStandard: function () {
         const serviceUrl = this.getModel().getServiceUrl();
         window.open(serviceUrl + "Downloads/classificationStandard", "_blank")
