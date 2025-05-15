@@ -1,0 +1,20 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Kernseife: Usage of APIs",
+    "originalLanguage": "en"
+  },
+  "category": "ZKNSF_CI_CATEGORY",
+  "implementingClass": "ZKNSF_CL_API_USAGE",
+  "checkType": "remoteEnabled",
+  "parameters": [
+    {
+      "name": "releasedAPIDataSource",
+      "description": "Released API Data Source"
+    },
+    {
+      "name": "classicAPIDataSource",
+      "description": "Classic API Data Source"
+    }
+  ]
+}
