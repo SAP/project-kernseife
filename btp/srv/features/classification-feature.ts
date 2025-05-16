@@ -180,7 +180,7 @@ export const updateTotalScoreAndReferenceCount = async (classification) => {
       refObjectName: classification.objectName,
       refObjectType: classification.objectType
     })
-    .groupBy('refObjectName', 'refObjectType', 'refApplicationComponent');
+    .groupBy('refObjectName', 'refObjectType');
   if (totalScoreResult && totalScoreResult.length == 1) {
     if (
       classification.totalScore != totalScoreResult[0].totalScore ||
@@ -622,7 +622,7 @@ export const getClassificationJsonStandard = async () => {
 
 export const getClassificationJsonCustom = async () => {
   const ratings = await SELECT.from(entities.Ratings, (r) => {
-    r.code, r.title, r.criticality_code.as('criticality');
+    r.code, r.title, r.criticality_code.as('criticality'), r.score;
   });
   const classifications = await SELECT.from(entities.Classifications, (c) => {
     c.tadirObjectType,
@@ -638,7 +638,11 @@ export const getClassificationJsonCustom = async () => {
   });
   const classificationJson = {
     formatVersion: '1',
-    ratings,
+    ratings: ratings.map((rating) => ({
+      ...rating,
+      score: String(rating.score) // As ABAP XSLT doesn't seem to support numbers
+    })),
+
     objectClassifications: classifications.map((classification) => ({
       tadirObject: classification.tadirObjectType,
       tadirObjName: classification.tadirObjectName,

@@ -1161,20 +1161,6 @@
                 "$self",
                 "objectName"
               ]
-            },
-            "and",
-            {
-              "ref": [
-                "developmentObjectList",
-                "refApplicationComponent"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "applicationComponent"
-              ]
             }
           ],
           "@cds.persistence.name": "DEVELOPMENTOBJECTLIST"
@@ -1807,11 +1793,6 @@
           "length": 5000,
           "@cds.persistence.name": "REFOBJECTNAME"
         },
-        "refApplicationComponent": {
-          "type": "cds.String",
-          "length": 5000,
-          "@cds.persistence.name": "REFAPPLICATIONCOMPONENT"
-        },
         "devClass": {
           "type": "cds.String",
           "length": 5000,
@@ -1851,20 +1832,6 @@
               "ref": [
                 "$self",
                 "refObjectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "releaseState",
-                "applicationComponent"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "refApplicationComponent"
               ]
             }
           ],
@@ -1947,20 +1914,6 @@
               "ref": [
                 "$self",
                 "refObjectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "applicationComponent"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "refApplicationComponent"
               ]
             }
           ],

@@ -148,7 +148,6 @@ entity ScoringFindingsAggregated    as
         key s.systemId,
         key s.refObjectName,
         key s.refObjectType,
-        key s.refApplicationComponent,
             s.rating_code        as code,
             r.score              as score,
             r.criticality        as criticality,
@@ -169,7 +168,6 @@ entity ScoringFindingsAggregated    as
         s.systemId,
         s.refObjectName,
         s.refObjectType,
-        s.refApplicationComponent,
         s.rating_code,
         r.score,
         d.score,
@@ -382,8 +380,7 @@ entity Classifications : managed {
         totalScore                  : Integer;
         developmentObjectList       : Association to many DevelopmentObjectsAggregated
                                           on  developmentObjectList.refObjectType           = $self.objectType
-                                          and developmentObjectList.refObjectName           = $self.objectName
-                                          and developmentObjectList.refApplicationComponent = $self.applicationComponent;
+                                          and developmentObjectList.refObjectName           = $self.objectName;
 
 }
 
@@ -488,21 +485,18 @@ entity ScoringRecords {
         objectName              : String;
         refObjectType           : String;
         refObjectName           : String;
-        refApplicationComponent : String;
         devClass                : String;
         systemId                : String;
         releaseState            : Association to ReleaseStates
                                       on  releaseState.objectType           = $self.refObjectType
-                                      and releaseState.objectName           = $self.refObjectName
-                                      and releaseState.applicationComponent = $self.refApplicationComponent;
+                                      and releaseState.objectName           = $self.refObjectName;
         developmentObject       : Association to DevelopmentObjects
                                       on  developmentObject.objectType = $self.objectType
                                       and developmentObject.objectName = $self.objectName
                                       and developmentObject.devClass   = $self.devClass;
         classification          : Association to Classifications
                                       on  classification.objectType           = $self.refObjectType
-                                      and classification.objectName           = $self.refObjectName
-                                      and classification.applicationComponent = $self.refApplicationComponent;
+                                      and classification.objectName           = $self.refObjectName ;
         rating                  : Association to Ratings
                                       on rating.code = $self.rating_code;
         rating_code             : String;
@@ -747,7 +741,6 @@ entity DevelopmentObjectsAggregated as
     {
         key s.refObjectName,
         key s.refObjectType,
-        key s.refApplicationComponent,
         key s.objectName,
         key s.objectType,
             s.rating_code        as code,
@@ -765,7 +758,6 @@ entity DevelopmentObjectsAggregated as
     group by
         s.refObjectName,
         s.refObjectType,
-        s.refApplicationComponent,
         s.objectName,
         s.objectType,
         s.rating_code,

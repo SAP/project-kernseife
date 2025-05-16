@@ -222,7 +222,7 @@ export const calculateScoreByRef = async (ref) => {
 
 export const calculateScoreAll = async () => {
   await db.run(
-    'UPDATE kernseife_db_SCORINGRECORDS as s SET rating_code = (SELECT c.rating_code FROM kernseife_db_CLASSIFICATIONS as c WHERE c.objectType = s.refObjectType AND c.objectName = s.refObjectName AND c.applicationComponent = s.refApplicationComponent)'
+    'UPDATE kernseife_db_SCORINGRECORDS as s SET rating_code = (SELECT c.rating_code FROM kernseife_db_CLASSIFICATIONS as c WHERE c.objectType = s.refObjectType AND c.objectName = s.refObjectName)'
   );
 
   await db.run(
@@ -316,8 +316,6 @@ export const importScoring = async (
         devClass: finding.devClass || finding.DEVCLASS,
         refObjectType: finding.refObjectType || finding.REFOBJECTTYPE,
         refObjectName: finding.refObjectName || finding.REFOBJECTNAME,
-        refApplicationComponent:
-          finding.refApplicationComponent || finding.REFAPPLICATIONCOMPONENT,
         rating_code:
           finding.rating ||
           finding.RATING ||
@@ -585,7 +583,7 @@ export const calculateCleanCoreScoreAll = async () => {
     'UPDATE kernseife_db_DEVELOPMENTOBJECTS as d SET cleanCoreScore = (' +
       'SELECT IFNULL(avg(rl.score),0) AS avgScore ' +
       'FROM kernseife_db_SCORINGRECORDS as f ' +
-      'INNER JOIN kernseife_db_Classifications as c ON c.objectType = f.refObjectType AND c.objectName = f.refObjectName AND c.applicationComponent = f.refApplicationComponent ' +
+      'INNER JOIN kernseife_db_Classifications as c ON c.objectType = f.refObjectType AND c.objectName = f.refObjectName ' +
       'INNER JOIN kernseife_db_ReleaseLevel as rl ON rl.code = c.releaseLevel_code ' +
       'WHERE f.objectType = d.objectType AND f.objectName = d.objectName AND f.devClass = d.devClass AND f.systemId = d.systemId AND d.latestScoringImportId = f.import_ID ' +
       'GROUP BY f.import_ID, f.objectType, f.objectName, f.devClass, f.systemId)'
