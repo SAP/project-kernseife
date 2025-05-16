@@ -8,6 +8,8 @@ INTERFACE zknsf_if_api_v1
       title       TYPE string,
       "! $required
       criticality TYPE c LENGTH 1,
+      "! $required
+      score       TYPE string,
     END OF ty_rating .
 
   TYPES:
