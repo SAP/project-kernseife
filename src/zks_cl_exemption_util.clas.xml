@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>GENERATE_CHECKSUM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Generate Checksome for Finding</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GENERATE_CHECKSUM</CMPNAME>
+     <SCONAME>IV_CHECKSUM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check sum of copyright text (logon dialog box)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GENERATE_CHECKSUM</CMPNAME>
+     <SCONAME>IV_CHKCLASS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Object Type Name</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GENERATE_CHECKSUM</CMPNAME>
+     <SCONAME>IV_OBJNAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Object name</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GENERATE_CHECKSUM</CMPNAME>
+     <SCONAME>IV_OBJTYPE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Object type in object directory</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GENERATE_CHECKSUM</CMPNAME>
+     <SCONAME>IV_SUBOBJNAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Full Component Name</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GENERATE_CHECKSUM</CMPNAME>
+     <SCONAME>IV_SUBOBJTYPE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Object Type in Object Directory</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GENERATE_CHECKSUM</CMPNAME>
+     <SCONAME>RV_CHECKSUM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check sum of copyright text (logon dialog box)</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
