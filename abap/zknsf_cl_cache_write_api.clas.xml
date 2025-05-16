@@ -4,7 +4,7 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZKNSF_CL_CACHE_WRITE_API</CLSNAME>
-    <LANGU>D</LANGU>
+    <LANGU>E</LANGU>
     <DESCRIPT>Kernseife: API for released objects</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
@@ -18,6 +18,20 @@
      <DESCRIPT>Kernseife: API for released objects</DESCRIPT>
     </SEOCLASSTX>
    </DESCRIPTIONS_CLASS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_HEADER</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Kernseife: Header table for apis</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_HEADER</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Kernseife: Header table for apis</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
   </asx:values>
  </asx:abap>
 </abapGit>
