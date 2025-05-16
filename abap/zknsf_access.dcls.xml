@@ -4,6 +4,8 @@
   <asx:values>
    <DCLS>
     <DCLNAME>ZKNSF_ACCESS</DCLNAME>
+    <DCLLANGUAGE>E</DCLLANGUAGE>
+    <DDTEXT>Kernseife: Authorizations</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

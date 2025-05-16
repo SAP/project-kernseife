@@ -6,7 +6,7 @@
 REPORT zknsf_classification_managr.
 
 TYPES: BEGIN OF data_type,
-         file_id        TYPE guid,
+         file_id        TYPE sysuuid_x16,
          url            TYPE char140,
          commit_hash    TYPE char40,
          last_git_check TYPE string,
@@ -22,8 +22,9 @@ START-OF-SELECTION.
   DATA: db_files   TYPE TABLE OF zknsf_api_header   ##NEEDED,
         columns    TYPE lvc_t_fcat                 ##NEEDED,
         alv_parent TYPE REF TO cl_gui_container    ##NEEDED,
-        data_files TYPE TABLE OF data_type         ##NEEDED,
-        data_file  TYPE data_type                  ##NEEDED.
+        data_files TYPE TABLE OF cl_ycm_cc_classification_mangr=>api_type ##NEEDED,
+        data_file  TYPE cl_ycm_cc_classification_mangr=>api_type          ##NEEDED.
+
 
   DATA(alv_grid) = NEW cl_gui_alv_grid( alv_parent ) ##NEEDED.
 

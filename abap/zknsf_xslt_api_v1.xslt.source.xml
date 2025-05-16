@@ -34,6 +34,11 @@
                               <tt:value ref="CRITICALITY"/>
                             </str>
                           </tt:cond>
+                          <tt:cond frq="?">
+                            <str name="score">
+                              <tt:value ref="SCORE"/>
+                            </str>
+                          </tt:cond>
                           <tt:d-cond frq="?">
                             <__/>
                           </tt:d-cond>

@@ -30,6 +30,54 @@
      <ENTRY>Missing Rating</ENTRY>
      <LENGTH>24</LENGTH>
     </item>
+    <item>
+     <ID>I</ID>
+     <KEY>010</KEY>
+     <ENTRY>Standard ABAP</ENTRY>
+     <LENGTH>23</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>011</KEY>
+     <ENTRY>ABAP for Key Users</ENTRY>
+     <LENGTH>28</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>012</KEY>
+     <ENTRY>ABAP for Cloud Development</ENTRY>
+     <LENGTH>52</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>016</KEY>
+     <ENTRY>Reading from SAP database tables or table views</ENTRY>
+     <LENGTH>94</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>017</KEY>
+     <ENTRY>Updating SAP database tables or table views</ENTRY>
+     <LENGTH>86</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>018</KEY>
+     <ENTRY>Usage of SAP database tables in CDS views</ENTRY>
+     <LENGTH>82</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>019</KEY>
+     <ENTRY>Usage of SAP database tables as type definition</ENTRY>
+     <LENGTH>94</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>057</KEY>
+     <ENTRY>Track Language Version</ENTRY>
+     <LENGTH>46</LENGTH>
+    </item>
    </TPOOL>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
@@ -50,7 +98,17 @@
     <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Constructro</DESCRIPT>
+     <DESCRIPT>Constructror</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_MESSAGE_CODES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Define ATC Check Messages</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>INFORM_LANGUAGE_VERSION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Report Language Version</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>NON_SOURCE_PROCESSOR</CMPNAME>
@@ -61,6 +119,16 @@
      <CMPNAME>RELEASE_PROVIDER</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Data provider for released apis</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SW_COMPONENT_LIST</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Software Component</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TRACK_LANGUAGE_VERSION_ATTR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Truth Value: True/False</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>USAGE_PREPROCESSOR</CMPNAME>
