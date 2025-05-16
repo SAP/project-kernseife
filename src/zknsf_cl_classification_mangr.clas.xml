@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZKNSF_CL_CLASSIFICATION_MANGR</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Kernseife: Classification Manager</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>001</KEY>
+     <ENTRY>Kernseife</ENTRY>
+     <LENGTH>19</LENGTH>
+    </item>
+   </TPOOL>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>D</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>001</KEY>
+       <ENTRY>Kernseife</ENTRY>
+       <LENGTH>19</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
+   <DESCRIPTIONS_CLASS>
+    <SEOCLASSTX>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Kernseife: Classification Manager</DESCRIPT>
+    </SEOCLASSTX>
+   </DESCRIPTIONS_CLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CACHE_WRITER</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>API for released objects</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CACHE_WRITER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>API for released objects</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_CUSTOM_FILE</CMPNAME>
+     <SCONAME>CX_YCM_CC_PROVIDER_ERROR</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Exception class for errors while fetching data</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_CUSTOM_FILE</CMPNAME>
+     <SCONAME>CX_YCM_CC_PROVIDER_ERROR</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Exception class for errors while fetching data</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_CUSTOM_FILE</CMPNAME>
+     <SCONAME>FILE_CONTENT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Tabelle von Strings</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_CUSTOM_FILE</CMPNAME>
+     <SCONAME>FILE_CONTENT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table of Strings</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_CUSTOM_FILE</CMPNAME>
+     <SCONAME>UPLOADER</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Benutzername</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_CUSTOM_FILE</CMPNAME>
+     <SCONAME>UPLOADER</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Username</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_XSTRING</CMPNAME>
+     <SCONAME>CX_YCM_CC_PROVIDER_ERROR</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Exception class for errors while fetching data</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_XSTRING</CMPNAME>
+     <SCONAME>CX_YCM_CC_PROVIDER_ERROR</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Exception class for errors while fetching data</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_XSTRING</CMPNAME>
+     <SCONAME>LAST_GIT_CHECK</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>UTC-Zeitstempel in Kurzform (JJJJMMTThhmmss)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_XSTRING</CMPNAME>
+     <SCONAME>LAST_GIT_CHECK</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>UTC-Timestamp</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_XSTRING</CMPNAME>
+     <SCONAME>UPLOADER</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Benutzername</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPLOAD_XSTRING</CMPNAME>
+     <SCONAME>UPLOADER</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Username</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
