@@ -130,4 +130,4 @@ define view entity ZKNSF_I_ATC_FINDINGS
       fnd_v.status_new           as statusNew,
       fnd_v.status_old           as statusOld,
       fnd_v.sub_index            as subIndex
-}
+} where chm.ci_id    = 'ZKNSF_CL_API_USAGE';

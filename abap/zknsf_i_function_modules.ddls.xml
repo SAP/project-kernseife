@@ -4,6 +4,8 @@
   <asx:values>
    <DDLS>
     <DDLNAME>ZKNSF_I_FUNCTION_MODULES</DDLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DDTEXT>Kernseife: Function Modules</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

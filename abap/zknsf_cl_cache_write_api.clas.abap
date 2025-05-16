@@ -22,7 +22,7 @@ CLASS zknsf_cl_cache_write_api DEFINITION
         !source           TYPE string
         !commit_hash      TYPE string OPTIONAL
         !last_git_check   TYPE timestamp OPTIONAL
-        !uploader         TYPE uname OPTIONAL
+        !uploader         TYPE syuname OPTIONAL
       RAISING
         cx_ycm_cc_provider_error
         cx_uuid_error .
@@ -41,9 +41,9 @@ private section.
       !SOURCE type STRING
       !COMMIT_HASH type STRING optional
       !LAST_GIT_CHECK type TIMESTAMP optional
-      !UPLOADER type UNAME optional
+      !UPLOADER type SYUNAME optional
     returning
-      value(RESULT) type SYCM_API_HEADER
+      value(RESULT) type ZKNSF_API_HEADER
     raising
       CX_UUID_ERROR .
 ENDCLASS.

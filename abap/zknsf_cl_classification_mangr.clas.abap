@@ -19,7 +19,7 @@ public section.
       !FILE_TYPE type CUSTOM_FILE_TYPE
       !FILE_NAME type STRING
       !FILE_CONTENT type STRING_TABLE
-      !UPLOADER type UNAME optional
+      !UPLOADER type SYUNAME optional
     raising
       CX_YCM_CC_PROVIDER_ERROR .
 
@@ -43,7 +43,7 @@ private section.
       !SOURCE type STRING
       !COMMIT_HASH type STRING optional
       !LAST_GIT_CHECK type TIMESTAMP optional
-      !UPLOADER type UNAME optional
+      !UPLOADER type SYUNAME optional
     raising
       CX_YCM_CC_PROVIDER_ERROR .
 ENDCLASS.
