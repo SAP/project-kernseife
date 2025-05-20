@@ -4,6 +4,7 @@
 * ABAP Test Cockpit (ATC) on a system with SAP S/4HANA 2023 (or higher)
 
 * As this check is based on the "3-Tier Model" Check, it is necessary to have [SAP Note 3565942](https://me.sap.com/notes/3565942) implemented in your system.
+  The current Implementation is tested with v13 of the note. Lower versions will not work out of the box and might need some code adjustments.
 
 * Kernseife Classification JSON File
 
