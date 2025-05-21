@@ -836,8 +836,7 @@ entity Extensions : cuid, managed {
 
 @cds.persistence.journal
 entity Settings : managed {
-    key ID : String(36);
-
+    key ID    : String(36);
 }
 
 @cds.persistence.journal
@@ -852,6 +851,7 @@ entity Jobs : cuid, managed {
     @Core.ContentDisposition.Filename: fileName
     file            : LargeBinary;
     fileName        : String;
+
     @Core.IsMediaType
     fileType        : String;
 }

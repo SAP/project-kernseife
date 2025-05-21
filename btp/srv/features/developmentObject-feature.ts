@@ -446,7 +446,7 @@ export const importScoringById = async (
 ) => {
   const scoringRunImport = await SELECT.one
     .from(entities.Imports, (d) => {
-      d.ID, d.status, d.title, d.filed, d.systemId;
+      d.ID, d.status, d.title, d.file, d.systemId;
     })
     .where({ ID: scoringImportId });
   await importScoring(scoringRunImport, tx, updateProgress);
