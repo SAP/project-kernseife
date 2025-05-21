@@ -57,7 +57,8 @@ Execute Report ZKNSF_CLASSIFICATION_MANAGR
 Click on "Upload Classic API File".
 Select the Classification Json File.
 
-
+As the main purpose is to create a custom classification, we encourage you to leverage the CAP application to create a classification JSON file according to your needs. Still, we offer a [default classification file](https://github.com/SAP/project-kernseife/blob/main/defaultClassification.json).
+**Remark:** This file is purely based on the Cloudification Repository as of 2025-05-21. It is not the "best" or "right" classification, but a starting point that you can begin your Kernseife installation.
 
 ## Create Check Variant
 
