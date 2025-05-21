@@ -154,11 +154,18 @@ entity ScoringFindingsAggregated    as
             count( * )           as count           : Integer,
             count( * ) * r.score as total           : Integer,
             @Measures.Unit: '%'
-            round(
-                (
-                    100.0 / d.score
-                ) * count( * ) * r.score, 2
-            )                    as totalPercentage : Decimal(5, 2)
+            case d.score
+                when
+                    0
+                then
+                    0
+                else
+                    round(
+                        (
+                            100.0 / d.score
+                        ) * count( * ) * r.score, 2
+                    )
+            end                  as totalPercentage : Decimal(5, 2)
     }
     group by
         s.import.ID,
@@ -749,11 +756,18 @@ entity DevelopmentObjectsAggregated as
             count( * )           as count           : Integer,
             count( * ) * r.score as total           : Integer,
             @Measures.Unit: '%'
-            round(
-                (
-                    100.0 / d.score
-                ) * count( * ) * r.score, 2
-            )                    as totalPercentage : Decimal(5, 2)
+            case d.score
+                when
+                    0
+                then
+                    0
+                else
+                    round(
+                        (
+                            100.0 / d.score
+                        ) * count( * ) * r.score, 2
+                    )
+            end                  as totalPercentage : Decimal(5, 2)
     }
     group by
         s.refObjectName,
@@ -836,7 +850,7 @@ entity Extensions : cuid, managed {
 
 @cds.persistence.journal
 entity Settings : managed {
-    key ID    : String(36);
+    key ID : String(36);
 }
 
 @cds.persistence.journal

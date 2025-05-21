@@ -310,6 +310,8 @@ export const importScoring = async (
       itemIdSet.add(finding.itemId || finding.ITEMID || finding.itemID);
       return {
         // Map Attribues
+        import_ID: scoringImport.ID,
+        systemId: scoringImport.systemId,
         itemId: finding.itemId || finding.ITEMID || finding.itemID,
         objectType: finding.objectType || finding.OBJECTTYPE,
         objectName: finding.objectName || finding.OBJECTNAME,
@@ -334,6 +336,11 @@ export const importScoring = async (
   if (scoringRecordList == null || scoringRecordList.length == 0) {
     LOG.info('No Records to import');
     return;
+  }
+
+  await INSERT.into(entities.ScoringRecords).entries(scoringRecordList);
+  if (tx) {
+    await tx.commit();
   }
 
   LOG.info(`Importing Scoring Findings ${scoringRecordList.length}`);
@@ -432,7 +439,10 @@ export const importScoring = async (
         await tx.commit();
       }
     }
-    if (updateProgress) await updateProgress(progressCount);
+    if (updateProgress)
+      await updateProgress(
+        Math.round((100 / scoringRecordList.length) * progressCount)
+      );
   }
   if (upsertCount > 0) {
     LOG.info(`Upserted ${upsertCount} new DevelopmentObject(s)`);
@@ -562,7 +572,7 @@ export const importLanguageVersion = async (
   if (upsertCount > 0) {
     LOG.info(`Upserted ${upsertCount} new DevelopmentObject(s)`);
   }
-  if (updateProgress) await updateProgress(languageVersionRecordList.length);
+  if (updateProgress) await updateProgress(100);
 };
 
 export const importLanguageVersionById = async (
@@ -635,7 +645,10 @@ export const determineCleanCoreLevelAll = async (
     if (updatePromises.length > 0 && tx) {
       await tx.commit();
     }
-    if (updateProgress) await updateProgress(progressCount);
+    if (updateProgress)
+      await updateProgress(
+        Math.round((100 / developmentObjects.length) * progressCount)
+      );
 
     LOG.info(`Updated ${updatePromises.length} Development Objects`);
   }
