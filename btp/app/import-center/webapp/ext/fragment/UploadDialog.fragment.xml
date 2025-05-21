@@ -62,7 +62,7 @@
             />
             <Select
                 id="defaultRating"
-                forceSelection="true"
+                forceSelection="false"
                 autoAdjustWidth="false"
                 width="100%"
                 items="{

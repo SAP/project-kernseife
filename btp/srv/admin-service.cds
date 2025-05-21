@@ -162,6 +162,7 @@ service AdminService @(requires: 'admin') {
     action determineCleanCoreLevelAll();
 
     action loadReleaseState();
+    action exportMissingClassification();
 
     @odata.singleton
     @cds.persistence.skip
@@ -180,11 +181,6 @@ service AdminService @(requires: 'admin') {
         @Core.ContentDisposition.Filename: 'classificationCloud.json'
         @Core.ContentDisposition.Type    : 'inline'
         classificationCloud    : LargeBinary;
-
-        @(Core.MediaType                 : 'application/json')
-        @Core.ContentDisposition.Filename: 'missingClassifications.json'
-        @Core.ContentDisposition.Type    : 'inline'
-        missingClassifications : LargeBinary;
     }
 
 

@@ -147,12 +147,7 @@
               "content": {
                 "header": {
                   "actions": {
-                    "downloadMissingClassifications": {
-                      "press": "managereleasestate.extension.controller.ReleaseStateController.downloadMissingClassifications",
-                      "visible": true,
-                      "enabled": true,
-                      "text": "{i18n>downloadMissingClassifications}"
-                    }
+
                   }
                 }
               },

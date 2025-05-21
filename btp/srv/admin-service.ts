@@ -31,6 +31,8 @@ import {
 } from './features/releaseState-feature';
 import { createInitialData } from './features/setup-feature';
 import { uploadFile } from './features/upload-feature';
+import { JobResult } from './types/file';
+import papa from 'papaparse';
 
 export default (srv: Service) => {
   const LOG = log('AdminService');
@@ -138,7 +140,13 @@ export default (srv: Service) => {
     }
     const configUrl = req.data.configUrl;
     const classificationUrl = req.data.classificationUrl;
-    await createInitialData(contactPerson, prefix, customerTitle, configUrl, classificationUrl);
+    await createInitialData(
+      contactPerson,
+      prefix,
+      customerTitle,
+      configUrl,
+      classificationUrl
+    );
   });
 
   srv.on('loadReleaseState', async () => {
@@ -157,6 +165,27 @@ export default (srv: Service) => {
             await updateProgress(25 + (progress / classificationsCount) * 75)
         );
         await updateProgress(100);
+      }
+    );
+  });
+
+  srv.on('exportMissingClassification', async () => {
+    LOG.info('exportMissingClassification');
+    await runAsJob(
+      'Export Missing Classifications',
+      'EXPORT_MISSING_CLASSIFICATION',
+      100,
+      async (tx, updateProgress) => {
+        const missingClassification = await getMissingClassifications();
+        await updateProgress(75);
+        const file = papa.unparse(missingClassification);
+        await updateProgress(100);
+        // Write to file
+        return {
+          file: Buffer.from(file, 'utf8'),
+          fileName: 'missing_classification.csv',
+          fileType: 'application/csv'
+        } as JobResult;
       }
     );
   });
@@ -257,20 +286,20 @@ export default (srv: Service) => {
     switch (downloadType) {
       case 'classificationStandard':
         content = await getClassificationJsonStandard();
+        content = JSON.stringify(content);
         break;
       case 'classificationCustom':
         content = await getClassificationJsonCustom();
+        content = JSON.stringify(content);
         break;
       case 'classificationCloud':
         content = await getClassificationJsonCloud();
-        break;
-      case 'missingClassifications':
-        content = await getMissingClassifications();
+        content = JSON.stringify(content);
         break;
       default:
         return req.error(400, `Download Type ${downloadType} not found`);
     }
-    req.reply(Readable.from([JSON.stringify(content)]), { mimetype, filename });
+    req.reply(Readable.from([content]), { mimetype, filename });
   });
 
   srv.on(

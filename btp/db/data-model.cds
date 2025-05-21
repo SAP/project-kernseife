@@ -379,8 +379,8 @@ entity Classifications : managed {
         @readonly
         totalScore                  : Integer;
         developmentObjectList       : Association to many DevelopmentObjectsAggregated
-                                          on  developmentObjectList.refObjectType           = $self.objectType
-                                          and developmentObjectList.refObjectName           = $self.objectName;
+                                          on  developmentObjectList.refObjectType = $self.objectType
+                                          and developmentObjectList.refObjectName = $self.objectName;
 
 }
 
@@ -479,27 +479,27 @@ entity Imports : cuid, managed {
 
 @cds.persistence.journal
 entity ScoringRecords {
-    key import                  : Association to Imports;
-    key itemId                  : String;
-        objectType              : String;
-        objectName              : String;
-        refObjectType           : String;
-        refObjectName           : String;
-        devClass                : String;
-        systemId                : String;
-        releaseState            : Association to ReleaseStates
-                                      on  releaseState.objectType           = $self.refObjectType
-                                      and releaseState.objectName           = $self.refObjectName;
-        developmentObject       : Association to DevelopmentObjects
-                                      on  developmentObject.objectType = $self.objectType
-                                      and developmentObject.objectName = $self.objectName
-                                      and developmentObject.devClass   = $self.devClass;
-        classification          : Association to Classifications
-                                      on  classification.objectType           = $self.refObjectType
-                                      and classification.objectName           = $self.refObjectName ;
-        rating                  : Association to Ratings
-                                      on rating.code = $self.rating_code;
-        rating_code             : String;
+    key import            : Association to Imports;
+    key itemId            : String;
+        objectType        : String;
+        objectName        : String;
+        refObjectType     : String;
+        refObjectName     : String;
+        devClass          : String;
+        systemId          : String;
+        releaseState      : Association to ReleaseStates
+                                on  releaseState.objectType = $self.refObjectType
+                                and releaseState.objectName = $self.refObjectName;
+        developmentObject : Association to DevelopmentObjects
+                                on  developmentObject.objectType = $self.objectType
+                                and developmentObject.objectName = $self.objectName
+                                and developmentObject.devClass   = $self.devClass;
+        classification    : Association to Classifications
+                                on  classification.objectType = $self.refObjectType
+                                and classification.objectName = $self.refObjectName;
+        rating            : Association to Ratings
+                                on rating.code = $self.rating_code;
+        rating_code       : String;
 }
 
 @cds.persistence.journal
@@ -836,8 +836,8 @@ entity Extensions : cuid, managed {
 
 @cds.persistence.journal
 entity Settings : managed {
-    key ID             : String(36);
-        
+    key ID : String(36);
+
 }
 
 @cds.persistence.journal
@@ -847,6 +847,13 @@ entity Jobs : cuid, managed {
     type            : String;
     progressCurrent : Integer;
     progressTotal   : Integer;
+
+    @Core.MediaType                  : fileType
+    @Core.ContentDisposition.Filename: fileName
+    file            : LargeBinary;
+    fileName        : String;
+    @Core.IsMediaType
+    fileType        : String;
 }
 
 @assert.range
@@ -861,6 +868,7 @@ type JobStatus : String enum {
 type JobType   : String enum {
     IMPORT_SCORING = 'IMPORT_SCORING';
     IMPORT_MISSING_CLASSIFICATION = 'IMPORT_MISSING_CLASSIFICATION';
+    EXPORT_MISSING_CLASSIFICATION = 'EXPORT_MISSING_CLASSIFICATION';
     IMPORT_CLOUD_CLASSIFICATION = 'IMPORT_CLOUD_CLASSIFICATION';
     IMPORT_RELEASE_STATE = 'IMPORT_RELEASE_STATE';
 }

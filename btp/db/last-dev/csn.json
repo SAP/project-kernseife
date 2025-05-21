@@ -2930,6 +2930,20 @@
         "progressTotal": {
           "type": "cds.Integer",
           "@cds.persistence.name": "PROGRESSTOTAL"
+        },
+        "file": {
+          "type": "cds.LargeBinary",
+          "@cds.persistence.name": "FILE"
+        },
+        "fileName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "FILENAME"
+        },
+        "fileType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "FILETYPE"
         }
       },
       "@cds.persistence.name": "KERNSEIFE_DB_JOBS"

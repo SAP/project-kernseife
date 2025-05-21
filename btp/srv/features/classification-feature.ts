@@ -7,7 +7,6 @@ import {
   ClassificationImport,
   ClassificationKey
 } from '../types/classification';
-import e from 'express';
 
 const LOG = log('ClassificationFeature');
 
@@ -223,11 +222,11 @@ const getDefaultRatingCode = (classification: Classification) => {
     case 'DEPRECATED':
       return determineRatingPrefix(classification, '9');
     case 'CLASSIC':
+    case 'STABLE':
       return determineRatingPrefix(classification, '1');
     case 'INTERNAL':
-      return determineRatingPrefix(classification, '5');
     case 'NOT_TO_BE_RELEASED':
-    case 'STABLE':
+      return determineRatingPrefix(classification, '5');
     case 'NO_API':
       return determineRatingPrefix(classification, '9');
     default:

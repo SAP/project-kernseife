@@ -59,9 +59,9 @@ annotate service.inInitialData with {
     prefix            @Common.Label: '{i18n>prefix}';
     contactPerson     @Common.Label: '{i18n>contactPerson}';
     customerTitle     @Common.Label: '{i18n>customerTitle}';
-    @assert.format: '[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.json)'
+    @assert.format: '^$|([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.json))'
     configUrl         @Common.Label: '{i18n>configUrl}';
-    @assert.format: '[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.csv)'
+    @assert.format: '^$|([(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.csv))'
     classificationUrl @Common.Label: '{i18n>classificationUrl}';
 }
 

@@ -1,7 +1,6 @@
 import { Customers, Ratings, Frameworks } from '#cds-models/kernseife/db';
 import { entities, log, tx } from '@sap/cds';
 import axios from 'axios';
-import { getActiveSettings } from './settings-feature';
 import { importInitialClassification } from './classification-feature';
 import { loadReleaseState } from './releaseState-feature';
 
@@ -54,7 +53,7 @@ export const createInitialData = async (
     );
     if (
       frameworkCount[0]['count'] === 0 &&
-      configData.frameworkList.length > 0
+      configData.frameworkList && configData.frameworkList.length > 0
     ) {
       await INSERT.into(entities.Frameworks).entries(configData.frameworkList);
     }

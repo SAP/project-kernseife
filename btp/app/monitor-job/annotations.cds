@@ -63,6 +63,12 @@ annotate service.Jobs with @(
             Value            : createdBy,
             ![@UI.Importance]: #Low,
         },
+          {
+            $Type            : 'UI.DataField',
+            Value            : file,
+            ![@UI.Importance]: #Medium,
+            ![@HTML5.CssDefaults]: {width: '8rem'},
+        },
     ],
     UI.DataPoint #progressCurrent         : {
         Value        : progressCurrent,
@@ -91,5 +97,6 @@ annotate service.Jobs with @(
 );
 
 annotate service.Jobs with {
-    type @Common.Label: '{i18n>type}'
+    type @Common.Label: '{i18n>type}';
+    file @Common.Label: '{i18n>file}';
 };

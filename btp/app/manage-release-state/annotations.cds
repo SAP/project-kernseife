@@ -101,6 +101,11 @@ annotate service.ReleaseStates with @(
             Action: 'AdminService.EntityContainer/loadReleaseState',
             Label : '{i18n>loadReleaseState}',
         },
+         {
+            $Type : 'UI.DataFieldForAction',
+            Action: 'AdminService.EntityContainer/exportMissingClassification',
+            Label : '{i18n>exportMissingClassification}',
+        },
 
     ],
     UI.SelectionPresentationVariant #table: {
