@@ -81,21 +81,6 @@
    </TPOOL>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
-     <CMPNAME>ATTRIBUTE_UTILS</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Processes and checks attributes</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>CHECKED_SYS_RELEASE_PROVIDER</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Data provider for released apis</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>CLASSIC_PROVIDER</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Data provider for classic apis</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Constructror</DESCRIPT>
@@ -111,16 +96,6 @@
      <DESCRIPT>Report Language Version</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
-     <CMPNAME>NON_SOURCE_PROCESSOR</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Fetches and processes non-source based usages</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>RELEASE_PROVIDER</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Data provider for released apis</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
      <CMPNAME>SW_COMPONENT_LIST</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Software Component</DESCRIPT>
@@ -129,11 +104,6 @@
      <CMPNAME>TRACK_LANGUAGE_VERSION_ATTR</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Truth Value: True/False</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>USAGE_PREPROCESSOR</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Pre-processor for usages</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
   </asx:values>
