@@ -9,12 +9,8 @@
   "checkType": "remoteEnabled",
   "parameters": [
     {
-      "name": "releasedAPIDataSource",
-      "description": "Released API Data Source"
-    },
-    {
-      "name": "classicAPIDataSource",
-      "description": "Classic API Data Source"
+      "name": "trackLanguageVersion",
+      "description": "Track Language Version"
     }
   ]
 }
