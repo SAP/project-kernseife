@@ -61,18 +61,11 @@ protected section.
     redefinition .
   methods EVALUATE_TABL_MESSAGE_CODE
     redefinition .
-  PRIVATE SECTION.
+private section.
 
-    CLASS-DATA attribute_utils TYPE REF TO if_ycm_cc_attribute_utils .
-    CLASS-DATA checked_sys_release_provider TYPE REF TO if_ycm_cc_provider_release_api .
-    CLASS-DATA release_provider TYPE REF TO if_ycm_cc_provider_release_api .
-    CLASS-DATA classic_provider TYPE REF TO if_ycm_cc_provider_classic_api .
-    CLASS-DATA usage_preprocessor TYPE REF TO if_ycm_cc_usage_preprocessor .
-    CLASS-DATA non_source_processor TYPE REF TO if_ycm_cc_non_source_processor .
-
-    DATA:
-      sw_component_list TYPE SORTED TABLE OF dlvunit WITH UNIQUE DEFAULT KEY .
-    DATA track_language_version_attr TYPE abap_boolean .
+  data:
+    sw_component_list TYPE SORTED TABLE OF dlvunit WITH UNIQUE DEFAULT KEY .
+  data TRACK_LANGUAGE_VERSION_ATTR type ABAP_BOOLEAN .
 ENDCLASS.
 
 
@@ -325,8 +318,8 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
     DATA code TYPE sci_errc.
 
     " Report Source Code the Same...
-    IF language_version = if_abap_language_version=>gc_version-standard_source_code.
-      code = if_abap_language_version=>gc_version-standard.
+    IF language_version = if_abap_language_version=>gc_version-standard.
+      code = if_abap_language_version=>gc_version-standard_source_code.
     ELSE.
       code = language_version.
     ENDIF.
@@ -369,24 +362,28 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
         RETURN custom_message_codes-db_tables_update.
       WHEN OTHERS.
         " This could mean this is used as a Type definition
+        TRY.
+            " Read Classification (as standard doesn't pass it into this method..
+            DATA(usages) = VALUE if_ycm_cc_usage_preprocessor=>ty_usages( ( trobjtype = used_api-trobjtype sobj_name = used_api-sobj_name object_type = used_api-object_type sub_key = used_api-sub_key ) ).
+            DATA(classic_provider) = NEW zknsf_cl_provider_with_cache( ).
+            DATA(classic_info) = classic_provider->if_ycm_cc_provider_classic_api~get_classifications( usages ).
+            DATA(classic_status) = VALUE #( classic_info[ object_type = used_api-object_type
+                                                          object_key  = used_api-sub_key ] OPTIONAL ).
 
-        " Read Classification (as standard doesn't pass it into this method..
-        DATA(usages) = VALUE if_ycm_cc_usage_preprocessor=>ty_usages( ( trobjtype = used_api-trobjtype sobj_name = used_api-sobj_name object_type = used_api-object_type sub_key = used_api-sub_key ) ).
-        DATA(classic_info) = classic_provider->get_classifications( usages ).
-        DATA(classic_status) = VALUE #( classic_info[ object_type = used_api-object_type
-                                                      object_key  = used_api-sub_key ] OPTIONAL ).
-
-        IF classic_status IS NOT INITIAL.
-          IF classic_status-state = custom_message_codes-db_tables_generic.
-            RETURN custom_message_codes-db_tables_as_type.
-          ELSE.
-            " Structures => Just report the normal rating
-            RETURN classic_status-state.
-          ENDIF.
-        ELSE.
-          " No Classification
-          RETURN custom_message_codes-no_class.
-        ENDIF.
+            IF classic_status IS NOT INITIAL.
+              IF classic_status-state = custom_message_codes-db_tables_generic.
+                RETURN custom_message_codes-db_tables_as_type.
+              ELSE.
+                " Structures => Just report the normal rating
+                RETURN classic_status-state.
+              ENDIF.
+            ELSE.
+              " No Classification
+              RETURN custom_message_codes-no_class.
+            ENDIF.
+          CATCH cx_ycm_cc_provider_error.
+            RETURN custom_message_codes-no_class.
+        ENDTRY.
     ENDCASE.
   ENDMETHOD.
 
