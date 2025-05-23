@@ -208,16 +208,6 @@ annotate service.Classifications with @(UI.LineItem: [
         Label : '{i18n>assignSuccessor}',
 
     },
-// {
-//     $Type : 'UI.DataFieldForAction',
-//     Action: 'AdminService.cleanupClassification',
-//     Label : '{i18n>cleanupClassification}',
-// },
-// {
-//     $Type : 'UI.DataFieldForAction',
-//     Action: 'AdminService.EntityContainer/cleanupClassificationAll',
-//     Label : '{i18n>cleanupClassificationAll}',
-// }
 ]);
 
 annotate service.Classifications with @(UI.Facets: [

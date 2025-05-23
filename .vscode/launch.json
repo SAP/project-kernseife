@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "command": "cds serve --with-mocks --in-memory?",
+      "cwd": "${workspaceFolder}/btp",
+      "name": "cds serve",
+      "request": "launch",
+      "type": "node-terminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "command": "cds watch --with-mocks --in-memory?",
+      "cwd": "${workspaceFolder}/btp",
+      "name": "cds watch",
+      "request": "launch",
+      "type": "node-terminal",
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}

@@ -240,10 +240,11 @@ const calculateCleanCoreScores = async () => {
 };
 
 export const calculateNamespaces = async () => {
-  await db.run(
-    "UPDATE kernseife_db_DEVELOPMENTOBJECTS SET NAMESPACE = CASE SUBSTRING(OBJECTNAME,1,1) WHEN 'Z' THEN 'Z' WHEN 'Y' THEN 'Y' WHEN '/' THEN SUBSTR_REGEXPR('(^/.*/).+$' IN OBJECTNAME GROUP 1) ELSE ''  END"
-  );
-  LOG.info('Namespace Mass Determination done');
+  if (db.kind != 'sqlite') {
+    await db.run(
+      "UPDATE kernseife_db_DEVELOPMENTOBJECTS SET NAMESPACE = CASE SUBSTRING(OBJECTNAME,1,1) WHEN 'Z' THEN 'Z' WHEN 'Y' THEN 'Y' WHEN '/' THEN SUBSTR_REGEXPR('(^/.*/).+$' IN OBJECTNAME GROUP 1) ELSE ''  END"
+    );
+  }
 };
 
 export const calculateScores = async () => {
@@ -274,9 +275,11 @@ export const calculateScores = async () => {
 
   // Calculate Name spaces
   await calculateNamespaces();
+  // Calculate Reference Count
+  await db.run(
+    'UPDATE kernseife_db_CLASSIFICATIONS as c SET referenceCount =  IFNULL((SELECT COUNT(*) FROM kernseife_db_DevelopmentObjectsAggregated as d WHERE d.refObjectType = c.objectType AND d.refObjectName = c.objectName),0)'
+  );
 };
-
-
 
 const calculateScore = async (developmentObject: DevelopmentObject) => {
   const result = await SELECT.from(entities.ScoringRecords)
