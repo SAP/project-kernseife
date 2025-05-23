@@ -82,26 +82,11 @@ annotate service.DevelopmentObjects with @(UI.LineItem: [
         Label: '{i18n>cleanCoreLevel}',
         Value: cleanCoreLevel.title,
     },
-    // {
-    //     $Type : 'UI.DataFieldForAction',
-    //     Action: 'AdminService.EntityContainer/determineCleanCoreLevelAll',
-    //     Label : '{i18n>determineCleanCoreLevelAll}',
-    // },
-    // {
-    //     $Type : 'UI.DataFieldForAction',
-    //     Action: 'AdminService.EntityContainer/calculateScoreAll',
-    //     Label : '{i18n>calculateScoreAll}',
-    //},
-    // {
-    //     $Type : 'UI.DataFieldForAction',
-    //     Action: 'AdminService.EntityContainer/determineNamespaceAll',
-    //     Label : '{i18n>determineNamespace}',
-    // },
-    // {
-    //     $Type : 'UI.DataFieldForAction',
-    //     Action: 'AdminService.calculateScore',
-    //     Label : '{i18n>calculateScore}',
-    // }
+     {
+        $Type : 'UI.DataFieldForAction',
+         Action: 'AdminService.EntityContainer/recalculateAllScores',
+        Label : '{i18n>recalculateAllScores}',
+    },
 ]);
 
 annotate service.DevelopmentObjects with @(

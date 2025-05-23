@@ -12,8 +12,7 @@ import {
   importMissingClassificationsById
 } from './features/classification-feature';
 import {
-  calculateCleanCoreScoreAll,
-  calculateScoreAll,
+  calculateScores,
   calculateScoreByRef,
   importLanguageVersionById,
   importScoringById
@@ -251,14 +250,13 @@ export default (srv: Service) => {
     );
   });
 
-  srv.on('calculateScore', async (req) => {
+  srv.on('recalculateScore', async (req) => {
     LOG.debug('Calculate Score');
     return await calculateScoreByRef(req.subject);
   });
 
-  srv.on('calculateScoreAll', async () => {
-    await calculateScoreAll();
-    await calculateCleanCoreScoreAll();
+  srv.on('recalculateAllScores', async () => {
+    await calculateScores();
   });
 
   srv.before(

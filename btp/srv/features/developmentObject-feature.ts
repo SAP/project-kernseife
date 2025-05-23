@@ -220,18 +220,48 @@ export const calculateScoreByRef = async (ref) => {
   return developmentObject;
 };
 
-export const calculateScoreAll = async () => {
+const calculateCleanCoreScores = async () => {
+  await db.run(
+    'UPDATE kernseife_db_DEVELOPMENTOBJECTS as d SET cleanCoreScore = (' +
+      'SELECT IFNULL(avg(rl.score),0) AS avgScore ' +
+      'FROM kernseife_db_SCORINGRECORDS as f ' +
+      'INNER JOIN kernseife_db_Classifications as c ON c.objectType = f.refObjectType AND c.objectName = f.refObjectName ' +
+      'INNER JOIN kernseife_db_ReleaseLevel as rl ON rl.code = c.releaseLevel_code ' +
+      'WHERE f.objectType = d.objectType AND f.objectName = d.objectName AND f.devClass = d.devClass AND f.systemId = d.systemId AND d.latestScoringImportId = f.import_ID ' +
+      'GROUP BY f.import_ID, f.objectType, f.objectName, f.devClass, f.systemId)'
+  );
+
+  // Set Score to 0 in case there are no findings
+  await db.run(
+    "UPDATE kernseife_db_DEVELOPMENTOBJECTS as d SET cleanCoreScore = 0 WHERE cleanCoreScore IS NULL AND latestScoringImportId IS NOT NULL AND latestScoringImportId != ''"
+  );
+
+  LOG.info('Score Mass Clean Core Calculation done');
+};
+
+export const calculateNamespaces = async () => {
+  await db.run(
+    "UPDATE kernseife_db_DEVELOPMENTOBJECTS SET NAMESPACE = CASE SUBSTRING(OBJECTNAME,1,1) WHEN 'Z' THEN 'Z' WHEN 'Y' THEN 'Y' WHEN '/' THEN SUBSTR_REGEXPR('(^/.*/).+$' IN OBJECTNAME GROUP 1) ELSE ''  END"
+  );
+  LOG.info('Namespace Mass Determination done');
+};
+
+export const calculateScores = async () => {
+  // we could put all 3 operations into once Statement, but this is easier to debug
+
+  // First update Scoring Records with latest classification ratings in case those changed
   await db.run(
     'UPDATE kernseife_db_SCORINGRECORDS as s SET rating_code = (SELECT c.rating_code FROM kernseife_db_CLASSIFICATIONS as c WHERE c.objectType = s.refObjectType AND c.objectName = s.refObjectName)'
   );
 
+  // Calculate Score for all Development Objects
   await db.run(
-    'UPDATE kernseife_db_DEVELOPMENTOBJECTS as d SET score = (' +
+    'UPDATE kernseife_db_DEVELOPMENTOBJECTS as d SET score = IFNULL((' +
       'SELECT IFNULL(sum(r.score),0) AS sum_score ' +
       'FROM kernseife_db_SCORINGRECORDS as f ' +
       'INNER JOIN kernseife_db_RATINGS as r ON r.code = f.rating_code ' +
       'WHERE f.objectType = d.objectType AND f.objectName = d.objectName AND f.devClass = d.devClass AND f.systemId = d.systemId AND d.latestScoringImportId = f.import_ID ' +
-      'GROUP BY f.import_ID, f.objectType, f.objectName, f.devClass, f.systemId)'
+      'GROUP BY f.import_ID, f.objectType, f.objectName, f.devClass, f.systemId),0)'
   );
 
   // Set Score to 0 in case there are no findings
@@ -239,15 +269,14 @@ export const calculateScoreAll = async () => {
     "UPDATE kernseife_db_DEVELOPMENTOBJECTS as d SET score = 0 WHERE score IS NULL AND latestScoringImportId IS NOT NULL AND latestScoringImportId != ''"
   );
 
-  LOG.info('Score Mass Calculation done');
+  // Calculate Clean Core Score
+  await calculateCleanCoreScores();
+
+  // Calculate Name spaces
+  await calculateNamespaces();
 };
 
-export const determineNamespaceAll = async () => {
-  await db.run(
-    "UPDATE kernseife_db_DEVELOPMENTOBJECTS SET NAMESPACE = CASE SUBSTRING(OBJECTNAME,1,1) WHEN 'Z' THEN 'Z' WHEN 'Y' THEN 'Y' WHEN '/' THEN SUBSTR_REGEXPR('(^/.*/).+$' IN OBJECTNAME GROUP 1) ELSE ''  END"
-  );
-  LOG.info('Namespace Mass Determination done');
-};
+
 
 const calculateScore = async (developmentObject: DevelopmentObject) => {
   const result = await SELECT.from(entities.ScoringRecords)
@@ -586,25 +615,6 @@ export const importLanguageVersionById = async (
     })
     .where({ ID: languageVersionImportId });
   await importLanguageVersion(languageVersionImport, tx, updateProgress);
-};
-
-export const calculateCleanCoreScoreAll = async () => {
-  await db.run(
-    'UPDATE kernseife_db_DEVELOPMENTOBJECTS as d SET cleanCoreScore = (' +
-      'SELECT IFNULL(avg(rl.score),0) AS avgScore ' +
-      'FROM kernseife_db_SCORINGRECORDS as f ' +
-      'INNER JOIN kernseife_db_Classifications as c ON c.objectType = f.refObjectType AND c.objectName = f.refObjectName ' +
-      'INNER JOIN kernseife_db_ReleaseLevel as rl ON rl.code = c.releaseLevel_code ' +
-      'WHERE f.objectType = d.objectType AND f.objectName = d.objectName AND f.devClass = d.devClass AND f.systemId = d.systemId AND d.latestScoringImportId = f.import_ID ' +
-      'GROUP BY f.import_ID, f.objectType, f.objectName, f.devClass, f.systemId)'
-  );
-
-  // Set Score to 0 in case there are no findings
-  await db.run(
-    "UPDATE kernseife_db_DEVELOPMENTOBJECTS as d SET cleanCoreScore = 0 WHERE cleanCoreScore IS NULL AND latestScoringImportId IS NOT NULL AND latestScoringImportId != ''"
-  );
-
-  LOG.info('Score Mass Clean Core Calculation done');
 };
 
 export const determineCleanCoreLevelAll = async (

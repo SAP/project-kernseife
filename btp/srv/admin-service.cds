@@ -24,9 +24,7 @@ service AdminService @(requires: 'admin') {
                 '/AdminService.EntityContainer/DevelopmentObjects/findingListAggregated',
                 'in/cleanCoreLevel',
             ], })
-            action calculateScore() returns DevelopmentObjects;
-
-            action removeFromExtension();
+            action recalculateScore() returns DevelopmentObjects;
         }
 
     entity Imports                       as projection on db.Imports;
@@ -151,15 +149,7 @@ service AdminService @(requires: 'admin') {
     // Actions
     @Common.IsActionCritical: true
     @(Common.SideEffects: {TargetEntities: ['/AdminService.EntityContainer/DevelopmentObjects'], })
-    action calculateScoreAll();
-
-    @Common.IsActionCritical: true
-    @(Common.SideEffects: {TargetEntities: ['/AdminService.EntityContainer/DevelopmentObjects'], })
-    action determineNamespaceAll();
-
-    @Common.IsActionCritical: true
-    @(Common.SideEffects: {TargetEntities: ['/AdminService.EntityContainer/DevelopmentObjects'], })
-    action determineCleanCoreLevelAll();
+    action recalculateAllScores();
 
     action loadReleaseState();
     action exportMissingClassification();
