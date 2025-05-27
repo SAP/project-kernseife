@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_TRANSPORTATIONZONEVH",
+  "objectType": "CDS_STOB",
+  "objectName": "I_TRANSPORTATIONZONEVH",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ADR",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "BAPI_WFMRESOURCE",
+  "objectType": "FUNC",
+  "objectName": "BAPI_WFRES_CHANGEAVAILMULTI",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BW",
+  "applicationComponent": "CA",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

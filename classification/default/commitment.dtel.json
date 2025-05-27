@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "COMMITMENT",
+  "objectType": "DTEL",
+  "objectName": "COMMITMENT",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-SRV",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

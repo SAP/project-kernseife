@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "FCLM_REVISION",
+  "objectType": "DTEL",
+  "objectName": "FCLM_REVISION",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FIN-FSCM-CLM-BAM",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DSFI",
+  "tadirObjectName": "HRY_NODE_SIGN_VALUE_ANA",
+  "objectType": "DSFI",
+  "objectName": "HRY_NODE_SIGN_VALUE_ANA",
+  "subType": "DSFI",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

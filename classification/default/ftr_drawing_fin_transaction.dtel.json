@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "FTR_DRAWING_FIN_TRANSACTION",
+  "objectType": "DTEL",
+  "objectName": "FTR_DRAWING_FIN_TRANSACTION",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FIN-FSCM-TRM",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

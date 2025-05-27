@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "/BOBF/CX_FRW",
+  "objectType": "CLAS",
+  "objectName": "/BOBF/CX_FRW",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-ESI-BOF",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

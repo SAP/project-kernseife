@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "DPR_TS_IAOM_ACCOUNT_ASSIGNMENT",
+  "objectType": "TABL",
+  "objectName": "DPR_TS_IAOM_ACCOUNT_ASSIGNMENT",
+  "subType": "INTTAB",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PPM-PRO-EXT-FIN",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

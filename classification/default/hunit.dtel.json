@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "HUNIT",
+  "objectType": "DTEL",
+  "objectName": "HUNIT",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PM-PRM-TL",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

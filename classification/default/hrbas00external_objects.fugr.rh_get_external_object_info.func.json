@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "HRBAS00EXTERNAL_OBJECTS",
+  "objectType": "FUNC",
+  "objectName": "RH_GET_EXTERNAL_OBJECT_INFO",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-BMT-OM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

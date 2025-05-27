@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "FLAG",
+  "objectType": "DTEL",
+  "objectName": "FLAG",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-TOO",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DTEL",
+      "tadirObjectName": "ABAP_BOOLEAN",
+      "objectType": "DTEL",
+      "objectName": "ABAP_BOOLEAN",
+      "successorType": "STANDARD"
+    }
+  ]
+}

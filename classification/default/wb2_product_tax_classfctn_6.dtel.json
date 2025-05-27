@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "WB2_PRODUCT_TAX_CLASSFCTN_6",
+  "objectType": "DTEL",
+  "objectName": "WB2_PRODUCT_TAX_CLASSFCTN_6",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-GT-TC",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

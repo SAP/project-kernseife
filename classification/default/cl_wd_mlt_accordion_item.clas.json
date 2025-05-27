@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_WD_MLT_ACCORDION_ITEM",
+  "objectType": "CLAS",
+  "objectName": "CL_WD_MLT_ACCORDION_ITEM",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_UI",
+  "applicationComponent": "BC-WD-ABA",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

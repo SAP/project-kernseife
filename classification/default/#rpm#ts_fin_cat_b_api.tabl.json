@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "/RPM/TS_FIN_CAT_B_API",
+  "objectType": "TABL",
+  "objectName": "/RPM/TS_FIN_CAT_B_API",
+  "subType": "INTTAB",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PPM-PFM",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

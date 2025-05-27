@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "SUSO",
+  "tadirObjectName": "M_MRES_WWA",
+  "objectType": "SUSO",
+  "objectName": "M_MRES_WWA",
+  "subType": "SUSO",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IM",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

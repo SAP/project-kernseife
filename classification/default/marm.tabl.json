@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "MARM",
+  "objectType": "TABL",
+  "objectName": "MARM",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-MM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 3,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTUNITSOFMEASURE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTUNITSOFMEASURE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

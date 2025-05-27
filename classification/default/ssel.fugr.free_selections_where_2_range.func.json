@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SSEL",
+  "objectType": "FUNC",
+  "objectName": "FREE_SELECTIONS_WHERE_2_RANGE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-ABA-LA",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_ABAP_RANGE",
+      "objectType": "CLAS",
+      "objectName": "CL_ABAP_RANGE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

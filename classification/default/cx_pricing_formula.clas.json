@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CX_PRICING_FORMULA",
+  "objectType": "CLAS",
+  "objectName": "CX_PRICING_FORMULA",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BF-PR",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

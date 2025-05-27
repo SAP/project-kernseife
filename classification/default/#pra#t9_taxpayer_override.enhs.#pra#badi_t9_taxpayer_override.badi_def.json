@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "/PRA/T9_TAXPAYER_OVERRIDE",
+  "objectType": "BADI_DEF",
+  "objectName": "/PRA/BADI_T9_TAXPAYER_OVERRIDE",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CEXT",
+  "applicationComponent": "IS-OIL-PRA",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

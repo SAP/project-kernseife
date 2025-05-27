@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "/SCWM/IF_EX4_CORE_RMS_QUANTITY",
+  "objectType": "INTF",
+  "objectName": "/SCWM/IF_EX4_CORE_RMS_QUANTITY",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SCM-EWM-WOP",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

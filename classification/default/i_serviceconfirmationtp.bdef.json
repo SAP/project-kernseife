@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "BDEF",
+  "tadirObjectName": "I_SERVICECONFIRMATIONTP",
+  "objectType": "BDEF",
+  "objectName": "I_SERVICECONFIRMATIONTP",
+  "subType": "BDEF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CEXT",
+  "applicationComponent": "CRM-S4-SRV-SCO",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

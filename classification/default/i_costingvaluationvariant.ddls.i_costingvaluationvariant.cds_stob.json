@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_COSTINGVALUATIONVARIANT",
+  "objectType": "CDS_STOB",
+  "objectName": "I_COSTINGVALUATIONVARIANT",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CO-PC-PCP",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

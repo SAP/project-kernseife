@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_CNSLDTNDIVISION",
+  "objectType": "CDS_STOB",
+  "objectName": "I_CNSLDTNDIVISION",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FIN-CS-MD",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

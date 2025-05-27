@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "IWSV",
+  "tadirObjectName": "FAP_MANUAL_CLEARING_SRV            0001",
+  "objectType": "IWSV",
+  "objectName": "FAP_MANUAL_CLEARING_SRV            0001",
+  "subType": "IWSV",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-FIO-GL",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

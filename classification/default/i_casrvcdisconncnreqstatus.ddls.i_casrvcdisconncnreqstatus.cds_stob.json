@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_CASRVCDISCONNCNREQSTATUS",
+  "objectType": "CDS_STOB",
+  "objectName": "I_CASRVCDISCONNCNREQSTATUS",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-CA",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

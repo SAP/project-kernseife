@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "EDOC_CH_DUNNING_LEVEL",
+  "objectType": "DTEL",
+  "objectName": "EDOC_CH_DUNNING_LEVEL",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CA-GTF-CSC-EDO-CH",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

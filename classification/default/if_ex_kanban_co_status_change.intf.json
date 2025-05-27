@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_EX_KANBAN_CO_STATUS_CHANGE",
+  "objectType": "INTF",
+  "objectName": "IF_EX_KANBAN_CO_STATUS_CHANGE",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-KAB",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

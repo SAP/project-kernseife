@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_APB_LPD_SHARED_MEMORY",
+  "objectType": "INTF",
+  "objectName": "IF_APB_LPD_SHARED_MEMORY",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_UI",
+  "applicationComponent": "BC-MUS-LP",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

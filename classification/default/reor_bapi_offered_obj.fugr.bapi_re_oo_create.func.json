@@ -1,0 +1,20 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "REOR_BAPI_OFFERED_OBJ",
+  "objectType": "FUNC",
+  "objectName": "BAPI_RE_OO_CREATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "RE-FX-OR",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled",
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

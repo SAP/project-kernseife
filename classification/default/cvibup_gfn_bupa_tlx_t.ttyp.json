@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TTYP",
+  "tadirObjectName": "CVIBUP_GFN_BUPA_TLX_T",
+  "objectType": "TTYP",
+  "objectName": "CVIBUP_GFN_BUPA_TLX_T",
+  "subType": "TTYP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CA-FS-CVI",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

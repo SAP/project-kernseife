@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_MAINTORDERSTATUSQUERY",
+  "objectType": "CDS_STOB",
+  "objectName": "I_MAINTORDERSTATUSQUERY",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAPPCORE_H",
+  "applicationComponent": "PM",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

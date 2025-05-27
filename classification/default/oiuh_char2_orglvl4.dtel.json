@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "OIUH_CHAR2_ORGLVL4",
+  "objectType": "DTEL",
+  "objectName": "OIUH_CHAR2_ORGLVL4",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CEXT",
+  "applicationComponent": "IS-OIL-PRA-PRD",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

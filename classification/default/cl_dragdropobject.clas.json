@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_DRAGDROPOBJECT",
+  "objectType": "CLAS",
+  "objectName": "CL_DRAGDROPOBJECT",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-FES-GUI",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

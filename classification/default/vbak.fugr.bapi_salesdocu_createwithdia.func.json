@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "VBAK",
+  "objectType": "FUNC",
+  "objectName": "BAPI_SALESDOCU_CREATEWITHDIA",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-SLS",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

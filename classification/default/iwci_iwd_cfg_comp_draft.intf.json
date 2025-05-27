@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IWCI_IWD_CFG_COMP_DRAFT",
+  "objectType": "INTF",
+  "objectName": "IWCI_IWD_CFG_COMP_DRAFT",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_UI",
+  "applicationComponent": "BC-WD-ABA",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

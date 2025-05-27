@@ -1,0 +1,20 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "FMCA_PSOB_BOR2",
+  "objectType": "FUNC",
+  "objectName": "BAPI_CTRACPSOBJACC_DISPLAY",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "IS-PS-CA",
+  "applicationComponent": "IS-PS-CA",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled",
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

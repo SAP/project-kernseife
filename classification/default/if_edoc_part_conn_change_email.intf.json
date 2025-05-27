@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_EDOC_PART_CONN_CHANGE_EMAIL",
+  "objectType": "INTF",
+  "objectName": "IF_EDOC_PART_CONN_CHANGE_EMAIL",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CA-GTF-CSC-EDO",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

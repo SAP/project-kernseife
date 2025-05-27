@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_MMPUR_PROC_WF_CONTEXT_ENH",
+  "objectType": "INTF",
+  "objectName": "IF_MMPUR_PROC_WF_CONTEXT_ENH",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-GF-REL",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

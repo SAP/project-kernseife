@@ -1,0 +1,32 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "VEKP",
+  "objectType": "TABL",
+  "objectName": "VEKP",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-HU-BF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_HANDLINGUNITTP",
+      "objectType": "CDS_STOB",
+      "objectName": "I_HANDLINGUNITTP",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_HANDLINGUNITHEADER",
+      "objectType": "CDS_STOB",
+      "objectName": "I_HANDLINGUNITHEADER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

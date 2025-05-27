@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "MSLBH",
+  "objectType": "TABL",
+  "objectName": "MSLBH",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IM-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 2,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_MATERIALSTOCK",
+      "objectType": "CDS_STOB",
+      "objectName": "I_MATERIALSTOCK",
+      "successorType": "STANDARD"
+    }
+  ]
+}

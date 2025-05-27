@@ -1,0 +1,20 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "AIA_BAPI",
+  "objectType": "FUNC",
+  "objectName": "BAPI_APPREQUEST_ADDVARIANT",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "IM-FA-IA",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled",
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

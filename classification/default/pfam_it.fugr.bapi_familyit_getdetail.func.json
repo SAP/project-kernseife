@@ -1,0 +1,20 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "PFAM_IT",
+  "objectType": "FUNC",
+  "objectName": "BAPI_FAMILYIT_GETDETAIL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4HCMCIT",
+  "applicationComponent": "PA-PA-IT",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled",
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

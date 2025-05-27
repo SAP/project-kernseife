@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_PCF_GENERIC_TEXT_PROVIDER",
+  "objectType": "CLAS",
+  "objectName": "CL_PCF_GENERIC_TEXT_PROVIDER",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-APS-EXT-FLD",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

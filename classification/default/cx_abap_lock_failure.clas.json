@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CX_ABAP_LOCK_FAILURE",
+  "objectType": "CLAS",
+  "objectName": "CX_ABAP_LOCK_FAILURE",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "/RPM/TS_OBJECT_CONTEXT",
+  "objectType": "TABL",
+  "objectName": "/RPM/TS_OBJECT_CONTEXT",
+  "subType": "INTTAB",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PPM-PFM",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

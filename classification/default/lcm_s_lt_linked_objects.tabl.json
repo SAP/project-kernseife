@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "LCM_S_LT_LINKED_OBJECTS",
+  "objectType": "TABL",
+  "objectName": "LCM_S_LT_LINKED_OBJECTS",
+  "subType": "INTTAB",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CM-LT",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

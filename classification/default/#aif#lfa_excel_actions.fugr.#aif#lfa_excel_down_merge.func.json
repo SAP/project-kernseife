@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "/AIF/LFA_EXCEL_ACTIONS",
+  "objectType": "FUNC",
+  "objectName": "/AIF/LFA_EXCEL_DOWN_MERGE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-AIF",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

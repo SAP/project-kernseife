@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "0SGR",
+  "objectType": "FUNC",
+  "objectName": "VIEWFRAME_V_TFTBY",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-FES-GRA",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

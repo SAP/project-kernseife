@@ -1,0 +1,20 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "TAX1",
+  "objectType": "FUNC",
+  "objectName": "CHECK_JURISDICTION_ACTIVE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled",
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

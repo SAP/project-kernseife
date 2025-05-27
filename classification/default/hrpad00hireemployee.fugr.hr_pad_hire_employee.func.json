@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "HRPAD00HIREEMPLOYEE",
+  "objectType": "FUNC",
+  "objectName": "HR_PAD_HIRE_EMPLOYEE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4HCMRXX",
+  "applicationComponent": "PA-PA-XX",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

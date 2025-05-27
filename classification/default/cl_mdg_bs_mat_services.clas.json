@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_MDG_BS_MAT_SERVICES",
+  "objectType": "CLAS",
+  "objectName": "CL_MDG_BS_MAT_SERVICES",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "MDG_APPL",
+  "applicationComponent": "CA-MDG-APP-MM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

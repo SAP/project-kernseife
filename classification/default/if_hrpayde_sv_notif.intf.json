@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_HRPAYDE_SV_NOTIF",
+  "objectType": "INTF",
+  "objectName": "IF_HRPAYDE_SV_NOTIF",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4HCMCDE",
+  "applicationComponent": "PY-DE-NT-NI",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

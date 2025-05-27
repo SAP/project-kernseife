@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "STF4",
+  "objectType": "FUNC",
+  "objectName": "STF4_GET_DOMAIN_VALUE_TEXT",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-CTS-ORG",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "SUSO",
+  "tadirObjectName": "LCM_DOC",
+  "objectType": "SUSO",
+  "objectName": "LCM_DOC",
+  "subType": "SUSO",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CM-DOC",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

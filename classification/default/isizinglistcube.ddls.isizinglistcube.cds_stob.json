@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "ISIZINGLISTCUBE",
+  "objectType": "CDS_STOB",
+  "objectName": "ISIZINGLISTCUBE",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAPPCORE_H",
+  "applicationComponent": "FI-RA",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

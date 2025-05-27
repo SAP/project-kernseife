@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "BAPIS1073",
+  "objectType": "FUNC",
+  "objectName": "BAPI_PRICEMARKDOWNPLAN_CH_R_PL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-RFM-MD-PR",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

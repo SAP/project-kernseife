@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "ES_IDCFMFLOWCALC",
+  "objectType": "BADI_DEF",
+  "objectName": "BADI_IDCFMFLOWCALC",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-LOC-TRM",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "SUSO",
+  "tadirObjectName": "E_CS_RVERS",
+  "objectType": "SUSO",
+  "objectName": "E_CS_RVERS",
+  "subType": "SUSO",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "EC-CS",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

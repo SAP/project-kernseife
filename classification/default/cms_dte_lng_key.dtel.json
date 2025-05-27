@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "CMS_DTE_LNG_KEY",
+  "objectType": "DTEL",
+  "objectName": "CMS_DTE_LNG_KEY",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4FND",
+  "applicationComponent": "FS-CMS-MD",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

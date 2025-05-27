@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CHKO",
+  "tadirObjectName": "BSP_SEC",
+  "objectType": "CHKO",
+  "objectName": "BSP_SEC",
+  "subType": "CHKO",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-ABA-LA-EPC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

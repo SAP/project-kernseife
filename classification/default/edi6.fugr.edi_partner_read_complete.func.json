@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "EDI6",
+  "objectType": "FUNC",
+  "objectName": "EDI_PARTNER_READ_COMPLETE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-MID-ALE",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

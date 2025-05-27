@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TTYP",
+  "tadirObjectName": "EDI_INVC_TAX_TAB",
+  "objectType": "TTYP",
+  "objectName": "EDI_INVC_TAX_TAB",
+  "subType": "TTYP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BIL-EDI",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

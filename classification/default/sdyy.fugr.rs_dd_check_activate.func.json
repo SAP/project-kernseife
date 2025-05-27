@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SDYY",
+  "objectType": "FUNC",
+  "objectName": "RS_DD_CHECK_ACTIVATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC-ED",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

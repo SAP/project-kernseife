@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_J3RL_NOTICE_ARC_IRF_IMPL",
+  "objectType": "CLAS",
+  "objectName": "CL_J3RL_NOTICE_ARC_IRF_IMPL",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CA-GTF-CSC-EDO-RU",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

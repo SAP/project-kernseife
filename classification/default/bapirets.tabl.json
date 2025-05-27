@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "BAPIRETS",
+  "objectType": "TABL",
+  "objectName": "BAPIRETS",
+  "subType": "INTTAB",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-MID-API",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

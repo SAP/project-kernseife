@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TTYP",
+  "tadirObjectName": "ME_INFOREC_EINE",
+  "objectType": "TTYP",
+  "objectName": "ME_INFOREC_EINE",
+  "subType": "TTYP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-VM-REC",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

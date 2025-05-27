@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "RSAB",
+  "objectType": "FUNC",
+  "objectName": "BAPI_CUBE_ACTIVATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BW",
+  "applicationComponent": "BW-WHM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

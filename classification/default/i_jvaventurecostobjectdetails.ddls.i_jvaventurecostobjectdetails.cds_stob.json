@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_JVAVENTURECOSTOBJECTDETAILS",
+  "objectType": "CDS_STOB",
+  "objectName": "I_JVAVENTURECOSTOBJECTDETAILS",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CA-JVA",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_JVAVENTURECOSTOBJECTDETS_2",
+      "objectType": "CDS_STOB",
+      "objectName": "I_JVAVENTURECOSTOBJECTDETS_2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

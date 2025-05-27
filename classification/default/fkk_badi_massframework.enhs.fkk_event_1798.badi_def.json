@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "FKK_BADI_MASSFRAMEWORK",
+  "objectType": "BADI_DEF",
+  "objectName": "FKK_EVENT_1798",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-CA",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

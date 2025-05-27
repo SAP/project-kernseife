@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "/IWHDB/IF_HAI_RT_CONSTANT",
+  "objectType": "INTF",
+  "objectName": "/IWHDB/IF_HAI_RT_CONSTANT",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_GWFND",
+  "applicationComponent": "OPU-BSE-SDE",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

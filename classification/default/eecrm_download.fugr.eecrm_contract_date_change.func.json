@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "EECRM_DOWNLOAD",
+  "objectType": "FUNC",
+  "objectName": "EECRM_CONTRACT_DATE_CHANGE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "IS-UT",
+  "applicationComponent": "IS-U-CS-CRM",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

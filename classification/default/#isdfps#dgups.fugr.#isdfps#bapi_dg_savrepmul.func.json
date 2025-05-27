@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "/ISDFPS/DGUPS",
+  "objectType": "FUNC",
+  "objectName": "/ISDFPS/BAPI_DG_SAVREPMUL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "EA-DFPS",
+  "applicationComponent": "IS-DFS-PDR",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

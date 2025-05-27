@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CHKO",
+  "tadirObjectName": "ATC_CHECK_BC_CDS_PF1",
+  "objectType": "CHKO",
+  "objectName": "ATC_CHECK_BC_CDS_PF1",
+  "subType": "CHKO",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-TWB-TST-P-SCC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

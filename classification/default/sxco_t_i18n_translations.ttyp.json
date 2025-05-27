@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TTYP",
+  "tadirObjectName": "SXCO_T_I18N_TRANSLATIONS",
+  "objectType": "TTYP",
+  "objectName": "SXCO_T_I18N_TRANSLATIONS",
+  "subType": "TTYP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-APS-EXT-XCO",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

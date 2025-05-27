@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "GRAP",
+  "objectType": "FUNC",
+  "objectName": "REGISTRY_GET",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-FES-GRA",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_GUI_FRONTEND_SERVICES",
+      "objectType": "CLAS",
+      "objectName": "CL_GUI_FRONTEND_SERVICES",
+      "successorType": "STANDARD"
+    }
+  ]
+}

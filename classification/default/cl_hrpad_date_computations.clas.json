@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_HRPAD_DATE_COMPUTATIONS",
+  "objectType": "CLAS",
+  "objectName": "CL_HRPAD_DATE_COMPUTATIONS",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4HCMRXX",
+  "applicationComponent": "PA-PA",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

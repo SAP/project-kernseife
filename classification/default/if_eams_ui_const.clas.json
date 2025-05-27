@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "IF_EAMS_UI_CONST",
+  "objectType": "CLAS",
+  "objectName": "IF_EAMS_UI_CONST",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

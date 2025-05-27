@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "SUSO",
+  "tadirObjectName": "F_CNTXI_TE",
+  "objectType": "SUSO",
+  "objectName": "F_CNTXI_TE",
+  "subType": "SUSO",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-LOC-TIM-CN",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

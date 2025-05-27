@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "D_TRVLEXPNCPYFRMTRIPASASSTNTP",
+  "objectType": "CDS_STOB",
+  "objectName": "D_TRVLEXPNCPYFRMTRIPASASSTNTP",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4HCMGXX",
+  "applicationComponent": "FI-TV",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

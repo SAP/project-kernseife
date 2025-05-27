@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "BDEF",
+  "tadirObjectName": "I_SALESORDERTP",
+  "objectType": "BDEF",
+  "objectName": "I_SALESORDERTP",
+  "subType": "BDEF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-SLS-API",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

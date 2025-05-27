@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "C_SRVCTRANSMSTRAGRMTITMDEX",
+  "objectType": "CDS_STOB",
+  "objectName": "C_SRVCTRANSMSTRAGRMTITMDEX",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CEXT",
+  "applicationComponent": "CRM-S4-SOM",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

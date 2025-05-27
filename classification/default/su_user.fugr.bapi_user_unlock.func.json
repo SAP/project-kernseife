@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SU_USER",
+  "objectType": "FUNC",
+  "objectName": "BAPI_USER_UNLOCK",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SEC-USR-ADM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_IDENTITY_FACTORY",
+      "objectType": "CLAS",
+      "objectName": "CL_IDENTITY_FACTORY",
+      "successorType": "STANDARD"
+    }
+  ]
+}

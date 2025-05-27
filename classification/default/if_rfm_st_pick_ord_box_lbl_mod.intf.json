@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_RFM_ST_PICK_ORD_BOX_LBL_MOD",
+  "objectType": "INTF",
+  "objectName": "IF_RFM_ST_PICK_ORD_BOX_LBL_MOD",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-RFM-STO-FIO",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

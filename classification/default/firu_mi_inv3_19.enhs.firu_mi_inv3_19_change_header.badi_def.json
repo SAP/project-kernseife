@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "FIRU_MI_INV3_19",
+  "objectType": "BADI_DEF",
+  "objectName": "FIRU_MI_INV3_19_CHANGE_HEADER",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-LOC-LO-RU",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

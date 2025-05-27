@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "/IWBEP/CL_CP_FACTORY_UNIT_TST",
+  "objectType": "CLAS",
+  "objectName": "/IWBEP/CL_CP_FACTORY_UNIT_TST",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_GWFND",
+  "applicationComponent": "OPU-GW-CP",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

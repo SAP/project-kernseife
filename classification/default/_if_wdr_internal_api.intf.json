@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "_IF_WDR_INTERNAL_API",
+  "objectType": "INTF",
+  "objectName": "_IF_WDR_INTERNAL_API",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_UI",
+  "applicationComponent": "BC-WD-ABA-GEN",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "SUSO",
+  "tadirObjectName": "M_MSEG_BMB",
+  "objectType": "SUSO",
+  "objectName": "M_MSEG_BMB",
+  "subType": "SUSO",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IM",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

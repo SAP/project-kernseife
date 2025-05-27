@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "ESH_S_FUNDS_CTR",
+  "objectType": "CDS_STOB",
+  "objectName": "ESH_S_FUNDS_CTR",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "EA-PS",
+  "applicationComponent": "PSM-FM-MD",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

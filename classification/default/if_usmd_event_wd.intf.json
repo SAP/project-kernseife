@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_USMD_EVENT_WD",
+  "objectType": "INTF",
+  "objectName": "IF_USMD_EVENT_WD",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "MDG_FND",
+  "applicationComponent": "CA-MDG-AF",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

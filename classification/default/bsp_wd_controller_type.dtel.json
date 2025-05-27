@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "BSP_WD_CONTROLLER_TYPE",
+  "objectType": "DTEL",
+  "objectName": "BSP_WD_CONTROLLER_TYPE",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4FND",
+  "applicationComponent": "CA-WUI-UI-RT",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

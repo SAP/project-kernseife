@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CHKO",
+  "tadirObjectName": "CI_SQL1_CONSISTENCY",
+  "objectType": "CHKO",
+  "objectName": "CI_SQL1_CONSISTENCY",
+  "subType": "CHKO",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-ABA-LA",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

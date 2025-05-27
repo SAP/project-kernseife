@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SX04",
+  "objectType": "FUNC",
+  "objectName": "SX_INTERNET_ADDRESS_TO_NORMAL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-COM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_BCS_EMAIL_ADDRESS",
+      "objectType": "CLAS",
+      "objectName": "CL_BCS_EMAIL_ADDRESS",
+      "successorType": "STANDARD"
+    }
+  ]
+}

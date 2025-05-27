@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TTYP",
+  "tadirObjectName": "FARR_TH_CHG_TYPE_RESULT_BADI",
+  "objectType": "TTYP",
+  "objectName": "FARR_TH_CHG_TYPE_RESULT_BADI",
+  "subType": "TTYP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-RA",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

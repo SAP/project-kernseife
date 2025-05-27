@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "C_HOME_PPS_PURORDITMDOCTOT",
+  "objectType": "CDS_STOB",
+  "objectName": "C_HOME_PPS_PURORDITMDOCTOT",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CEXT_HOME",
+  "applicationComponent": "IS-PS-PRO",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

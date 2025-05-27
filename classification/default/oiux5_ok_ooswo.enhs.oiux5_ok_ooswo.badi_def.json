@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "OIUX5_OK_OOSWO",
+  "objectType": "BADI_DEF",
+  "objectName": "OIUX5_OK_OOSWO",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CEXT",
+  "applicationComponent": "IS-OIL-PRA-REP-TAX",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

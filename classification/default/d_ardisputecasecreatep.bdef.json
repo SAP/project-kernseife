@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "BDEF",
+  "tadirObjectName": "D_ARDISPUTECASECREATEP",
+  "objectType": "BDEF",
+  "objectName": "D_ARDISPUTECASECREATEP",
+  "subType": "BDEF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FIN-FIO-CCD-COL",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

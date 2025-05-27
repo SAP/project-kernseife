@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "FS_BAPI2",
+  "objectType": "FUNC",
+  "objectName": "BAPI_BUPA_FS_ADR_USAGE_CHANGE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_ABA",
+  "applicationComponent": "FS-BP",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

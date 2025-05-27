@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "UKMCRED_SGM0T",
+  "objectType": "TABL",
+  "objectName": "UKMCRED_SGM0T",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FIN-FSCM-CR-CR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CREDITMANAGEMENTSEGMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CREDITMANAGEMENTSEGMENT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TTYP",
+  "tadirObjectName": "MMPUR_CRFQ_T_PUR_REQN_ITEM",
+  "objectType": "TTYP",
+  "objectName": "MMPUR_CRFQ_T_PUR_REQN_ITEM",
+  "subType": "TTYP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-HUB-RFQ",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

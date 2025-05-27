@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "LE_SHP_GOODSMOVEMENT",
+  "objectType": "BADI_DEF",
+  "objectName": "LE_SHP_GOODSMOVEMENT",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LE-SHP-DL",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "ENHS",
+      "tadirObjectName": "ES_LE_SHP_EXTEND",
+      "objectType": "BADI_DEF",
+      "objectName": "LE_SHP_MODIFY_POST_GM",
+      "successorType": "STANDARD"
+    }
+  ]
+}

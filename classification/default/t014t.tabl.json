@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T014T",
+  "objectType": "TABL",
+  "objectName": "T014T",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-AR-AR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CREDITCONTROLAREATEXT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CREDITCONTROLAREATEXT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

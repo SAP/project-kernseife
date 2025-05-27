@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_UTILITIESINSTALLATION",
+  "objectType": "CDS_STOB",
+  "objectName": "I_UTILITIESINSTALLATION",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "IS-UT",
+  "applicationComponent": "IS-U-MD",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

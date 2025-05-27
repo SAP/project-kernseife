@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CHKO",
+  "tadirObjectName": "CI_DB_OPS_IN_LOOPS",
+  "objectType": "CHKO",
+  "objectName": "CI_DB_OPS_IN_LOOPS",
+  "subType": "CHKO",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-ABA-LA",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

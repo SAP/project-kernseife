@@ -1,0 +1,88 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "GSAC",
+  "objectType": "FUNC",
+  "objectName": "G_SET_TREE_IMPORT",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-SL-SL-MD-SE",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_COSTCENTERHIERARCHY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_COSTCENTERHIERARCHY",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_COSTCENTERHIERARCHYNODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_COSTCENTERHIERARCHYNODE",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_COSTCTRACTIVITYTYPEHIERARCHY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_COSTCTRACTIVITYTYPEHIERARCHY",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_COSTCTRACTIVITYTYPEHIERNODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_COSTCTRACTIVITYTYPEHIERNODE",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_FUNCTIONALAREAHIERARCHY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_FUNCTIONALAREAHIERARCHY",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_FUNCTIONALAREAHIERNODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_FUNCTIONALAREAHIERNODE",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PROFITCENTERHIERARCHY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PROFITCENTERHIERARCHY",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PROFITCENTERHIERARCHYNODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PROFITCENTERHIERARCHYNODE",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_STSTCLKEYFIGUREHIERARCHY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_STSTCLKEYFIGUREHIERARCHY",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_STSTCLKEYFIGUREHIERNODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_STSTCLKEYFIGUREHIERNODE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

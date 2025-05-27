@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "VBKD",
+  "objectType": "TABL",
+  "objectName": "VBKD",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-SLS",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 2,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SALESDOCUMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SALESDOCUMENT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

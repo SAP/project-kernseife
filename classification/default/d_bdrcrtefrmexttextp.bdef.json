@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "BDEF",
+  "tadirObjectName": "D_BDRCRTEFRMEXTTEXTP",
+  "objectType": "BDEF",
+  "objectName": "D_BDRCRTEFRMEXTTEXTP",
+  "subType": "BDEF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BIL",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

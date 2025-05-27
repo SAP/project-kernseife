@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "CLBP",
+  "objectType": "FUNC",
+  "objectName": "BAPI_CLASS_GET_CLASSIFICATIONS",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_ABA",
+  "applicationComponent": "CA-CL-CLS",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

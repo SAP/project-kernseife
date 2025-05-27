@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "PFAM_SG",
+  "objectType": "FUNC",
+  "objectName": "BAPI_FAMILYSG_CREATESUCCESSOR",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4HCMCSG",
+  "applicationComponent": "PA-PA-SG",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

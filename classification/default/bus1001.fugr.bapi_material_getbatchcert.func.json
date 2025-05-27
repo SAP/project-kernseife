@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "BUS1001",
+  "objectType": "FUNC",
+  "objectName": "BAPI_MATERIAL_GETBATCHCERT",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-MM",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_MD_PRODUCT_GETBATCHCERT",
+      "objectType": "CLAS",
+      "objectName": "CL_MD_PRODUCT_GETBATCHCERT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

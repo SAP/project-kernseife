@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_MAINTORDEROPCOMPONENTTP",
+  "objectType": "CDS_STOB",
+  "objectName": "I_MAINTORDEROPCOMPONENTTP",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PM-WOC-MO",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_MAINTORDEROPCOMPONENTTP_2",
+      "objectType": "CDS_STOB",
+      "objectName": "I_MAINTORDEROPCOMPONENTTP_2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

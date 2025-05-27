@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVAU",
+  "objectType": "TABL",
+  "objectName": "TVAU",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-SLS-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SDDOCUMENTREASON",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SDDOCUMENTREASON",
+      "successorType": "STANDARD"
+    }
+  ]
+}

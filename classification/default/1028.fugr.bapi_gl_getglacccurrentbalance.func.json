@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "1028",
+  "objectType": "FUNC",
+  "objectName": "BAPI_GL_GETGLACCCURRENTBALANCE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-GL-GL-N",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_GLACCOUNTLINEITEM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_GLACCOUNTLINEITEM",
+      "successorType": "STANDARD"
+    }
+  ]
+}

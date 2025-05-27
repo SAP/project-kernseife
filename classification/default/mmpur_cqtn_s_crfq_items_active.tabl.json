@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "MMPUR_CQTN_S_CRFQ_ITEMS_ACTIVE",
+  "objectType": "TABL",
+  "objectName": "MMPUR_CQTN_S_CRFQ_ITEMS_ACTIVE",
+  "subType": "INTTAB",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-HUB-RFQ",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

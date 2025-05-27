@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "QIRF",
+  "objectType": "FUNC",
+  "objectName": "QIRF_SEND_INSP_REQUIRMENTS",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "QM-IM-RR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "QIRF",
+      "objectType": "FUNC",
+      "objectName": "QIRF_SEND_REQUIRMENTS_GET_DAT2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

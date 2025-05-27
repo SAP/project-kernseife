@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_OUTBOUND_PROVIDER_HTTP",
+  "objectType": "CLAS",
+  "objectName": "CL_OUTBOUND_PROVIDER_HTTP",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-MID-UCO",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

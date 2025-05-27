@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "/IWFND/IF_SM_CLEANUP",
+  "objectType": "INTF",
+  "objectName": "/IWFND/IF_SM_CLEANUP",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_GWFND",
+  "applicationComponent": "OPU-FND-CS",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

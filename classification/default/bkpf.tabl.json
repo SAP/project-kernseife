@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "BKPF",
+  "objectType": "TABL",
+  "objectName": "BKPF",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_JOURNALENTRY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_JOURNALENTRY",
+      "successorType": "STANDARD"
+    }
+  ]
+}

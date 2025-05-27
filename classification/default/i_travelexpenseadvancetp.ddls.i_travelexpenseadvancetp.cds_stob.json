@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_TRAVELEXPENSEADVANCETP",
+  "objectType": "CDS_STOB",
+  "objectName": "I_TRAVELEXPENSEADVANCETP",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4HCMGXX",
+  "applicationComponent": "FI-TV",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

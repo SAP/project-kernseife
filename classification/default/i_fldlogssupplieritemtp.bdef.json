@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "BDEF",
+  "tadirObjectName": "I_FLDLOGSSUPPLIERITEMTP",
+  "objectType": "BDEF",
+  "objectName": "I_FLDLOGSSUPPLIERITEMTP",
+  "subType": "BDEF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CA-FL-SRV",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

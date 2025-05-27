@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "/ISDFPS/REQ_MASTER_DATA",
+  "objectType": "FUNC",
+  "objectName": "/ISDFPS/BAPI_REQ_MATNR",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "EA-DFPS",
+  "applicationComponent": "IS-DFS-BIT",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

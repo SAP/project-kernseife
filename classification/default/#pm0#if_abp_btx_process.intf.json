@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "/PM0/IF_ABP_BTX_PROCESS",
+  "objectType": "INTF",
+  "objectName": "/PM0/IF_ABP_BTX_PROCESS",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CEXT",
+  "applicationComponent": "FS-PM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

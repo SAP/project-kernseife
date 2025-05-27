@@ -1,0 +1,39 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_SCAL_API",
+  "objectType": "CLAS",
+  "objectName": "CL_SCAL_API",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ASF-CAL",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_FHC_CALENDAR_RUNTIME",
+      "objectType": "CLAS",
+      "objectName": "CL_FHC_CALENDAR_RUNTIME",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PUBLICHOLIDAYCALENDARBASIC",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PUBLICHOLIDAYCALENDARBASIC",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_FACTORYCALENDARBASIC",
+      "objectType": "CDS_STOB",
+      "objectName": "I_FACTORYCALENDARBASIC",
+      "successorType": "STANDARD"
+    }
+  ]
+}

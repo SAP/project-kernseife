@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "CSKB",
+  "objectType": "TABL",
+  "objectName": "CSKB",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CO-OM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 2,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_GLACCOUNTINCOMPANYCODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_GLACCOUNTINCOMPANYCODE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVLST",
+  "objectType": "TABL",
+  "objectName": "TVLST",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LE-SHP-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_DELIVERYBLOCKREASONTEXT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_DELIVERYBLOCKREASONTEXT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

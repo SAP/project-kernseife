@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TSKDT",
+  "objectType": "TABL",
+  "objectName": "TSKDT",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BF-TP",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CUSTOMERTAXCLASSIFICATION",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CUSTOMERTAXCLASSIFICATION",
+      "successorType": "STANDARD"
+    }
+  ]
+}

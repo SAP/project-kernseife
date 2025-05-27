@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "1001DIA",
+  "objectType": "FUNC",
+  "objectName": "BAPI_MATERIAL_DELETE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-MM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_PRODUCTTP_2",
+      "objectType": "BDEF",
+      "objectName": "I_PRODUCTTP_2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

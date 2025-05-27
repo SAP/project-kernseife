@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "/IWBEP/CX_CP_REMOTE",
+  "objectType": "CLAS",
+  "objectName": "/IWBEP/CX_CP_REMOTE",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_GWFND",
+  "applicationComponent": "OPU-GW-CP",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_HRECM00_EE_HIST",
+  "objectType": "INTF",
+  "objectName": "IF_HRECM00_EE_HIST",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4HCMGXX",
+  "applicationComponent": "PA-EC",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

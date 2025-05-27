@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "FKK_INTEGR",
+  "objectType": "FUNC",
+  "objectName": "FKK_KOKRS_FOR_BUKRS",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-CA",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_COMPANYCODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_COMPANYCODE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

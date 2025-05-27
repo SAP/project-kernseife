@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "IWSV",
+  "tadirObjectName": "MDC_TRACK_CHANGES_SRV__194         0001",
+  "objectType": "IWSV",
+  "objectName": "MDC_TRACK_CHANGES_SRV__194         0001",
+  "subType": "IWSV",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CA-MDG-CMP-MM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "3008",
+  "objectType": "FUNC",
+  "objectName": "BAPI_AP_ACC_GETOPENITEMS",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-AP-AP",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_OPERATIONALACCTGDOCITEM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_OPERATIONALACCTGDOCITEM",
+      "successorType": "STANDARD"
+    }
+  ]
+}

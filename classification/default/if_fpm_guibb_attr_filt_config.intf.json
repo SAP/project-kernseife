@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_FPM_GUIBB_ATTR_FILT_CONFIG",
+  "objectType": "INTF",
+  "objectName": "IF_FPM_GUIBB_ATTR_FILT_CONFIG",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_UI",
+  "applicationComponent": "BC-WD-CMP-FPM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

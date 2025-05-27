@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SNR3",
+  "objectType": "FUNC",
+  "objectName": "NUMBER_CHECK",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-NUM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_NUMBERRANGE_RUNTIME",
+      "objectType": "CLAS",
+      "objectName": "CL_NUMBERRANGE_RUNTIME",
+      "successorType": "STANDARD"
+    }
+  ]
+}

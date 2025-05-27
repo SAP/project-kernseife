@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "CMS_DTE_FLG_CAG_CO_GUAR",
+  "objectType": "DTEL",
+  "objectName": "CMS_DTE_FLG_CAG_CO_GUAR",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4FND",
+  "applicationComponent": "FS-CMS-MD",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "RBCO",
+  "objectType": "TABL",
+  "objectName": "RBCO",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IV-LIV",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 2,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SUPLRINVOICEITEMGLACCTAPI01",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SUPLRINVOICEITEMGLACCTAPI01",
+      "successorType": "STANDARD"
+    }
+  ]
+}

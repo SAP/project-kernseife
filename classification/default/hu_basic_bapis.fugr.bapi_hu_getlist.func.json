@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "HU_BASIC_BAPIS",
+  "objectType": "FUNC",
+  "objectName": "BAPI_HU_GETLIST",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-HU-BF",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_HANDLINGUNITTP",
+      "objectType": "BDEF",
+      "objectName": "I_HANDLINGUNITTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

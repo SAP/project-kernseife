@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_ACCRUALSUBOBJECT",
+  "objectType": "CDS_STOB",
+  "objectName": "I_ACCRUALSUBOBJECT",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-GL-GL-ACE",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_ACCRENGINEACCRUALSUBOBJECT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_ACCRENGINEACCRUALSUBOBJECT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

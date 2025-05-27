@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "V02D",
+  "objectType": "FUNC",
+  "objectName": "BAPI_CUSTOMER_SEARCH",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-BP-CM",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "LC01",
+      "objectType": "FUNC",
+      "objectName": "BAPI_CUSTOMER_FIND",
+      "successorType": "STANDARD"
+    }
+  ]
+}

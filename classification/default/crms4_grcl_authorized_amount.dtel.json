@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "CRMS4_GRCL_AUTHORIZED_AMOUNT",
+  "objectType": "DTEL",
+  "objectName": "CRMS4_GRCL_AUTHORIZED_AMOUNT",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CEXT",
+  "applicationComponent": "PSM-GM-GTR-CLM",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

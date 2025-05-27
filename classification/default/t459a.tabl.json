@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T459A",
+  "objectType": "TABL",
+  "objectName": "T459A",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-MP-DEM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PLNDINDEPRQMTTYPE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PLNDINDEPRQMTTYPE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

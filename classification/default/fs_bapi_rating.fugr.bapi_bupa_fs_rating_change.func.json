@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "FS_BAPI_RATING",
+  "objectType": "FUNC",
+  "objectName": "BAPI_BUPA_FS_RATING_CHANGE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_ABA",
+  "applicationComponent": "FS-BP",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CVI_EI_ADAPTER",
+      "objectType": "CLAS",
+      "objectName": "CVI_EI_ADAPTER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

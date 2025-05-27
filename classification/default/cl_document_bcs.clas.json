@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_DOCUMENT_BCS",
+  "objectType": "CLAS",
+  "objectName": "CL_DOCUMENT_BCS",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-COM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_BCS_MAIL_MESSAGE",
+      "objectType": "CLAS",
+      "objectName": "CL_BCS_MAIL_MESSAGE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

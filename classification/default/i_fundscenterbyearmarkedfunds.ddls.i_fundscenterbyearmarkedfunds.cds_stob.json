@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_FUNDSCENTERBYEARMARKEDFUNDS",
+  "objectType": "CDS_STOB",
+  "objectName": "I_FUNDSCENTERBYEARMARKEDFUNDS",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PSM-FM-MD",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

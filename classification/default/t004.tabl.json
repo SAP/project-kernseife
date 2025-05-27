@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T004",
+  "objectType": "TABL",
+  "objectName": "T004",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CHARTOFACCOUNTS",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CHARTOFACCOUNTS",
+      "successorType": "STANDARD"
+    }
+  ]
+}

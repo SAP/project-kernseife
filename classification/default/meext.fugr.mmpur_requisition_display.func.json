@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "MEEXT",
+  "objectType": "FUNC",
+  "objectName": "MMPUR_REQUISITION_DISPLAY",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PURCHASEREQUISITIONAPI01",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PURCHASEREQUISITIONAPI01",
+      "successorType": "STANDARD"
+    }
+  ]
+}

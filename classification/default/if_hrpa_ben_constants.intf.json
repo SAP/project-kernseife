@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_HRPA_BEN_CONSTANTS",
+  "objectType": "INTF",
+  "objectName": "IF_HRPA_BEN_CONSTANTS",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4HCMRXX",
+  "applicationComponent": "PA-BN",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "CMS_BUSISB104_BAPI",
+  "objectType": "FUNC",
+  "objectName": "BAPI_CMS_RE_GETDETAIL_MULTI",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4FND",
+  "applicationComponent": "FS-CMS-MD-RE",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

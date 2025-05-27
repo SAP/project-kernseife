@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "/ISDFPS/LSYS",
+  "objectType": "FUNC",
+  "objectName": "/ISDFPS/BAPI_LOGSYS_SYNCHRONIZ",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "EA-DFPS",
+  "applicationComponent": "IS-DFS-BIT-DIS",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

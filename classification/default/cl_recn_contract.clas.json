@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_RECN_CONTRACT",
+  "objectType": "CLAS",
+  "objectName": "CL_RECN_CONTRACT",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "RE-FX-CN",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "RECN_BAPI_CONTRACT",
+      "objectType": "FUNC",
+      "objectName": "BAPI_RE_CN_GET_DETAIL",
+      "successorType": "STANDARD"
+    }
+  ]
+}

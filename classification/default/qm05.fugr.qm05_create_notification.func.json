@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "QM05",
+  "objectType": "FUNC",
+  "objectName": "QM05_CREATE_NOTIFICATION",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "QM-QN",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_QLTYNOTIFICATIONTP",
+      "objectType": "BDEF",
+      "objectName": "I_QLTYNOTIFICATIONTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_CMIS_CLIENT_FACTORY",
+  "objectType": "CLAS",
+  "objectName": "CL_CMIS_CLIENT_FACTORY",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-MCM-SER",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_CMIS_CLIENT_FACTORY2",
+      "objectType": "CLAS",
+      "objectName": "CL_CMIS_CLIENT_FACTORY2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

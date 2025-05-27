@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "EWA_VDM_DISPDISTANCEUNIT",
+  "objectType": "DTEL",
+  "objectName": "EWA_VDM_DISPDISTANCEUNIT",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "IS-UT",
+  "applicationComponent": "IS-U-WA",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

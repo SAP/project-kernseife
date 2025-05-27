@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "/IWBEP/CX_MGW_BASE_EXCEPTION",
+  "objectType": "CLAS",
+  "objectName": "/IWBEP/CX_MGW_BASE_EXCEPTION",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_GWFND",
+  "applicationComponent": "OPU-BSE-SDE",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

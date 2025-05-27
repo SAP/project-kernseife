@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "2044",
+  "objectType": "FUNC",
+  "objectName": "BAPI_COSTESTIMATE_GETLIST",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CO-PC-PCP",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTCOSTESTIMATE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTCOSTESTIMATE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

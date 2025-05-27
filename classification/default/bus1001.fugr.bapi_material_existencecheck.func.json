@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "BUS1001",
+  "objectType": "FUNC",
+  "objectName": "BAPI_MATERIAL_EXISTENCECHECK",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-MM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

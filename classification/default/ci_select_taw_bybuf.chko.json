@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CHKO",
+  "tadirObjectName": "CI_SELECT_TAW_BYBUF",
+  "objectType": "CHKO",
+  "objectName": "CI_SELECT_TAW_BYBUF",
+  "subType": "CHKO",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-ABA-LA",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

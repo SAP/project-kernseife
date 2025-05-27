@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SBAL",
+  "objectType": "FUNC",
+  "objectName": "BAL_LOG_HDR_READ",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-BAL",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_BALI_LOG",
+      "objectType": "CLAS",
+      "objectName": "CL_BALI_LOG",
+      "successorType": "STANDARD"
+    }
+  ]
+}

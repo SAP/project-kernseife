@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "KNBK",
+  "objectType": "TABL",
+  "objectName": "KNBK",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-BP-CM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_BUSINESSPARTNERBANK",
+      "objectType": "CDS_STOB",
+      "objectName": "I_BUSINESSPARTNERBANK",
+      "successorType": "STANDARD"
+    }
+  ]
+}

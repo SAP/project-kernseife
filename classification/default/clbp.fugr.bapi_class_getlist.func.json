@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "CLBP",
+  "objectType": "FUNC",
+  "objectName": "BAPI_CLASS_GETLIST",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_ABA",
+  "applicationComponent": "CA-CL-CLS",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CLFNCLASS",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CLFNCLASS",
+      "successorType": "STANDARD"
+    }
+  ]
+}

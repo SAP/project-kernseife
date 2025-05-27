@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "0001_BAPI",
+  "objectType": "FUNC",
+  "objectName": "BAPI_PROCORD_GET_LIST",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-SFC",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_MANUFACTURINGORDER",
+      "objectType": "CDS_STOB",
+      "objectName": "I_MANUFACTURINGORDER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

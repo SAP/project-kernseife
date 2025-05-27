@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "STANDARDMATERIAL_SAVE_DATA",
+  "objectType": "BADI_DEF",
+  "objectName": "STANDARDMATERIAL_SAVE_DATA",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-MM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_PRODUCTTP_2",
+      "objectType": "BDEF",
+      "objectName": "I_PRODUCTTP_2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_SERIALNUMBERMATERIALDOCUMENT",
+  "objectType": "CDS_STOB",
+  "objectName": "I_SERIALNUMBERMATERIALDOCUMENT",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-SN",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SERIALNUMBERMATERIALDOC_2",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SERIALNUMBERMATERIALDOC_2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

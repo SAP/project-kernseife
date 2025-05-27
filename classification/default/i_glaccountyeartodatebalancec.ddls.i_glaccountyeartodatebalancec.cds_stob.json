@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_GLACCOUNTYEARTODATEBALANCEC",
+  "objectType": "CDS_STOB",
+  "objectName": "I_GLACCOUNTYEARTODATEBALANCEC",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-FIO-GL-IS",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

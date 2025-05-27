@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SO36",
+  "objectType": "FUNC",
+  "objectName": "SO_SOLITAB_TO_SOLIXTAB",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-COM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_BCS_CONVERT",
+      "objectType": "CLAS",
+      "objectName": "CL_BCS_CONVERT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

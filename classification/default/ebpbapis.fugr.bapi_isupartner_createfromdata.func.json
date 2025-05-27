@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "EBPBAPIS",
+  "objectType": "FUNC",
+  "objectName": "BAPI_ISUPARTNER_CREATEFROMDATA",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "IS-UT",
+  "applicationComponent": "IS-U-MD-BP",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

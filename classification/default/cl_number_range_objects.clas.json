@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_NUMBER_RANGE_OBJECTS",
+  "objectType": "CLAS",
+  "objectName": "CL_NUMBER_RANGE_OBJECTS",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-NUM",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_NUMBERRANGE_OBJECTS",
+      "objectType": "CLAS",
+      "objectName": "CL_NUMBERRANGE_OBJECTS",
+      "successorType": "STANDARD"
+    }
+  ]
+}

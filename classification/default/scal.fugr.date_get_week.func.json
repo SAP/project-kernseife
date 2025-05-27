@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SCAL",
+  "objectType": "FUNC",
+  "objectName": "DATE_GET_WEEK",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ASF-CAL",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_SCAL_UTILS",
+      "objectType": "CLAS",
+      "objectName": "CL_SCAL_UTILS",
+      "successorType": "STANDARD"
+    }
+  ]
+}

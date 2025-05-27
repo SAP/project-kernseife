@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SCAL",
+  "objectType": "FUNC",
+  "objectName": "DATE_CONVERT_TO_FACTORYDATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ASF-CAL",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_SCAL_API",
+      "objectType": "CLAS",
+      "objectName": "CL_SCAL_API",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "UNAME",
+  "objectType": "DTEL",
+  "objectName": "UNAME",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-TOO-FUB",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DTEL",
+      "tadirObjectName": "SYUNAME",
+      "objectType": "DTEL",
+      "objectName": "SYUNAME",
+      "successorType": "STANDARD"
+    }
+  ]
+}

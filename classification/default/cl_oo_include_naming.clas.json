@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_OO_INCLUDE_NAMING",
+  "objectType": "CLAS",
+  "objectName": "CL_OO_INCLUDE_NAMING",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-TOO-CLA",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_OO_CLASSNAME_SERVICE",
+      "objectType": "CLAS",
+      "objectName": "CL_OO_CLASSNAME_SERVICE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "VBRP",
+  "objectType": "TABL",
+  "objectName": "VBRP",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BIL",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 4,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_BILLINGDOCUMENTITEMBASIC",
+      "objectType": "CDS_STOB",
+      "objectName": "I_BILLINGDOCUMENTITEMBASIC",
+      "successorType": "STANDARD"
+    }
+  ]
+}

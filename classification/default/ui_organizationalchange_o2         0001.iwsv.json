@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "IWSV",
+  "tadirObjectName": "UI_ORGANIZATIONALCHANGE_O2         0001",
+  "objectType": "IWSV",
+  "objectName": "UI_ORGANIZATIONALCHANGE_O2         0001",
+  "subType": "IWSV",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-GL-OC",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

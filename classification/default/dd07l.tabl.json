@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "DD07L",
+  "objectType": "TABL",
+  "objectName": "DD07L",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC-AC",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "DDCDS_CUSTOMER_DOMAIN_VALUE",
+      "objectType": "CDS_STOB",
+      "objectName": "DDCDS_CUSTOMER_DOMAIN_VALUE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_COSTELEMENT",
+  "objectType": "CDS_STOB",
+  "objectName": "I_COSTELEMENT",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-FIO-GL-IS",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_GLACCOUNT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_GLACCOUNT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

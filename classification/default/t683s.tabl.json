@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T683S",
+  "objectType": "TABL",
+  "objectName": "T683S",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BF-PR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SLSPRICINGPROCEDUREITEM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SLSPRICINGPROCEDUREITEM",
+      "successorType": "STANDARD"
+    }
+  ]
+}

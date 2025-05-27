@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "SUPFMS_TDFP_CALC_LOG_UNIT_CONV",
+  "objectType": "TABL",
+  "objectName": "SUPFMS_TDFP_CALC_LOG_UNIT_CONV",
+  "subType": "INTTAB",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SUS-PFM-INT",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

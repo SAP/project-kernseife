@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_BKPOABANKACCOUNT",
+  "objectType": "CDS_STOB",
+  "objectName": "I_BKPOABANKACCOUNT",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FIN-FSCM-CLM-BAM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

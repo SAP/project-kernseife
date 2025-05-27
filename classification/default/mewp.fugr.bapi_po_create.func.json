@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "MEWP",
+  "objectType": "FUNC",
+  "objectName": "BAPI_PO_CREATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-GF",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "2012",
+      "objectType": "FUNC",
+      "objectName": "BAPI_PO_CREATE1",
+      "successorType": "STANDARD"
+    }
+  ]
+}

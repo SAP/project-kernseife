@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_SUPLRDELIVERYPREDICTIONCACHE",
+  "objectType": "CDS_STOB",
+  "objectName": "I_SUPLRDELIVERYPREDICTIONCACHE",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-GF-MON",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

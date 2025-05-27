@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "MAME",
+  "objectType": "FUNC",
+  "objectName": "MATERIAL_UNIT_CONVERSION",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-MM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_MD_PRODUCT_UNIT_CONVERSION",
+      "objectType": "CLAS",
+      "objectName": "CL_MD_PRODUCT_UNIT_CONVERSION",
+      "successorType": "STANDARD"
+    }
+  ]
+}

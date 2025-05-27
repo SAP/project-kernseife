@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "PLPO",
+  "objectType": "TABL",
+  "objectName": "PLPO",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-BD-RTG",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_MFGBILLOFOPERATIONSOPERATION",
+      "objectType": "CDS_STOB",
+      "objectName": "I_MFGBILLOFOPERATIONSOPERATION",
+      "successorType": "STANDARD"
+    }
+  ]
+}

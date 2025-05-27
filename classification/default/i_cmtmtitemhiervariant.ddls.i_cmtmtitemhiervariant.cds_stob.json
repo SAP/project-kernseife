@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_CMTMTITEMHIERVARIANT",
+  "objectType": "CDS_STOB",
+  "objectName": "I_CMTMTITEMHIERVARIANT",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PSM-FM-MD",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

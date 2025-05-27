@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "FTR_BAPI_CTY_OTC",
+  "objectType": "FUNC",
+  "objectName": "BAPI_FTR_CTYFWD_CREATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FIN-FSCM-TRM-TM-TR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "FTR_BAPI_CTY_OTC",
+      "objectType": "FUNC",
+      "objectName": "BAPI_FTR_CTYFWD_DEALCREATE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

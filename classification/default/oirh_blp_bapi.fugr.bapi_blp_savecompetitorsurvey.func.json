@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "OIRH_BLP_BAPI",
+  "objectType": "FUNC",
+  "objectName": "BAPI_BLP_SAVECOMPETITORSURVEY",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "IS-OIL",
+  "applicationComponent": "IS-OIL-DS-SSR",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

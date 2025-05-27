@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVAUT",
+  "objectType": "TABL",
+  "objectName": "TVAUT",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-SLS-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SDDOCUMENTREASONTEXT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SDDOCUMENTREASONTEXT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

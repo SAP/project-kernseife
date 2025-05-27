@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "HRBAS00SEARCH",
+  "objectType": "FUNC",
+  "objectName": "REUSE_HR_OBJID_F4",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-BMT-OM",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "HRBAS00SEARCH",
+      "objectType": "FUNC",
+      "objectName": "REUSE_HR_OBJID_CHECK",
+      "successorType": "STANDARD"
+    }
+  ]
+}

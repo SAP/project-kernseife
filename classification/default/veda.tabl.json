@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "VEDA",
+  "objectType": "TABL",
+  "objectName": "VEDA",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-SLS",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SALESDOCUMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SALESDOCUMENT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

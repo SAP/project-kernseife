@@ -1,0 +1,39 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "ACDOCA",
+  "objectType": "TABL",
+  "objectName": "ACDOCA",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-GL-GL",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_JOURNALENTRYITEM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_JOURNALENTRYITEM",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_GLACCOUNTLINEITEM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_GLACCOUNTLINEITEM",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_GLACCOUNTLINEITEMRAWDATA",
+      "objectType": "CDS_STOB",
+      "objectName": "I_GLACCOUNTLINEITEMRAWDATA",
+      "successorType": "STANDARD"
+    }
+  ]
+}

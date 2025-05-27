@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DOMA",
+  "tadirObjectName": "CHAR116",
+  "objectType": "DOMA",
+  "objectName": "CHAR116",
+  "subType": "DOMA",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-TOO",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

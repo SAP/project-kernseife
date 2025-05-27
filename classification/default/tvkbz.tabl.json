@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVKBZ",
+  "objectType": "TABL",
+  "objectName": "TVKBZ",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-MD-MM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SALESAREASALESOFFICE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SALESAREASALESOFFICE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

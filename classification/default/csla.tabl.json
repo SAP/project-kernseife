@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "CSLA",
+  "objectType": "TABL",
+  "objectName": "CSLA",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CO-OM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_COSTCENTERACTIVITYTYPE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_COSTCENTERACTIVITYTYPE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

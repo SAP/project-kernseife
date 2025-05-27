@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "SKA1",
+  "objectType": "TABL",
+  "objectName": "SKA1",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 2,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_GLACCOUNTINCHARTOFACCOUNTS",
+      "objectType": "CDS_STOB",
+      "objectName": "I_GLACCOUNTINCHARTOFACCOUNTS",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_BUSEVTLOGTESTOBJECT3",
+  "objectType": "CDS_STOB",
+  "objectName": "I_BUSEVTLOGTESTOBJECT3",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAPPCORE_H",
+  "applicationComponent": "CA-GTF-BEL",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVST",
+  "objectType": "TABL",
+  "objectName": "TVST",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LE-SHP-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SHIPPINGPOINT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SHIPPINGPOINT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

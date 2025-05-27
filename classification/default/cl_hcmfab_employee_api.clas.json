@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_HCMFAB_EMPLOYEE_API",
+  "objectType": "CLAS",
+  "objectName": "CL_HCMFAB_EMPLOYEE_API",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "GBX01HR5",
+  "applicationComponent": "PA-FIO",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

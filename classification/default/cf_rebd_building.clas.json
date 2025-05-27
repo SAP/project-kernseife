@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CF_REBD_BUILDING",
+  "objectType": "CLAS",
+  "objectName": "CF_REBD_BUILDING",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "RE-FX-BD",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "REBD_BAPI_BUILDING",
+      "objectType": "FUNC",
+      "objectName": "BAPI_RE_BU_GET_DETAIL",
+      "successorType": "STANDARD"
+    }
+  ]
+}

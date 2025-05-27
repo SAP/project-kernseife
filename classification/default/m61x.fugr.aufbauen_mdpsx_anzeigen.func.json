@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "M61X",
+  "objectType": "FUNC",
+  "objectName": "AUFBAUEN_MDPSX_ANZEIGEN",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-MRP-BD",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_SUPPLYDEMANDITEMTP",
+      "objectType": "BDEF",
+      "objectName": "I_SUPPLYDEMANDITEMTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

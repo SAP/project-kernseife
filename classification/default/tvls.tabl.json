@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVLS",
+  "objectType": "TABL",
+  "objectName": "TVLS",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LE-SHP-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_DELIVERYBLOCKREASON",
+      "objectType": "CDS_STOB",
+      "objectName": "I_DELIVERYBLOCKREASON",
+      "successorType": "STANDARD"
+    }
+  ]
+}

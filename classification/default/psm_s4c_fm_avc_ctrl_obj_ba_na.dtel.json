@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "PSM_S4C_FM_AVC_CTRL_OBJ_BA_NA",
+  "objectType": "DTEL",
+  "objectName": "PSM_S4C_FM_AVC_CTRL_OBJ_BA_NA",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PSM-FM-BU-AC",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

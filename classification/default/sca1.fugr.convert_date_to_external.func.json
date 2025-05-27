@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SCA1",
+  "objectType": "FUNC",
+  "objectName": "CONVERT_DATE_TO_EXTERNAL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ASF-CAL",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_ABAP_DATFM",
+      "objectType": "CLAS",
+      "objectName": "CL_ABAP_DATFM",
+      "successorType": "STANDARD"
+    }
+  ]
+}

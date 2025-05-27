@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_USMD_ADAPTER_PROVIDER",
+  "objectType": "CLAS",
+  "objectName": "CL_USMD_ADAPTER_PROVIDER",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "MDG_FND",
+  "applicationComponent": "CA-MDG-AF",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

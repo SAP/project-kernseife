@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "KNVV",
+  "objectType": "TABL",
+  "objectName": "KNVV",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-BP-CM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 5,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CUSTOMERSALESAREA",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CUSTOMERSALESAREA",
+      "successorType": "STANDARD"
+    }
+  ]
+}

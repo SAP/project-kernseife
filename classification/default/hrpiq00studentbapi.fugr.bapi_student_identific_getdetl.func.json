@@ -1,0 +1,20 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "HRPIQ00STUDENTBAPI",
+  "objectType": "FUNC",
+  "objectName": "BAPI_STUDENT_IDENTIFIC_GETDETL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "IS-PS-CA",
+  "applicationComponent": "IS-HER-CM-AD",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled",
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

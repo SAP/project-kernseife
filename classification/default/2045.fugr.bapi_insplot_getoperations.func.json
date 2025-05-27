@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "2045",
+  "objectType": "FUNC",
+  "objectName": "BAPI_INSPLOT_GETOPERATIONS",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "QM-IM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_INSPECTIONOPERATION",
+      "objectType": "CDS_STOB",
+      "objectName": "I_INSPECTIONOPERATION",
+      "successorType": "STANDARD"
+    }
+  ]
+}

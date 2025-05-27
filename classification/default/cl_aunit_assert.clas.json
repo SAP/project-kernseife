@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_AUNIT_ASSERT",
+  "objectType": "CLAS",
+  "objectName": "CL_AUNIT_ASSERT",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-TOO-UT",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_ABAP_UNIT_ASSERT",
+      "objectType": "CLAS",
+      "objectName": "CL_ABAP_UNIT_ASSERT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

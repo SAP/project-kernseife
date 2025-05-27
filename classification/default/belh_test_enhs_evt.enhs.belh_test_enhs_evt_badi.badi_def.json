@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "BELH_TEST_ENHS_EVT",
+  "objectType": "BADI_DEF",
+  "objectName": "BELH_TEST_ENHS_EVT_BADI",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAPPCORE_H",
+  "applicationComponent": "CA-GTF-BEL",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TKA01",
+  "objectType": "TABL",
+  "objectName": "TKA01",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CO-OM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CONTROLLINGAREA",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CONTROLLINGAREA",
+      "successorType": "STANDARD"
+    }
+  ]
+}

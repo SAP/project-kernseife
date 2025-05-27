@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "/ISDFPS/BAPI_NSN_GC",
+  "objectType": "FUNC",
+  "objectName": "/ISDFPS/BAPI_GROUPCL_GETDETAIL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "EA-DFPS",
+  "applicationComponent": "IS-DFS-MM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

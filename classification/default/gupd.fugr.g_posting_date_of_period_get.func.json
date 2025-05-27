@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "GUPD",
+  "objectType": "FUNC",
+  "objectName": "G_POSTING_DATE_OF_PERIOD_GET",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-SL-SL",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_FISCALYEARPERIOD",
+      "objectType": "CDS_STOB",
+      "objectName": "I_FISCALYEARPERIOD",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DRTY",
+  "tadirObjectName": "CALENDAR_DATE_OPERATION",
+  "objectType": "DRTY",
+  "objectName": "CALENDAR_DATE_OPERATION",
+  "subType": "DRTY",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

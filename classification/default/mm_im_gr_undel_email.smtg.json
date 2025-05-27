@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "SMTG",
+  "tadirObjectName": "MM_IM_GR_UNDEL_EMAIL",
+  "objectType": "SMTG",
+  "objectName": "MM_IM_GR_UNDEL_EMAIL",
+  "subType": "SMTG",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IM-GF",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

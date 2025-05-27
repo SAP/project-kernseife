@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "SSB_CDS2_TEST_VIEW",
+  "objectType": "CDS_STOB",
+  "objectName": "SSB_CDS2_TEST_VIEW",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAPPCORE_H",
+  "applicationComponent": "CA-GTF-TS-FAW",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

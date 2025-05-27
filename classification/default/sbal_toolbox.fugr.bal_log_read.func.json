@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SBAL_TOOLBOX",
+  "objectType": "FUNC",
+  "objectName": "BAL_LOG_READ",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-BAL",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_BALI_LOG",
+      "objectType": "CLAS",
+      "objectName": "CL_BALI_LOG",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVKWZ",
+  "objectType": "TABL",
+  "objectName": "TVKWZ",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CUSTSALESAREATAX",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CUSTSALESAREATAX",
+      "successorType": "STANDARD"
+    }
+  ]
+}

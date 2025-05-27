@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TTYP",
+  "tadirObjectName": "XSTRINGTAB",
+  "objectType": "TTYP",
+  "objectName": "XSTRINGTAB",
+  "subType": "TTYP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-ABA-LA",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "TTYP",
+      "tadirObjectName": "XSTRING_TABLE",
+      "objectType": "TTYP",
+      "objectName": "XSTRING_TABLE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

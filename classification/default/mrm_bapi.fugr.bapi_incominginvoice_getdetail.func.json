@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "MRM_BAPI",
+  "objectType": "FUNC",
+  "objectName": "BAPI_INCOMINGINVOICE_GETDETAIL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IV-LIV",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SUPPLIERINVOICEAPI01",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SUPPLIERINVOICEAPI01",
+      "successorType": "STANDARD"
+    }
+  ]
+}

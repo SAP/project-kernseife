@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_SD_DOCFLOW_UTIL",
+  "objectType": "CLAS",
+  "objectName": "CL_SD_DOCFLOW_UTIL",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SDDOCUMENTMULTILEVELPROCFLOW",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SDDOCUMENTMULTILEVELPROCFLOW",
+      "successorType": "STANDARD"
+    }
+  ]
+}

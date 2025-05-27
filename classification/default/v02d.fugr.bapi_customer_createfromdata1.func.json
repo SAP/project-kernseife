@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "V02D",
+  "objectType": "FUNC",
+  "objectName": "BAPI_CUSTOMER_CREATEFROMDATA1",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-BP-CM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CVI_EI_ADAPTER",
+      "objectType": "CLAS",
+      "objectName": "CVI_EI_ADAPTER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

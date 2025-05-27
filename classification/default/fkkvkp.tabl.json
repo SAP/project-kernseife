@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "FKKVKP",
+  "objectType": "TABL",
+  "objectName": "FKKVKP",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-CA",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CONTRACTACCOUNTPARTNER",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CONTRACTACCOUNTPARTNER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

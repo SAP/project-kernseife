@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_REEXC_COMPANY_CODE",
+  "objectType": "CLAS",
+  "objectName": "CL_REEXC_COMPANY_CODE",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "RE-FX",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "FACSCORE",
+      "objectType": "FUNC",
+      "objectName": "FI_COMPANY_CODE_DATA",
+      "successorType": "STANDARD"
+    }
+  ]
+}

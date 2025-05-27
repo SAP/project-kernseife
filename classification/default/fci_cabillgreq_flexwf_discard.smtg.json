@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "SMTG",
+  "tadirObjectName": "FCI_CABILLGREQ_FLEXWF_DISCARD",
+  "objectType": "SMTG",
+  "objectName": "FCI_CABILLGREQ_FLEXWF_DISCARD",
+  "subType": "SMTG",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-CA-INV",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

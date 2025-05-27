@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "V45I",
+  "objectType": "FUNC",
+  "objectName": "SD_VBAP_SELECT",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-SLS",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SALESDOCUMENTITEM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SALESDOCUMENTITEM",
+      "successorType": "STANDARD"
+    }
+  ]
+}

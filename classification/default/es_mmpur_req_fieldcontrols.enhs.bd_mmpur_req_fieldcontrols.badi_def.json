@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "ES_MMPUR_REQ_FIELDCONTROLS",
+  "objectType": "BADI_DEF",
+  "objectName": "BD_MMPUR_REQ_FIELDCONTROLS",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-REQ",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "ENHS",
+      "tadirObjectName": "MM_PUR_S4_PR_FLDCNTRL_SIMPLE",
+      "objectType": "BADI_DEF",
+      "objectName": "MM_PUR_S4_PR_FLDCNTRL_SIMPLE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

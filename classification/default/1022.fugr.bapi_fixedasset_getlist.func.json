@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "1022",
+  "objectType": "FUNC",
+  "objectName": "BAPI_FIXEDASSET_GETLIST",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-AA-AA",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_FIXEDASSET",
+      "objectType": "CDS_STOB",
+      "objectName": "I_FIXEDASSET",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "EQUP",
+  "objectType": "TABL",
+  "objectName": "EQUP",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PURGQUOTAARRGMTITEMAPI01",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PURGQUOTAARRGMTITEMAPI01",
+      "successorType": "STANDARD"
+    }
+  ]
+}

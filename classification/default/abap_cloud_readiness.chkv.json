@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CHKV",
+  "tadirObjectName": "ABAP_CLOUD_READINESS",
+  "objectType": "CHKV",
+  "objectName": "ABAP_CLOUD_READINESS",
+  "subType": "CHKV",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-TOO-ATF",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVCINT",
+  "objectType": "TABL",
+  "objectName": "TVCINT",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BIL-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SDDOCUMENTPAYMENTCARDTYPE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SDDOCUMENTPAYMENTCARDTYPE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

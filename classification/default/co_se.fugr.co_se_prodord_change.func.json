@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "CO_SE",
+  "objectType": "FUNC",
+  "objectName": "CO_SE_PRODORD_CHANGE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-SFC",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_PRODUCTIONORDERTP",
+      "objectType": "BDEF",
+      "objectName": "I_PRODUCTIONORDERTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

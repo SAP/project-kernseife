@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "BUT000",
+  "objectType": "TABL",
+  "objectName": "BUT000",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-BP",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_BUSINESSPARTNER",
+      "objectType": "CDS_STOB",
+      "objectName": "I_BUSINESSPARTNER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

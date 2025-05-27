@@ -1,0 +1,32 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_BAL_LOGGING",
+  "objectType": "CLAS",
+  "objectName": "CL_BAL_LOGGING",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-BAL",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_BALI_LOG",
+      "objectType": "CLAS",
+      "objectName": "CL_BALI_LOG",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_BALI_LOG_DB",
+      "objectType": "CLAS",
+      "objectName": "CL_BALI_LOG_DB",
+      "successorType": "STANDARD"
+    }
+  ]
+}

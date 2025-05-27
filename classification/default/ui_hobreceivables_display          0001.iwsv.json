@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "IWSV",
+  "tadirObjectName": "UI_HOBRECEIVABLES_DISPLAY          0001",
+  "objectType": "IWSV",
+  "objectName": "UI_HOBRECEIVABLES_DISPLAY          0001",
+  "subType": "IWSV",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FIN-FIO-CCD-COL",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

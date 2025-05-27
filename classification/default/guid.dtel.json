@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "GUID",
+  "objectType": "DTEL",
+  "objectName": "GUID",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-ABA-LA-OBS",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DTEL",
+      "tadirObjectName": "SYSUUID_X16",
+      "objectType": "DTEL",
+      "objectName": "SYSUUID_X16",
+      "successorType": "STANDARD"
+    }
+  ]
+}

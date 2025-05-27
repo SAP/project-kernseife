@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "0023",
+  "objectType": "FUNC",
+  "objectName": "BAPI_FUNC_AREA_GETDETAIL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_FUNCTIONALAREA",
+      "objectType": "CDS_STOB",
+      "objectName": "I_FUNCTIONALAREA",
+      "successorType": "STANDARD"
+    }
+  ]
+}

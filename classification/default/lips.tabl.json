@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "LIPS",
+  "objectType": "TABL",
+  "objectName": "LIPS",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LE-SHP-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 2,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_DELIVERYDOCUMENTITEM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_DELIVERYDOCUMENTITEM",
+      "successorType": "STANDARD"
+    }
+  ]
+}

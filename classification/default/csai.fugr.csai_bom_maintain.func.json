@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "CSAI",
+  "objectType": "FUNC",
+  "objectName": "CSAI_BOM_MAINTAIN",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-BOM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_BILLOFMATERIALTP_2",
+      "objectType": "BDEF",
+      "objectName": "I_BILLOFMATERIALTP_2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

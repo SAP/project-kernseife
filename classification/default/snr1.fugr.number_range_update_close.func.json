@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SNR1",
+  "objectType": "FUNC",
+  "objectName": "NUMBER_RANGE_UPDATE_CLOSE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-NUM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_NUMBERRANGE_INTERVALS",
+      "objectType": "CLAS",
+      "objectName": "CL_NUMBERRANGE_INTERVALS",
+      "successorType": "STANDARD"
+    }
+  ]
+}

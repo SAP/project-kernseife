@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "ME02",
+  "objectType": "FUNC",
+  "objectName": "ME_EKPO_SINGLE_READ",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PURCHASEORDERITEMAPI01",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PURCHASEORDERITEMAPI01",
+      "successorType": "STANDARD"
+    }
+  ]
+}

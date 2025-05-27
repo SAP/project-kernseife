@@ -1,0 +1,53 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "GSGF",
+  "objectType": "FUNC",
+  "objectName": "G_SET_GET_ALL_VALUES",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-SL-SL-MD-SE",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_COSTCENTERHIERARCHYNODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_COSTCENTERHIERARCHYNODE",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_COSTCTRACTIVITYTYPEHIERNODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_COSTCTRACTIVITYTYPEHIERNODE",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_FUNCTIONALAREAHIERNODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_FUNCTIONALAREAHIERNODE",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PROFITCENTERHIERARCHYNODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PROFITCENTERHIERARCHYNODE",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_STSTCLKEYFIGUREHIERNODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_STSTCLKEYFIGUREHIERNODE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

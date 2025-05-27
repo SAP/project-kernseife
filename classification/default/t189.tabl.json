@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T189",
+  "objectType": "TABL",
+  "objectName": "T189",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-MD-MM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRICELISTTYPE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRICELISTTYPE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

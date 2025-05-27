@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FDT0",
+  "tadirObjectName": "/PLMI/CR_PR_CONFIG",
+  "objectType": "FDT0",
+  "objectName": "/PLMI/CR_PR_CONFIG",
+  "subType": "FDT0",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PLM-CR",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FDT0",
+      "tadirObjectName": "/PLMI/CR_PR_CONFIG2",
+      "objectType": "FDT0",
+      "objectName": "/PLMI/CR_PR_CONFIG2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

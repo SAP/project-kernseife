@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "ISOC",
+  "objectType": "FUNC",
+  "objectName": "CURRENCY_CONVERTING_FACTOR",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-MID-ALE",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "ISOC",
+      "objectType": "FUNC",
+      "objectName": "CURRENCY_CONVERTING_FACTOR_L",
+      "successorType": "STANDARD"
+    }
+  ]
+}

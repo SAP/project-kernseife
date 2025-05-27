@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "RKZ_DBNA",
+  "objectType": "DTEL",
+  "objectName": "RKZ_DBNA",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-CCM-ADK",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DTEL",
+      "tadirObjectName": "TABNAME",
+      "objectType": "DTEL",
+      "objectName": "TABNAME",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "CDHDR",
+  "objectType": "TABL",
+  "objectName": "CDHDR",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ASF-CHD",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_CHDO_READ_TOOLS",
+      "objectType": "CLAS",
+      "objectName": "CL_CHDO_READ_TOOLS",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_CHDO_WRITE_TOOLS",
+      "objectType": "CLAS",
+      "objectName": "CL_CHDO_WRITE_TOOLS",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "BSEG_ADD",
+  "objectType": "TABL",
+  "objectName": "BSEG_ADD",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-GL-GL",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_ADDLLEDGEROPLACCTGDOCITEM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_ADDLLEDGEROPLACCTGDOCITEM",
+      "successorType": "STANDARD"
+    }
+  ]
+}

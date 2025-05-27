@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "RONT",
+  "tadirObjectName": "REARCHITECTUREOBJECTTYPE",
+  "objectType": "RONT",
+  "objectName": "REARCHITECTUREOBJECTTYPE",
+  "subType": "RONT",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "RE-FX-BD",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

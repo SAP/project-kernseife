@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVFKT",
+  "objectType": "TABL",
+  "objectName": "TVFKT",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BIL-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_BILLINGDOCUMENTTYPE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_BILLINGDOCUMENTTYPE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

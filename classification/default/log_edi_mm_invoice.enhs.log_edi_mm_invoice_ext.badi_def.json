@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "LOG_EDI_MM_INVOICE",
+  "objectType": "BADI_DEF",
+  "objectName": "LOG_EDI_MM_INVOICE_EXT",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IV-GF-ES",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "ENHS",
+      "tadirObjectName": "LOG_EDI_MM_INVOICE",
+      "objectType": "BADI_DEF",
+      "objectName": "LOG_EDI_MM_INVOICE_CE_MAP",
+      "successorType": "STANDARD"
+    }
+  ]
+}
