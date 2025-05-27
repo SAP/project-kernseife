@@ -36,6 +36,7 @@
     "express": "^4.21.2",
     "helmet": "^8.1.0",
     "is-ci": "^4.1.0",
+    "jszip": "^3.10.1",
     "papaparse": "^5.5.2"
   },
   "devDependencies": {

@@ -171,6 +171,11 @@ service AdminService @(requires: 'admin') {
         @Core.ContentDisposition.Filename: 'classificationCloud.json'
         @Core.ContentDisposition.Type    : 'inline'
         classificationCloud    : LargeBinary;
+
+        @(Core.MediaType                 : 'application/zip')
+        @Core.ContentDisposition.Filename: 'classification.zip'
+        @Core.ContentDisposition.Type    : 'inline'
+        classificationGithub   : LargeBinary;
     }
 
 
