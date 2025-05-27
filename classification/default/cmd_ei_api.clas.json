@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CMD_EI_API",
+  "objectType": "CLAS",
+  "objectName": "CMD_EI_API",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-BP-CM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CVI_EI_ADAPTER",
+      "objectType": "CLAS",
+      "objectName": "CVI_EI_ADAPTER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

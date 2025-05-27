@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T024D",
+  "objectType": "TABL",
+  "objectName": "T024D",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-MRP-BD",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_MRPCONTROLLER",
+      "objectType": "CDS_STOB",
+      "objectName": "I_MRPCONTROLLER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

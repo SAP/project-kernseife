@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVTWT",
+  "objectType": "TABL",
+  "objectName": "TVTWT",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-MD-MM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_DISTRIBUTIONCHANNEL",
+      "objectType": "CDS_STOB",
+      "objectName": "I_DISTRIBUTIONCHANNEL",
+      "successorType": "STANDARD"
+    }
+  ]
+}

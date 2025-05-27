@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_UG_TIME",
+  "objectType": "INTF",
+  "objectName": "IF_UG_TIME",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4COREOP",
+  "applicationComponent": "FIN-FB-MDF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "F013",
+      "objectType": "FUNC",
+      "objectName": "PERIOD_DAY_DETERMINE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

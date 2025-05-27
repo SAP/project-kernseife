@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "PCF_BOOLEAN",
+  "objectType": "DTEL",
+  "objectName": "PCF_BOOLEAN",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-APS-EXT-FLD",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DTEL",
+      "tadirObjectName": "ABAP_BOOLEAN",
+      "objectType": "DTEL",
+      "objectName": "ABAP_BOOLEAN",
+      "successorType": "STANDARD"
+    }
+  ]
+}

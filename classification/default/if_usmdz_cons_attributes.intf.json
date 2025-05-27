@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_USMDZ_CONS_ATTRIBUTES",
+  "objectType": "INTF",
+  "objectName": "IF_USMDZ_CONS_ATTRIBUTES",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "MDG_FND",
+  "applicationComponent": "CA-MDG-APP-FIN",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

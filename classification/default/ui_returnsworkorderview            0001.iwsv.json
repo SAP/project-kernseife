@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "IWSV",
+  "tadirObjectName": "UI_RETURNSWORKORDERVIEW            0001",
+  "objectType": "IWSV",
+  "objectName": "UI_RETURNSWORKORDERVIEW            0001",
+  "subType": "IWSV",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CA-FL-RET",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "BTCH",
+  "objectType": "FUNC",
+  "objectName": "JOB_SUBMIT",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-CCM-BTC",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_APJ_RT_API",
+      "objectType": "CLAS",
+      "objectName": "CL_APJ_RT_API",
+      "successorType": "STANDARD"
+    }
+  ]
+}

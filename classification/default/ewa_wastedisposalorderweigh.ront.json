@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "RONT",
+  "tadirObjectName": "EWA_WASTEDISPOSALORDERWEIGH",
+  "objectType": "RONT",
+  "objectName": "EWA_WASTEDISPOSALORDERWEIGH",
+  "subType": "RONT",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "IS-UT",
+  "applicationComponent": "IS-U-WA",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

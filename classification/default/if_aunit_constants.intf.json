@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_AUNIT_CONSTANTS",
+  "objectType": "INTF",
+  "objectName": "IF_AUNIT_CONSTANTS",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-TOO-UT",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "INTF",
+      "tadirObjectName": "IF_ABAP_UNIT_CONSTANT",
+      "objectType": "INTF",
+      "objectName": "IF_ABAP_UNIT_CONSTANT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

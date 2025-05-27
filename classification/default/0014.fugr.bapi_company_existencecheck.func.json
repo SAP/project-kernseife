@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "0014",
+  "objectType": "FUNC",
+  "objectName": "BAPI_COMPANY_EXISTENCECHECK",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_COMPANYCODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_COMPANYCODE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

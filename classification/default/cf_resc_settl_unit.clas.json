@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CF_RESC_SETTL_UNIT",
+  "objectType": "CLAS",
+  "objectName": "CF_RESC_SETTL_UNIT",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "RE-FX-SC",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "RESC_BAPI_SETTL_UNIT",
+      "objectType": "FUNC",
+      "objectName": "BAPI_RE_SU_GET_DETAIL",
+      "successorType": "STANDARD"
+    }
+  ]
+}

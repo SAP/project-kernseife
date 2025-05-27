@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CL_REBD_RENTAL_OBJECT",
+  "objectType": "CLAS",
+  "objectName": "CL_REBD_RENTAL_OBJECT",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "RE-FX-BD",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "REBD_BAPI_RENTAL_OBJECT",
+      "objectType": "FUNC",
+      "objectName": "BAPI_RE_RO_GET_DETAIL",
+      "successorType": "STANDARD"
+    }
+  ]
+}

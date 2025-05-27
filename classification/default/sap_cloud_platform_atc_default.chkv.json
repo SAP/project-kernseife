@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CHKV",
+  "tadirObjectName": "SAP_CLOUD_PLATFORM_ATC_DEFAULT",
+  "objectType": "CHKV",
+  "objectName": "SAP_CLOUD_PLATFORM_ATC_DEFAULT",
+  "subType": "CHKV",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-ABA-LA",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CHKV",
+      "tadirObjectName": "ABAP_CLOUD_DEVELOPMENT_DEFAULT",
+      "objectType": "CHKV",
+      "objectName": "ABAP_CLOUD_DEVELOPMENT_DEFAULT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

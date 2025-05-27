@@ -1,0 +1,32 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "VEPO",
+  "objectType": "TABL",
+  "objectName": "VEPO",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-HU-BF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_HANDLINGUNITITEMTP",
+      "objectType": "CDS_STOB",
+      "objectName": "I_HANDLINGUNITITEMTP",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_HANDLINGUNITITEM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_HANDLINGUNITITEM",
+      "successorType": "STANDARD"
+    }
+  ]
+}

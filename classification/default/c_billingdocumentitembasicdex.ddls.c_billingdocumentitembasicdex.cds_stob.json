@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "C_BILLINGDOCUMENTITEMBASICDEX",
+  "objectType": "CDS_STOB",
+  "objectName": "C_BILLINGDOCUMENTITEMBASICDEX",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-ANA",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "C_BILLINGDOCITEMBASICDEX_1",
+      "objectType": "CDS_STOB",
+      "objectName": "C_BILLINGDOCITEMBASICDEX_1",
+      "successorType": "STANDARD"
+    }
+  ]
+}

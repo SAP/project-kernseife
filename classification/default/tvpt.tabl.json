@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVPT",
+  "objectType": "TABL",
+  "objectName": "TVPT",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-AR-AR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SALESDOCUMENTITEMCATEGORY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SALESDOCUMENTITEMCATEGORY",
+      "successorType": "STANDARD"
+    }
+  ]
+}

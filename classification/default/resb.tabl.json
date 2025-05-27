@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "RESB",
+  "objectType": "TABL",
+  "objectName": "RESB",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 2,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_RESERVATIONDOCUMENTITEM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_RESERVATIONDOCUMENTITEM",
+      "successorType": "STANDARD"
+    }
+  ]
+}

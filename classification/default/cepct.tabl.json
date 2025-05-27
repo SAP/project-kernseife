@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "CEPCT",
+  "objectType": "TABL",
+  "objectName": "CEPCT",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "EC-PCA",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PROFITCENTERTEXT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PROFITCENTERTEXT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

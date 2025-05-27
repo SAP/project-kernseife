@@ -1,0 +1,39 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "QPCT",
+  "objectType": "TABL",
+  "objectName": "QPCT",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "QM-PT-BD-CAT",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CHARCATTRIBUTECODETEXT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CHARCATTRIBUTECODETEXT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_DEFECTCODETEXT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_DEFECTCODETEXT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_USAGEDECISIONCODETEXT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_USAGEDECISIONCODETEXT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

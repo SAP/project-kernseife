@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SCA5",
+  "objectType": "FUNC",
+  "objectName": "HOLIDAY_GET",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ASF-CAL",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_FHC_CALENDAR_RUNTIME",
+      "objectType": "CLAS",
+      "objectName": "CL_FHC_CALENDAR_RUNTIME",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "ES20",
+  "objectType": "FUNC",
+  "objectName": "ISU_S_CONTRACT_CHANGE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "IS-UT",
+  "applicationComponent": "IS-U-MD",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "EMOBAPIS",
+      "objectType": "FUNC",
+      "objectName": "BAPI_ISUCONTRCT_CHANGEFROMDATA",
+      "successorType": "STANDARD"
+    }
+  ]
+}

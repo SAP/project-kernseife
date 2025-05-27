@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "ME_PROCESS_PO_CUST",
+  "objectType": "BADI_DEF",
+  "objectName": "ME_PROCESS_PO_CUST",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "ENHS",
+      "tadirObjectName": "ES_MMPUR_PROCESS_PO_CLOUD",
+      "objectType": "BADI_DEF",
+      "objectName": "MM_PUR_S4_PO_OPEN",
+      "successorType": "STANDARD"
+    }
+  ]
+}

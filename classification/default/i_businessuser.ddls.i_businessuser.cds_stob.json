@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_BUSINESSUSER",
+  "objectType": "CDS_STOB",
+  "objectName": "I_BUSINESSUSER",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-BUM",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_BUSINESSUSERBASIC",
+      "objectType": "CDS_STOB",
+      "objectName": "I_BUSINESSUSERBASIC",
+      "successorType": "STANDARD"
+    }
+  ]
+}

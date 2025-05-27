@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T163D",
+  "objectType": "TABL",
+  "objectName": "T163D",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SUPLRCONFCATINTERNALASSGMT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SUPLRCONFCATINTERNALASSGMT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

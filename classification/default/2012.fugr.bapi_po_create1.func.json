@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "2012",
+  "objectType": "FUNC",
+  "objectName": "BAPI_PO_CREATE1",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-PO",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_PURCHASEORDERTP_2",
+      "objectType": "BDEF",
+      "objectName": "I_PURCHASEORDERTP_2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

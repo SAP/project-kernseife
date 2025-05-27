@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_MFGORDERACTLPLANTGTCOST",
+  "objectType": "CDS_STOB",
+  "objectName": "I_MFGORDERACTLPLANTGTCOST",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CO-PC-OBJ",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_MFGORDERACTLPLANTGTLDGRCOST",
+      "objectType": "CDS_STOB",
+      "objectName": "I_MFGORDERACTLPLANTGTLDGRCOST",
+      "successorType": "STANDARD"
+    }
+  ]
+}

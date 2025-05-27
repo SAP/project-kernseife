@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SCA5",
+  "objectType": "FUNC",
+  "objectName": "FACTORY_CALENDAR_ATTRIBUTE_GET",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ASF-CAL",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_SCAL_API",
+      "objectType": "CLAS",
+      "objectName": "CL_SCAL_API",
+      "successorType": "STANDARD"
+    }
+  ]
+}

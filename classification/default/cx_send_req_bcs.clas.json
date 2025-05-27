@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CX_SEND_REQ_BCS",
+  "objectType": "CLAS",
+  "objectName": "CX_SEND_REQ_BCS",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-COM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CX_BCS_MAIL",
+      "objectType": "CLAS",
+      "objectName": "CX_BCS_MAIL",
+      "successorType": "STANDARD"
+    }
+  ]
+}

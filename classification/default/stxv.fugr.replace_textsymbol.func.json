@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "STXV",
+  "objectType": "FUNC",
+  "objectName": "REPLACE_TEXTSYMBOL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-SCR",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "STXE",
+      "objectType": "FUNC",
+      "objectName": "TEXT_SYMBOL_REPLACE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

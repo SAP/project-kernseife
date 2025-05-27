@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SEPA_MANDATE_BAPIS",
+  "objectType": "FUNC",
+  "objectName": "BAPI_SEPA_MANDATE_EXISTENCECHK",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_ABA",
+  "applicationComponent": "CA-BK-SEP",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "SEPA_MANDATE_ALE",
+      "objectType": "FUNC",
+      "objectName": "BAPI_SEPAMANDAT_GETDETAIL",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "FTR_BAPI_SWAP",
+  "objectType": "FUNC",
+  "objectName": "BAPI_FTR_SWAP_CREATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FIN-FSCM-TRM-TM-TR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "FTR_BAPI_SWAP",
+      "objectType": "FUNC",
+      "objectName": "BAPI_FTR_SWAP_DEALCREATE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

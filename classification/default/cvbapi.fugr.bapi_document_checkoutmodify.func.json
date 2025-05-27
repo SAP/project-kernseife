@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "CVBAPI",
+  "objectType": "FUNC",
+  "objectName": "BAPI_DOCUMENT_CHECKOUTMODIFY",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CA-DMS",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "CVBAPI",
+      "objectType": "FUNC",
+      "objectName": "BAPI_DOCUMENT_CHANGE2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

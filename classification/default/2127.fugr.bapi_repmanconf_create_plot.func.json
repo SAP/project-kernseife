@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "2127",
+  "objectType": "FUNC",
+  "objectName": "BAPI_REPMANCONF_CREATE_PLOT",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-REM-ADE",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "2142",
+      "objectType": "FUNC",
+      "objectName": "BAPI_REPMANCONF1_CREATE_MTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

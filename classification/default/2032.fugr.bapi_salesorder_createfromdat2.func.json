@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "2032",
+  "objectType": "FUNC",
+  "objectName": "BAPI_SALESORDER_CREATEFROMDAT2",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-SLS-GF",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_SALESORDERTP",
+      "objectType": "BDEF",
+      "objectName": "I_SALESORDERTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

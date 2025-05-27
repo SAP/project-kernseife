@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "ACC4",
+  "objectType": "FUNC",
+  "objectName": "BAPI_ACC_EMPLOYEE_EXP_POST",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "AC-INT",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_JOURNALENTRYTP",
+      "objectType": "BDEF",
+      "objectName": "I_JOURNALENTRYTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

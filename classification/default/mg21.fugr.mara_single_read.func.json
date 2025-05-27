@@ -1,0 +1,53 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "MG21",
+  "objectType": "FUNC",
+  "objectName": "MARA_SINGLE_READ",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-MM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPROCUREMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPROCUREMENT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTQM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTQM",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTSALES",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTSALES",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTSTORAGE_2",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTSTORAGE_2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

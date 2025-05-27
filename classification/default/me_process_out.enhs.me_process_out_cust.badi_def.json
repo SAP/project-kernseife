@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "ME_PROCESS_OUT",
+  "objectType": "BADI_DEF",
+  "objectName": "ME_PROCESS_OUT_CUST",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-OA",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "ENHS",
+      "tadirObjectName": "MM_PUR_S4_CTR",
+      "objectType": "BADI_DEF",
+      "objectName": "MM_PUR_S4_CTR_MODIFY_HEADER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

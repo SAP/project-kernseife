@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "0002",
+  "objectType": "FUNC",
+  "objectName": "BAPI_COMPANYCODE_GET_PERIOD",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_FISCCALENDARDATEFORCOMPCODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_FISCCALENDARDATEFORCOMPCODE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

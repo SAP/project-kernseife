@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "LIKP",
+  "objectType": "TABL",
+  "objectName": "LIKP",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LE-SHP-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 3,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_DELIVERYDOCUMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_DELIVERYDOCUMENT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

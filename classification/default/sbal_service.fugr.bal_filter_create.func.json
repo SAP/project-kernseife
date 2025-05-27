@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SBAL_SERVICE",
+  "objectType": "FUNC",
+  "objectName": "BAL_FILTER_CREATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-BAL",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_BALI_LOG_FILTER",
+      "objectType": "CLAS",
+      "objectName": "CL_BALI_LOG_FILTER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

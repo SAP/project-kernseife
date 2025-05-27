@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "MEWP",
+  "objectType": "FUNC",
+  "objectName": "BAPI_PO_GETDETAIL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-GF",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_PURCHASEORDERTP_2",
+      "objectType": "BDEF",
+      "objectName": "I_PURCHASEORDERTP_2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

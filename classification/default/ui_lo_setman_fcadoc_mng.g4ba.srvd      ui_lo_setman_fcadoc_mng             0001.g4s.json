@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "G4BA",
+  "tadirObjectName": "UI_LO_SETMAN_FCADOC_MNG",
+  "objectType": "G4S",
+  "objectName": "SRVD      UI_LO_SETMAN_FCADOC_MNG             0001",
+  "subType": "G4S",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-AB",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

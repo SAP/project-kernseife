@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "HRMM",
+  "objectType": "FUNC",
+  "objectName": "HR_MAINTAIN_MASTERDATA",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4HCMRXX",
+  "applicationComponent": "PA-PA",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_HRPA_MASTERDATA_BL",
+      "objectType": "CLAS",
+      "objectName": "CL_HRPA_MASTERDATA_BL",
+      "successorType": "STANDARD"
+    }
+  ]
+}

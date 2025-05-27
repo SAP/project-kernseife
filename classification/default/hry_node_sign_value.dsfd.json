@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DSFD",
+  "tadirObjectName": "HRY_NODE_SIGN_VALUE",
+  "objectType": "DSFD",
+  "objectName": "HRY_NODE_SIGN_VALUE",
+  "subType": "DSFD",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

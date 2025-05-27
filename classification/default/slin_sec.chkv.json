@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CHKV",
+  "tadirObjectName": "SLIN_SEC",
+  "objectType": "CHKV",
+  "objectName": "SLIN_SEC",
+  "subType": "CHKV",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-ABA-LA-EPC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

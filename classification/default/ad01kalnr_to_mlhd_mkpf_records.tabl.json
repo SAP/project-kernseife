@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "AD01KALNR_TO_MLHD_MKPF_RECORDS",
+  "objectType": "TABL",
+  "objectName": "AD01KALNR_TO_MLHD_MKPF_RECORDS",
+  "subType": "INTTAB",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PS-REV",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

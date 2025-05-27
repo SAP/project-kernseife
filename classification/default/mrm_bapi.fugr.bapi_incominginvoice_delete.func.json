@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "MRM_BAPI",
+  "objectType": "FUNC",
+  "objectName": "BAPI_INCOMINGINVOICE_DELETE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IV-LIV",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_SUPPLIERINVOICETP",
+      "objectType": "BDEF",
+      "objectName": "I_SUPPLIERINVOICETP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

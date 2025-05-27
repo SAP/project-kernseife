@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TSTL",
+  "objectType": "TABL",
+  "objectName": "TSTL",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BIL",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTSALESTAX",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTSALESTAX",
+      "successorType": "STANDARD"
+    }
+  ]
+}

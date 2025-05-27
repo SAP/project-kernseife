@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DOMA",
+  "tadirObjectName": "MRM_WF_TOTAL_STEPS",
+  "objectType": "DOMA",
+  "objectName": "MRM_WF_TOTAL_STEPS",
+  "subType": "DOMA",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IV-INT-WF",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

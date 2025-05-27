@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_CABILLPRNTINVCGITEMBILLGREQ",
+  "objectType": "CDS_STOB",
+  "objectName": "I_CABILLPRNTINVCGITEMBILLGREQ",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-CA-INV",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "C_CABILLPRNTINVCGHDRCORRESPNC",
+      "objectType": "CDS_STOB",
+      "objectName": "C_CABILLPRNTINVCGHDRCORRESPNC",
+      "successorType": "STANDARD"
+    }
+  ]
+}

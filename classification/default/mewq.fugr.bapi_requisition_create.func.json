@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "MEWQ",
+  "objectType": "FUNC",
+  "objectName": "BAPI_REQUISITION_CREATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-GF",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_PURCHASEREQUISITIONTP",
+      "objectType": "BDEF",
+      "objectName": "I_PURCHASEREQUISITIONTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

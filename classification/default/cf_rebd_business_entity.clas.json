@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "CLAS",
+  "tadirObjectName": "CF_REBD_BUSINESS_ENTITY",
+  "objectType": "CLAS",
+  "objectName": "CF_REBD_BUSINESS_ENTITY",
+  "subType": "CLAS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "RE-FX-BD",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "REBD_BAPI_BUS_ENTITY",
+      "objectType": "FUNC",
+      "objectName": "BAPI_RE_BE_GET_DETAIL",
+      "successorType": "STANDARD"
+    }
+  ]
+}

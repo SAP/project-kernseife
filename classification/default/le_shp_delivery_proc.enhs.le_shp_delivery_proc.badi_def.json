@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "LE_SHP_DELIVERY_PROC",
+  "objectType": "BADI_DEF",
+  "objectName": "LE_SHP_DELIVERY_PROC",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LE-SHP-DL",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "ENHS",
+      "tadirObjectName": "ES_LE_SHP_EXTEND",
+      "objectType": "BADI_DEF",
+      "objectName": "LE_SHP_SAVE_DOCUMENT_PREPARE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

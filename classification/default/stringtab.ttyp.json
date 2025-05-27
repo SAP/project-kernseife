@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TTYP",
+  "tadirObjectName": "STRINGTAB",
+  "objectType": "TTYP",
+  "objectName": "STRINGTAB",
+  "subType": "TTYP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SEC-DIR",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "TTYP",
+      "tadirObjectName": "STRING_TABLE",
+      "objectType": "TTYP",
+      "objectName": "STRING_TABLE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

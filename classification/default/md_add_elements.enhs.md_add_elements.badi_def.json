@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "MD_ADD_ELEMENTS",
+  "objectType": "BADI_DEF",
+  "objectName": "MD_ADD_ELEMENTS",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-MRP-BD",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "ENHS",
+      "tadirObjectName": "ES_PPH_SUPPLY_DEMAND_LIST",
+      "objectType": "BADI_DEF",
+      "objectName": "PPH_SUPPLY_DEMAND_LIST",
+      "successorType": "STANDARD"
+    }
+  ]
+}

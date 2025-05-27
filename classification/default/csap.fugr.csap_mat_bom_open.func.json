@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "CSAP",
+  "objectType": "FUNC",
+  "objectName": "CSAP_MAT_BOM_OPEN",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-BOM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "CSAP",
+      "objectType": "FUNC",
+      "objectName": "CSAP_MAT_BOM_MAINTAIN",
+      "successorType": "STANDARD"
+    }
+  ]
+}

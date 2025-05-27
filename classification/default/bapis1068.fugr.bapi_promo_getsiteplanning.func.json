@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "BAPIS1068",
+  "objectType": "FUNC",
+  "objectName": "BAPI_PROMO_GETSITEPLANNING",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-RFM-MD-PR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "BAPIS1068",
+      "objectType": "FUNC",
+      "objectName": "BAPI_PROMO_GETSITEPLANNING1",
+      "successorType": "STANDARD"
+    }
+  ]
+}

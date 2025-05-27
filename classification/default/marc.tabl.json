@@ -1,0 +1,81 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "MARC",
+  "objectType": "TABL",
+  "objectName": "MARC",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-MM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 5,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTBASIC",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTBASIC",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTCOSTING",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTCOSTING",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTINTLTRD",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTINTLTRD",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTPROCUREMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTPROCUREMENT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTSALES",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTSALES",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTSUPPLYPLANNING",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTSUPPLYPLANNING",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTWORKSCHEDULING",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTWORKSCHEDULING",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTQTMANAGEMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTQTMANAGEMENT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTFORECAST",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTFORECAST",
+      "successorType": "STANDARD"
+    }
+  ]
+}

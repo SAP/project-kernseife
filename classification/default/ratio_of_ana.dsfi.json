@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DSFI",
+  "tadirObjectName": "RATIO_OF_ANA",
+  "objectType": "DSFI",
+  "objectName": "RATIO_OF_ANA",
+  "subType": "DSFI",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

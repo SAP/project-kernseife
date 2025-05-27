@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T685",
+  "objectType": "TABL",
+  "objectName": "T685",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-MD-CM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CONDITIONTYPE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CONDITIONTYPE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

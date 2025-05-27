@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T011T",
+  "objectType": "TABL",
+  "objectName": "T011T",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-GL-GL-N",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_FINANCIALSTATEMENTHIERT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_FINANCIALSTATEMENTHIERT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

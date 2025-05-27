@@ -1,0 +1,221 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "BUS1001006",
+  "objectType": "FUNC",
+  "objectName": "BAPI_MATERIAL_GETALL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-MM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTDESCRIPTION",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTDESCRIPTION",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTBASIC",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTBASIC",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTCOSTING",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTCOSTING",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTFORECAST",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTFORECAST",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTINTLTRD",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTINTLTRD",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTMRP",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTMRP",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTPROCUREMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTPROCUREMENT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTQTMANAGEMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTQTMANAGEMENT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPLANTSALES",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPLANTSALES",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPROCUREMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPROCUREMENT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTPURCHASETAX",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTPURCHASETAX",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTQM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTQM",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTRETAIL",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTRETAIL",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTSALES",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTSALES",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTSALESDELIVERY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTSALESDELIVERY",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTSALESTAX",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTSALESTAX",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTSTORAGELOCATIONBASIC",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTSTORAGELOCATIONBASIC",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTSUPPLYPLANNING",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTSUPPLYPLANNING",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTTAXCLASSIFICATION",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTTAXCLASSIFICATION",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTTEXT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTTEXT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTUNITOFMEASUREEAN",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTUNITOFMEASUREEAN",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTUNITSOFMEASURE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTUNITSOFMEASURE",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTVALUATIONACCT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTVALUATIONACCT",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTVALUATIONBASIC",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTVALUATIONBASIC",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTVALUATIONCOSTING",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTVALUATIONCOSTING",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTWORKSCHEDULING",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTWORKSCHEDULING",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUNITOFMEASURETEXTBASIC",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUNITOFMEASURETEXTBASIC",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PRODUCTSTORAGE_2",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PRODUCTSTORAGE_2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

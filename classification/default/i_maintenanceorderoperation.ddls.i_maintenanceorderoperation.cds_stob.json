@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_MAINTENANCEORDEROPERATION",
+  "objectType": "CDS_STOB",
+  "objectName": "I_MAINTENANCEORDEROPERATION",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PM-WOC-MO",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_MAINTORDEROPERATION_DEX",
+      "objectType": "CDS_STOB",
+      "objectName": "I_MAINTORDEROPERATION_DEX",
+      "successorType": "STANDARD"
+    }
+  ]
+}

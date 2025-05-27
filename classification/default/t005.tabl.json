@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T005",
+  "objectType": "TABL",
+  "objectName": "T005",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ADR",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_COUNTRY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_COUNTRY",
+      "successorType": "STANDARD"
+    }
+  ]
+}

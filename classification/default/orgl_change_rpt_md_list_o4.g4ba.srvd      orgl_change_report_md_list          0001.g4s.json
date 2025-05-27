@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "G4BA",
+  "tadirObjectName": "ORGL_CHANGE_RPT_MD_LIST_O4",
+  "objectType": "G4S",
+  "objectName": "SRVD      ORGL_CHANGE_REPORT_MD_LIST          0001",
+  "subType": "G4S",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-GL-OC",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

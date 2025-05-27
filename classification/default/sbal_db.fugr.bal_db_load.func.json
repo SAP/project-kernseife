@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SBAL_DB",
+  "objectType": "FUNC",
+  "objectName": "BAL_DB_LOAD",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-BAL",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_BALI_LOG_DB",
+      "objectType": "CLAS",
+      "objectName": "CL_BALI_LOG_DB",
+      "successorType": "STANDARD"
+    }
+  ]
+}

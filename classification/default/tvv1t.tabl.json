@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVV1T",
+  "objectType": "TABL",
+  "objectName": "TVV1T",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_ADDITIONALCUSTOMERGROUP1",
+      "objectType": "CDS_STOB",
+      "objectName": "I_ADDITIONALCUSTOMERGROUP1",
+      "successorType": "STANDARD"
+    }
+  ]
+}

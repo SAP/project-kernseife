@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "PACKPO",
+  "objectType": "TABL",
+  "objectName": "PACKPO",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-HU-MD",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PACKINGINSTRUCTIONCOMPONENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PACKINGINSTRUCTIONCOMPONENT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "AFPO",
+  "objectType": "TABL",
+  "objectName": "AFPO",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-SFC",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_MANUFACTURINGORDERITEM",
+      "objectType": "CDS_STOB",
+      "objectName": "I_MANUFACTURINGORDERITEM",
+      "successorType": "STANDARD"
+    }
+  ]
+}

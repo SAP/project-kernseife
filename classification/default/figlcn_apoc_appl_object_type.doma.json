@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DOMA",
+  "tadirObjectName": "FIGLCN_APOC_APPL_OBJECT_TYPE",
+  "objectType": "DOMA",
+  "objectName": "FIGLCN_APOC_APPL_OBJECT_TYPE",
+  "subType": "DOMA",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-LOC-FI-CN",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

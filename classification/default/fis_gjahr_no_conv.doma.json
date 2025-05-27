@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DOMA",
+  "tadirObjectName": "FIS_GJAHR_NO_CONV",
+  "objectType": "DOMA",
+  "objectName": "FIS_GJAHR_NO_CONV",
+  "subType": "DOMA",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_ABA",
+  "applicationComponent": "CA-GTF-GL-CAL",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "MESHOW",
+  "objectType": "FUNC",
+  "objectName": "ME_DISPLAY_PURCHASE_DOCUMENT",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PURCHASEORDERAPI01",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PURCHASEORDERAPI01",
+      "successorType": "STANDARD"
+    }
+  ]
+}

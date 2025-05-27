@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "IWSV",
+  "tadirObjectName": "FINS_ACDOC_PLAN_MANAGE_REVERSL_SRV 0001",
+  "objectType": "IWSV",
+  "objectName": "FINS_ACDOC_PLAN_MANAGE_REVERSL_SRV 0001",
+  "subType": "IWSV",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CO-FIO-OM-PL",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

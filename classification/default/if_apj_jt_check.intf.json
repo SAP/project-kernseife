@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_APJ_JT_CHECK",
+  "objectType": "INTF",
+  "objectName": "IF_APJ_JT_CHECK",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-APS-APJ",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "INTF",
+      "tadirObjectName": "IF_APJ_JT_CHECK_20",
+      "objectType": "INTF",
+      "objectName": "IF_APJ_JT_CHECK_20",
+      "successorType": "STANDARD"
+    }
+  ]
+}

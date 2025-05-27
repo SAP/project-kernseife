@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "CD_READ",
+  "objectType": "FUNC",
+  "objectName": "CHANGEDOCUMENT_READ_ALL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ASF-CHD",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_CHDO_READ_TOOLS",
+      "objectType": "CLAS",
+      "objectName": "CL_CHDO_READ_TOOLS",
+      "successorType": "STANDARD"
+    }
+  ]
+}

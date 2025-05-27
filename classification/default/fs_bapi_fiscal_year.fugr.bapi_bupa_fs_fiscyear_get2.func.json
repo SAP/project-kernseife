@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "FS_BAPI_FISCAL_YEAR",
+  "objectType": "FUNC",
+  "objectName": "BAPI_BUPA_FS_FISCYEAR_GET2",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_ABA",
+  "applicationComponent": "FS-BP",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_MDBPCVI_READER",
+      "objectType": "CLAS",
+      "objectName": "CL_MDBPCVI_READER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

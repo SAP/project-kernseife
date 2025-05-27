@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "WY09",
+  "objectType": "FUNC",
+  "objectName": "MM_PARTNER_DISPLAY",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-MD-BP-VM",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_MDBPCVI_READER",
+      "objectType": "CLAS",
+      "objectName": "CL_MDBPCVI_READER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

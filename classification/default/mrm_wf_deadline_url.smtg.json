@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "SMTG",
+  "tadirObjectName": "MRM_WF_DEADLINE_URL",
+  "objectType": "SMTG",
+  "objectName": "MRM_WF_DEADLINE_URL",
+  "subType": "SMTG",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IV-INT-WF",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

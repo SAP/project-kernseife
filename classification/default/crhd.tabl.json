@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "CRHD",
+  "objectType": "TABL",
+  "objectName": "CRHD",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-BD-WKC",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_WORKCENTER",
+      "objectType": "CDS_STOB",
+      "objectName": "I_WORKCENTER",
+      "successorType": "STANDARD"
+    }
+  ]
+}

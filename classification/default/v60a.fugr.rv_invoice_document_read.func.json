@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "V60A",
+  "objectType": "FUNC",
+  "objectName": "RV_INVOICE_DOCUMENT_READ",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BIL",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_BILLINGDOCUMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_BILLINGDOCUMENT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

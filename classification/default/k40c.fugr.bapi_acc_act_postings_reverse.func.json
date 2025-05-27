@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "K40C",
+  "objectType": "FUNC",
+  "objectName": "BAPI_ACC_ACT_POSTINGS_REVERSE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "CO",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_JOURNALENTRYTP",
+      "objectType": "BDEF",
+      "objectName": "I_JOURNALENTRYTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

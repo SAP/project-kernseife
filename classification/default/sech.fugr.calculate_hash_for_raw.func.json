@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SECH",
+  "objectType": "FUNC",
+  "objectName": "CALCULATE_HASH_FOR_RAW",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SEC-LLF",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_ABAP_MESSAGE_DIGEST",
+      "objectType": "CLAS",
+      "objectName": "CL_ABAP_MESSAGE_DIGEST",
+      "successorType": "STANDARD"
+    }
+  ]
+}

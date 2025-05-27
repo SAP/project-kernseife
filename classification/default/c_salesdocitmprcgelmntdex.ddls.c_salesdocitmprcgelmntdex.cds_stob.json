@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "C_SALESDOCITMPRCGELMNTDEX",
+  "objectType": "CDS_STOB",
+  "objectName": "C_SALESDOCITMPRCGELMNTDEX",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-ANA",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "C_SALESDOCITMPRCGELMNTDEX_1",
+      "objectType": "CDS_STOB",
+      "objectName": "C_SALESDOCITMPRCGELMNTDEX_1",
+      "successorType": "STANDARD"
+    }
+  ]
+}

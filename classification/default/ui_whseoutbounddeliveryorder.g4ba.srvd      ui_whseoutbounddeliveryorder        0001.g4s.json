@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "G4BA",
+  "tadirObjectName": "UI_WHSEOUTBOUNDDELIVERYORDER",
+  "objectType": "G4S",
+  "objectName": "SRVD      UI_WHSEOUTBOUNDDELIVERYORDER        0001",
+  "subType": "G4S",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SCM-EWM-IF",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TCURX",
+  "objectType": "TABL",
+  "objectName": "TCURX",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-BSF-CUR",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_CURRENCY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_CURRENCY",
+      "successorType": "STANDARD"
+    }
+  ]
+}

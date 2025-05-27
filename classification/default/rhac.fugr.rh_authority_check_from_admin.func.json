@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "RHAC",
+  "objectType": "FUNC",
+  "objectName": "RH_AUTHORITY_CHECK_FROM_ADMIN",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-BMT-OM",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "RHAC",
+      "objectType": "FUNC",
+      "objectName": "RH_STRU_AUTHORITY_CHECK",
+      "successorType": "STANDARD"
+    }
+  ]
+}

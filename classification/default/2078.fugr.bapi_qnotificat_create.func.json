@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "2078",
+  "objectType": "FUNC",
+  "objectName": "BAPI_QNOTIFICAT_CREATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "QM-QN",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_QLTYNOTIFICATIONTP",
+      "objectType": "BDEF",
+      "objectName": "I_QLTYNOTIFICATIONTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

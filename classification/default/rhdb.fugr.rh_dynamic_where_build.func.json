@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "RHDB",
+  "objectType": "FUNC",
+  "objectName": "RH_DYNAMIC_WHERE_BUILD",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-BMT-OM",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_PFW_SELTAB",
+      "objectType": "CLAS",
+      "objectName": "CL_PFW_SELTAB",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "RONT",
+  "tadirObjectName": "TESTBELOBJECT4",
+  "objectType": "RONT",
+  "objectName": "TESTBELOBJECT4",
+  "subType": "RONT",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAPPCORE_H",
+  "applicationComponent": "CA-GTF-BEL",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

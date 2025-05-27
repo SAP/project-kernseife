@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "EKET",
+  "objectType": "TABL",
+  "objectName": "EKET",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 3,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_PURORDSCHEDULELINEAPI01",
+      "objectType": "CDS_STOB",
+      "objectName": "I_PURORDSCHEDULELINEAPI01",
+      "successorType": "STANDARD"
+    }
+  ]
+}

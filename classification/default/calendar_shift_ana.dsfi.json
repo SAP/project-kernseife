@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DSFI",
+  "tadirObjectName": "CALENDAR_SHIFT_ANA",
+  "objectType": "DSFI",
+  "objectName": "CALENDAR_SHIFT_ANA",
+  "subType": "DSFI",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

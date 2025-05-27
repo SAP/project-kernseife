@@ -1,0 +1,32 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_BAL_LOGGER",
+  "objectType": "INTF",
+  "objectName": "IF_BAL_LOGGER",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-BAL",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "INTF",
+      "tadirObjectName": "IF_BALI_LOG",
+      "objectType": "INTF",
+      "objectName": "IF_BALI_LOG",
+      "successorType": "STANDARD"
+    },
+    {
+      "tadirObjectType": "INTF",
+      "tadirObjectName": "IF_BALI_LOG_DB",
+      "objectType": "INTF",
+      "objectName": "IF_BALI_LOG_DB",
+      "successorType": "STANDARD"
+    }
+  ]
+}

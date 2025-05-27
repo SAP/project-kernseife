@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SCD0",
+  "objectType": "FUNC",
+  "objectName": "CHANGEDOCUMENT_MULTIPLE_CASE2",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ASF-CHD",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_CHDO_WRITE_TOOLS",
+      "objectType": "CLAS",
+      "objectName": "CL_CHDO_WRITE_TOOLS",
+      "successorType": "STANDARD"
+    }
+  ]
+}

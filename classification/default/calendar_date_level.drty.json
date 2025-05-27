@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DRTY",
+  "tadirObjectName": "CALENDAR_DATE_LEVEL",
+  "objectType": "DRTY",
+  "objectName": "CALENDAR_DATE_LEVEL",
+  "subType": "DRTY",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

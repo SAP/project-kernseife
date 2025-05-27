@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "3027",
+  "objectType": "FUNC",
+  "objectName": "BAPI_REQUIREMENTS_CREATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-MP-DEM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_PLNDINDEPRQMTTP",
+      "objectType": "BDEF",
+      "objectName": "I_PLNDINDEPRQMTTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

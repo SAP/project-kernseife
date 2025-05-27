@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "BBPI",
+  "objectType": "FUNC",
+  "objectName": "BBP_INVOICE_CREATE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "MRM_BAPI",
+      "objectType": "FUNC",
+      "objectName": "BAPI_INCOMINGINVOICE_CREATE1",
+      "successorType": "STANDARD"
+    }
+  ]
+}

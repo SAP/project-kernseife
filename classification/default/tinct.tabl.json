@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TINCT",
+  "objectType": "TABL",
+  "objectName": "TINCT",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-BIL-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_INCOTERMSCLASSIFICATION",
+      "objectType": "CDS_STOB",
+      "objectName": "I_INCOTERMSCLASSIFICATION",
+      "successorType": "STANDARD"
+    }
+  ]
+}

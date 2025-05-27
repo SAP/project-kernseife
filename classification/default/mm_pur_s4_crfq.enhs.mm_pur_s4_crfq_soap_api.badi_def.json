@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "MM_PUR_S4_CRFQ",
+  "objectType": "BADI_DEF",
+  "objectName": "MM_PUR_S4_CRFQ_SOAP_API",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR-HUB-RFQ",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "ENHS",
+      "tadirObjectName": "MM_PUR_S4_CRFQ",
+      "objectType": "BADI_DEF",
+      "objectName": "MM_PUR_S4_CRFQ_DEFINE_MAP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

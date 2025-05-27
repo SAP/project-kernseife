@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CHKC",
+  "tadirObjectName": "SYCM_S4H_READINESS",
+  "objectType": "CHKC",
+  "objectName": "SYCM_S4H_READINESS",
+  "subType": "CHKC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-CEX-CCM",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

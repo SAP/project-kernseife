@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "NOTIF_EVENT_POST",
+  "objectType": "BADI_DEF",
+  "objectName": "NOTIF_EVENT_POST",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "QM-QN",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "ENHS",
+      "tadirObjectName": "QQM_NOTIF_EVENT_POST_CLD",
+      "objectType": "BADI_DEF",
+      "objectName": "BADI_QQM_NOTIF_EVENT_POST_CLD",
+      "successorType": "STANDARD"
+    }
+  ]
+}

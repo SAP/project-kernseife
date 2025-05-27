@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DSFD",
+  "tadirObjectName": "RATIO_OF",
+  "objectType": "DSFD",
+  "objectName": "RATIO_OF",
+  "subType": "DSFD",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "MB_BUS2017",
+  "objectType": "FUNC",
+  "objectName": "BAPI_GOODSMVT_CANCEL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-IM",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "BDEF",
+      "tadirObjectName": "I_MATERIALDOCUMENTTP",
+      "objectType": "BDEF",
+      "objectName": "I_MATERIALDOCUMENTTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

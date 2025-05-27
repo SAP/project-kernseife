@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SDM3",
+  "objectType": "FUNC",
+  "objectName": "DEQUEUE_ALL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC-AC",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_ABAP_LOCK_OBJECT_FACTORY",
+      "objectType": "CLAS",
+      "objectName": "CL_ABAP_LOCK_OBJECT_FACTORY",
+      "successorType": "STANDARD"
+    }
+  ]
+}

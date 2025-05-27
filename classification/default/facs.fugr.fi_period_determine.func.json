@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "FACS",
+  "objectType": "FUNC",
+  "objectName": "FI_PERIOD_DETERMINE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_FISCCALENDARDATEFORCOMPCODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_FISCCALENDARDATEFORCOMPCODE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

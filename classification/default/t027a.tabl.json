@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T027A",
+  "objectType": "TABL",
+  "objectName": "T027A",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "MM-PUR",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SHIPPINGINSTRUCTION",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SHIPPINGINSTRUCTION",
+      "successorType": "STANDARD"
+    }
+  ]
+}

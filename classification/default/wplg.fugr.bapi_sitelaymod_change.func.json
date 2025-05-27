@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "WPLG",
+  "objectType": "FUNC",
+  "objectName": "BAPI_SITELAYMOD_CHANGE",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "LO-RFM-MD-LST",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "WRF_WPLG",
+      "objectType": "FUNC",
+      "objectName": "BAPI_SITELAYMOD_CHANGE2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

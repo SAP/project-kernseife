@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_FINANCIALSTATEMENTHIERARCHYT",
+  "objectType": "CDS_STOB",
+  "objectName": "I_FINANCIALSTATEMENTHIERARCHYT",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-GL-IS",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_GLACCOUNTHIERARCHYTEXT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_GLACCOUNTHIERARCHYTEXT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

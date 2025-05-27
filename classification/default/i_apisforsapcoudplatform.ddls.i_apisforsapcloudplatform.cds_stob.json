@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_APISFORSAPCOUDPLATFORM",
+  "objectType": "CDS_STOB",
+  "objectName": "I_APISFORSAPCLOUDPLATFORM",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-APS-EXT-REL",
+  "rating": "FW9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_APISFORCLOUDDEVELOPMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_APISFORCLOUDDEVELOPMENT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

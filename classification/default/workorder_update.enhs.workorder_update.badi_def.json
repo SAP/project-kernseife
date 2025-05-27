@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "ENHS",
+  "tadirObjectName": "WORKORDER_UPDATE",
+  "objectType": "BADI_DEF",
+  "objectName": "WORKORDER_UPDATE",
+  "subType": "ENHS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PP-SFC",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "ENHS",
+      "tadirObjectName": "ES_COBADICFL_MFGORDER",
+      "objectType": "BADI_DEF",
+      "objectName": "BD_MFGORDER_CHECK_BEFORE_SAVE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

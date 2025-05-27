@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "BUBA_3",
+  "objectType": "FUNC",
+  "objectName": "BAPI_BUPA_ROLE_ADD",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_ABA",
+  "applicationComponent": "AP-MD-BP",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "BUBA_3",
+      "objectType": "FUNC",
+      "objectName": "BAPI_BUPA_ROLE_ADD_2",
+      "successorType": "STANDARD"
+    }
+  ]
+}

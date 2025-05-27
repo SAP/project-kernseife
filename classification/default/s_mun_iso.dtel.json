@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DTEL",
+  "tadirObjectName": "S_MUN_ISO",
+  "objectType": "DTEL",
+  "objectName": "S_MUN_ISO",
+  "subType": "DTEL",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-TND",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DTEL",
+      "tadirObjectName": "ISOCD_UNIT",
+      "objectType": "DTEL",
+      "objectName": "ISOCD_UNIT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

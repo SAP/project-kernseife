@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "SMTG",
+  "tadirObjectName": "CINV_INVOICE_EMAIL_TEMPLATE",
+  "objectType": "SMTG",
+  "objectName": "CINV_INVOICE_EMAIL_TEMPLATE",
+  "subType": "SMTG",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-CA-INV",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

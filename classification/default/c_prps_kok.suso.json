@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "SUSO",
+  "tadirObjectName": "C_PRPS_KOK",
+  "objectType": "SUSO",
+  "objectName": "C_PRPS_KOK",
+  "subType": "SUSO",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PS-ST-OPR",
+  "rating": "BF9",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "SUSO",
+      "tadirObjectName": "/S4PPM/PR1",
+      "objectType": "SUSO",
+      "objectName": "/S4PPM/PR1",
+      "successorType": "STANDARD"
+    }
+  ]
+}

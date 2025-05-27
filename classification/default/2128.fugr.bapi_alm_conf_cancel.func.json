@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "2128",
+  "objectType": "FUNC",
+  "objectName": "BAPI_ALM_CONF_CANCEL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "PM-WOC-JC",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_MAINTORDERCONFIRMATIONTP",
+      "objectType": "CDS_STOB",
+      "objectName": "I_MAINTORDERCONFIRMATIONTP",
+      "successorType": "STANDARD"
+    }
+  ]
+}

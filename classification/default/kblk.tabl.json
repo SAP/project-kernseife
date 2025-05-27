@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "KBLK",
+  "objectType": "TABL",
+  "objectName": "KBLK",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-FM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_EARMARKEDFUNDSDOCUMENT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_EARMARKEDFUNDSDOCUMENT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

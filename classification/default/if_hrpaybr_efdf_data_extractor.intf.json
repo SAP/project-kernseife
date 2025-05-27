@@ -1,0 +1,19 @@
+{
+  "tadirObjectType": "INTF",
+  "tadirObjectName": "IF_HRPAYBR_EFDF_DATA_EXTRACTOR",
+  "objectType": "INTF",
+  "objectName": "IF_HRPAYBR_EFDF_DATA_EXTRACTOR",
+  "subType": "INTF",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4HCMCBR",
+  "applicationComponent": "PY-BR",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "transactional-consistent"
+  ],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

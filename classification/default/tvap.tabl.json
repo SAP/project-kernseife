@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "TVAP",
+  "objectType": "TABL",
+  "objectName": "TVAP",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "SD-SLS-GF",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_SALESDOCUMENTITEMCATEGORY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_SALESDOCUMENTITEMCATEGORY",
+      "successorType": "STANDARD"
+    }
+  ]
+}

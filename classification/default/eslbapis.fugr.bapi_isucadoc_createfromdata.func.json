@@ -1,0 +1,27 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "ESLBAPIS",
+  "objectType": "FUNC",
+  "objectName": "BAPI_ISUCADOC_CREATEFROMDATA",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "IS-UT",
+  "applicationComponent": "IS-U-MD-CA",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [
+    "remote-enabled"
+  ],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "FUGR",
+      "tadirObjectName": "FKK_BOR_DOC",
+      "objectType": "FUNC",
+      "objectName": "BAPI_CTRACDOCUMENT_CREATE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "CHKC",
+  "tadirObjectName": "ATC_CHK_CAT_CDS_PERFORMANCE",
+  "objectType": "CHKC",
+  "objectName": "ATC_CHK_CAT_CDS_PERFORMANCE",
+  "subType": "CHKC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-TWB-TST-P-SCC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

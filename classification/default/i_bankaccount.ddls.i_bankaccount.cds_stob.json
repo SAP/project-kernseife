@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "DDLS",
+  "tadirObjectName": "I_BANKACCOUNT",
+  "objectType": "CDS_STOB",
+  "objectName": "I_BANKACCOUNT",
+  "subType": "DDLS",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FIN-FSCM-CLM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_BANKACCOUNTBASICDATA",
+      "objectType": "CDS_STOB",
+      "objectName": "I_BANKACCOUNTBASICDATA",
+      "successorType": "STANDARD"
+    }
+  ]
+}

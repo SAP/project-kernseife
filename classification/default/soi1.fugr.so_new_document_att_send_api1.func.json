@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "SOI1",
+  "objectType": "FUNC",
+  "objectName": "SO_NEW_DOCUMENT_ATT_SEND_API1",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-COM",
+  "rating": "FW1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "CLAS",
+      "tadirObjectName": "CL_BCS_MAIL_MESSAGE",
+      "objectType": "CLAS",
+      "objectName": "CL_BCS_MAIL_MESSAGE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "FUGR",
+  "tadirObjectName": "KGR2",
+  "objectType": "FUNC",
+  "objectName": "BAPI_COSTCENTERGROUP_GETDETAIL",
+  "subType": "FUNC",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-SL-SL-MD-SE",
+  "rating": "BF1",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_COSTCENTERHIERARCHY",
+      "objectType": "CDS_STOB",
+      "objectName": "I_COSTCENTERHIERARCHY",
+      "successorType": "STANDARD"
+    }
+  ]
+}

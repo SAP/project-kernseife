@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "RONT",
+  "tadirObjectName": "UTILITIESSALESCONTRACT",
+  "objectType": "RONT",
+  "objectName": "UTILITIESSALESCONTRACT",
+  "subType": "RONT",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "IS-UT",
+  "applicationComponent": "CRM-S4-IU",
+  "rating": "BF0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}

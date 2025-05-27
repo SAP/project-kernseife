@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T040S",
+  "objectType": "TABL",
+  "objectName": "T040S",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "FI-AR-AR-C",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_DUNNINGBLOCKINGREASONCODE",
+      "objectType": "CDS_STOB",
+      "objectName": "I_DUNNINGBLOCKINGREASONCODE",
+      "successorType": "STANDARD"
+    }
+  ]
+}

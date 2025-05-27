@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "T006C",
+  "objectType": "TABL",
+  "objectName": "T006C",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-SRV-ASF-UOM",
+  "rating": "FW5",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_UNITOFMEASURETECHNICALNAME",
+      "objectType": "CDS_STOB",
+      "objectName": "I_UNITOFMEASURETECHNICALNAME",
+      "successorType": "STANDARD"
+    }
+  ]
+}

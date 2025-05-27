@@ -1,0 +1,25 @@
+{
+  "tadirObjectType": "TABL",
+  "tadirObjectName": "QALS",
+  "objectType": "TABL",
+  "objectName": "QALS",
+  "subType": "TRANSP",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "S4CORE",
+  "applicationComponent": "QM-IM",
+  "rating": "BF5",
+  "numberOfSimplificationNotes": 1,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "STANDARD",
+  "successorList": [
+    {
+      "tadirObjectType": "DDLS",
+      "tadirObjectName": "I_INSPECTIONLOT",
+      "objectType": "CDS_STOB",
+      "objectName": "I_INSPECTIONLOT",
+      "successorType": "STANDARD"
+    }
+  ]
+}

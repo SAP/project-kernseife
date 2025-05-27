@@ -1,0 +1,17 @@
+{
+  "tadirObjectType": "DSFD",
+  "tadirObjectName": "SQRT",
+  "objectType": "DSFD",
+  "objectName": "SQRT",
+  "subType": "DSFD",
+  "comment": "",
+  "adoptionEffort": null,
+  "softwareComponent": "SAP_BASIS",
+  "applicationComponent": "BC-DWB-DIC",
+  "rating": "FW0",
+  "numberOfSimplificationNotes": 0,
+  "labels": [],
+  "noteList": [],
+  "successorClassification": "undefined",
+  "successorList": []
+}
