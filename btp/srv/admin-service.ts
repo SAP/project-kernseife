@@ -32,6 +32,7 @@ import { createInitialData } from './features/setup-feature';
 import { uploadFile } from './features/upload-feature';
 import { JobResult } from './types/file';
 import papa from 'papaparse';
+import JSZip from 'jszip';
 
 export default (srv: Service) => {
   const LOG = log('AdminService');
@@ -277,27 +278,67 @@ export default (srv: Service) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   srv.on('GET', 'Downloads', async (req: any) => {
     const downloadType = req._.req.path.replace('/Downloads/', '');
-    const mimetype = 'application/json';
-    const filename = downloadType + '.json';
-    LOG.info('Download', { downloadType, mimetype, filename });
+
+    LOG.info('Download', { downloadType });
     let content;
     switch (downloadType) {
-      case 'classificationStandard':
-        content = await getClassificationJsonStandard();
-        content = JSON.stringify(content);
+      case 'classificationStandard': {
+        const mimetype = 'application/json';
+        const filename = downloadType + '.json';
+        const classificationJson = await getClassificationJsonStandard();
+        content = JSON.stringify(classificationJson);
+        req.reply(Readable.from([content]), { mimetype, filename });
         break;
-      case 'classificationCustom':
-        content = await getClassificationJsonCustom();
-        content = JSON.stringify(content);
+      }
+      case 'classificationCustom': {
+        const mimetype = 'application/json';
+        const filename = downloadType + '.json';
+        const classificationJson = await getClassificationJsonCustom();
+        content = JSON.stringify(classificationJson);
+        req.reply(Readable.from([content]), { mimetype, filename });
         break;
-      case 'classificationCloud':
-        content = await getClassificationJsonCloud();
-        content = JSON.stringify(content);
+      }
+      case 'classificationCloud': {
+        const mimetype = 'application/json';
+        const filename = downloadType + '.json';
+        const classificationJson = await getClassificationJsonCloud();
+        content = JSON.stringify(classificationJson);
+        req.reply(Readable.from([content]), { mimetype, filename });
         break;
-      default:
+      }
+      case 'classificationGithub': {
+        const mimetype = 'application/zip';
+        const filename = downloadType + '.zip';
+        const classificationJson = await getClassificationJsonCloud();
+        // Wrap in ZIP
+        const zip = new JSZip();
+
+        for (const classification of classificationJson.objectClassifications) {
+          if (
+            classification.tadirObjectType === classification.objectType &&
+            classification.tadirObjectName === classification.objectName
+          ) {
+            zip.file(
+              `${classification.objectName.replaceAll('/', '#').toLowerCase()}.${classification.objectType.toLowerCase()}.json`,
+              JSON.stringify(classification, null, 2)
+            );
+          } else {
+            zip.file(
+              `${classification.tadirObjectName.replaceAll('/', '#').toLowerCase()}.${classification.tadirObjectType.toLowerCase()}.${classification.objectName.replaceAll('/', '#').toLowerCase()}.${classification.objectType.toLowerCase()}.json`,
+              JSON.stringify(classification, null, 2)
+            );
+          }
+        }
+        content = await zip.generateAsync({
+          type: 'nodebuffer'
+        });
+        req.reply(Readable.from([content]), { mimetype, filename });
+        break;
+      }
+      default: {
         return req.error(400, `Download Type ${downloadType} not found`);
+      }
     }
-    req.reply(Readable.from([content]), { mimetype, filename });
   });
 
   srv.on(

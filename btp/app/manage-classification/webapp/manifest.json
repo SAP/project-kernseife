@@ -197,6 +197,12 @@
                       "visible": false,
                       "enabled": true,
                       "text": "{i18n>downloadClassificationCloud}"
+                    },
+                     "downloadClassificationGithub": {
+                      "press": "manageclassification.extension.controller.ClassificationController.downloadClassificationGithub",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "{i18n>downloadClassificationGithub}"
                     }
                   }
                 }

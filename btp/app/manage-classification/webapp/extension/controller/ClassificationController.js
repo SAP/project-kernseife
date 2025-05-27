@@ -153,6 +153,11 @@ sap.ui.define(
         const serviceUrl = this.getModel().getServiceUrl();
         window.open(serviceUrl + "Downloads/classificationCloud", "_blank")
       },
+      downloadClassificationGithub: function () {
+        const serviceUrl = this.getModel().getServiceUrl();
+        window.open(serviceUrl + "Downloads/classificationGithub", "_blank")
+      },
+      
     };
   }
 );
