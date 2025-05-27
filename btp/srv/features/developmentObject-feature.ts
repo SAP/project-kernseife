@@ -275,9 +275,11 @@ export const calculateScores = async () => {
 
   // Calculate Name spaces
   await calculateNamespaces();
-  // Calculate Reference Count
+  // Calculate Reference Count & Score
   await db.run(
-    'UPDATE kernseife_db_CLASSIFICATIONS as c SET referenceCount =  IFNULL((SELECT COUNT(*) FROM kernseife_db_DevelopmentObjectsAggregated as d WHERE d.refObjectType = c.objectType AND d.refObjectName = c.objectName),0)'
+    'UPDATE kernseife_db_CLASSIFICATIONS as c SET ' +
+    'referenceCount =  IFNULL((SELECT SUM(count) FROM kernseife_db_DevelopmentObjectsAggregated as d WHERE d.refObjectType = c.objectType AND d.refObjectName = c.objectName),0),' +
+    'totalScore = IFNULL((SELECT SUM(score) FROM kernseife_db_DevelopmentObjectsAggregated as d WHERE d.refObjectType = c.objectType AND d.refObjectName = c.objectName),0)'
   );
 };
 

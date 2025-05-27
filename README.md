@@ -9,7 +9,9 @@ This check is an enhanced version of the 3-Tier Model ATC (see [SAP Note 3565942
 
 ## Requirements and Setup
 
-[How-To Guide for Installation](https://github.com/SAP/project-kernseife/blob/main/installation-guide.md)
+[How-To Guide for the ATC Check Installation](https://github.com/SAP/project-kernseife/blob/main/installation-guide-abap.md)
+
+[How-To Guide for the BTP App Installation](https://github.com/SAP/project-kernseife/blob/main/installation-guide-btp.md)
 
 ## Support, Feedback, Contributing
 
