@@ -1,6 +1,6 @@
 import { JobType } from '#cds-models/kernseife/db';
 import { connect, entities, log, Service, Transaction } from '@sap/cds';
-import { Readable } from 'stream';
+import { PassThrough, Readable } from 'stream';
 import {
   assignFrameworkByRef,
   assignSuccessorByRef,
@@ -34,7 +34,6 @@ import { uploadFile } from './features/upload-feature';
 import { JobResult } from './types/file';
 import papa from 'papaparse';
 import JSZip from 'jszip';
-import { readFile } from './lib/middleware/file';
 
 export default (srv: Service) => {
   const LOG = log('AdminService');
@@ -48,33 +47,45 @@ export default (srv: Service) => {
     const defaultRating = req.headers['x-default-rating'];
     const comment = req.headers['x-comment'];
 
-    const buffer = await readFile(req.data.file);
-
-    try {
-      const importId = await uploadFile(
-        uploadType,
-        fileName,
-        buffer,
-        systemId,
-        defaultRating,
-        comment
-      );
-
-      if (importId) {
+    const stream = new PassThrough();
+    const buffers = [] as any[];
+    req.data.file.pipe(stream);
+    const importId = await new Promise((resolve) => {
+      stream.on('data', (dataChunk: any) => {
+        buffers.push(dataChunk);
+      });
+      stream.on('end', async () => {
+        const buffer = Buffer.concat(buffers);
+        try {
+          resolve(
+            await uploadFile(
+              uploadType,
+              fileName,
+              buffer,
+              systemId,
+              defaultRating,
+              comment
+            )
+          );
+        } catch (e) {
+          resolve(undefined);
+        }
+      });
+    });
+    if (importId) {
       await srv.emit('Imported', {
         ID: importId,
         type: uploadType
       });
-    }
-    } catch (e) {
-      return req.error(400, e);
-    }
-    req.notify({
-      message: 'Upload Successful',
-      status: 200
-    });
-  });
 
+      req.notify({
+        message: 'Upload Successful',
+        status: 200
+      });
+    } else {
+      req.error(400);
+    }
+  });
   srv.on(
     'clearDevelopmentObjectList',
     ['Extensions', 'Extensions.drafts'],

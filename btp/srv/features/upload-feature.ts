@@ -1,5 +1,5 @@
 import { Import } from '#cds-models/kernseife/db';
-import { entities, log, services, utils } from '@sap/cds';
+import { db, entities, log, services, utils } from '@sap/cds';
 
 const LOG = log('Upload');
 
@@ -55,6 +55,15 @@ export const uploadFile = async (
       if (!systemId) {
         throw new Error('No SystemId provided');
       }
+      await createImport(
+        importType,
+        fileName,
+        file,
+        'application/csv',
+        systemId,
+        defaultRating,
+        comment
+      );
       break;
     case 'MISSING_CLASSIFICATION':
       break;
