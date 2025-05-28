@@ -1,6 +1,6 @@
 import { JobType } from '#cds-models/kernseife/db';
 import { connect, entities, log, Service, Transaction } from '@sap/cds';
-import { PassThrough, Readable } from 'stream';
+import { Readable } from 'stream';
 import {
   assignFrameworkByRef,
   assignSuccessorByRef,
@@ -9,12 +9,12 @@ import {
   getClassificationJsonCustom,
   getClassificationJsonStandard,
   getMissingClassifications,
+  importGithubClassificationById,
   importMissingClassificationsById
 } from './features/classification-feature';
 import {
   calculateScores,
   calculateScoreByRef,
-  importLanguageVersionById,
   importScoringById
 } from './features/developmentObject-feature';
 import {
@@ -33,6 +33,7 @@ import { uploadFile } from './features/upload-feature';
 import { JobResult } from './types/file';
 import papa from 'papaparse';
 import JSZip from 'jszip';
+import { readFile } from './lib/middleware/file';
 
 export default (srv: Service) => {
   const LOG = log('AdminService');
@@ -46,33 +47,23 @@ export default (srv: Service) => {
     const defaultRating = req.headers['x-default-rating'];
     const comment = req.headers['x-comment'];
 
-    const stream = new PassThrough();
-    const buffers = [] as any[];
-    req.data.file.pipe(stream);
-    await new Promise((resolve) => {
-      stream.on('data', (dataChunk: any) => {
-        buffers.push(dataChunk);
-      });
-      stream.on('end', async () => {
-        const buffer = Buffer.concat(buffers);
-        try {
-          await uploadFile(
-            uploadType,
-            fileName,
-            buffer,
-            systemId,
-            defaultRating,
-            comment
-          );
-        } catch (e) {
-          return req.error(400, e);
-        }
-        req.notify({
-          message: 'Upload Successful',
-          status: 200
-        });
-        resolve(undefined);
-      });
+    const buffer = await readFile(req.data.file);
+
+    try {
+      await uploadFile(
+        uploadType,
+        fileName,
+        buffer,
+        systemId,
+        defaultRating,
+        comment
+      );
+    } catch (e) {
+      return req.error(400, e);
+    }
+    req.notify({
+      message: 'Upload Successful',
+      status: 200
     });
   });
 
@@ -203,7 +194,7 @@ export default (srv: Service) => {
         tx: Transaction,
         updateProgress: (progress: number) => Promise<void>
       ) => {
-        LOG.error('type', type);
+        LOG.info('type', type);
         switch (type) {
           case 'MISSING_CLASSIFICATION':
             return await importMissingClassificationsById(
@@ -213,8 +204,8 @@ export default (srv: Service) => {
             );
           case 'SCORING':
             return await importScoringById(ID, tx, updateProgress);
-          case 'LANGUAGE_VERSION':
-            return await importLanguageVersionById(ID, tx, updateProgress);
+          case 'GITHUB_CLASSIFICATION':
+            return await importGithubClassificationById(ID, tx, updateProgress);
           default:
             LOG.error(`Unknown Import Type ${type}`);
             throw new Error(`Unknown Import Type ${type}`);
@@ -330,7 +321,9 @@ export default (srv: Service) => {
           }
         }
         content = await zip.generateAsync({
-          type: 'nodebuffer'
+          type: 'nodebuffer',
+          compression: 'DEFLATE',
+          compressionOptions: { level: 7 }
         });
         req.reply(Readable.from([content]), { mimetype, filename });
         break;

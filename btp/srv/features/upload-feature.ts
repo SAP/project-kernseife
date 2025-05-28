@@ -1,9 +1,5 @@
 import { Import } from '#cds-models/kernseife/db';
 import { entities, log, services, utils } from '@sap/cds';
-import {
-  importCloudClassifications,
-} from './classification-feature';
-import { runAsJob } from './jobs-feature';
 
 const LOG = log('Upload');
 
@@ -12,7 +8,7 @@ export const uploadFile = async (
   fileName: string,
   file: any,
   systemId: string | undefined | null,
-  defaultRating?: string ,
+  defaultRating?: string,
   comment?: string
 ) => {
   LOG.info('Uploading file', {
@@ -48,10 +44,6 @@ export const uploadFile = async (
 
         await INSERT.into(entities.Imports).entries(importObject);
 
-        LOG.info('Imported File', {
-          systemId: systemId
-        });
-
         services.AdminService.emit('Imported', {
           ID: importObject.ID,
           type: importObject.type
@@ -75,28 +67,32 @@ export const uploadFile = async (
 
         await INSERT.into(entities.Imports).entries(importObject);
 
-        LOG.info('Imported File', {
-          systemId: systemId
-        });
-
         services.AdminService.emit('Imported', {
           ID: importObject.ID,
           type: importObject.type
         });
       }
       break;
-    case 'IMPORT_CLOUD_CLASSIFICATION':
+    case 'GITHUB_CLASSIFICATION':
       {
-        const content = file.toString();
-        const classificationImport = JSON.parse(content).classifications;
+        const importObject = {
+          ID: utils.uuid(),
+          type: importType,
+          title: importType + ' Import ' + fileName,
+          status: 'NEW',
+          systemId: undefined,
+          defaultRating: undefined,
+          comment: comment,
+          file,
+          fileType: 'application/zip'
+        } as Import;
 
-        await runAsJob(
-          'Import Cloud Classifications',
-          'IMPORT_CLOUD_CLASSIFICATION',
-          classificationImport.length,
-          (tx, progress) =>
-            importCloudClassifications(classificationImport, tx, progress)
-        );
+        await INSERT.into(entities.Imports).entries(importObject);
+
+        services.AdminService.emit('Imported', {
+          ID: importObject.ID,
+          type: importObject.type
+        });
       }
       break;
     default:

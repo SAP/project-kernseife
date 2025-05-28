@@ -1,12 +1,16 @@
-import { Classification, Import } from '#cds-models/kernseife/db';
+import { Classification, Import, ReleaseState } from '#cds-models/kernseife/db';
 import { Transaction, connect, db, entities, log, utils } from '@sap/cds';
 import { text } from 'node:stream/consumers';
 import papa from 'papaparse';
 import { getReleaseStateMap, updateReleaseState } from './releaseState-feature';
 import {
   ClassificationImport,
+  ClassificationImportLog,
   ClassificationKey
 } from '../types/classification';
+import JSZip from 'jszip';
+import { readFile } from '../lib/middleware/file';
+import { JobResult } from '../types/file';
 
 const LOG = log('ClassificationFeature');
 
@@ -65,18 +69,6 @@ export const getClassificationState = (classification) => {
     default:
       return 'internalAPI';
   }
-};
-
-const getClassificationMap = async () => {
-  return (
-    await SELECT.from(entities.Classifications, (c) => {
-      c.tadirObjectType, c.tadirObjectName, c.objectType, c.objectName;
-    })
-  ).reduce((map, classification) => {
-    const key = getClassificationKey(classification);
-    map[key] = true;
-    return map;
-  }, {});
 };
 
 export const getClassificationCount = async () => {
@@ -732,7 +724,7 @@ export const getClassificationJsonCloud = async () => {
   return classificationJson;
 };
 
-const getLegacyRatingMap = async () => {
+const getRatingMap = async (): Promise<Map<string, string>> => {
   const ratingList = await SELECT.from(entities.Ratings, (c) => {
     c.code, c.legacyRatingList();
   });
@@ -740,91 +732,10 @@ const getLegacyRatingMap = async () => {
     for (const legacyRating of rating.legacyRatingList) {
       acc[legacyRating.legacyRating] = rating.code;
     }
+    // also add the current Rating
+    acc[rating.code] = rating.code;
     return acc;
   }, {});
-};
-
-export const importCloudClassifications = async (
-  classificationList: ClassificationImport[],
-  tx: Transaction,
-  updateProgress: (progress: number) => Promise<void>
-) => {
-  // Get all releaseState
-  const releaseStateMap = await getReleaseStateMap();
-
-  const legacyRatingMap = await getLegacyRatingMap();
-
-  const classificationMap = await getClassificationMap();
-
-  let progressCount = 0;
-  LOG.error('Importing ' + classificationList.length + ' Classifications');
-  const chunkSize = Math.min(classificationList.length, 25);
-  for (let i = 0; i < classificationList.length; i += chunkSize) {
-    LOG.info(`Processing ${i} / (${classificationList.length})`);
-    const chunk = classificationList.slice(i, i + chunkSize);
-
-    const classificationInsert = [] as any[];
-
-    for (const classificationImport of chunk) {
-      progressCount++;
-      const classificationKey = getClassificationKey(classificationImport);
-      // Check if already exists
-      if (!classificationMap[classificationKey]) {
-        // Create a new Classification
-        const classification = {
-          objectType: classificationImport.objectType,
-          objectName: classificationImport.objectName,
-          tadirObjectType: classificationImport.tadirObjectType,
-          tadirObjectName: classificationImport.tadirObjectName,
-          applicationComponent: classificationImport.applicationComponent,
-          softwareComponent: classificationImport.softwareComponent,
-          subType: classificationImport.subType,
-          releaseLevel_code: 'undefined',
-          referenceCount: 0,
-          adoptionEffort_code: classificationImport.adoptionEffort,
-          comment: classificationImport.comment,
-          rating_code: legacyRatingMap[classificationImport.rating] || NO_CLASS,
-          noteList: classificationImport.noteList,
-          numberOfSimplificationNotes:
-            classificationImport.numberOfSimplificationNotes,
-          successorClassification_code:
-            classificationImport.successorClassification || 'STANDARD',
-          frameworkUsageList: [],
-          codeSnippets: [],
-          successorList: classificationImport.successorList.map(
-            (successor) => ({
-              tadirObjectType: successor.tadirObjectType,
-              tadirObjectName: successor.tadirObjectName,
-              objectType: successor.objectType,
-              objectName: successor.objectName,
-              successorType_code: successor.successorType || 'STANDARD'
-            })
-          )
-        } as Classification;
-
-        // Try to update States
-        updateReleaseState(classification, releaseStateMap);
-
-        // Try to update States
-        await updateSimplifications(classification);
-
-        // Update Total Score
-        await updateTotalScoreAndReferenceCount(classification);
-
-        classificationInsert.push(classification);
-      }
-    }
-
-    if (classificationInsert.length > 0) {
-      await INSERT.into(entities.Classifications).entries(classificationInsert);
-      await tx.commit();
-      await updateProgress(progressCount);
-
-      LOG.info(`Inserted ${classificationInsert.length} Classifications`);
-    }
-  }
-
-  await updateProgress(progressCount);
 };
 
 const assignFramework = async (
@@ -999,4 +910,256 @@ export const getMissingClassifications = async () => {
     LOG.error('Error connecting to API_OBJECT_METADATA', ex);
     return [];
   }
+};
+
+const importClassification = async (
+  classificationImport: ClassificationImport,
+  classificationSet: Set<string>,
+  releaseStateMap: Map<string, ReleaseState>,
+  ratingMap: Map<string, string>
+): Promise<ClassificationImportLog> => {
+  // Check if Classification already exists
+  const classificationKey = getClassificationKey(classificationImport);
+  if (!classificationSet.has(classificationKey)) {
+    // Add Classification
+    // Create a new Classification
+    const classification = {
+      objectType: classificationImport.objectType,
+      objectName: classificationImport.objectName,
+      tadirObjectType: classificationImport.tadirObjectType,
+      tadirObjectName: classificationImport.tadirObjectName,
+      applicationComponent: classificationImport.applicationComponent,
+      softwareComponent: classificationImport.softwareComponent,
+      subType: classificationImport.subType,
+      releaseLevel_code: 'undefined',
+      referenceCount: 0,
+      adoptionEffort_code: classificationImport.adoptionEffort,
+      comment: classificationImport.comment,
+      rating_code: ratingMap.get(classificationImport.rating) || NO_CLASS,
+      noteList: classificationImport.noteList,
+      numberOfSimplificationNotes:
+        classificationImport.numberOfSimplificationNotes,
+      successorClassification_code:
+        classificationImport.successorClassification || 'STANDARD',
+      frameworkUsageList: [],
+      codeSnippets: [],
+      successorList: classificationImport.successorList.map((successor) => ({
+        tadirObjectType: successor.tadirObjectType,
+        tadirObjectName: successor.tadirObjectName,
+        objectType: successor.objectType,
+        objectName: successor.objectName,
+        successorType_code: successor.successorType || 'STANDARD'
+      }))
+    } as Classification;
+
+    // Try to update States
+    updateReleaseState(classification, releaseStateMap);
+
+    // Try to update States
+    await updateSimplifications(classification);
+
+    // Update Total Score
+    await updateTotalScoreAndReferenceCount(classification);
+
+    await INSERT.into(entities.Classifications).entries([classification]);
+
+    return {
+      tadirObjectType: classification.tadirObjectType as string,
+      tadirObjectName: classification.tadirObjectName as string,
+      objectType: classification.objectType as string,
+      objectName: classification.objectName as string,
+      oldRating: NO_CLASS,
+      newRating: classification.rating_code as string,
+      oldSuccessorClassification: 'undefined',
+      newSuccessorClassification:
+        classification.successorClassification_code as string,
+      status: 'NEW'
+    } as ClassificationImportLog;
+  } else {
+    // Merge Classification
+    const existingClassification = await SELECT.one
+      .from(entities.Classifications)
+      .columns(getAllClassificationColumns)
+      .where({
+        tadirObjectType: classificationImport.tadirObjectType,
+        tadirObjectName: classificationImport.tadirObjectName,
+        objectType: classificationImport.objectType,
+        objectName: classificationImport.objectName
+      });
+    // Merge Rating
+    let updated = false;
+    let conflict = false;
+    const oldRatingCode = existingClassification.rating_code;
+    const oldSuccessorClassification =
+      existingClassification.successorClassification_code;
+    if (
+      existingClassification.rating_code !=
+      (ratingMap.get(classificationImport.rating) || NO_CLASS)
+    ) {
+      existingClassification.rating_code =
+        ratingMap.get(classificationImport.rating) || NO_CLASS;
+      updated = true;
+    }
+    // Merge Successors
+    switch (classificationImport.successorClassification) {
+      case 'STANDARD':
+        if (existingClassification.successorClassification_code == 'CUSTOM') {
+          conflict = true;
+        } else if (
+          !existingClassification.successorClassification_code ||
+          existingClassification.successorClassification_code == 'undefined'
+        ) {
+          existingClassification.successorClassification_code = 'STANDARD';
+          updated = true;
+          // Merge Successor List
+          for (const successor of classificationImport.successorList) {
+            // Check if successor already exists
+            const existingSuccessor = existingClassification.successorList.find(
+              (s) =>
+                s.tadirObjectType == successor.tadirObjectType &&
+                s.tadirObjectName == successor.tadirObjectName &&
+                s.objectType == successor.objectType &&
+                s.objectName == successor.objectName
+            );
+            if (!existingSuccessor) {
+              existingClassification.successorList.push({
+                ID: utils.uuid(),
+                tadirObjectType: successor.tadirObjectType,
+                tadirObjectName: successor.tadirObjectName,
+                objectType: successor.objectType,
+                objectName: successor.objectName,
+                successorType_code: 'STANDARD'
+              });
+            }
+          }
+        }
+        break;
+      case 'CUSTOM':
+        if (existingClassification.successorClassification_code == 'STANDARD') {
+          conflict = true;
+        } else if (
+          !existingClassification.successorClassification_code ||
+          existingClassification.successorClassification_code == 'undefined'
+        ) {
+          existingClassification.successorClassification_code = 'CUSTOM';
+          updated = true;
+          // Override Successor List
+          existingClassification.successorList =
+            classificationImport.successorList.map((successor) => ({
+              ID: utils.uuid(),
+              tadirObjectType: successor.tadirObjectType,
+              tadirObjectName: successor.tadirObjectName,
+              objectType: successor.objectType,
+              objectName: successor.objectName,
+              successorType_code: successor.successorType || 'DIRECT'
+            }));
+        }
+        break;
+      default:
+        // Leave Successor Classification as is
+        break;
+    }
+
+    if (conflict) {
+      return {
+        tadirObjectType: existingClassification.tadirObjectType as string,
+        tadirObjectName: existingClassification.tadirObjectName as string,
+        objectType: existingClassification.objectType as string,
+        objectName: existingClassification.objectName as string,
+        oldRating: oldRatingCode as string,
+        newRating: existingClassification.rating_code as string,
+        oldSuccessorClassification: oldSuccessorClassification,
+        newSuccessorClassification:
+          existingClassification.successorClassification_code as string,
+        status: 'CONFLICT'
+      } as ClassificationImportLog;
+    } else if (updated) {
+      // Update DB
+      await UPDATE(entities.Classifications).set(existingClassification).where({
+        tadirObjectType: existingClassification.tadirObjectType,
+        tadirObjectName: existingClassification.tadirObjectName,
+        objectName: existingClassification.objectName,
+        objectType: existingClassification.objectType
+      });
+
+      return {
+        tadirObjectType: existingClassification.tadirObjectType as string,
+        tadirObjectName: existingClassification.tadirObjectName as string,
+        objectType: existingClassification.objectType as string,
+        objectName: existingClassification.objectName as string,
+        oldRating: oldRatingCode as string,
+        newRating: existingClassification.rating_code as string,
+        oldSuccessorClassification: oldSuccessorClassification,
+        newSuccessorClassification:
+          existingClassification.successorClassification_code as string,
+        status: 'UPDATED'
+      } as ClassificationImportLog;
+    } else {
+      // Nothing changed
+      return {
+        tadirObjectType: existingClassification.tadirObjectType as string,
+        tadirObjectName: existingClassification.tadirObjectName as string,
+        objectType: existingClassification.objectType as string,
+        objectName: existingClassification.objectName as string,
+        oldRating: oldRatingCode as string,
+        newRating: existingClassification.rating_code as string,
+        oldSuccessorClassification: oldSuccessorClassification,
+        newSuccessorClassification:
+          existingClassification.successorClassification_code as string,
+        status: 'UNCHANGED'
+      } as ClassificationImportLog;
+    }
+  }
+};
+
+export const importGithubClassificationById = async (
+  classificationImportId: string,
+  tx: Transaction,
+  updateProgress: (progress: number) => Promise<void>
+) => {
+  // Unzip the file
+  const githubImport = await SELECT.one
+    .from(entities.Imports, (d) => {
+      d.ID, d.status, d.title, d.file, d.systemId;
+    })
+    .where({ ID: classificationImportId });
+  const zip = new JSZip();
+  const buffer = await readFile(githubImport.file);
+  const content = await zip.loadAsync(buffer);
+
+  const classificationSet = await getClassificationSet();
+  // Get all releaseState
+  const releaseStateMap = await getReleaseStateMap();
+  // Ratings
+  const ratingMap = await getRatingMap();
+  const importLogList: ClassificationImportLog[] = [];
+  let index = 0;
+  for (const file of Object.keys(content.files)) {
+    const classification = JSON.parse(
+      await content.files[file].async('string')
+    ) as ClassificationImport;
+    LOG.info('Importing Classification', { classification });
+    const importLog = await importClassification(
+      classification,
+      classificationSet,
+      releaseStateMap,
+      ratingMap
+    );
+    importLogList.push(importLog);
+    index++;
+    if (index % 10 == 0) {
+      await updateProgress(
+        Math.round((index / Object.keys(content.files).length) * 100)
+      );
+      await tx.commit();
+    }
+  }
+  const file = papa.unparse(importLogList);
+  await updateProgress(100);
+  // Write to file
+  return {
+    file: Buffer.from(file, 'utf8'),
+    fileName: 'importLog.csv',
+    fileType: 'application/csv'
+  } as JobResult;
 };

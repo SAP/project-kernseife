@@ -38,6 +38,22 @@ sap.ui.define(
         field.setVisible(visibility);
       };
 
+      const setFileEndings = function (fileEndings) {
+          console.log('File Endings:', fileEndings);
+        const oFileUploader = byId('uploader');
+        if (fileEndings) {
+          const fileTypes = fileEndings
+            .split(',')
+            .map(function (sFileEnding) {
+              return sFileEnding.trim();
+            });
+            console.log('File types:', fileTypes);
+          oFileUploader.setFileType(fileTypes);
+        } else {
+          oFileUploader.setFileType([]);
+        }
+      };
+
       const onChange = function (oEvent) {
         // Get Value
         const showSystemId = oEvent
@@ -58,6 +74,12 @@ sap.ui.define(
         setFieldVisibility('comment', showComment);
 
         setFieldVisibility('uploader', true);
+
+        const fileEndings = oEvent
+          .getParameter('selectedItem')
+          .getBindingContext()
+          .getObject().fileEndings;
+        setFileEndings(fileEndings);
       };
 
       return {
@@ -70,6 +92,7 @@ sap.ui.define(
           setFieldVisibility('defaultRating', false);
           setFieldVisibility('comment', false);
           setFieldVisibility('uploader', false);
+          setFileEndings('');
         },
 
         onAfterClose: function (oEvent) {
