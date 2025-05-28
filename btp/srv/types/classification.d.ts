@@ -30,9 +30,9 @@ export type ClassificationImport = ClassificationKey & {
 };
 
 export type ClassificationImportLog = ClassificationKey & {
-  oldRating: string;
-  newRating: string;
-  oldSuccessorClassification: string;
-  newSuccessorClassification: string;
+  oldRating?: string;
+  newRating?: string;
+  oldSuccessorClassification?: string;
+  newSuccessorClassification?: string;
   status: 'NEW' | 'CONFLICT' | 'UPDATED' | 'UNCHANGED';
 };

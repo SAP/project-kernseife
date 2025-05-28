@@ -1,6 +1,6 @@
 import { JobType } from '#cds-models/kernseife/db';
 import { connect, entities, log, Service, Transaction } from '@sap/cds';
-import { Readable } from 'stream';
+import { PassThrough, Readable } from 'stream';
 import {
   assignFrameworkByRef,
   assignSuccessorByRef,
@@ -33,7 +33,6 @@ import { uploadFile } from './features/upload-feature';
 import { JobResult } from './types/file';
 import papa from 'papaparse';
 import JSZip from 'jszip';
-import { readFile } from './lib/middleware/file';
 
 export default (srv: Service) => {
   const LOG = log('AdminService');
@@ -47,23 +46,33 @@ export default (srv: Service) => {
     const defaultRating = req.headers['x-default-rating'];
     const comment = req.headers['x-comment'];
 
-    const buffer = await readFile(req.data.file);
-
-    try {
-      await uploadFile(
-        uploadType,
-        fileName,
-        buffer,
-        systemId,
-        defaultRating,
-        comment
-      );
-    } catch (e) {
-      return req.error(400, e);
-    }
-    req.notify({
-      message: 'Upload Successful',
-      status: 200
+    const stream = new PassThrough();
+    const buffers = [] as any[];
+    req.data.file.pipe(stream);
+    await new Promise((resolve) => {
+      stream.on('data', (dataChunk: any) => {
+        buffers.push(dataChunk);
+      });
+      stream.on('end', async () => {
+        const buffer = Buffer.concat(buffers);
+        try {
+          await uploadFile(
+            uploadType,
+            fileName,
+            buffer,
+            systemId,
+            defaultRating,
+            comment
+          );
+        } catch (e) {
+          return req.error(400, e);
+        }
+        req.notify({
+          message: 'Upload Successful',
+          status: 200
+        });
+        resolve(undefined);
+      });
     });
   });
 

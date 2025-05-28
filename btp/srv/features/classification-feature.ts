@@ -9,8 +9,9 @@ import {
   ClassificationKey
 } from '../types/classification';
 import JSZip from 'jszip';
-import { readFile } from '../lib/middleware/file';
 import { JobResult } from '../types/file';
+import { PassThrough } from 'node:stream';
+import { streamToBuffer } from '../lib/files';
 
 const LOG = log('ClassificationFeature');
 
@@ -94,9 +95,11 @@ export const getClassificationSet = async (): Promise<Set<string>> => {
   return classificationSet;
 };
 
-export const getClassificationRatingMap = async () => {
+export const getClassificationRatingMap = async (): Promise<
+  Map<string, string>
+> => {
   // Load all Classifications so we can check if they exist
-  const classificationList = await SELECT.from(
+  const classificationList = (await SELECT.from(
     entities.Classifications
   ).columns(
     'tadirObjectType',
@@ -104,14 +107,17 @@ export const getClassificationRatingMap = async () => {
     'objectType',
     'objectName',
     'rating_code'
-  );
-  const classificationMap = await classificationList.reduce(
-    (map, classification) => {
-      map[getClassificationKey(classification)] = classification.rating_code;
-      return map;
-    },
-    {}
-  );
+  )) as {
+    tadirObjectType: string;
+    tadirObjectName: string;
+    objectType: string;
+    objectName: string;
+    rating_code: string;
+  }[];
+  const classificationMap = classificationList.reduce((map, classification) => {
+    map.set(getClassificationKey(classification), classification.rating_code);
+    return map;
+  }, new Map<string, string>());
 
   return classificationMap;
 };
@@ -419,7 +425,9 @@ export const importMissingClassifications = async (
   let progressCount = 0;
 
   // Check to not insert the same object twice
-  const classificationMap = await getClassificationRatingMap();
+  const classificationRatingMap = await getClassificationRatingMap();
+
+  const importLogList = [] as ClassificationImportLog[];
 
   const chunkSize = 100;
   for (let i = 0; i < classificationRecordList.length; i += chunkSize) {
@@ -432,7 +440,7 @@ export const importMissingClassifications = async (
     for (const classificationRecord of chunk) {
       progressCount++;
       const key = getClassificationKey(classificationRecord);
-      if (!classificationMap[key]) {
+      if (!classificationRatingMap.has(key)) {
         // Create a new Classification
         const classification = {
           objectType: classificationRecord.objectType,
@@ -471,18 +479,32 @@ export const importMissingClassifications = async (
           classificationImport.defaultRating ||
           getDefaultRatingCode(classification);
 
-        classificationMap[key] = classification.rating_code;
-
-        LOG.info('Insert Classification', classification);
+        // Add to Map to prevent double inserts
+        classificationRatingMap.set(key, classification.rating_code);
 
         classificationInsert.push(classification);
         insertCount++;
+
+        // Add to Import Log
+        importLogList.push({
+          tadirObjectType: classification.tadirObjectType,
+          tadirObjectName: classification.tadirObjectName,
+          objectType: classification.objectType,
+          objectName: classification.objectName,
+          status: 'NEW',
+          oldRating: '',
+          newRating: classification.rating_code
+        } as ClassificationImportLog);
       } else if (
         classificationImport.defaultRating != NO_CLASS ||
         classificationImport.comment
       ) {
-        const updatePayload = {};
-        if (classificationImport.defaultRating != NO_CLASS) {
+        const updatePayload = {} as { rating_code?: string; comment?: string };
+        if (
+          classificationImport.defaultRating &&
+          classificationImport.defaultRating != NO_CLASS &&
+          classificationRatingMap.get(key) != classificationImport.defaultRating
+        ) {
           updatePayload['rating_code'] = classificationImport.defaultRating;
         }
         if (classificationImport.comment) {
@@ -490,17 +512,48 @@ export const importMissingClassifications = async (
         }
 
         // Update Rating
-        await UPDATE.entity(entities.Classifications)
-          .with(updatePayload)
-          .where({
+        if (updatePayload.rating_code || updatePayload.comment) {
+          await UPDATE.entity(entities.Classifications)
+            .with(updatePayload)
+            .where({
+              tadirObjectType: classificationRecord.tadirObjectType,
+              tadirObjectName: classificationRecord.tadirObjectName,
+              objectType: classificationRecord.objectType,
+              objectName: classificationRecord.objectName
+            });
+          if (tx) {
+            await tx.commit();
+          }
+          importLogList.push({
             tadirObjectType: classificationRecord.tadirObjectType,
             tadirObjectName: classificationRecord.tadirObjectName,
             objectType: classificationRecord.objectType,
-            objectName: classificationRecord.objectName
-          });
-        if (tx) {
-          await tx.commit();
+            objectName: classificationRecord.objectName,
+            status: 'UPDATED',
+            oldRating: classificationRatingMap.get(key),
+            newRating: updatePayload['rating_code']
+          } as ClassificationImportLog);
+        } else {
+          importLogList.push({
+            tadirObjectType: classificationRecord.tadirObjectType,
+            tadirObjectName: classificationRecord.tadirObjectName,
+            objectType: classificationRecord.objectType,
+            objectName: classificationRecord.objectName,
+            status: 'UNCHANGED',
+            oldRating: classificationRatingMap.get(key),
+            newRating: classificationRatingMap.get(key)
+          } as ClassificationImportLog);
         }
+      } else {
+        importLogList.push({
+          tadirObjectType: classificationRecord.tadirObjectType,
+          tadirObjectName: classificationRecord.tadirObjectName,
+          objectType: classificationRecord.objectType,
+          objectName: classificationRecord.objectName,
+          status: 'UNCHANGED',
+          oldRating: classificationRatingMap.get(key),
+          newRating: classificationRatingMap.get(key)
+        } as ClassificationImportLog);
       }
     }
 
@@ -524,6 +577,13 @@ export const importMissingClassifications = async (
   if (updateProgress) {
     await updateProgress(100);
   }
+  const file = papa.unparse(importLogList);
+  // Write to file
+  return {
+    file: Buffer.from(file, 'utf8'),
+    fileName: 'importLog.csv',
+    fileType: 'application/csv'
+  } as JobResult;
 };
 
 export const importMissingClassificationsById = async (
@@ -536,7 +596,7 @@ export const importMissingClassificationsById = async (
       d.ID, d.status, d.title, d.file, d.defaultRating, d.comment;
     })
     .where({ ID: missingClassificationsImportId });
-  await importMissingClassifications(
+  return await importMissingClassifications(
     missingClassificationsImport,
     tx,
     updateProgress
@@ -728,14 +788,14 @@ const getRatingMap = async (): Promise<Map<string, string>> => {
   const ratingList = await SELECT.from(entities.Ratings, (c) => {
     c.code, c.legacyRatingList();
   });
-  return ratingList.reduce((acc, rating) => {
+  return ratingList.reduce((map, rating) => {
     for (const legacyRating of rating.legacyRatingList) {
-      acc[legacyRating.legacyRating] = rating.code;
+      map.put(legacyRating.legacyRating, rating.code);
     }
     // also add the current Rating
-    acc[rating.code] = rating.code;
-    return acc;
-  }, {});
+    map.put(rating.code, rating.code);
+    return map;
+  }, new Map<string, string>());
 };
 
 const assignFramework = async (
@@ -1119,47 +1179,65 @@ export const importGithubClassificationById = async (
 ) => {
   // Unzip the file
   const githubImport = await SELECT.one
-    .from(entities.Imports, (d) => {
+    .from(entities.Imports, (d: any) => {
       d.ID, d.status, d.title, d.file, d.systemId;
     })
     .where({ ID: classificationImportId });
   const zip = new JSZip();
-  const buffer = await readFile(githubImport.file);
-  const content = await zip.loadAsync(buffer);
 
-  const classificationSet = await getClassificationSet();
-  // Get all releaseState
-  const releaseStateMap = await getReleaseStateMap();
-  // Ratings
-  const ratingMap = await getRatingMap();
-  const importLogList: ClassificationImportLog[] = [];
-  let index = 0;
-  for (const file of Object.keys(content.files)) {
-    const classification = JSON.parse(
-      await content.files[file].async('string')
-    ) as ClassificationImport;
-    LOG.info('Importing Classification', { classification });
-    const importLog = await importClassification(
-      classification,
-      classificationSet,
-      releaseStateMap,
-      ratingMap
-    );
-    importLogList.push(importLog);
-    index++;
-    if (index % 10 == 0) {
-      await updateProgress(
-        Math.round((index / Object.keys(content.files).length) * 100)
+  const stream = new PassThrough();
+  githubImport.file.pipe(stream);
+  const buffer = await streamToBuffer(stream);
+
+  try {
+    const content = await zip.loadAsync(buffer);
+
+    const classificationSet = await getClassificationSet();
+    // Get all releaseState
+    const releaseStateMap = await getReleaseStateMap();
+    // Ratings
+    const ratingMap = await getRatingMap();
+    const importLogList: ClassificationImportLog[] = [];
+    let processIndex = 0;
+    let updateIndex = 0;
+    for (const file of Object.keys(content.files)) {
+      const classification = JSON.parse(
+        await content.files[file].async('string')
+      ) as ClassificationImport;
+      LOG.info('Importing Classification', { classification });
+      const importLog = await importClassification(
+        classification,
+        classificationSet,
+        releaseStateMap,
+        ratingMap
       );
+      importLogList.push(importLog);
+      processIndex++;
+      if (importLog.status != 'UNCHANGED') {
+        updateIndex++;
+      }
+      if (processIndex % 10 == 0) {
+        await updateProgress(
+          Math.round((processIndex / Object.keys(content.files).length) * 100)
+        );
+      }
+      if (updateIndex % 10 == 0) {
+        await tx.commit();
+      }
+    }
+    if (updateIndex > 0 && updateIndex % 10 != 0) {
       await tx.commit();
     }
+    const file = papa.unparse(importLogList);
+    await updateProgress(100);
+    // Write to file
+    return {
+      file: Buffer.from(file, 'utf8'),
+      fileName: 'importLog.csv',
+      fileType: 'application/csv'
+    } as JobResult;
+  } catch (e) {
+    LOG.error('Error loading ZIP file', { error: e });
+    throw new Error('Invalid ZIP file format');
   }
-  const file = papa.unparse(importLogList);
-  await updateProgress(100);
-  // Write to file
-  return {
-    file: Buffer.from(file, 'utf8'),
-    fileName: 'importLog.csv',
-    fileType: 'application/csv'
-  } as JobResult;
 };
