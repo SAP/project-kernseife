@@ -31,7 +31,7 @@
                     id="uploadItem"
                     key="{code}"
                     text="{title}"
-                    tooltip="{reqSystemId} {defaultRating} {comment}"
+                    tooltip="{reqSystemId} {defaultRating} {comment} {fileEndings}"
                 />
             </Select>
             <Label
@@ -87,7 +87,7 @@
             />
             <u:FileUploader
                 id="uploader"
-                fileType="csv,xls,xlsx,json"
+                fileType="csv"
                 multiple="false"
                 fileAllowed=".onFileAllowed"
                 fileEmpty=".onFileEmpty"

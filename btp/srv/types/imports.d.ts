@@ -1,8 +1,11 @@
-export type ClassificationImport = {
+export type ClassificationKey = {
   tadirObjectType: string;
   tadirObjectName: string;
   objectType: string;
   objectName: string;
+};
+
+export type ClassificationImport = ClassificationKey & {
   applicationComponent: string;
   adoptionEffort: string;
   softwareComponent: string;
@@ -26,18 +29,15 @@ export type ClassificationImport = {
   rating: string;
 };
 
-export type ClassificationKey = {
-  tadirObjectType?: string;
-  tadirObjectName?: string;
-  objectType: string;
-  objectName: string;
+export type ClassificationImportLog = ClassificationKey & {
+  oldRating: string;
+  newRating: string;
+  oldSuccessorClassification: string;
+  newSuccessorClassification: string;
+  status: 'NEW' | 'CONFLICT' | 'UPDATED' | 'UNCHANGED';
 };
 
-export type EnhancementImport = {
-  objectType: string;
-  objectName: string;
-  tadirObjectType: string;
-  tadirObjectName: string;
+export type EnhancementImport =  ClassificationKey & {
   applicationComponent: string;
   softwareComponent: string;
   internalUse: boolean;

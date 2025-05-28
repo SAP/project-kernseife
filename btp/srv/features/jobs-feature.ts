@@ -64,7 +64,7 @@ export const runAsJob = async (
     throw new Error('progressTotal is Not a Number: ' + progressTotal);
   }
   const jobId = await createJob(title, type, progressTotal);
-
+  
   cds
     .spawn({ after: 200 }, async (tx: cds.Transaction) => {
       return await jobFunction(tx, (progress) =>
