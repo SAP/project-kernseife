@@ -119,14 +119,12 @@ class ltcl_data_provider_cache implementation.
                                  url         = 'github.com/file.json'
                                  created     = '20241015101523'
                                  data_type   = cl_ycm_cc_cache_write_api=>co_data_type_classic
-                                 commit_hash = '55'
                                  )
                                  (
                                  file_Id     = '11'
                                  url         = 'github.com/file2.json'
                                  created     = '20241015101523'
                                  data_type   = cl_ycm_cc_cache_write_api=>co_data_type_classic
-                                 commit_hash = '66'
                                  ) ).
     environment->insert_test_data( i_data = td_classic_apis_h ).
 
@@ -222,14 +220,12 @@ class ltcl_data_provider_cache implementation.
                                  created     = '20241015101523'
                                  url         = 'github.com/file.json'
                                  data_type   = cl_ycm_cc_cache_write_api=>co_data_type_release
-                                 commit_hash = '55'
                                  )
                                  (
                                  file_Id     = '31'
                                  created     = '20241015101523'
                                  url         = 'github.com/file.json'
                                  data_type   = cl_ycm_cc_cache_write_api=>co_data_type_release
-                                 commit_hash = '66'
                                  ) ).
     environment->insert_test_data( i_data = td_release_apis_h ).
 
