@@ -4,13 +4,12 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZKNSF_CL_PROVIDER_WITH_CACHE</CLSNAME>
-    <LANGU>D</LANGU>
+    <LANGU>E</LANGU>
     <DESCRIPT>Kernseife: Data provider for release classifications</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
-    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
    </VSEOCLASS>
    <DESCRIPTIONS_CLASS>
     <SEOCLASSTX>
