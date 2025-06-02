@@ -53,13 +53,13 @@ protected section.
     redefinition .
   methods EVALUATE_MESSAGE_CODE
     redefinition .
+  methods EVALUATE_TABL_MESSAGE_CODE
+    redefinition .
   methods GET_ALLOWED_USAGE_OBJECT_TYPES
     redefinition .
   methods GET_OBJECT_LANGUAGE_VERSION
     redefinition .
   methods INFORM_ATC
-    redefinition .
-  methods EVALUATE_TABL_MESSAGE_CODE
     redefinition .
 private section.
 
@@ -93,14 +93,9 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
 
     SELECT DISTINCT software_component FROM zknsf_api_cache INTO TABLE @sw_component_list. "#EC CI_BYPASS "#EC CI_GENBUFF "#EC CI_NOWHERE
 
-    " Initialize Parent Check Attributes (Work-Around for now)
-    DATA attributes TYPE xstring.
-    EXPORT
-       track_language_version = track_language_version_attr
-       release_source = classification_source-checked_system
-       classic_source = 'ZKNSF_CL_PROVIDER_WITH_CACHE' ##NO_TEXT
-     TO DATA BUFFER attributes.
-    put_attributes( attributes ).
+
+    classic_source_attr = 'ZKNSF_CL_PROVIDER_WITH_CACHE' ##NO_TEXT.
+    release_source_attr = classification_source-checked_system.
   ENDMETHOD.
 
 
@@ -220,18 +215,8 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
 
 
   METHOD get_attributes.
-    DATA(attributes) = super->get_attributes(  ).
-    DATA release_source TYPE sycm_attr_release_source.
-    DATA classic_source TYPE sycm_attr_classic_source.
-    IMPORT
-       release_source         = release_source
-       classic_source         = classic_source
-     FROM DATA BUFFER attributes.
-
     EXPORT
         track_language_version = track_language_version_attr
-        release_source         = release_source
-        classic_source         = classic_source
     TO DATA BUFFER p_attributes.
   ENDMETHOD.
 
@@ -269,7 +254,7 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
                                            kind = cl_ci_query_attributes=>c_attribute_kinds-checkbox ) ) ##NO_TEXT ##NO_TEXT.
 
     DATA message TYPE c LENGTH 100.
-    attributes_ok = abap_true. " as we don't check anythingmei
+    attributes_ok = abap_true. " as we don't check anything
 
 
     DATA(cancel) = cl_ci_query_attributes=>generic( p_name       = myname
@@ -335,18 +320,10 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
 
 
   METHOD put_attributes.
-    DATA release_source TYPE sycm_attr_release_source.
-    DATA classic_source TYPE sycm_attr_classic_source.
 
     IMPORT
        track_language_version = track_language_version_attr
-       release_source         = release_source
-       classic_source         = classic_source
      FROM DATA BUFFER p_attributes.
-
-    IF release_source IS NOT INITIAL AND classic_source IS NOT INITIAL.
-      super->put_attributes( p_attributes ).
-    ENDIF.
   ENDMETHOD.
 
 

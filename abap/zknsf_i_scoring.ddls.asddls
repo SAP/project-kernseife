@@ -11,9 +11,8 @@ define view entity ZKNSF_I_SCORING
   as select from ZKNSF_I_ATC_FINDINGS as fnd
     inner join   ZKNSF_I_RATINGS      as rating on rating.code = left(
       fnd.messageId, 3
-    ) // As some findings use _SUC as appendix
-  //  inner join satc_ac_resulth as h on h.display_id = fnd.displayId
-  //  and h.run_series_name = 'ZKNSF_SCORING'
+    )
+
 
 {
   key    cast( fnd.displayId  as zknsf_run_id)                       as runId,
@@ -25,6 +24,7 @@ define view entity ZKNSF_I_SCORING
          cast( fnd.devClass as zknsf_dev_class )                     as devClass,
          cast( rating.code as zknsf_rating_code )                    as ratingCode,
          cast( rating.score as zknsf_rating_score)                   as score
+        
 }
 where
       fnd.messageId               != 'NOC'
