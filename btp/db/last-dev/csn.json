@@ -47,78 +47,10 @@
           "length": 5000,
           "@cds.persistence.name": "SYSTEMID"
         },
-        "system": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Systems",
-          "on": [
-            {
-              "ref": [
-                "system",
-                "sid"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "systemId"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "SYSTEM"
-        },
         "extension_ID": {
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "EXTENSION_ID"
-        },
-        "extension": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Extensions",
-          "on": [
-            {
-              "ref": [
-                "extension",
-                "ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "extension_ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "EXTENSION"
-        },
-        "cleanCoreLevel": {
-          "type": "cds.Association",
-          "target": "kernseife.db.CleanCoreLevel",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "cleanCoreLevel_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "cleanCoreLevel",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "cleanCoreLevel_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CLEANCORELEVEL"
         },
         "cleanCoreLevel_code": {
           "type": "cds.String",
@@ -137,26 +69,6 @@
           "length": 5000,
           "@cds.persistence.name": "NAMESPACE"
         },
-        "languageVersion": {
-          "type": "cds.Association",
-          "target": "kernseife.db.LanguageVersions",
-          "on": [
-            {
-              "ref": [
-                "languageVersion",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "languageVersion_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "LANGUAGEVERSION"
-        },
         "languageVersion_code": {
           "type": "cds.String",
           "length": 5000,
@@ -166,164 +78,6 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "LATESTSCORINGIMPORTID"
-        },
-        "findingList": {
-          "type": "cds.Association",
-          "cardinality": {
-            "max": "*"
-          },
-          "target": "kernseife.db.ScoringRecords",
-          "on": [
-            {
-              "ref": [
-                "findingList",
-                "objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "findingList",
-                "objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "objectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "findingList",
-                "devClass"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "devClass"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "findingList",
-                "systemId"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "systemId"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "findingList",
-                "import_ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "latestScoringImportId"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "FINDINGLIST"
-        },
-        "findingListAggregated": {
-          "type": "cds.Association",
-          "cardinality": {
-            "max": "*"
-          },
-          "target": "kernseife.db.ScoringFindingsAggregated",
-          "on": [
-            {
-              "ref": [
-                "findingListAggregated",
-                "objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "findingListAggregated",
-                "objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "objectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "findingListAggregated",
-                "devClass"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "devClass"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "findingListAggregated",
-                "systemId"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "systemId"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "findingListAggregated",
-                "importId"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "latestScoringImportId"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "FINDINGLISTAGGREGATED"
         },
         "score": {
           "type": "cds.Integer",
@@ -372,67 +126,11 @@
           "length": 5000,
           "@cds.persistence.name": "APPLICATIONCOMPONENT"
         },
-        "releaseInfo": {
-          "type": "cds.Association",
-          "target": "kernseife.db.ReleaseInfo",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "releaseInfo_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "releaseInfo",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "releaseInfo_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "RELEASEINFO"
-        },
         "releaseInfo_code": {
           "type": "cds.String",
           "length": 5000,
           "@odata.foreignKey4": "releaseInfo",
           "@cds.persistence.name": "RELEASEINFO_CODE"
-        },
-        "classicInfo": {
-          "type": "cds.Association",
-          "target": "kernseife.db.ClassicInfo",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "classicInfo_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "classicInfo",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classicInfo_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CLASSICINFO"
         },
         "classicInfo_code": {
           "type": "cds.String",
@@ -440,67 +138,11 @@
           "@odata.foreignKey4": "classicInfo",
           "@cds.persistence.name": "CLASSICINFO_CODE"
         },
-        "releaseLevel": {
-          "type": "cds.Association",
-          "target": "kernseife.db.ReleaseLevel",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "releaseLevel_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "releaseLevel",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "releaseLevel_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "RELEASELEVEL"
-        },
         "releaseLevel_code": {
           "type": "cds.String",
           "length": 5000,
           "@odata.foreignKey4": "releaseLevel",
           "@cds.persistence.name": "RELEASELEVEL_CODE"
-        },
-        "successorClassification": {
-          "type": "cds.Association",
-          "target": "kernseife.db.SuccessorClassifications",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "successorClassification_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "successorClassification",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "successorClassification_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "SUCCESSORCLASSIFICATION"
         },
         "successorClassification_code": {
           "type": "cds.String",
@@ -512,28 +154,6 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "SUCCESSORCONCEPTNAME"
-        },
-        "successorList": {
-          "type": "cds.Composition",
-          "cardinality": {
-            "max": "*"
-          },
-          "target": "kernseife.db.ReleaseStateSuccessors",
-          "on": [
-            {
-              "ref": [
-                "successorList",
-                "releaseState_ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "SUCCESSORLIST"
         },
         "labelList": {
           "type": "cds.LargeString",
@@ -551,34 +171,6 @@
           "type": "cds.String",
           "length": 36,
           "@cds.persistence.name": "ID"
-        },
-        "releaseState": {
-          "type": "cds.Association",
-          "target": "kernseife.db.ReleaseStates",
-          "keys": [
-            {
-              "ref": [
-                "ID"
-              ],
-              "as": "ID",
-              "$generatedFieldName": "releaseState_ID"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "releaseState",
-                "ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "releaseState_ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "RELEASESTATE"
         },
         "releaseState_ID": {
           "type": "cds.String",
@@ -670,87 +262,6 @@
           "length": 5000,
           "@cds.persistence.name": "SOFTWARECOMPONENT"
         },
-        "frameworkUsageList": {
-          "type": "cds.Composition",
-          "cardinality": {
-            "max": "*"
-          },
-          "target": "kernseife.db.FrameworkUsages",
-          "on": [
-            {
-              "ref": [
-                "frameworkUsageList",
-                "classification_tadirObjectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "tadirObjectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "frameworkUsageList",
-                "classification_tadirObjectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "tadirObjectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "frameworkUsageList",
-                "classification_objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "frameworkUsageList",
-                "classification_objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "objectName"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "FRAMEWORKUSAGELIST"
-        },
-        "adoptionEffort": {
-          "type": "cds.Association",
-          "target": "kernseife.db.AdoptionEffort",
-          "on": [
-            {
-              "ref": [
-                "adoptionEffort",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "adoptionEffort_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "ADOPTIONEFFORT"
-        },
         "adoptionEffort_code": {
           "type": "cds.String",
           "length": 5000,
@@ -765,115 +276,11 @@
           "type": "cds.Integer",
           "@cds.persistence.name": "REFERENCECOUNT"
         },
-        "releaseLevel": {
-          "type": "cds.Association",
-          "target": "kernseife.db.ReleaseLevel",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "releaseLevel_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "releaseLevel",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "releaseLevel_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "RELEASELEVEL"
-        },
         "releaseLevel_code": {
           "type": "cds.String",
           "length": 5000,
           "@odata.foreignKey4": "releaseLevel",
           "@cds.persistence.name": "RELEASELEVEL_CODE"
-        },
-        "releaseState": {
-          "type": "cds.Association",
-          "target": "kernseife.db.ReleaseStates",
-          "on": [
-            {
-              "ref": [
-                "releaseState",
-                "tadirObjectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "tadirObjectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "releaseState",
-                "tadirObjectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "tadirObjectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "releaseState",
-                "objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "releaseState",
-                "objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "objectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "releaseState",
-                "applicationComponent"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "applicationComponent"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "RELEASESTATE"
         },
         "numberOfSimplificationNotes": {
           "type": "cds.Integer",
@@ -882,288 +289,20 @@
           },
           "@cds.persistence.name": "NUMBEROFSIMPLIFICATIONNOTES"
         },
-        "successorClassification": {
-          "type": "cds.Association",
-          "target": "kernseife.db.SuccessorClassifications",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "successorClassification_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "successorClassification",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "successorClassification_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "SUCCESSORCLASSIFICATION"
-        },
         "successorClassification_code": {
           "type": "cds.String",
           "length": 5000,
           "@odata.foreignKey4": "successorClassification",
           "@cds.persistence.name": "SUCCESSORCLASSIFICATION_CODE"
         },
-        "successorList": {
-          "type": "cds.Composition",
-          "cardinality": {
-            "max": "*"
-          },
-          "target": "kernseife.db.ClassificationSuccessors",
-          "on": [
-            {
-              "ref": [
-                "successorList",
-                "classification_tadirObjectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "tadirObjectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "successorList",
-                "classification_tadirObjectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "tadirObjectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "successorList",
-                "classification_objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "successorList",
-                "classification_objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "objectName"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "SUCCESSORLIST"
-        },
-        "noteList": {
-          "type": "cds.Composition",
-          "cardinality": {
-            "max": "*"
-          },
-          "target": "kernseife.db.Notes",
-          "on": [
-            {
-              "ref": [
-                "noteList",
-                "classification_tadirObjectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "tadirObjectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "noteList",
-                "classification_tadirObjectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "tadirObjectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "noteList",
-                "classification_objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "noteList",
-                "classification_objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "objectName"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "NOTELIST"
-        },
-        "rating": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Ratings",
-          "on": [
-            {
-              "ref": [
-                "rating",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "rating_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "RATING"
-        },
         "rating_code": {
           "type": "cds.String",
           "length": 3,
           "@cds.persistence.name": "RATING_CODE"
         },
-        "codeSnippets": {
-          "type": "cds.Composition",
-          "cardinality": {
-            "max": "*"
-          },
-          "target": "kernseife.db.CodeSnippets",
-          "on": [
-            {
-              "ref": [
-                "codeSnippets",
-                "classification_tadirObjectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "tadirObjectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "codeSnippets",
-                "classification_tadirObjectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "tadirObjectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "codeSnippets",
-                "classification_objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "codeSnippets",
-                "classification_objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "objectName"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CODESNIPPETS"
-        },
         "totalScore": {
           "type": "cds.Integer",
           "@cds.persistence.name": "TOTALSCORE"
-        },
-        "developmentObjectList": {
-          "type": "cds.Association",
-          "cardinality": {
-            "max": "*"
-          },
-          "target": "kernseife.db.DevelopmentObjectsAggregated",
-          "on": [
-            {
-              "ref": [
-                "developmentObjectList",
-                "refObjectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "developmentObjectList",
-                "refObjectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "objectName"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "DEVELOPMENTOBJECTLIST"
         }
       },
       "@cds.persistence.name": "KERNSEIFE_DB_CLASSIFICATIONS"
@@ -1177,94 +316,6 @@
           "type": "cds.String",
           "length": 36,
           "@cds.persistence.name": "ID"
-        },
-        "classification": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Classifications",
-          "keys": [
-            {
-              "ref": [
-                "tadirObjectType"
-              ],
-              "as": "tadirObjectType",
-              "$generatedFieldName": "classification_tadirObjectType"
-            },
-            {
-              "ref": [
-                "tadirObjectName"
-              ],
-              "as": "tadirObjectName",
-              "$generatedFieldName": "classification_tadirObjectName"
-            },
-            {
-              "ref": [
-                "objectType"
-              ],
-              "as": "objectType",
-              "$generatedFieldName": "classification_objectType"
-            },
-            {
-              "ref": [
-                "objectName"
-              ],
-              "as": "objectName",
-              "$generatedFieldName": "classification_objectName"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "classification",
-                "tadirObjectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_tadirObjectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "tadirObjectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_tadirObjectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_objectName"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CLASSIFICATION"
         },
         "classification_tadirObjectType": {
           "type": "cds.String",
@@ -1318,94 +369,6 @@
           "length": 36,
           "@cds.persistence.name": "ID"
         },
-        "classification": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Classifications",
-          "keys": [
-            {
-              "ref": [
-                "tadirObjectType"
-              ],
-              "as": "tadirObjectType",
-              "$generatedFieldName": "classification_tadirObjectType"
-            },
-            {
-              "ref": [
-                "tadirObjectName"
-              ],
-              "as": "tadirObjectName",
-              "$generatedFieldName": "classification_tadirObjectName"
-            },
-            {
-              "ref": [
-                "objectType"
-              ],
-              "as": "objectType",
-              "$generatedFieldName": "classification_objectType"
-            },
-            {
-              "ref": [
-                "objectName"
-              ],
-              "as": "objectName",
-              "$generatedFieldName": "classification_objectName"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "classification",
-                "tadirObjectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_tadirObjectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "tadirObjectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_tadirObjectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_objectName"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CLASSIFICATION"
-        },
         "classification_tadirObjectType": {
           "type": "cds.String",
           "length": 5000,
@@ -1440,26 +403,6 @@
           "length": 5000,
           "@cds.persistence.name": "TITLE"
         },
-        "noteClassification": {
-          "type": "cds.Association",
-          "target": "kernseife.db.NoteClassifications",
-          "on": [
-            {
-              "ref": [
-                "noteClassification",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "noteClassification_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "NOTECLASSIFICATION"
-        },
         "noteClassification_code": {
           "type": "cds.String",
           "length": 5000,
@@ -1477,94 +420,6 @@
           "type": "cds.String",
           "length": 36,
           "@cds.persistence.name": "ID"
-        },
-        "classification": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Classifications",
-          "keys": [
-            {
-              "ref": [
-                "tadirObjectType"
-              ],
-              "as": "tadirObjectType",
-              "$generatedFieldName": "classification_tadirObjectType"
-            },
-            {
-              "ref": [
-                "tadirObjectName"
-              ],
-              "as": "tadirObjectName",
-              "$generatedFieldName": "classification_tadirObjectName"
-            },
-            {
-              "ref": [
-                "objectType"
-              ],
-              "as": "objectType",
-              "$generatedFieldName": "classification_objectType"
-            },
-            {
-              "ref": [
-                "objectName"
-              ],
-              "as": "objectName",
-              "$generatedFieldName": "classification_objectName"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "classification",
-                "tadirObjectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_tadirObjectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "tadirObjectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_tadirObjectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_objectName"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CLASSIFICATION"
         },
         "classification_tadirObjectType": {
           "type": "cds.String",
@@ -1609,26 +464,6 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "OBJECTNAME"
-        },
-        "successorType": {
-          "type": "cds.Association",
-          "target": "kernseife.db.SuccessorTypes",
-          "on": [
-            {
-              "ref": [
-                "successorType",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "successorType_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "SUCCESSORTYPE"
         },
         "successorType_code": {
           "type": "cds.String",
@@ -1696,26 +531,6 @@
           "length": 3,
           "@cds.persistence.name": "DEFAULTRATING"
         },
-        "system": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Systems",
-          "on": [
-            {
-              "ref": [
-                "system",
-                "sid"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "systemId"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "SYSTEM"
-        },
         "file": {
           "type": "cds.LargeBinary",
           "@cds.persistence.name": "FILE"
@@ -1732,34 +547,6 @@
       "kind": "entity",
       "@cds.persistence.journal": true,
       "elements": {
-        "import": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Imports",
-          "keys": [
-            {
-              "ref": [
-                "ID"
-              ],
-              "as": "ID",
-              "$generatedFieldName": "import_ID"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "import",
-                "ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "import_ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "IMPORT"
-        },
         "import_ID": {
           "type": "cds.String",
           "length": 36,
@@ -1802,142 +589,6 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "SYSTEMID"
-        },
-        "releaseState": {
-          "type": "cds.Association",
-          "target": "kernseife.db.ReleaseStates",
-          "on": [
-            {
-              "ref": [
-                "releaseState",
-                "objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "refObjectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "releaseState",
-                "objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "refObjectName"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "RELEASESTATE"
-        },
-        "developmentObject": {
-          "type": "cds.Association",
-          "target": "kernseife.db.DevelopmentObjects",
-          "on": [
-            {
-              "ref": [
-                "developmentObject",
-                "objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "developmentObject",
-                "objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "objectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "developmentObject",
-                "devClass"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "devClass"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "DEVELOPMENTOBJECT"
-        },
-        "classification": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Classifications",
-          "on": [
-            {
-              "ref": [
-                "classification",
-                "objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "refObjectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "refObjectName"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CLASSIFICATION"
-        },
-        "rating": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Ratings",
-          "on": [
-            {
-              "ref": [
-                "rating",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "rating_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "RATING"
         },
         "rating_code": {
           "type": "cds.String",
@@ -2052,61 +703,11 @@
           "type": "cds.Integer",
           "@cds.persistence.name": "SCORE"
         },
-        "criticality": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Criticality",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "criticality_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "criticality",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "criticality_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CRITICALITY"
-        },
         "criticality_code": {
           "type": "cds.String",
           "length": 5000,
           "@odata.foreignKey4": "criticality",
           "@cds.persistence.name": "CRITICALITY_CODE"
-        },
-        "legacyRatingList": {
-          "type": "cds.Composition",
-          "cardinality": {
-            "max": "*"
-          },
-          "target": "kernseife.db.LegacyRatings",
-          "on": [
-            {
-              "ref": [
-                "legacyRatingList",
-                "rating_ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "LEGACYRATINGLIST"
         }
       },
       "@cds.persistence.name": "KERNSEIFE_DB_RATINGS"
@@ -2120,34 +721,6 @@
           "type": "cds.String",
           "length": 36,
           "@cds.persistence.name": "ID"
-        },
-        "rating": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Ratings",
-          "keys": [
-            {
-              "ref": [
-                "ID"
-              ],
-              "as": "ID",
-              "$generatedFieldName": "rating_ID"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "rating",
-                "ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "rating_ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "RATING"
         },
         "rating_ID": {
           "type": "cds.String",
@@ -2201,34 +774,6 @@
           "length": 5000,
           "@cds.persistence.name": "TITLE"
         },
-        "criticality": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Criticality",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "criticality_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "criticality",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "criticality_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CRITICALITY"
-        },
         "criticality_code": {
           "type": "cds.String",
           "length": 5000,
@@ -2239,26 +784,6 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "FRAMEWORKTYPE_CODE"
-        },
-        "frameworkType": {
-          "type": "cds.Association",
-          "target": "kernseife.db.FrameworkTypes",
-          "on": [
-            {
-              "ref": [
-                "frameworkType",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "frameworkType_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "FRAMEWORKTYPE"
         }
       },
       "@cds.persistence.name": "KERNSEIFE_DB_FRAMEWORKS"
@@ -2272,94 +797,6 @@
           "type": "cds.String",
           "length": 36,
           "@cds.persistence.name": "ID"
-        },
-        "classification": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Classifications",
-          "keys": [
-            {
-              "ref": [
-                "tadirObjectType"
-              ],
-              "as": "tadirObjectType",
-              "$generatedFieldName": "classification_tadirObjectType"
-            },
-            {
-              "ref": [
-                "tadirObjectName"
-              ],
-              "as": "tadirObjectName",
-              "$generatedFieldName": "classification_tadirObjectName"
-            },
-            {
-              "ref": [
-                "objectType"
-              ],
-              "as": "objectType",
-              "$generatedFieldName": "classification_objectType"
-            },
-            {
-              "ref": [
-                "objectName"
-              ],
-              "as": "objectName",
-              "$generatedFieldName": "classification_objectName"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "classification",
-                "tadirObjectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_tadirObjectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "tadirObjectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_tadirObjectName"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "objectType"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_objectType"
-              ]
-            },
-            "and",
-            {
-              "ref": [
-                "classification",
-                "objectName"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "classification_objectName"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CLASSIFICATION"
         },
         "classification_tadirObjectType": {
           "type": "cds.String",
@@ -2389,26 +826,6 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "FRAMEWORK_CODE"
-        },
-        "framework": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Frameworks",
-          "on": [
-            {
-              "ref": [
-                "framework",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "framework_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "FRAMEWORK"
         }
       },
       "@cds.persistence.name": "KERNSEIFE_DB_FRAMEWORKUSAGES"
@@ -2427,34 +844,6 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "TITLE"
-        },
-        "criticality": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Criticality",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "criticality_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "criticality",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "criticality_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CRITICALITY"
         },
         "criticality_code": {
           "type": "cds.String",
@@ -2494,34 +883,6 @@
           "length": 5000,
           "@cds.persistence.name": "TITLE"
         },
-        "criticality": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Criticality",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "criticality_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "criticality",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "criticality_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CRITICALITY"
-        },
         "criticality_code": {
           "type": "cds.String",
           "length": 5000,
@@ -2545,34 +906,6 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "TITLE"
-        },
-        "criticality": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Criticality",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "criticality_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "criticality",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "criticality_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CRITICALITY"
         },
         "criticality_code": {
           "type": "cds.String",
@@ -2626,26 +959,6 @@
           "length": 5000,
           "@cds.persistence.name": "COMMENT"
         },
-        "customer": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Customers",
-          "on": [
-            {
-              "ref": [
-                "customer",
-                "ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "customer_ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CUSTOMER"
-        },
         "customer_ID": {
           "type": "cds.String",
           "length": 36,
@@ -2696,28 +1009,6 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "PREFIX"
-        },
-        "systemList": {
-          "type": "cds.Association",
-          "cardinality": {
-            "max": "*"
-          },
-          "target": "kernseife.db.Systems",
-          "on": [
-            {
-              "ref": [
-                "ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "systemList",
-                "customer_ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "SYSTEMLIST"
         }
       },
       "@cds.persistence.name": "KERNSEIFE_DB_CUSTOMERS"
@@ -2755,96 +1046,17 @@
           "length": 5000,
           "@cds.persistence.name": "TITLE"
         },
-        "system": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Systems",
-          "keys": [
-            {
-              "ref": [
-                "ID"
-              ],
-              "as": "ID",
-              "$generatedFieldName": "system_ID"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "system",
-                "ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "system_ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "SYSTEM"
-        },
         "system_ID": {
           "type": "cds.String",
           "length": 36,
           "@odata.foreignKey4": "system",
           "@cds.persistence.name": "SYSTEM_ID"
         },
-        "cleanCoreLevel": {
-          "type": "cds.Association",
-          "target": "kernseife.db.CleanCoreLevel",
-          "keys": [
-            {
-              "ref": [
-                "code"
-              ],
-              "as": "code",
-              "$generatedFieldName": "cleanCoreLevel_code"
-            }
-          ],
-          "on": [
-            {
-              "ref": [
-                "cleanCoreLevel",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "cleanCoreLevel_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "CLEANCORELEVEL"
-        },
         "cleanCoreLevel_code": {
           "type": "cds.String",
           "length": 5000,
           "@odata.foreignKey4": "cleanCoreLevel",
           "@cds.persistence.name": "CLEANCORELEVEL_CODE"
-        },
-        "developemtObjectList": {
-          "type": "cds.Association",
-          "cardinality": {
-            "max": "*"
-          },
-          "target": "kernseife.db.DevelopmentObjects",
-          "on": [
-            {
-              "ref": [
-                "developemtObjectList",
-                "extension_ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "DEVELOPEMTOBJECTLIST"
         }
       },
       "@cds.persistence.name": "KERNSEIFE_DB_EXTENSIONS"
@@ -2996,26 +1208,6 @@
           "length": 5000,
           "@cds.persistence.name": "SYSTEMID"
         },
-        "type": {
-          "type": "cds.Association",
-          "target": "kernseife.db.ModificationTypes",
-          "on": [
-            {
-              "ref": [
-                "type",
-                "code"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "type_code"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "TYPE"
-        },
         "type_code": {
           "type": "cds.String",
           "length": 5000,
@@ -3025,26 +1217,6 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "EXTENSION_ID"
-        },
-        "extension": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Extensions",
-          "on": [
-            {
-              "ref": [
-                "extension",
-                "ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "extension_ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "EXTENSION"
         }
       },
       "@cds.persistence.name": "KERNSEIFE_DB_MODIFICATIONS"
@@ -3101,36 +1273,16 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "EXTENSION_ID"
-        },
-        "extension": {
-          "type": "cds.Association",
-          "target": "kernseife.db.Extensions",
-          "on": [
-            {
-              "ref": [
-                "extension",
-                "ID"
-              ]
-            },
-            "=",
-            {
-              "ref": [
-                "$self",
-                "extension_ID"
-              ]
-            }
-          ],
-          "@cds.persistence.name": "EXTENSION"
         }
       },
       "@cds.persistence.name": "KERNSEIFE_DB_ENHANCEMENTS"
     }
   },
   "meta": {
-    "creator": "CDS Compiler v5.8.2",
+    "creator": "CDS Compiler v6.0.12",
     "flavor": "inferred",
     "minified": true,
-    "build": "CDS Build v8.9.2"
+    "build": "CDS Build v9.0.3"
   },
   "$version": "2.0"
 }
