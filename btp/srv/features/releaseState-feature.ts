@@ -323,7 +323,7 @@ export const updateClassificationsFromReleaseStates = async (
   let progressCount = 0;
   const chunkSize = 50;
   for (let i = 0; i < classifications.length; i += chunkSize) {
-    LOG.info(`Processing ${i} to ${i + chunkSize} (${classifications.length})`);
+    LOG.info(`Processing ${i}/${classifications.length}`);
     const chunk = classifications.slice(i, i + chunkSize);
 
     const updateClassifications = await chunk.filter((classification) =>

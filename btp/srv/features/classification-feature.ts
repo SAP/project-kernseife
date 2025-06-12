@@ -318,7 +318,7 @@ export const importInitialClassification = async (csv: string) => {
   const chunkSize = 50;
   for (let i = 0; i < classificationRecordList.length; i += chunkSize) {
     LOG.info(
-      `Processing ${i} to ${i + chunkSize} (${classificationRecordList.length})`
+      `Processing ${i}/${classificationRecordList.length}`
     );
     const chunk = classificationRecordList.slice(i, i + chunkSize);
     const classificationInsert = [] as Classification[];
@@ -438,7 +438,7 @@ export const importMissingClassifications = async (
   const chunkSize = 100;
   for (let i = 0; i < classificationRecordList.length; i += chunkSize) {
     LOG.info(
-      `Processing ${i} to ${i + chunkSize} (${classificationRecordList.length})`
+      `Processing ${i}/${classificationRecordList.length}`
     );
     const chunk = classificationRecordList.slice(i, i + chunkSize);
     const classificationInsert = [] as Classification[];
@@ -596,7 +596,7 @@ export const importEnhancementObjects = async (
   const chunkSize = 100;
   for (let i = 0; i < enhancementObjectList.length; i += chunkSize) {
     LOG.info(
-      `Processing ${i} to ${i + chunkSize} (${enhancementObjectList.length})`
+      `Processing ${i}/${enhancementObjectList.length}`
     );
     const chunk = enhancementObjectList.slice(i, i + chunkSize);
     const classificationInsert = [] as Classification[];
@@ -929,7 +929,7 @@ export const importCloudClassifications = async (
   LOG.error('Importing ' + classificationList.length + ' Classifications');
   const chunkSize = Math.min(classificationList.length, 25);
   for (let i = 0; i < classificationList.length; i += chunkSize) {
-    LOG.info(`Processing ${i} / (${classificationList.length})`);
+    LOG.info(`Processing ${i}/${classificationList.length}`);
     const chunk = classificationList.slice(i, i + chunkSize);
 
     const classificationInsert = [] as any[];

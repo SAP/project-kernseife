@@ -48,31 +48,41 @@ export default (srv: Service) => {
     const stream = new PassThrough();
     const buffers = [] as any[];
     req.data.file.pipe(stream);
-    await new Promise((resolve) => {
+    const importId = await new Promise((resolve) => {
       stream.on('data', (dataChunk: any) => {
         buffers.push(dataChunk);
       });
       stream.on('end', async () => {
         const buffer = Buffer.concat(buffers);
         try {
-          await uploadFile(
-            uploadType,
-            fileName,
-            buffer,
-            systemId,
-            defaultRating,
-            comment
+          resolve(
+            await uploadFile(
+              uploadType,
+              fileName,
+              buffer,
+              systemId,
+              defaultRating,
+              comment
+            )
           );
         } catch (e) {
-          return req.error(400, e);
+          resolve(undefined);
         }
-        req.notify({
-          message: 'Upload Successful',
-          status: 200
-        });
-        resolve(undefined);
       });
     });
+    if (importId) {
+      await srv.emit('Imported', {
+        ID: importId,
+        type: uploadType
+      });
+
+      req.notify({
+        message: 'Upload Successful',
+        status: 200
+      });
+    } else {
+      req.error(400);
+    }
   });
 
   srv.on(

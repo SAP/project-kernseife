@@ -390,7 +390,7 @@ export const importScoring = async (
   const chunkSize = 1000;
   for (let i = 0; i < scoringRecordList.length; i += chunkSize) {
     LOG.info(
-      `Processing ${i} to ${i + chunkSize} (${scoringRecordList.length}`
+      `Processing ${i}/${scoringRecordList.length}`
     );
     const chunk = scoringRecordList.slice(i, i + chunkSize);
 
@@ -508,7 +508,7 @@ export const determineCleanCoreLevelAll = async (
   const chunkSize = 50;
   for (let i = 0; i < developmentObjects.length; i += chunkSize) {
     LOG.info(
-      `Processing ${i} to ${i + chunkSize} (${developmentObjects.length})`
+      `Processing ${i}/${developmentObjects.length}`
     );
     const chunk = developmentObjects.slice(i, i + chunkSize);
 
