@@ -547,6 +547,8 @@ const getCommentForEnhancementObjectType = (
     return 'Internal Use BADI';
   } else if (enhancementObject.singleUse) {
     return 'Single Use BADI';
+  } else {
+    return 'Multi Use BADI';
   }
 };
 
@@ -569,7 +571,7 @@ export const importEnhancementObjects = async (
   enhancementImport: Import,
   tx?: Transaction,
   updateProgress?: (progress: number) => void
-) => {
+) : Promise<JobResult> => {
   // Parse File
   if (!enhancementImport.file) throw new Error('File broken');
 
@@ -730,7 +732,7 @@ export const importEnhancementObjectsById = async (
       d.ID, d.status, d.title, d.file;
     })
     .where({ ID: enhancementImportId });
-  await importEnhancementObjects(enhancementImport, tx, updateProgress);
+  return await importEnhancementObjects(enhancementImport, tx, updateProgress);
 };
 
 export const importMissingClassificationsById = async (
@@ -743,7 +745,7 @@ export const importMissingClassificationsById = async (
       d.ID, d.status, d.title, d.file, d.defaultRating, d.comment;
     })
     .where({ ID: missingClassificationsImportId });
-  await importMissingClassifications(
+  return await importMissingClassifications(
     missingClassificationsImport,
     tx,
     updateProgress
