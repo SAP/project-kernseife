@@ -1,12 +1,18 @@
-import { Classification, Import } from '#cds-models/kernseife/db';
+import { Classification, Import, ReleaseState } from '#cds-models/kernseife/db';
 import { Transaction, connect, db, entities, log, utils } from '@sap/cds';
 import { text } from 'node:stream/consumers';
 import papa from 'papaparse';
-import { getReleaseStateMap, updateReleaseState } from './releaseState-feature';
+import {
+  getReleaseStateKey,
+  getReleaseStateMap,
+  updateReleaseState
+} from './releaseState-feature';
 import {
   ClassificationImport,
-  ClassificationKey
-} from '../types/classification';
+  ClassificationKey,
+  EnhancementImport
+} from '../types/imports';
+import { JobResult } from '../types/file';
 
 const LOG = log('ClassificationFeature');
 
@@ -534,6 +540,199 @@ export const importMissingClassifications = async (
   }
 };
 
+const getCommentForEnhancementObjectType = (
+  enhancementObject: EnhancementImport
+) => {
+  if (enhancementObject.internalUse) {
+    return 'Internal Use BADI';
+  } else if (enhancementObject.singleUse) {
+    return 'Single Use BADI';
+  }
+};
+
+const getEnhancementRatingCode = (
+  enhancementObject: EnhancementImport,
+  releaseState?: ReleaseState
+) => {
+  if (releaseState && releaseState.releaseLevel_code == 'RELEASED') {
+    return 'EF0';
+  }
+  if (enhancementObject.internalUse) {
+    return 'EF9';
+  } else if (enhancementObject.singleUse) {
+    return 'EF5';
+  }
+  return 'EF1';
+};
+
+export const importEnhancementObjects = async (
+  enhancementImport: Import,
+  tx?: Transaction,
+  updateProgress?: (progress: number) => void
+) => {
+  // Parse File
+  if (!enhancementImport.file) throw new Error('File broken');
+
+  const csv = await text(enhancementImport.file);
+  const result = papa.parse<any>(csv, {
+    header: true,
+    skipEmptyLines: true
+  });
+
+  const enhancementObjectList = result.data as EnhancementImport[];
+
+  // Get all releaseState
+  const releaseStateMap = await getReleaseStateMap();
+
+  LOG.info(`Importing Enhancement Objects ${enhancementObjectList.length}`);
+  let insertCount = 0;
+  let progressCount = 0;
+
+  // Check to not insert the same object twice
+  const classificationMap = await getClassificationRatingMap();
+
+  const importLog: any[] = [];
+
+  const chunkSize = 100;
+  for (let i = 0; i < enhancementObjectList.length; i += chunkSize) {
+    LOG.info(
+      `Processing ${i} to ${i + chunkSize} (${enhancementObjectList.length})`
+    );
+    const chunk = enhancementObjectList.slice(i, i + chunkSize);
+    const classificationInsert = [] as Classification[];
+
+    for (const enhancementObject of chunk) {
+      progressCount++;
+      // For those objects tadir and normal keys are always the same
+      enhancementObject.tadirObjectType = enhancementObject.objectType;
+      enhancementObject.tadirObjectName = enhancementObject.objectName;
+
+      // Set default rating code
+      const releaseState = releaseStateMap.get(
+        getReleaseStateKey(enhancementObject)
+      );
+
+      const key = getClassificationKey(enhancementObject);
+      if (!classificationMap[key]) {
+        // Create a new Classification
+        const classification = {
+          objectType: enhancementObject.objectType,
+          objectName: enhancementObject.objectName,
+          tadirObjectType: enhancementObject.tadirObjectType,
+          tadirObjectName: enhancementObject.tadirObjectName,
+          applicationComponent: enhancementObject.applicationComponent,
+          softwareComponent: enhancementObject.softwareComponent,
+          subType: enhancementObject.objectType,
+          releaseLevel_code: 'undefined',
+          successorClassification_code: 'undefined',
+          referenceCount: 0,
+          comment: getCommentForEnhancementObjectType(enhancementObject)
+        } as Classification;
+
+        // Try to update States
+        updateReleaseState(classification, releaseStateMap);
+
+        // Try to update States
+        await updateSimplifications(classification);
+        // make sure deep insert doesn't create notes again
+        classification.noteList = [];
+
+        // Update Total Score
+        //LOG.info("Update Total Score", classification);
+        await updateTotalScoreAndReferenceCount(classification);
+
+        classification.rating_code = getEnhancementRatingCode(
+          enhancementObject,
+          releaseState
+        );
+
+        classificationMap[key] = classification.rating_code;
+
+        importLog.push({
+          operation: 'insert',
+          ...enhancementObject,
+          rating: classification.rating_code,
+          comment: classification.comment
+        });
+
+        classificationInsert.push(classification);
+        insertCount++;
+      } else {
+        const updatePayload = {};
+        updatePayload['rating_code'] = getEnhancementRatingCode(
+          enhancementObject,
+          releaseState
+        );
+        updatePayload['comment'] =
+          getCommentForEnhancementObjectType(enhancementObject);
+
+        // Update Rating
+        await UPDATE.entity(entities.Classifications)
+          .with(updatePayload)
+          .where({
+            tadirObjectType: enhancementObject.tadirObjectType,
+            tadirObjectName: enhancementObject.tadirObjectName,
+            objectType: enhancementObject.objectType,
+            objectName: enhancementObject.objectName
+          });
+        if (tx) {
+          await tx.commit();
+        }
+
+        importLog.push({
+          operation: 'update',
+          ...enhancementObject,
+          rating: updatePayload['rating_code'],
+          oldRating: classificationMap[key],
+          comment: updatePayload['comment']
+        });
+      }
+    }
+
+    if (classificationInsert.length > 0) {
+      await INSERT.into(entities.Classifications).entries(classificationInsert);
+      if (tx) {
+        await tx.commit();
+      }
+    }
+
+    if (updateProgress) {
+      await updateProgress(
+        Math.round((100 / enhancementObjectList.length) * progressCount)
+      );
+    }
+  }
+
+  if (insertCount > 0) {
+    LOG.info(`Inserted ${insertCount} new Classification(s)`);
+  }
+  if (updateProgress) {
+    await updateProgress(100);
+  }
+
+  const file = papa.unparse(importLog);
+
+  // Write to file
+  return {
+    file: Buffer.from(file, 'utf8'),
+    fileName: 'importLog.csv',
+    fileType: 'application/csv'
+  } as JobResult;
+};
+
+export const importEnhancementObjectsById = async (
+  enhancementImportId: string,
+  tx: Transaction,
+  updateProgress?: (progress: number) => Promise<void>
+) => {
+  const enhancementImport = await SELECT.one
+    .from(entities.Imports, (d) => {
+      d.ID, d.status, d.title, d.file;
+    })
+    .where({ ID: enhancementImportId });
+  await importEnhancementObjects(enhancementImport, tx, updateProgress);
+};
+
 export const importMissingClassificationsById = async (
   missingClassificationsImportId: string,
   tx: Transaction,
@@ -549,36 +748,6 @@ export const importMissingClassificationsById = async (
     tx,
     updateProgress
   );
-};
-
-export const getClassificationKeywordMap = async () => {
-  // Load all Classifications so we can check if they exist
-  const objectTypeList = await SELECT.from(entities.ObjectTypes)
-    .columns('objectType')
-    .where({ category: 'major' });
-  const classificationList = await SELECT.from(entities.Classifications)
-    .columns('objectName', 'objectType', 'applicationComponent', 'rating_code')
-    .where({
-      objectType: { in: objectTypeList.map((result) => result.objectType) }
-    });
-  const classificationMap = await classificationList.reduce(
-    (map, classification) => {
-      if (!classification.objectName) {
-        LOG.warn('Invalid Classification', { classification });
-        return map;
-      }
-      const existing = map.get(classification.objectName);
-      if (!existing) {
-        map.set(classification.objectName, [classification]);
-      } else {
-        existing.push(classification);
-      }
-      return map;
-    },
-    new Map()
-  );
-
-  return classificationMap;
 };
 
 export const getClassificationJsonStandard = async () => {

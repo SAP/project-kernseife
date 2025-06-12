@@ -69,6 +69,7 @@
   },
   "cds": {
     "requires": {
+      "queue": false,
       "[production]": {
         "db": "hana"
       },

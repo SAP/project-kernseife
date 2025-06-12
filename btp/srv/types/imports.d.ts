@@ -27,8 +27,19 @@ export type ClassificationImport = {
 };
 
 export type ClassificationKey = {
-    tadirObjectType: string;
-    tadirObjectName: string;
-    objectType: string;
-    objectName: string;
-}
+  tadirObjectType?: string;
+  tadirObjectName?: string;
+  objectType: string;
+  objectName: string;
+};
+
+export type EnhancementImport = {
+  objectType: string;
+  objectName: string;
+  tadirObjectType?: string;
+  tadirObjectName?: string;
+  applicationComponent: string;
+  softwareComponent: string;
+  internalUse: boolean;
+  singleUse: boolean;
+};

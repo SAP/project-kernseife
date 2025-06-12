@@ -6,11 +6,12 @@ import {
 import cds from '@sap/cds';
 import axios from 'axios';
 import { CUSTOM, STANDARD } from './classification-feature';
+import { EnhancementImport } from '../types/imports';
 
 const LOG = cds.log('ReleaseStateFeature');
 
 export const getReleaseStateKey = (
-  releaseState: Classification | ReleaseState
+  releaseState: Classification | ReleaseState | EnhancementImport
 ) => {
   return (
     (releaseState.tadirObjectType || '') +

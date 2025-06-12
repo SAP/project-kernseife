@@ -9,12 +9,12 @@ import {
   getClassificationJsonCustom,
   getClassificationJsonStandard,
   getMissingClassifications,
+  importEnhancementObjectsById,
   importMissingClassificationsById
 } from './features/classification-feature';
 import {
   calculateScores,
   calculateScoreByRef,
-  importLanguageVersionById,
   importScoringById
 } from './features/developmentObject-feature';
 import {
@@ -212,8 +212,8 @@ export default (srv: Service) => {
             );
           case 'SCORING':
             return await importScoringById(ID, tx, updateProgress);
-          case 'LANGUAGE_VERSION':
-            return await importLanguageVersionById(ID, tx, updateProgress);
+          case 'ENHANCEMENT':
+            return await importEnhancementObjectsById(ID, tx, updateProgress);
           default:
             LOG.error(`Unknown Import Type ${type}`);
             throw new Error(`Unknown Import Type ${type}`);

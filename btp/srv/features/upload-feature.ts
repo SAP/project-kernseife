@@ -1,8 +1,7 @@
 import { Import } from '#cds-models/kernseife/db';
-import { entities, log, services, utils } from '@sap/cds';
-import {
-  importCloudClassifications,
-} from './classification-feature';
+import { entities, log, services, utils, connect } from '@sap/cds';
+
+import { importCloudClassifications } from './classification-feature';
 import { runAsJob } from './jobs-feature';
 
 const LOG = log('Upload');
@@ -12,7 +11,7 @@ export const uploadFile = async (
   fileName: string,
   file: any,
   systemId: string | undefined | null,
-  defaultRating?: string ,
+  defaultRating?: string,
   comment?: string
 ) => {
   LOG.info('Uploading file', {
@@ -97,6 +96,33 @@ export const uploadFile = async (
           (tx, progress) =>
             importCloudClassifications(classificationImport, tx, progress)
         );
+      }
+      break;
+    case 'ENHANCEMENT':
+      {
+        // Map UploadType to Import Type
+        const importObject = {
+          ID: utils.uuid(),
+          type: importType,
+          title: importType + ' Import ' + fileName,
+          status: 'NEW',
+          systemId: undefined,
+          defaultRating: undefined,
+          comment: undefined,
+          file,
+          fileType: 'text/csv'
+        } as Import;
+
+        await INSERT.into(entities.Imports).entries(importObject);
+
+        LOG.info('Imported File');
+
+        const adminServie = await connect.to('AdminService');
+
+        adminServie.emit('Imported', {
+          ID: importObject.ID,
+          type: importObject.type
+        });
       }
       break;
     default:
