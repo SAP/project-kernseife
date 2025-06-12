@@ -13,6 +13,7 @@ import {
   EnhancementImport
 } from '../types/imports';
 import { JobResult } from '../types/file';
+import e from 'express';
 
 const LOG = log('ClassificationFeature');
 
@@ -317,9 +318,7 @@ export const importInitialClassification = async (csv: string) => {
 
   const chunkSize = 50;
   for (let i = 0; i < classificationRecordList.length; i += chunkSize) {
-    LOG.info(
-      `Processing ${i}/${classificationRecordList.length}`
-    );
+    LOG.info(`Processing ${i}/${classificationRecordList.length}`);
     const chunk = classificationRecordList.slice(i, i + chunkSize);
     const classificationInsert = [] as Classification[];
 
@@ -437,9 +436,7 @@ export const importMissingClassifications = async (
 
   const chunkSize = 100;
   for (let i = 0; i < classificationRecordList.length; i += chunkSize) {
-    LOG.info(
-      `Processing ${i}/${classificationRecordList.length}`
-    );
+    LOG.info(`Processing ${i}/${classificationRecordList.length}`);
     const chunk = classificationRecordList.slice(i, i + chunkSize);
     const classificationInsert = [] as Classification[];
 
@@ -571,7 +568,7 @@ export const importEnhancementObjects = async (
   enhancementImport: Import,
   tx?: Transaction,
   updateProgress?: (progress: number) => void
-) : Promise<JobResult> => {
+): Promise<JobResult> => {
   // Parse File
   if (!enhancementImport.file) throw new Error('File broken');
 
@@ -597,9 +594,7 @@ export const importEnhancementObjects = async (
 
   const chunkSize = 100;
   for (let i = 0; i < enhancementObjectList.length; i += chunkSize) {
-    LOG.info(
-      `Processing ${i}/${enhancementObjectList.length}`
-    );
+    LOG.info(`Processing ${i}/${enhancementObjectList.length}`);
     const chunk = enhancementObjectList.slice(i, i + chunkSize);
     const classificationInsert = [] as Classification[];
 
@@ -660,17 +655,33 @@ export const importEnhancementObjects = async (
         classificationInsert.push(classification);
         insertCount++;
       } else {
-        const updatePayload = {};
-        updatePayload['rating_code'] = getEnhancementRatingCode(
+        const existingRatingCode = classificationMap[key];
+        const newRatingCode = getEnhancementRatingCode(
           enhancementObject,
           releaseState
         );
-        updatePayload['comment'] =
+        const newComment =
           getCommentForEnhancementObjectType(enhancementObject);
 
+        if (
+          parseInt(existingRatingCode.slice(2), 10) >=
+          parseInt(newRatingCode.slice(2), 10)
+        ) {
+          importLog.push({
+            operation: 'skipped',
+            ...enhancementObject,
+            rating: newRatingCode,
+            oldRating: classificationMap[key],
+            comment: newComment
+          });
+          continue;
+        }
         // Update Rating
         await UPDATE.entity(entities.Classifications)
-          .with(updatePayload)
+          .with({
+            rating_code: newRatingCode,
+            comment: newComment
+          })
           .where({
             tadirObjectType: enhancementObject.tadirObjectType,
             tadirObjectName: enhancementObject.tadirObjectName,
@@ -684,9 +695,9 @@ export const importEnhancementObjects = async (
         importLog.push({
           operation: 'update',
           ...enhancementObject,
-          rating: updatePayload['rating_code'],
+          rating: newRatingCode,
           oldRating: classificationMap[key],
-          comment: updatePayload['comment']
+          comment: newComment
         });
       }
     }
