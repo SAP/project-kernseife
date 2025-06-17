@@ -3,20 +3,24 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>ZKNSF_RATING_SCORE</ROLLNAME>
+    <ROLLNAME>ZKNSF_LANGUAGE_VERSION</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DOMNAME>INT4</DOMNAME>
+    <DOMNAME>CHAR</DOMNAME>
     <HEADLEN>55</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>Kernseife: Score</DDTEXT>
-    <REPTEXT>score</REPTEXT>
-    <SCRTEXT_S>score</SCRTEXT_S>
-    <SCRTEXT_M>score</SCRTEXT_M>
-    <SCRTEXT_L>score</SCRTEXT_L>
+    <DDTEXT>Kernseife: Rating Code</DDTEXT>
+    <REPTEXT>languageVersion</REPTEXT>
+    <SCRTEXT_S>langVers</SCRTEXT_S>
+    <SCRTEXT_M>languageVersion</SCRTEXT_M>
+    <SCRTEXT_L>languageVersion</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
-    <REFKIND>D</REFKIND>
+    <DATATYPE>REF</DATATYPE>
+    <LENG>000001</LENG>
+    <OUTPUTLEN>000001</OUTPUTLEN>
+    <REFKIND>R</REFKIND>
+    <REFTYPE>B</REFTYPE>
    </DD04V>
   </asx:values>
  </asx:abap>
