@@ -36,8 +36,8 @@ export type ClassificationKey = {
 export type EnhancementImport = {
   objectType: string;
   objectName: string;
-  tadirObjectType?: string;
-  tadirObjectName?: string;
+  tadirObjectType: string;
+  tadirObjectName: string;
   applicationComponent: string;
   softwareComponent: string;
   internalUse: boolean;

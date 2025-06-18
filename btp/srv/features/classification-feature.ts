@@ -13,7 +13,6 @@ import {
   EnhancementImport
 } from '../types/imports';
 import { JobResult } from '../types/file';
-import e from 'express';
 
 const LOG = log('ClassificationFeature');
 
@@ -555,6 +554,16 @@ const getEnhancementRatingCode = (
 ) => {
   if (releaseState && releaseState.releaseLevel_code == 'RELEASED') {
     return 'EF0';
+  } else if (
+    releaseState &&
+    (releaseState.releaseLevel_code == 'NOT_TO_BE_RELEASED' ||
+      releaseState.releaseLevel_code == 'DEPRECATED') &&
+    releaseState.successorList &&
+    releaseState.successorList.length > 0
+  ) {
+    return 'EF9';
+  } else if (releaseState && releaseState.releaseLevel_code != 'undefined') {
+    return 'MIG';
   }
   if (enhancementObject.internalUse) {
     return 'EF9';
@@ -600,9 +609,6 @@ export const importEnhancementObjects = async (
 
     for (const enhancementObject of chunk) {
       progressCount++;
-      // For those objects tadir and normal keys are always the same
-      enhancementObject.tadirObjectType = enhancementObject.objectType;
-      enhancementObject.tadirObjectName = enhancementObject.objectName;
 
       // Set default rating code
       const releaseState = releaseStateMap.get(
@@ -660,13 +666,10 @@ export const importEnhancementObjects = async (
           enhancementObject,
           releaseState
         );
+
         const newComment =
           getCommentForEnhancementObjectType(enhancementObject);
-
-        if (
-          parseInt(existingRatingCode.slice(2), 10) >=
-          parseInt(newRatingCode.slice(2), 10)
-        ) {
+        if (newRatingCode == existingRatingCode) {
           importLog.push({
             operation: 'skipped',
             ...enhancementObject,
@@ -676,11 +679,23 @@ export const importEnhancementObjects = async (
           });
           continue;
         }
+
+        let updateRatingCode = newRatingCode;
+        let updateComment = newComment;
+        if (existingRatingCode.substring(0, 2) == 'EF') {
+          updateComment = 'Mixed Use BADI';
+          if (
+            parseInt(existingRatingCode.slice(2), 10) <
+            parseInt(newRatingCode.slice(2), 10)
+          ) {
+            updateRatingCode = existingRatingCode;
+          }
+        }
         // Update Rating
         await UPDATE.entity(entities.Classifications)
           .with({
-            rating_code: newRatingCode,
-            comment: newComment
+            rating_code: updateRatingCode,
+            comment: updateComment
           })
           .where({
             tadirObjectType: enhancementObject.tadirObjectType,
@@ -695,9 +710,9 @@ export const importEnhancementObjects = async (
         importLog.push({
           operation: 'update',
           ...enhancementObject,
-          rating: newRatingCode,
+          rating: updateRatingCode,
           oldRating: classificationMap[key],
-          comment: newComment
+          comment: updateComment
         });
       }
     }
