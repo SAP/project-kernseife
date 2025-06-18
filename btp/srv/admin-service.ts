@@ -290,8 +290,6 @@ export default (srv: Service) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   srv.on('GET', 'Downloads', async (req: any) => {
     const downloadType = req._.req.path.replace('/Downloads/', '');
-
-    LOG.info('Download', { downloadType });
     let content;
     switch (downloadType) {
       case 'classificationStandard': {
