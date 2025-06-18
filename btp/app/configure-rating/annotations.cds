@@ -60,7 +60,28 @@ annotate AdminService.Ratings with @(UI: {
             Label: '{i18n>modifiedAt}',
         }
     ]}
-});
+},
+    UI.SelectionPresentationVariant #table : {
+        $Type : 'UI.SelectionPresentationVariantType',
+        PresentationVariant : {
+            $Type : 'UI.PresentationVariantType',
+            Visualizations : [
+                '@UI.LineItem',
+            ],
+            SortOrder : [
+                {
+                    $Type : 'Common.SortOrderType',
+                    Property : code,
+                    Descending : false,
+                },
+            ],
+        },
+        SelectionVariant : {
+            $Type : 'UI.SelectionVariantType',
+            SelectOptions : [
+            ],
+        },
+    },);
 
 annotate service.Ratings with @(UI.LineItem: [
     {

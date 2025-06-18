@@ -157,7 +157,8 @@
                   }
                 }
               },
-              "initialLoad": "Enabled"
+              "initialLoad": "Enabled",
+              "defaultTemplateAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#table"
             }
           },
           "controlAggregation": "beginColumnPages",
