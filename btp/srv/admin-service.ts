@@ -1,6 +1,7 @@
 import { JobType } from '#cds-models/kernseife/db';
 import { connect, entities, log, Service, Transaction } from '@sap/cds';
 import { PassThrough, Readable } from 'stream';
+import dayjs from 'dayjs';
 import {
   assignFrameworkByRef,
   assignSuccessorByRef,
@@ -293,27 +294,62 @@ export default (srv: Service) => {
     let content;
     switch (downloadType) {
       case 'classificationStandard': {
-        const mimetype = 'application/json';
-        const filename = downloadType + '.json';
+        const mimetype = 'application/zip';
+        const filename = `classification_${dayjs().format('YYYY_MM_DD')}.zip`;
         const classificationJson = await getClassificationJsonStandard();
         content = JSON.stringify(classificationJson);
-        req.reply(Readable.from([content]), { mimetype, filename });
+        content = JSON.stringify(classificationJson, null, 2);
+        // Wrap in ZIP
+        const zip = new JSZip();
+        zip.file(
+          `classification_${dayjs().format('YYYY_MM_DD')}.json`,
+          content
+        );
+        const file = await zip.generateAsync({
+          type: 'nodebuffer',
+          compression: 'DEFLATE',
+          compressionOptions: { level: 7 }
+        });
+        req.reply(Readable.from([file]), { mimetype, filename });
         break;
       }
       case 'classificationCustom': {
-        const mimetype = 'application/json';
-        const filename = downloadType + '.json';
+        const mimetype = 'application/zip';
+        const filename = `classification_${dayjs().format('YYYY_MM_DD')}.zip`;
         const classificationJson = await getClassificationJsonCustom();
         content = JSON.stringify(classificationJson);
-        req.reply(Readable.from([content]), { mimetype, filename });
+        content = JSON.stringify(classificationJson, null, 2);
+        // Wrap in ZIP
+        const zip = new JSZip();
+        zip.file(
+          `classification_${dayjs().format('YYYY_MM_DD')}.json`,
+          content
+        );
+        const file = await zip.generateAsync({
+          type: 'nodebuffer',
+          compression: 'DEFLATE',
+          compressionOptions: { level: 7 }
+        });
+        req.reply(Readable.from([file]), { mimetype, filename });
         break;
       }
       case 'classificationCloud': {
-        const mimetype = 'application/json';
-        const filename = downloadType + '.json';
+        const mimetype = 'application/zip';
+        const filename = `classification_${dayjs().format('YYYY_MM_DD')}.zip`;
         const classificationJson = await getClassificationJsonCloud();
-        content = JSON.stringify(classificationJson);
-        req.reply(Readable.from([content]), { mimetype, filename });
+        content = JSON.stringify(classificationJson, null, 2);
+        // Wrap in ZIP
+        const zip = new JSZip();
+        zip.file(
+          `classification_${dayjs().format('YYYY_MM_DD')}.json`,
+          content
+        );
+        const file = await zip.generateAsync({
+          type: 'nodebuffer',
+          compression: 'DEFLATE',
+          compressionOptions: { level: 7 }
+        });
+        req.reply(Readable.from([file]), { mimetype, filename });
         break;
       }
       case 'classificationGithub': {

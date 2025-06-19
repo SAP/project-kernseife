@@ -33,6 +33,7 @@
     "@sap-cloud-sdk/util": "^4.0.2",
     "@sap/cds": "^9.0.3",
     "@sap/xssec": "^4.8.0",
+    "dayjs": "^1.11.13",
     "express": "^4.21.2",
     "helmet": "^8.1.0",
     "is-ci": "^4.1.0",
