@@ -1,4 +1,4 @@
-using AdminService as service from '../../srv/admin-service';
+using JobsService as service from '../../srv/jobs-service';
 
 annotate service.Jobs with @(
     UI.FieldGroup #GeneratedGroup         : {

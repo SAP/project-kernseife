@@ -1,6 +1,8 @@
-import { PassThrough } from "node:stream";
+import { PassThrough } from 'node:stream';
 
-export const streamToBuffer = async (stream: PassThrough): Promise<Buffer> => {
+export const fileToBuffer = async (file: any): Promise<Buffer> => {
+  const stream = new PassThrough();
+  file.pipe(stream);
   return new Promise((resolve) => {
     const buffers: Buffer[] = [];
     stream.on('data', (dataChunk: Buffer) => {

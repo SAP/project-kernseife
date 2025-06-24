@@ -154,17 +154,15 @@ entity ScoringFindingsAggregated    as
             count( * )           as count           : Integer,
             count( * ) * r.score as total           : Integer,
             @Measures.Unit: '%'
-            case d.score
-                when
-                    0
-                then
-                    0
-                else
-                    round(
-                        (
-                            100.0 / d.score
-                        ) * count( * ) * r.score, 2
-                    )
+            case
+                d.score
+                when 0
+                     then 0
+                else round(
+                         (
+                             100.0 / d.score
+                         ) * count( * ) * r.score, 2
+                     )
             end                  as totalPercentage : Decimal(5, 2)
     }
     group by
@@ -734,7 +732,7 @@ entity AdoptionEffort {
         criticality : Association to Criticality;
 }
 
-            @cds.persistence.journal
+@cds.persistence.journal
 entity DevelopmentObjectsAggregated as
     select from db.ScoringRecords as s
     inner join Ratings as r
@@ -756,17 +754,15 @@ entity DevelopmentObjectsAggregated as
             count( * )           as count           : Integer,
             count( * ) * r.score as total           : Integer,
             @Measures.Unit: '%'
-            case d.score
-                when
-                    0
-                then
-                    0
-                else
-                    round(
-                        (
-                            100.0 / d.score
-                        ) * count( * ) * r.score, 2
-                    )
+            case
+                d.score
+                when 0
+                     then 0
+                else round(
+                         (
+                             100.0 / d.score
+                         ) * count( * ) * r.score, 2
+                     )
             end                  as totalPercentage : Decimal(5, 2)
     }
     group by
@@ -853,13 +849,18 @@ entity Settings : managed {
     key ID : String(36);
 }
 
+
 @cds.persistence.journal
 entity Jobs : cuid, managed {
+    @mandatory
     title           : String;
     status          : JobStatus;
-    type            : String;
+
+    @mandatory
+    type            : JobType;
     progressCurrent : Integer;
     progressTotal   : Integer;
+    data            : String;
 
     @Core.MediaType                  : fileType
     @Core.ContentDisposition.Filename: fileName

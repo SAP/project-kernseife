@@ -5,7 +5,7 @@ import {
 } from '#cds-models/kernseife/db';
 import cds from '@sap/cds';
 import axios from 'axios';
-import { CUSTOM, STANDARD } from './classification-feature';
+import { CUSTOM, getClassificationCount, STANDARD } from './classification-feature';
 import { EnhancementImport } from '../types/imports';
 
 const LOG = cds.log('ReleaseStateFeature');
@@ -32,7 +32,7 @@ export const getReleaseStateMap = async (): Promise<
   Map<string, ReleaseState>
 > => {
   const releaseStates = await SELECT.from(cds.entities.ReleaseStates, (r) => {
-      r.tadirObjectType,
+    r.tadirObjectType,
       r.tadirObjectName,
       r.objectType,
       r.objectName,
@@ -67,9 +67,7 @@ export const determineReleaseLevel = (releaseState) => {
     return 'INTERNAL';
   } else if (releaseState.classicInfo_code === 'noAPI') {
     return 'NO_API';
-  } else if (
-    releaseState.releaseInfo_code === 'notToBeReleased'
-  ) {
+  } else if (releaseState.releaseInfo_code === 'notToBeReleased') {
     return 'NOT_TO_BE_RELEASED';
   }
 
@@ -369,4 +367,16 @@ export const updateClassificationsFromReleaseStates = async (
     }
     await updateProgress(progressCount);
   }
+};
+
+export const loadReleaseStateJob = async (tx, updateProgress) => {
+  await loadReleaseState();
+  await updateProgress(25);
+  const classificationsCount = await getClassificationCount();
+  await updateClassificationsFromReleaseStates(
+    tx,
+    async (progress) =>
+      await updateProgress(25 + (progress / classificationsCount) * 75)
+  );
+  await updateProgress(100);
 };

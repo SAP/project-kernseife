@@ -16,7 +16,7 @@ import {
 import JSZip from 'jszip';
 import { JobResult } from '../types/file';
 import { PassThrough } from 'node:stream';
-import { streamToBuffer } from '../lib/files';
+import { fileToBuffer } from '../lib/files';
 
 const LOG = log('ClassificationFeature');
 
@@ -1381,9 +1381,7 @@ export const importGithubClassificationById = async (
     .where({ ID: classificationImportId });
   const zip = new JSZip();
 
-  const stream = new PassThrough();
-  githubImport.file.pipe(stream);
-  const buffer = await streamToBuffer(stream);
+  const buffer = await fileToBuffer(githubImport.file);
 
   try {
     const content = await zip.loadAsync(buffer);
@@ -1436,4 +1434,17 @@ export const importGithubClassificationById = async (
     LOG.error('Error loading ZIP file', { error: e });
     throw new Error('Invalid ZIP file format');
   }
+};
+
+export const exportMissingClassificationJob = async (tx, updateProgress) => {
+  const missingClassification = await getMissingClassifications();
+  await updateProgress(75);
+  const file = papa.unparse(missingClassification);
+  await updateProgress(100);
+  // Write to file
+  return {
+    file: Buffer.from(file, 'utf8'),
+    fileName: 'missing_classification.csv',
+    fileType: 'application/csv'
+  } as JobResult;
 };

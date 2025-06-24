@@ -3,8 +3,8 @@
   "authenticationMethod": "route",
   "routes": [
     {
-      "source": "^/odata/v4/admin/(.*)$",
-      "target": "/odata/v4/admin/$1",
+      "source": "^/odata/v4/imports/(.*)$",
+      "target": "/odata/v4/imports/$1",
       "authenticationType": "xsuaa",
       "destination": "kernseife-srv"
     },

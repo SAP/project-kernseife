@@ -1,23 +1,17 @@
 import { JobType } from '#cds-models/kernseife/db';
-import { connect, entities, log, Service, Transaction } from '@sap/cds';
-import { PassThrough, Readable } from 'stream';
+import { connect, entities, log, Service } from '@sap/cds';
+import {  Readable } from 'stream';
 import dayjs from 'dayjs';
 import {
   assignFrameworkByRef,
   assignSuccessorByRef,
-  getClassificationCount,
   getClassificationJsonCloud,
   getClassificationJsonCustom,
   getClassificationJsonStandard,
-  getMissingClassifications,
-  importEnhancementObjectsById,
-  importGithubClassificationById,
-  importMissingClassificationsById
 } from './features/classification-feature';
 import {
   calculateScores,
   calculateScoreByRef,
-  importScoringById
 } from './features/developmentObject-feature';
 import {
   addAllUnassignedDevelopmentObjects,
@@ -25,68 +19,13 @@ import {
   addDevelopmentObjectsByDevClass,
   removeAllDevelopmentObjects
 } from './features/extension-feature';
-import { runAsJob } from './features/jobs-feature';
-import {
-  loadReleaseState,
-  updateClassificationsFromReleaseStates
-} from './features/releaseState-feature';
 import { createInitialData } from './features/setup-feature';
-import { uploadFile } from './features/upload-feature';
-import { JobResult } from './types/file';
-import papa from 'papaparse';
 import JSZip from 'jszip';
 
-export default (srv: Service) => {
+export default async (srv: Service) => {
   const LOG = log('AdminService');
 
-  srv.on('PUT', 'FileUpload', async (req: any, next: any) => {
-    LOG.info('FileUpload');
-
-    const uploadType = req.headers['x-upload-type'];
-    const fileName = req.headers['x-file-name'];
-    const systemId = req.headers['x-system-id'];
-    const defaultRating = req.headers['x-default-rating'];
-    const comment = req.headers['x-comment'];
-
-    const stream = new PassThrough();
-    const buffers = [] as any[];
-    req.data.file.pipe(stream);
-    const importId = await new Promise((resolve) => {
-      stream.on('data', (dataChunk: any) => {
-        buffers.push(dataChunk);
-      });
-      stream.on('end', async () => {
-        const buffer = Buffer.concat(buffers);
-        try {
-          resolve(
-            await uploadFile(
-              uploadType,
-              fileName,
-              buffer,
-              systemId,
-              defaultRating,
-              comment
-            )
-          );
-        } catch (e) {
-          resolve(undefined);
-        }
-      });
-    });
-    if (importId) {
-      await srv.emit('Imported', {
-        ID: importId,
-        type: uploadType
-      });
-
-      req.notify({
-        message: 'Upload Successful',
-        status: 200
-      });
-    } else {
-      req.error(400);
-    }
-  });
+  
   srv.on(
     'clearDevelopmentObjectList',
     ['Extensions', 'Extensions.drafts'],
@@ -162,106 +101,15 @@ export default (srv: Service) => {
 
   srv.on('loadReleaseState', async () => {
     LOG.info('loadReleaseState');
-    await runAsJob(
-      'Import Release States',
-      'IMPORT_RELEASE_STATE',
-      100,
-      async (tx, updateProgress) => {
-        await loadReleaseState();
-        await updateProgress(25);
-        const classificationsCount = await getClassificationCount();
-        await updateClassificationsFromReleaseStates(
-          tx,
-          async (progress) =>
-            await updateProgress(25 + (progress / classificationsCount) * 75)
-        );
-        await updateProgress(100);
-      }
-    );
+    const jobsService = await connect.to('JobsService');
+    await jobsService
+      .create('Jobs')
+      .entries({ title: 'Test', type: 'IMPORT_RELEASE_STATE' as JobType });
   });
 
   srv.on('exportMissingClassification', async () => {
     LOG.info('exportMissingClassification');
-    await runAsJob(
-      'Export Missing Classifications',
-      'EXPORT_MISSING_CLASSIFICATION',
-      100,
-      async (tx, updateProgress) => {
-        const missingClassification = await getMissingClassifications();
-        await updateProgress(75);
-        const file = papa.unparse(missingClassification);
-        await updateProgress(100);
-        // Write to file
-        return {
-          file: Buffer.from(file, 'utf8'),
-          fileName: 'missing_classification.csv',
-          fileType: 'application/csv'
-        } as JobResult;
-      }
-    );
-  });
-
-  srv.on('Imported', async (msg) => {
-    const ID = msg.data.ID;
-    const type = msg.data.type;
-    LOG.info(`Imported ${ID} ${type}`);
-
-    await runAsJob(
-      `Import ${type}`,
-      `IMPORT_${type}` as JobType,
-      100,
-      async (
-        tx: Transaction,
-        updateProgress: (progress: number) => Promise<void>
-      ) => {
-        LOG.info('type', type);
-        switch (type) {
-          case 'MISSING_CLASSIFICATION':
-            return await importMissingClassificationsById(
-              ID,
-              tx,
-              updateProgress
-            );
-          case 'SCORING':
-            return await importScoringById(ID, tx, updateProgress);
-          case 'ENHANCEMENT':
-            return await importEnhancementObjectsById(ID, tx, updateProgress);
-          case 'GITHUB_CLASSIFICATION':
-            return await importGithubClassificationById(ID, tx, updateProgress);
-          default:
-            LOG.error(`Unknown Import Type ${type}`);
-            throw new Error(`Unknown Import Type ${type}`);
-        }
-      },
-      async () => {
-        const db = await connect.to('db');
-        const tx = db.tx();
-        try {
-          await tx.run(
-            UPDATE(entities.Imports).set({ status: 'FAILED' }).where({ ID })
-          );
-          await tx.commit();
-        } catch (e) {
-          LOG.error(e);
-          await tx.rollback();
-        }
-      },
-      async () => {
-        const db = await connect.to('db');
-        const tx = db.tx();
-        try {
-          await tx.run(
-            UPDATE(entities.Imports)
-              .set({ status: 'IMPORTED', progress: 100 })
-              .where({ ID })
-          );
-          await tx.commit();
-        } catch (e) {
-          LOG.error(e);
-          await tx.rollback();
-        }
-      }
-    );
+    //TODO
   });
 
   srv.on('recalculateScore', async (req) => {

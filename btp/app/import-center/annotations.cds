@@ -1,4 +1,4 @@
-using AdminService as service from '../../srv/admin-service';
+using ImportsService as service from '../../srv/imports-service';
 
 annotate service.Imports with @(
     UI.LineItem                           : [

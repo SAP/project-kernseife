@@ -144,8 +144,6 @@ service AdminService @(requires: 'admin') {
             );
         };
 
-    entity Jobs                          as projection on db.Jobs;
-
     // Actions
     @Common.IsActionCritical: true
     @(Common.SideEffects: {TargetEntities: ['/AdminService.EntityContainer/DevelopmentObjects'], })
@@ -204,7 +202,6 @@ service AdminService @(requires: 'admin') {
 
     entity ObjectTypes                   as projection on db.ObjectTypes;
     entity Criticality                   as projection on db.Criticality;
-    entity ImportTypes                   as projection on db.ImportTypes;
 
 
     @cds.redirection.target: false
@@ -227,11 +224,6 @@ service AdminService @(requires: 'admin') {
             title asc;
 
 
-    event Imported : { // Async API
-        ID   : Imports : ID;
-        type : Imports : type;
-    }
 
-    entity FileUpload                    as projection on db.FileUpload;
 
 }
