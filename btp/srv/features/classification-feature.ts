@@ -127,6 +127,38 @@ export const getClassificationRatingMap = async (): Promise<
   return classificationMap;
 };
 
+export const getClassificationRatingAndCommentMap = async (): Promise<
+  Map<string, { rating_code: string; comment: string }>
+> => {
+  // Load all Classifications so we can check if they exist
+  const classificationList = (await SELECT.from(
+    entities.Classifications
+  ).columns(
+    'tadirObjectType',
+    'tadirObjectName',
+    'objectType',
+    'objectName',
+    'rating_code',
+    'comment'
+  )) as {
+    tadirObjectType: string;
+    tadirObjectName: string;
+    objectType: string;
+    objectName: string;
+    rating_code: string;
+    comment: string;
+  }[];
+  const classificationMap = classificationList.reduce((map, classification) => {
+    map.set(getClassificationKey(classification), {
+      rating_code: classification.rating_code,
+      comment: classification.comment
+    });
+    return map;
+  }, new Map<string, { rating_code: string; comment: string }>());
+
+  return classificationMap;
+};
+
 export const updateSimplifications = async (classification: Classification) => {
   // Find Simplification Items for classification
   const simplificationItems = await SELECT.from(
@@ -589,7 +621,7 @@ export const importMissingClassifications = async (
 
 const getCommentForEnhancementObjectType = (
   enhancementObject: EnhancementImport
-) => {
+): string => {
   if (enhancementObject.internalUse) {
     return 'Internal Use BADI';
   } else if (enhancementObject.singleUse) {
@@ -648,7 +680,7 @@ export const importEnhancementObjects = async (
   let progressCount = 0;
 
   // Check to not insert the same object twice
-  const classificationMap = await getClassificationRatingMap();
+  const classificationMap = await getClassificationRatingAndCommentMap();
 
   const importLog: any[] = [];
 
@@ -667,7 +699,7 @@ export const importEnhancementObjects = async (
       );
 
       const key = getClassificationKey(enhancementObject);
-      if (!classificationMap[key]) {
+      if (!classificationMap.has(key)) {
         // Create a new Classification
         const classification = {
           objectType: enhancementObject.objectType,
@@ -700,7 +732,10 @@ export const importEnhancementObjects = async (
           releaseState
         );
 
-        classificationMap[key] = classification.rating_code;
+        classificationMap.set(key, {
+          rating_code: classification.rating_code,
+          comment: classification.comment || ''
+        });
 
         importLog.push({
           operation: 'insert',
@@ -712,7 +747,9 @@ export const importEnhancementObjects = async (
         classificationInsert.push(classification);
         insertCount++;
       } else {
-        const existingRatingCode = classificationMap[key];
+        const existingData = classificationMap.get(key)!;  // We checked before that the key exists
+        const existingRatingCode = existingData.rating_code;
+        const existingComment = existingData.comment;
         const newRatingCode = getEnhancementRatingCode(
           enhancementObject,
           releaseState
@@ -720,12 +757,15 @@ export const importEnhancementObjects = async (
 
         const newComment =
           getCommentForEnhancementObjectType(enhancementObject);
-        if (newRatingCode == existingRatingCode) {
+        if (
+          newRatingCode == existingRatingCode &&
+          newComment == existingComment
+        ) {
           importLog.push({
             operation: 'skipped',
             ...enhancementObject,
             rating: newRatingCode,
-            oldRating: classificationMap[key],
+            oldRating: existingRatingCode,
             comment: newComment
           });
           continue;
@@ -733,15 +773,20 @@ export const importEnhancementObjects = async (
 
         let updateRatingCode = newRatingCode;
         let updateComment = newComment;
-        if (existingRatingCode.substring(0, 2) == 'EF') {
-          updateComment = 'Mixed Use BADI';
-          if (
-            parseInt(existingRatingCode.slice(2), 10) <
+        if (
+          existingRatingCode.substring(0, 2) == 'EF' &&
+          parseInt(existingRatingCode.slice(2), 10) <
             parseInt(newRatingCode.slice(2), 10)
-          ) {
-            updateRatingCode = existingRatingCode;
-          }
+        ) {
+          updateRatingCode = existingRatingCode;
+          updateComment = 'Mixed Use BADI';
         }
+
+        classificationMap.set(key, {
+          rating_code: updateRatingCode,
+          comment: updateComment
+        });
+
         // Update Rating
         await UPDATE.entity(entities.Classifications)
           .with({
@@ -762,7 +807,7 @@ export const importEnhancementObjects = async (
           operation: 'update',
           ...enhancementObject,
           rating: updateRatingCode,
-          oldRating: classificationMap[key],
+          oldRating: existingRatingCode,
           comment: updateComment
         });
       }

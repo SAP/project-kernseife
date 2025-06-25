@@ -1,5 +1,5 @@
 import { Import } from '#cds-models/kernseife/db';
-import { db, entities, log, services, utils } from '@sap/cds';
+import { entities, log, utils } from '@sap/cds';
 
 const LOG = log('Upload');
 
