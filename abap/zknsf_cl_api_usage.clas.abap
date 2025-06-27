@@ -120,14 +120,14 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
     INSERT get_message_code(  code = custom_message_codes-db_tables_select title = 'Reading from SAP database tables or table views'(016) kind = warning successor = abap_false ) INTO TABLE result.
     INSERT get_message_code(  code = custom_message_codes-db_tables_select title = 'Reading from SAP database tables or table views'(016) kind = error   successor = abap_true  ) INTO TABLE result.
 
-    INSERT get_message_code(  code = custom_message_codes-db_tables_update title = 'Updating SAP database tables or table views'(017) kind = warning successor = abap_false ) INTO TABLE result.
-    INSERT get_message_code(  code = custom_message_codes-db_tables_update title = 'Updating SAP database tables or table views'(017) kind = error   successor = abap_true  ) INTO TABLE result.
+    INSERT get_message_code(  code = custom_message_codes-db_tables_update title = 'Updating SAP database tables or table views'(017) kind = error successor = abap_false ) INTO TABLE result.
+    INSERT get_message_code(  code = custom_message_codes-db_tables_update title = 'Updating SAP database tables or table views'(017) kind = error successor = abap_true  ) INTO TABLE result.
 
     INSERT get_message_code(  code = custom_message_codes-db_tables_in_cds title = 'Usage of SAP database tables in CDS views'(018) kind = warning successor = abap_false ) INTO TABLE result.
     INSERT get_message_code(  code = custom_message_codes-db_tables_in_cds title = 'Usage of SAP database tables in CDS views'(018) kind = error   successor = abap_true  ) INTO TABLE result.
 
     INSERT get_message_code(  code = custom_message_codes-db_tables_as_type title = 'Usage of SAP database tables as type definition'(019) kind = info successor = abap_false ) INTO TABLE result.
-    INSERT get_message_code(  code = custom_message_codes-db_tables_as_type title = 'Usage of SAP database tables as type definition'(019) kind = warning   successor = abap_true  ) INTO TABLE result.
+    INSERT get_message_code(  code = custom_message_codes-db_tables_as_type title = 'Usage of SAP database tables as type definition'(019) kind = info   successor = abap_true  ) INTO TABLE result.
 
     " Error Message Codes
     INSERT get_message_code(  code = custom_message_codes-no_class title =  'Missing Classification'(001) successor = abap_false ) INTO TABLE result.
