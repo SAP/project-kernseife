@@ -43,3 +43,10 @@ export type EnhancementImport =  ClassificationKey & {
   internalUse: boolean;
   singleUse: boolean;
 };
+
+export type ExpicitImport =  ClassificationKey & {
+  applicationComponent: string;
+  softwareComponent: string;
+  internalUse: boolean;
+  singleUse: boolean;
+};

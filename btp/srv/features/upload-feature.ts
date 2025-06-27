@@ -69,6 +69,8 @@ export const uploadFile = async (
       break;
     case 'ENHANCEMENT':
       break;
+    case 'EXPLICIT':
+      break;
     case 'GITHUB_CLASSIFICATION':
       fileType = 'application/zip';
       break;

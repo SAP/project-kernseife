@@ -11,6 +11,7 @@ import {
   getClassificationJsonStandard,
   getMissingClassifications,
   importEnhancementObjectsById,
+  importExpliticObjectsById,
   importGithubClassificationById,
   importMissingClassificationsById
 } from './features/classification-feature';
@@ -226,6 +227,8 @@ export default (srv: Service) => {
             return await importScoringById(ID, tx, updateProgress);
           case 'ENHANCEMENT':
             return await importEnhancementObjectsById(ID, tx, updateProgress);
+          case 'EXPLICIT':
+            return await importExpliticObjectsById(ID, tx, updateProgress);
           case 'GITHUB_CLASSIFICATION':
             return await importGithubClassificationById(ID, tx, updateProgress);
           default:

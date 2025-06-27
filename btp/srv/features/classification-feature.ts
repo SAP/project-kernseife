@@ -11,7 +11,8 @@ import {
   ClassificationImport,
   ClassificationKey,
   ClassificationImportLog,
-  EnhancementImport
+  EnhancementImport,
+  ExpicitImport
 } from '../types/imports';
 import JSZip from 'jszip';
 import { JobResult } from '../types/file';
@@ -625,7 +626,7 @@ const getCommentForEnhancementObjectType = (
   if (enhancementObject.objectType == 'ENHS') {
     return 'Enhancement Spot';
   } else if (enhancementObject.objectType == 'SXSD') {
-    return 'Classic BADI Definition'
+    return 'Classic BADI Definition';
   }
   if (enhancementObject.internalUse) {
     return 'SAP Internal BADI';
@@ -835,6 +836,16 @@ export const importEnhancementObjects = async (
   } as JobResult;
 };
 
+const getCommentForExplicitObjectType = (
+  explicitObject: ExpicitImport
+): string => {
+  if (explicitObject.internalUse) {
+    return 'SAP Internal Explicit Enhancement Spot';
+  } else {
+    return 'Explicit Enhancement Spot';
+  }
+};
+
 export const importEnhancementObjectsById = async (
   enhancementImportId: string,
   tx: Transaction,
@@ -846,6 +857,184 @@ export const importEnhancementObjectsById = async (
     })
     .where({ ID: enhancementImportId });
   return await importEnhancementObjects(enhancementImport, tx, updateProgress);
+};
+
+export const importExplicitObjects = async (
+  explicitImport: Import,
+  tx?: Transaction,
+  updateProgress?: (progress: number) => void
+): Promise<JobResult> => {
+  // Parse File
+  if (!explicitImport.file) throw new Error('File broken');
+
+  const csv = await text(explicitImport.file);
+  const result = papa.parse<any>(csv, {
+    header: true,
+    skipEmptyLines: true
+  });
+
+  const explicitObjectList = result.data as ExpicitImport[];
+
+  // Get all releaseState
+  const releaseStateMap = await getReleaseStateMap();
+
+  LOG.info(`Importing Explicit Objects ${explicitObjectList.length}`);
+  let insertCount = 0;
+  let progressCount = 0;
+
+  // Check to not insert the same object twice
+  const classificationMap = await getClassificationRatingAndCommentMap();
+  const importLog: any[] = [];
+
+  const chunkSize = 100;
+  for (let i = 0; i < explicitObjectList.length; i += chunkSize) {
+    LOG.info(`Processing ${i}/${explicitObjectList.length}`);
+    const chunk = explicitObjectList.slice(i, i + chunkSize);
+
+    let transactionPending = false;
+    for (const explicitObject of chunk) {
+      progressCount++;
+
+      // Set default rating code
+      const releaseState = releaseStateMap.get(
+        getReleaseStateKey(explicitObject)
+      );
+
+      const key = getClassificationKey(explicitObject);
+      if (!classificationMap.has(key)) {
+        // Create a new Classification
+        const classification = {
+          objectType: explicitObject.objectType,
+          objectName: explicitObject.objectName,
+          tadirObjectType: explicitObject.tadirObjectType,
+          tadirObjectName: explicitObject.tadirObjectName,
+          applicationComponent: explicitObject.applicationComponent,
+          softwareComponent: explicitObject.softwareComponent,
+          subType: explicitObject.objectType,
+          releaseLevel_code: 'undefined',
+          successorClassification_code: 'undefined',
+          referenceCount: 0,
+          comment: getCommentForExplicitObjectType(explicitObject)
+        } as Classification;
+
+        // Try to update States
+        updateReleaseState(classification, releaseStateMap);
+
+        // Try to update States
+        await updateSimplifications(classification);
+        // make sure deep insert doesn't create notes again
+        classification.noteList = [];
+
+        // Update Total Score
+        //LOG.info("Update Total Score", classification);
+        await updateTotalScoreAndReferenceCount(classification);
+
+        classification.rating_code = 'EF9';
+
+        classificationMap.set(key, {
+          rating_code: classification.rating_code,
+          comment: classification.comment || ''
+        });
+
+        importLog.push({
+          operation: 'insert',
+          ...explicitObject,
+          rating: classification.rating_code,
+          comment: classification.comment
+        });
+
+        await INSERT.into(entities.Classifications).entries([classification]);
+        transactionPending = true;
+        insertCount++;
+      } else {
+        const existingData = classificationMap.get(key)!; // We checked before that the key exists
+        const existingRatingCode = existingData.rating_code;
+        const existingComment = existingData.comment;
+        const newRatingCode = 'EF9';
+
+        const newComment = getCommentForExplicitObjectType(explicitObject);
+        if (
+          newRatingCode == existingRatingCode &&
+          newComment == existingComment
+        ) {
+          importLog.push({
+            operation: 'skipped',
+            ...explicitObject,
+            rating: newRatingCode,
+            oldRating: existingRatingCode,
+            comment: newComment
+          });
+          continue;
+        }
+
+        classificationMap.set(key, {
+          rating_code: newRatingCode,
+          comment: newComment
+        });
+
+        // Update Rating
+        await UPDATE.entity(entities.Classifications)
+          .with({
+            rating_code: newRatingCode,
+            comment: newComment
+          })
+          .where({
+            tadirObjectType: explicitObject.tadirObjectType,
+            tadirObjectName: explicitObject.tadirObjectName,
+            objectType: explicitObject.objectType,
+            objectName: explicitObject.objectName
+          });
+        transactionPending = true;
+
+        importLog.push({
+          operation: 'update',
+          ...explicitObject,
+          rating: newRatingCode,
+          oldRating: existingRatingCode,
+          comment: newComment
+        });
+      }
+    }
+
+    if (transactionPending && tx) {
+      await tx.commit();
+    }
+
+    if (updateProgress) {
+      await updateProgress(
+        Math.round((100 / explicitObjectList.length) * progressCount)
+      );
+    }
+  }
+
+  if (insertCount > 0) {
+    LOG.info(`Inserted ${insertCount} new Classification(s)`);
+  }
+  if (updateProgress) {
+    await updateProgress(100);
+  }
+
+  const file = papa.unparse(importLog);
+
+  // Write to file
+  return {
+    file: Buffer.from(file, 'utf8'),
+    fileName: 'importLog.csv',
+    fileType: 'application/csv'
+  } as JobResult;
+};
+
+export const importExpliticObjectsById = async (
+  explicitImportId: string,
+  tx: Transaction,
+  updateProgress?: (progress: number) => Promise<void>
+) => {
+  const explicitImport = await SELECT.one
+    .from(entities.Imports, (d) => {
+      d.ID, d.status, d.title, d.file;
+    })
+    .where({ ID: explicitImportId });
+  return await importExplicitObjects(explicitImport, tx, updateProgress);
 };
 
 export const importMissingClassificationsById = async (
