@@ -622,8 +622,13 @@ export const importMissingClassifications = async (
 const getCommentForEnhancementObjectType = (
   enhancementObject: EnhancementImport
 ): string => {
+  if (enhancementObject.objectType == 'ENHS') {
+    return 'Enhancement Spot';
+  } else if (enhancementObject.objectType == 'SXSD') {
+    return 'Classic BADI Definition'
+  }
   if (enhancementObject.internalUse) {
-    return 'Internal Use BADI';
+    return 'SAP Internal BADI';
   } else if (enhancementObject.singleUse) {
     return 'Single Use BADI';
   } else {
@@ -645,6 +650,8 @@ const getEnhancementRatingCode = (
     releaseState.successorList.length > 0
   ) {
     return 'EF9';
+  } else if (releaseState && releaseState.releaseLevel_code == 'DEPRECATED') {
+    return 'EF1'; //TODO this doesn't make sense, but.. yeah
   } else if (releaseState && releaseState.releaseLevel_code != 'undefined') {
     return 'MIG';
   }
@@ -681,15 +688,14 @@ export const importEnhancementObjects = async (
 
   // Check to not insert the same object twice
   const classificationMap = await getClassificationRatingAndCommentMap();
-
   const importLog: any[] = [];
 
   const chunkSize = 100;
   for (let i = 0; i < enhancementObjectList.length; i += chunkSize) {
     LOG.info(`Processing ${i}/${enhancementObjectList.length}`);
     const chunk = enhancementObjectList.slice(i, i + chunkSize);
-    const classificationInsert = [] as Classification[];
 
+    let transactionPending = false;
     for (const enhancementObject of chunk) {
       progressCount++;
 
@@ -744,10 +750,11 @@ export const importEnhancementObjects = async (
           comment: classification.comment
         });
 
-        classificationInsert.push(classification);
+        await INSERT.into(entities.Classifications).entries([classification]);
+        transactionPending = true;
         insertCount++;
       } else {
-        const existingData = classificationMap.get(key)!;  // We checked before that the key exists
+        const existingData = classificationMap.get(key)!; // We checked before that the key exists
         const existingRatingCode = existingData.rating_code;
         const existingComment = existingData.comment;
         const newRatingCode = getEnhancementRatingCode(
@@ -771,27 +778,16 @@ export const importEnhancementObjects = async (
           continue;
         }
 
-        let updateRatingCode = newRatingCode;
-        let updateComment = newComment;
-        if (
-          existingRatingCode.substring(0, 2) == 'EF' &&
-          parseInt(existingRatingCode.slice(2), 10) <
-            parseInt(newRatingCode.slice(2), 10)
-        ) {
-          updateRatingCode = existingRatingCode;
-          updateComment = 'Mixed Use BADI';
-        }
-
         classificationMap.set(key, {
-          rating_code: updateRatingCode,
-          comment: updateComment
+          rating_code: newRatingCode,
+          comment: newComment
         });
 
         // Update Rating
         await UPDATE.entity(entities.Classifications)
           .with({
-            rating_code: updateRatingCode,
-            comment: updateComment
+            rating_code: newRatingCode,
+            comment: newComment
           })
           .where({
             tadirObjectType: enhancementObject.tadirObjectType,
@@ -799,25 +795,20 @@ export const importEnhancementObjects = async (
             objectType: enhancementObject.objectType,
             objectName: enhancementObject.objectName
           });
-        if (tx) {
-          await tx.commit();
-        }
+        transactionPending = true;
 
         importLog.push({
           operation: 'update',
           ...enhancementObject,
-          rating: updateRatingCode,
+          rating: newRatingCode,
           oldRating: existingRatingCode,
-          comment: updateComment
+          comment: newComment
         });
       }
     }
 
-    if (classificationInsert.length > 0) {
-      await INSERT.into(entities.Classifications).entries(classificationInsert);
-      if (tx) {
-        await tx.commit();
-      }
+    if (transactionPending && tx) {
+      await tx.commit();
     }
 
     if (updateProgress) {
