@@ -59,9 +59,9 @@ protected section.
     redefinition .
   methods GET_OBJECT_LANGUAGE_VERSION
     redefinition .
-  methods INFORM_ATC
-    redefinition .
   methods GET_USAGE_PREPROCESSOR
+    redefinition .
+  methods INFORM_ATC
     redefinition .
 private section.
 
