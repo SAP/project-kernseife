@@ -7,3 +7,6 @@ See more details in this [Github Issue](https://github.com/SAP/project-kernseife
 ## Why can't I navigate to the finding object (Error: There is no navigation information available)?
 This is a known bug and there is a [Note](https://me.sap.com/notes/3623342) to fix it.
 Alternativly you might want to start using ATC in ADT instead of GUI ;)
+
+## Why are there check failures and dumps due to ITAB_DUPLICATE_KEYS?
+Please check this [issue](https://github.com/SAP/project-kernseife/issues/19).
