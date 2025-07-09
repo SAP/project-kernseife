@@ -15,7 +15,7 @@ Additionally: SYCM_API
 
 * Workbench Transport Request.
 
-* Latest release from the Release Page (.zip file)
+* Latest release from the [Release Page](https://github.com/SAP/project-kernseife/releases/latest) (.zip file)
 
 ## Import the Kernseife ATC Check into target system (using [abapGit](https://github.com/abapGit/abapGit))
 Run the standalone version of abapGit using transaction `ZABAPGIT` or executing the report in ZABAPGIT_STANDALONE.
@@ -26,7 +26,7 @@ In abapGit click on "New Offline" to add a new repository. Enter the repo name K
 ![image](https://github.com/user-attachments/assets/234f439e-c64d-41fa-81e5-d1453dbeb13a)
 ![image](https://github.com/user-attachments/assets/4c9dcb0c-9c05-4aa5-abfd-0b7a82e9a29f)
 
-In the new offline repository click on "Import zip".
+In the new offline repository click on "Import zip" and upload the file from the [Release Page](https://github.com/SAP/project-kernseife/releases/latest)
 
 ![image](https://github.com/user-attachments/assets/7f1267c2-88e5-4723-82a1-5d82caa01f10)
 
