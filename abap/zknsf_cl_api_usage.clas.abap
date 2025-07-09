@@ -1,13 +1,13 @@
-CLASS zknsf_cl_api_usage DEFINITION
-  PUBLIC
-  INHERITING FROM cl_ycm_cc_check_api_usage
-  FINAL
-  CREATE PUBLIC .
+class ZKNSF_CL_API_USAGE definition
+  public
+  inheriting from CL_YCM_CC_CHECK_API_USAGE
+  final
+  create public .
 
-  PUBLIC SECTION.
+public section.
 
-    CONSTANTS:
-      BEGIN OF custom_message_codes,
+  constants:
+    BEGIN OF custom_message_codes,
         no_class                    TYPE sci_errc VALUE 'NOC',
         missing                     TYPE sci_errc VALUE 'MISSING',
         db_tables_generic           TYPE sci_errc VALUE 'TBL',
@@ -21,14 +21,14 @@ CLASS zknsf_cl_api_usage DEFINITION
         db_tables_as_type_successor TYPE sci_errc VALUE 'TBLTYP_SUC',
       END OF custom_message_codes .
 
-    METHODS constructor .
+  methods CONSTRUCTOR .
 
-    METHODS get_attributes
-        REDEFINITION .
-    METHODS if_ci_test~query_attributes
-        REDEFINITION .
-    METHODS put_attributes
-        REDEFINITION .
+  methods GET_ATTRIBUTES
+    redefinition .
+  methods IF_CI_TEST~QUERY_ATTRIBUTES
+    redefinition .
+  methods PUT_ATTRIBUTES
+    redefinition .
 protected section.
 
   data:
@@ -60,6 +60,8 @@ protected section.
   methods GET_OBJECT_LANGUAGE_VERSION
     redefinition .
   methods INFORM_ATC
+    redefinition .
+  methods GET_USAGE_PREPROCESSOR
     redefinition .
 private section.
 
@@ -172,6 +174,7 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
                                              ( low = 'NONT' )
                                              ( low = 'ENHS' )
                                              ( low = 'ENHO' )
+                                             ( low = 'SXSD' )
                   ).
   ENDMETHOD.
 
@@ -371,5 +374,10 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
                                kind = kind
                                text = COND #( WHEN successor = abap_true THEN |{ title } (successor available)| ELSE title )
                              ).
+  ENDMETHOD.
+
+
+  METHOD get_usage_preprocessor.
+    RETURN NEW zknsf_cl_usage_preprocessor( rfc_destination ).
   ENDMETHOD.
 ENDCLASS.
