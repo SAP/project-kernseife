@@ -19,7 +19,16 @@ Additionally: SYCM_API
 
 
 ## Import the Kernseife ATC Check into target system (using [abapGit](https://github.com/abapGit/abapGit))
-Run the standalone version of abapGit using transaction `ZABAPGIT` or executing the report in ZABAPGIT_STANDALONE.
+Run the standalone version of abapGit using transaction:
+```bash
+ZABAPGIT
+```
+
+or executing the report (run transaction SE38) in:
+```bash
+ZABAPGIT_STANDALONE
+```
+
 ![image](https://github.com/user-attachments/assets/16fd20d4-7dab-4d4a-8741-e149f2085195)
 You can find the lastest version of the standalone report here: https://raw.githubusercontent.com/abapGit/build/main/zabapgit_standalone.prog.abap
 
@@ -52,7 +61,11 @@ Afterwards you can select the Check (ZKNSF_CL_API_USAGE) and save.
 This requires a Workbench Request which can be deleted afterwards, in case you don't want to transport the Checks downstream.
 
 ## Upload Classification Json
-Execute Report ZKNSF_CLASSIFICATION_MANAGR
+Execute Report:
+```bash
+ZKNSF_CLASSIFICATION_MANAGR
+```
+
 ![image](https://github.com/user-attachments/assets/07e5d511-1d64-4edf-a83a-4d8b2f3f05a0)
 
 Click on "Upload Classic API File".
