@@ -1,5 +1,9 @@
 # Frequently Asked Questions / Known Issues
 
+## Can Kernseife be used in ABAP BTP (ABAP Cloud)?
+Unfortunatly this is not possible.
+Detailed explanation is given [here](https://github.com/SAP/project-kernseife/issues/22).
+
 ## Why can't I select/delete the uploaded classification File in the ALV Grid of ZKNSF_CLASSIFICATION_MANAGR?
 If you are using the Java GUI (e.g. on MacOS) this is a known issue we can't fix.
 See more details in this [Github Issue](https://github.com/SAP/project-kernseife/issues/16)
