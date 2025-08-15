@@ -5,7 +5,7 @@ Unfortunatly this is not possible.
 Detailed explanation is given [here](https://github.com/SAP/project-kernseife/issues/22).
 
 ## Why can't I select/delete the uploaded classification File in the ALV Grid of ZKNSF_CLASSIFICATION_MANAGR?
-If you are using the Java GUI (e.g. on MacOS) this is a known issue we can't fix.
+This is fixed in version 1.3.0+ of Kernseife.
 See more details in this [Github Issue](https://github.com/SAP/project-kernseife/issues/16)
 
 ## Why can't I navigate to the finding object (Error: There is no navigation information available)?
