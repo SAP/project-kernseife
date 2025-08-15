@@ -4,19 +4,13 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZKNSF_CL_JSON_COMPAT</CLSNAME>
-    <LANGU>D</LANGU>
-    <DESCRIPT>Kernseife: Compatibility handler for JSON</DESCRIPT>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Kernseife: JSON Conversion</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
-   <DESCRIPTIONS_CLASS>
-    <SEOCLASSTX>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Kernseife: Compatibility handler for JSON</DESCRIPT>
-    </SEOCLASSTX>
-   </DESCRIPTIONS_CLASS>
   </asx:values>
  </asx:abap>
 </abapGit>

@@ -1,0 +1,5 @@
+PROCESS BEFORE OUTPUT.
+  MODULE pbo_screen_500.
+
+PROCESS AFTER INPUT.
+  MODULE user_command_500.

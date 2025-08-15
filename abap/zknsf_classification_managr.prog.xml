@@ -11,20 +11,171 @@
     <LDBNAME>D$S</LDBNAME>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
+   <DYNPROS>
+    <item>
+     <HEADER>
+      <PROGRAM>ZKNSF_CLASSIFICATION_MANAGR</PROGRAM>
+      <SCREEN>0100</SCREEN>
+      <LANGUAGE>E</LANGUAGE>
+      <DESCRIPT>ALV list view for files</DESCRIPT>
+      <TYPE>N</TYPE>
+      <NEXTSCREEN>0100</NEXTSCREEN>
+      <LINES>041</LINES>
+      <COLUMNS>151</COLUMNS>
+     </HEADER>
+     <CONTAINERS>
+      <RPY_DYCATT>
+       <TYPE>SCREEN</TYPE>
+       <NAME>SCREEN</NAME>
+      </RPY_DYCATT>
+      <RPY_DYCATT>
+       <TYPE>CUST_CTRL</TYPE>
+       <NAME>CUSTOM_CONTROL</NAME>
+       <ELEMENT_OF>SCREEN</ELEMENT_OF>
+       <LINE>001</LINE>
+       <COLUMN>001</COLUMN>
+       <LENGTH>151</LENGTH>
+       <HEIGHT>041</HEIGHT>
+       <C_RESIZE_V>X</C_RESIZE_V>
+       <C_RESIZE_H>X</C_RESIZE_H>
+       <C_LINE_MIN>013</C_LINE_MIN>
+       <C_COLN_MIN>060</C_COLN_MIN>
+      </RPY_DYCATT>
+     </CONTAINERS>
+     <FIELDS>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>OKCODE</TYPE>
+       <TEXT>____________________</TEXT>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+      </RPY_DYFATC>
+     </FIELDS>
+    </item>
+    <item>
+     <HEADER>
+      <PROGRAM>ZKNSF_CLASSIFICATION_MANAGR</PROGRAM>
+      <SCREEN>0200</SCREEN>
+      <LANGUAGE>E</LANGUAGE>
+      <DESCRIPT>ALV list view for APIs</DESCRIPT>
+      <TYPE>N</TYPE>
+      <NEXTSCREEN>0200</NEXTSCREEN>
+      <LINES>041</LINES>
+      <COLUMNS>132</COLUMNS>
+     </HEADER>
+     <CONTAINERS>
+      <RPY_DYCATT>
+       <TYPE>SCREEN</TYPE>
+       <NAME>SCREEN</NAME>
+      </RPY_DYCATT>
+      <RPY_DYCATT>
+       <TYPE>CUST_CTRL</TYPE>
+       <NAME>SECOND_CUSTOM_CONTROL</NAME>
+       <ELEMENT_OF>SCREEN</ELEMENT_OF>
+       <LINE>001</LINE>
+       <COLUMN>001</COLUMN>
+       <LENGTH>132</LENGTH>
+       <HEIGHT>041</HEIGHT>
+       <C_RESIZE_V>X</C_RESIZE_V>
+       <C_RESIZE_H>X</C_RESIZE_H>
+       <C_LINE_MIN>020</C_LINE_MIN>
+       <C_COLN_MIN>060</C_COLN_MIN>
+      </RPY_DYCATT>
+     </CONTAINERS>
+     <FIELDS>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>OKCODE</TYPE>
+       <TEXT>____________________</TEXT>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+      </RPY_DYFATC>
+     </FIELDS>
+    </item>
+    <item>
+     <HEADER>
+      <PROGRAM>ZKNSF_CLASSIFICATION_MANAGR</PROGRAM>
+      <SCREEN>0500</SCREEN>
+      <LANGUAGE>E</LANGUAGE>
+      <DESCRIPT>ALV list view for successors</DESCRIPT>
+      <TYPE>N</TYPE>
+      <NEXTSCREEN>0500</NEXTSCREEN>
+      <LINES>036</LINES>
+      <COLUMNS>134</COLUMNS>
+     </HEADER>
+     <CONTAINERS>
+      <RPY_DYCATT>
+       <TYPE>SCREEN</TYPE>
+       <NAME>SCREEN</NAME>
+      </RPY_DYCATT>
+      <RPY_DYCATT>
+       <TYPE>CUST_CTRL</TYPE>
+       <NAME>SUCCESSOR_C_CONTROL</NAME>
+       <ELEMENT_OF>SCREEN</ELEMENT_OF>
+       <LINE>001</LINE>
+       <COLUMN>001</COLUMN>
+       <LENGTH>134</LENGTH>
+       <HEIGHT>036</HEIGHT>
+       <C_RESIZE_V>X</C_RESIZE_V>
+       <C_RESIZE_H>X</C_RESIZE_H>
+       <C_LINE_MIN>020</C_LINE_MIN>
+       <C_COLN_MIN>057</C_COLN_MIN>
+      </RPY_DYCATT>
+     </CONTAINERS>
+     <FIELDS>
+      <RPY_DYFATC>
+       <CONT_TYPE>SCREEN</CONT_TYPE>
+       <CONT_NAME>SCREEN</CONT_NAME>
+       <TYPE>OKCODE</TYPE>
+       <TEXT>____________________</TEXT>
+       <LENGTH>020</LENGTH>
+       <VISLENGTH>020</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <INPUT_FLD>X</INPUT_FLD>
+      </RPY_DYFATC>
+     </FIELDS>
+    </item>
+   </DYNPROS>
    <CUA>
     <ADM>
-     <ACTCODE>000001</ACTCODE>
-     <PFKCODE>000001</PFKCODE>
+     <ACTCODE>000004</ACTCODE>
+     <MENCODE>000001</MENCODE>
+     <PFKCODE>000004</PFKCODE>
      <MOD_LANGU>E</MOD_LANGU>
     </ADM>
     <STA>
      <RSMPE_STAT>
-      <CODE>STATUS_001</CODE>
+      <CODE>STATUS_100</CODE>
       <MODAL>D</MODAL>
-      <ACTCODE>000001</ACTCODE>
-      <PFKCODE>000001</PFKCODE>
+      <ACTCODE>000002</ACTCODE>
+      <PFKCODE>000002</PFKCODE>
       <BUTCODE>0001</BUTCODE>
       <INT_NOTE>Classification Manager Status</INT_NOTE>
+     </RSMPE_STAT>
+     <RSMPE_STAT>
+      <CODE>STATUS_200</CODE>
+      <MODAL>D</MODAL>
+      <ACTCODE>000003</ACTCODE>
+      <PFKCODE>000003</PFKCODE>
+      <BUTCODE>0001</BUTCODE>
+      <INT_NOTE>API Status</INT_NOTE>
+     </RSMPE_STAT>
+     <RSMPE_STAT>
+      <CODE>STATUS_500</CODE>
+      <MODAL>D</MODAL>
+      <ACTCODE>000004</ACTCODE>
+      <PFKCODE>000004</PFKCODE>
+      <BUTCODE>0001</BUTCODE>
+      <INT_NOTE>API Successor Display</INT_NOTE>
      </RSMPE_STAT>
     </STA>
     <FUN>
@@ -33,6 +184,47 @@
       <TEXTNO>001</TEXTNO>
       <TEXT_TYPE>S</TEXT_TYPE>
       <FUN_TEXT>Back</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>BACK</CODE>
+      <TEXTNO>002</TEXTNO>
+      <TYPE>E</TYPE>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_ARROW_LEFT</TEXT_NAME>
+      <ICON_ID>@9S@</ICON_ID>
+      <FUN_TEXT>Back</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>CONTENT</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_DISPLAY</TEXT_NAME>
+      <ICON_ID>@10@</ICON_ID>
+      <FUN_TEXT>View Content</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>CREATE</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_CREATE</TEXT_NAME>
+      <ICON_ID>@0Y@</ICON_ID>
+      <FUN_TEXT>Create New Classic API File</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>CREATE_API</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_CREATE</TEXT_NAME>
+      <ICON_ID>@0Y@</ICON_ID>
+      <FUN_TEXT>Create New Entry</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>CREATE_SCS</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_CREATE</TEXT_NAME>
+      <ICON_ID>@0Y@</ICON_ID>
+      <FUN_TEXT>Create New Successor</FUN_TEXT>
      </RSMPE_FUNT>
      <RSMPE_FUNT>
       <CODE>DELETE</CODE>
@@ -44,12 +236,77 @@
       <ICON_TEXT>Delete</ICON_TEXT>
      </RSMPE_FUNT>
      <RSMPE_FUNT>
+      <CODE>DELETE</CODE>
+      <TEXTNO>002</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_DELETE</TEXT_NAME>
+      <ICON_ID>@11@</ICON_ID>
+      <FUN_TEXT>Delete Entry</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>DEL_SCSR</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_DELETE</TEXT_NAME>
+      <ICON_ID>@11@</ICON_ID>
+      <FUN_TEXT>Delete Successor</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>DETAIL_API</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_DISPLAY</TEXT_NAME>
+      <ICON_ID>@10@</ICON_ID>
+      <FUN_TEXT>View Successors</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>EXPORT</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_EXPORT</TEXT_NAME>
+      <ICON_ID>@49@</ICON_ID>
+      <FUN_TEXT>Export API File</FUN_TEXT>
+      <INFO_TEXT>Export Local Classic API File in JSON Format</INFO_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>F3</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <FUN_TEXT>Back</FUN_TEXT>
+      <PATH>B</PATH>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>PICK</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_SELECT_DETAIL</TEXT_NAME>
+      <ICON_ID>@16@</ICON_ID>
+      <FUN_TEXT>Choose</FUN_TEXT>
+      <PATH>S</PATH>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
       <CODE>RELOAD</CODE>
       <TEXTNO>001</TEXTNO>
       <TEXT_TYPE>S</TEXT_TYPE>
       <TEXT_NAME>ICON_REFRESH</TEXT_NAME>
       <ICON_ID>@42@</ICON_ID>
       <FUN_TEXT>Reload</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>RETURN</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_ARROW_LEFT</TEXT_NAME>
+      <ICON_ID>@9S@</ICON_ID>
+      <FUN_TEXT>Return</FUN_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
+      <CODE>UPLOAD</CODE>
+      <TEXTNO>001</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_OUTBOX</TEXT_NAME>
+      <ICON_ID>@FQ@</ICON_ID>
+      <FUN_TEXT>Upload API File</FUN_TEXT>
      </RSMPE_FUNT>
      <RSMPE_FUNT>
       <CODE>UPLOADC</CODE>
@@ -61,6 +318,15 @@
       <ICON_TEXT>Upload Classification File</ICON_TEXT>
      </RSMPE_FUNT>
      <RSMPE_FUNT>
+      <CODE>UPLOADC</CODE>
+      <TEXTNO>002</TEXTNO>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT_NAME>ICON_OUTBOX</TEXT_NAME>
+      <ICON_ID>@FQ@</ICON_ID>
+      <FUN_TEXT>Upload Classific API File</FUN_TEXT>
+      <ICON_TEXT>Upload Classic API File</ICON_TEXT>
+     </RSMPE_FUNT>
+     <RSMPE_FUNT>
       <CODE>UPLOADR</CODE>
       <TEXTNO>001</TEXTNO>
       <TEXT_TYPE>S</TEXT_TYPE>
@@ -70,6 +336,31 @@
       <ICON_TEXT>Upload Released API File</ICON_TEXT>
      </RSMPE_FUNT>
     </FUN>
+    <MEN>
+     <RSMPE_MEN>
+      <CODE>000001</CODE>
+      <NO>01</NO>
+      <REF_TYPE>F</REF_TYPE>
+      <REF_CODE>F3</REF_CODE>
+      <REF_NO>001</REF_NO>
+     </RSMPE_MEN>
+    </MEN>
+    <MTX>
+     <RSMPE_MNLT>
+      <CODE>000001</CODE>
+      <TEXT_TYPE>S</TEXT_TYPE>
+      <TEXT>Goto</TEXT>
+      <PATH>G</PATH>
+      <INT_NOTE>Standard Supplement</INT_NOTE>
+     </RSMPE_MNLT>
+    </MTX>
+    <ACT>
+     <RSMPE_ACT>
+      <CODE>000002</CODE>
+      <NO>01</NO>
+      <MENUCODE>000001</MENUCODE>
+     </RSMPE_ACT>
+    </ACT>
     <BUT>
      <RSMPE_BUT>
       <PFK_CODE>000001</PFK_CODE>
@@ -88,6 +379,60 @@
       <CODE>0001</CODE>
       <NO>03</NO>
       <PFNO>07</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000002</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>01</NO>
+      <PFNO>09</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000002</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>02</NO>
+      <PFNO>27</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000002</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>03</NO>
+      <PFNO>07</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000002</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>04</NO>
+      <PFNO>25</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000002</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>05</NO>
+      <PFNO>28</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000003</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>01</NO>
+      <PFNO>06</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000003</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>02</NO>
+      <PFNO>09</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000003</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>03</NO>
+      <PFNO>28</PFNO>
+     </RSMPE_BUT>
+     <RSMPE_BUT>
+      <PFK_CODE>000004</PFK_CODE>
+      <CODE>0001</CODE>
+      <NO>01</NO>
+      <PFNO>16</PFNO>
      </RSMPE_BUT>
     </BUT>
     <PFK>
@@ -121,27 +466,237 @@
       <FUNCODE>DELETE</FUNCODE>
       <FUNNO>001</FUNNO>
      </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>02</PFNO>
+      <FUNCODE>PICK</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>03</PFNO>
+      <FUNCODE>BACK</FUNCODE>
+      <FUNNO>002</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>05</PFNO>
+      <FUNCODE>UPLOADC</FUNCODE>
+      <FUNNO>002</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>06</PFNO>
+      <FUNCODE>UPLOADR</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>07</PFNO>
+      <FUNCODE>DELETE</FUNCODE>
+      <FUNNO>002</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>08</PFNO>
+      <FUNCODE>BACK</FUNCODE>
+      <FUNNO>002</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>09</PFNO>
+      <FUNCODE>RELOAD</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>25</PFNO>
+      <FUNCODE>CONTENT</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>26</PFNO>
+      <FUNCODE>CREATE</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>27</PFNO>
+      <FUNCODE>UPLOAD</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000002</CODE>
+      <PFNO>28</PFNO>
+      <FUNCODE>EXPORT</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000003</CODE>
+      <PFNO>03</PFNO>
+      <FUNCODE>BACK</FUNCODE>
+      <FUNNO>002</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000003</CODE>
+      <PFNO>05</PFNO>
+      <FUNCODE>RETURN</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000003</CODE>
+      <PFNO>06</PFNO>
+      <FUNCODE>RELOAD</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000003</CODE>
+      <PFNO>09</PFNO>
+      <FUNCODE>DETAIL_API</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000003</CODE>
+      <PFNO>14</PFNO>
+      <FUNCODE>DELETE</FUNCODE>
+      <FUNNO>002</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000003</CODE>
+      <PFNO>16</PFNO>
+      <FUNCODE>CREATE</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000003</CODE>
+      <PFNO>18</PFNO>
+      <FUNCODE>CREATE_API</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000003</CODE>
+      <PFNO>28</PFNO>
+      <FUNCODE>EXPORT</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000004</CODE>
+      <PFNO>03</PFNO>
+      <FUNCODE>BACK</FUNCODE>
+      <FUNNO>002</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000004</CODE>
+      <PFNO>13</PFNO>
+      <FUNCODE>CREATE_SCS</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000004</CODE>
+      <PFNO>14</PFNO>
+      <FUNCODE>DEL_SCSR</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
+     <RSMPE_PFK>
+      <CODE>000004</CODE>
+      <PFNO>16</PFNO>
+      <FUNCODE>RELOAD</FUNCODE>
+      <FUNNO>001</FUNNO>
+     </RSMPE_PFK>
     </PFK>
     <SET>
      <RSMPE_STAF>
-      <STATUS>STATUS_001</STATUS>
+      <STATUS>STATUS_100</STATUS>
       <FUNCTION>BACK</FUNCTION>
      </RSMPE_STAF>
      <RSMPE_STAF>
-      <STATUS>STATUS_001</STATUS>
+      <STATUS>STATUS_100</STATUS>
+      <FUNCTION>CONTENT</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_100</STATUS>
+      <FUNCTION>CREATE</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_100</STATUS>
       <FUNCTION>DELETE</FUNCTION>
      </RSMPE_STAF>
      <RSMPE_STAF>
-      <STATUS>STATUS_001</STATUS>
+      <STATUS>STATUS_100</STATUS>
+      <FUNCTION>EXPORT</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_100</STATUS>
+      <FUNCTION>F3</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_100</STATUS>
+      <FUNCTION>PICK</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_100</STATUS>
       <FUNCTION>RELOAD</FUNCTION>
      </RSMPE_STAF>
      <RSMPE_STAF>
-      <STATUS>STATUS_001</STATUS>
+      <STATUS>STATUS_100</STATUS>
+      <FUNCTION>UPLOAD</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_100</STATUS>
       <FUNCTION>UPLOADC</FUNCTION>
      </RSMPE_STAF>
      <RSMPE_STAF>
-      <STATUS>STATUS_001</STATUS>
+      <STATUS>STATUS_100</STATUS>
       <FUNCTION>UPLOADR</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_200</STATUS>
+      <FUNCTION>BACK</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_200</STATUS>
+      <FUNCTION>CREATE</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_200</STATUS>
+      <FUNCTION>CREATE_API</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_200</STATUS>
+      <FUNCTION>DELETE</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_200</STATUS>
+      <FUNCTION>DETAIL_API</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_200</STATUS>
+      <FUNCTION>EXPORT</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_200</STATUS>
+      <FUNCTION>RELOAD</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_200</STATUS>
+      <FUNCTION>RETURN</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_500</STATUS>
+      <FUNCTION>BACK</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_500</STATUS>
+      <FUNCTION>CREATE_SCS</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_500</STATUS>
+      <FUNCTION>DEL_SCSR</FUNCTION>
+     </RSMPE_STAF>
+     <RSMPE_STAF>
+      <STATUS>STATUS_500</STATUS>
+      <FUNCTION>RELOAD</FUNCTION>
      </RSMPE_STAF>
     </SET>
     <DOC>
@@ -164,7 +719,78 @@
       <MODAL>D</MODAL>
       <INT_NOTE>Classification Manager Status</INT_NOTE>
      </RSMPE_ATRT>
+     <RSMPE_ATRT>
+      <OBJ_TYPE>A</OBJ_TYPE>
+      <OBJ_CODE>000002</OBJ_CODE>
+      <MODAL>D</MODAL>
+      <INT_NOTE>Classification Manager Status</INT_NOTE>
+     </RSMPE_ATRT>
+     <RSMPE_ATRT>
+      <OBJ_TYPE>P</OBJ_TYPE>
+      <OBJ_CODE>000002</OBJ_CODE>
+      <MODAL>D</MODAL>
+      <INT_NOTE>Classification Manager Status</INT_NOTE>
+     </RSMPE_ATRT>
+     <RSMPE_ATRT>
+      <OBJ_TYPE>B</OBJ_TYPE>
+      <OBJ_CODE>000002</OBJ_CODE>
+      <SUB_CODE>0001</SUB_CODE>
+      <MODAL>D</MODAL>
+      <INT_NOTE>Classification Manager Status</INT_NOTE>
+     </RSMPE_ATRT>
+     <RSMPE_ATRT>
+      <OBJ_TYPE>A</OBJ_TYPE>
+      <OBJ_CODE>000003</OBJ_CODE>
+      <MODAL>D</MODAL>
+      <INT_NOTE>API Status</INT_NOTE>
+     </RSMPE_ATRT>
+     <RSMPE_ATRT>
+      <OBJ_TYPE>P</OBJ_TYPE>
+      <OBJ_CODE>000003</OBJ_CODE>
+      <MODAL>D</MODAL>
+      <INT_NOTE>API Status</INT_NOTE>
+     </RSMPE_ATRT>
+     <RSMPE_ATRT>
+      <OBJ_TYPE>B</OBJ_TYPE>
+      <OBJ_CODE>000003</OBJ_CODE>
+      <SUB_CODE>0001</SUB_CODE>
+      <MODAL>D</MODAL>
+      <INT_NOTE>API Status</INT_NOTE>
+     </RSMPE_ATRT>
+     <RSMPE_ATRT>
+      <OBJ_TYPE>A</OBJ_TYPE>
+      <OBJ_CODE>000004</OBJ_CODE>
+      <MODAL>D</MODAL>
+      <INT_NOTE>API Successor Display</INT_NOTE>
+     </RSMPE_ATRT>
+     <RSMPE_ATRT>
+      <OBJ_TYPE>P</OBJ_TYPE>
+      <OBJ_CODE>000004</OBJ_CODE>
+      <MODAL>D</MODAL>
+      <INT_NOTE>API Successor Display</INT_NOTE>
+     </RSMPE_ATRT>
+     <RSMPE_ATRT>
+      <OBJ_TYPE>B</OBJ_TYPE>
+      <OBJ_CODE>000004</OBJ_CODE>
+      <SUB_CODE>0001</SUB_CODE>
+      <MODAL>D</MODAL>
+      <INT_NOTE>API Successor Display</INT_NOTE>
+     </RSMPE_ATRT>
     </DOC>
+    <TIT>
+     <RSMPE_TITT>
+      <CODE>TITLE_100</CODE>
+      <TEXT>Kernseifewewiebie: Manage Data Sources</TEXT>
+     </RSMPE_TITT>
+     <RSMPE_TITT>
+      <CODE>TITLE_200</CODE>
+      <TEXT>Classification File</TEXT>
+     </RSMPE_TITT>
+     <RSMPE_TITT>
+      <CODE>TITLE_500</CODE>
+      <TEXT>View Successors</TEXT>
+     </RSMPE_TITT>
+    </TIT>
    </CUA>
    <TPOOL>
     <item>
@@ -212,7 +838,7 @@
     <item>
      <ID>I</ID>
      <KEY>008</KEY>
-     <ENTRY>Confirm deletion of the selected files</ENTRY>
+     <ENTRY>Confirm deletion of the selected file(s)</ENTRY>
      <LENGTH>50</LENGTH>
     </item>
     <item>
@@ -232,6 +858,96 @@
      <KEY>011</KEY>
      <ENTRY>Uploader</ENTRY>
      <LENGTH>12</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>012</KEY>
+     <ENTRY>More than one entry selected</ENTRY>
+     <LENGTH>56</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>013</KEY>
+     <ENTRY>API ID</ENTRY>
+     <LENGTH>16</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>014</KEY>
+     <ENTRY>Tadir Object</ENTRY>
+     <LENGTH>22</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>015</KEY>
+     <ENTRY>Tadir Object Name</ENTRY>
+     <LENGTH>27</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>016</KEY>
+     <ENTRY>Object Type</ENTRY>
+     <LENGTH>21</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>017</KEY>
+     <ENTRY>Object Key</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>018</KEY>
+     <ENTRY>Software Component</ENTRY>
+     <LENGTH>28</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>019</KEY>
+     <ENTRY>Application Component</ENTRY>
+     <LENGTH>42</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>020</KEY>
+     <ENTRY>Rating</ENTRY>
+     <LENGTH>15</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>021</KEY>
+     <ENTRY>Labels</ENTRY>
+     <LENGTH>16</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>022</KEY>
+     <ENTRY>Successors</ENTRY>
+     <LENGTH>20</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>023</KEY>
+     <ENTRY>Confirm deletion of the selected api(s)</ENTRY>
+     <LENGTH>78</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>032</KEY>
+     <ENTRY>Only Custom files can be exported</ENTRY>
+     <LENGTH>66</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>033</KEY>
+     <ENTRY>Successors of</ENTRY>
+     <LENGTH>23</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>050</KEY>
+     <ENTRY>Confirm to overwrite existing files?</ENTRY>
+     <LENGTH>80</LENGTH>
     </item>
     <item>
      <ID>R</ID>
