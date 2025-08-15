@@ -368,7 +368,7 @@ CLASS classification_manager IMPLEMENTATION.
         ENDIF.
 
       WHEN 'UPLOAD'.
-        DATA: data_tab        TYPE string_table,
+        DATA: file_content    TYPE xstring,
               file_table      TYPE filetable,
               file_name       TYPE string,
               path            TYPE string,
@@ -408,16 +408,15 @@ CLASS classification_manager IMPLEMENTATION.
         DATA(file_type) = zknsf_cl_classification_mangr=>ty_custom_file_type-kernseife_custom.
 
 
-        cl_gui_frontend_services=>file_open_dialog( EXPORTING  file_filter = '.json'
-                                                    CHANGING   file_table  = file_table
-                                                               rc          = number_of_files
-                                                    EXCEPTIONS OTHERS      = 0 ) ##NO_TEXT.
+        cl_gui_frontend_services=>file_open_dialog( EXPORTING  file_filter    = 'Kernseife Classification (*.json;*.zip)|*.json;*.zip'
+                                                               multiselection = abap_false
+                                                    CHANGING   file_table     = file_table
+                                                               rc             = number_of_files
+                                                    EXCEPTIONS OTHERS         = 0 ) ##NO_TEXT.
 
         IF number_of_files <> 1.
           RETURN.
         ENDIF.
-
-
 
         path = file_table[ 1 ]-filename.
 
@@ -426,15 +425,58 @@ CLASS classification_manager IMPLEMENTATION.
         SPLIT path AT file_separator INTO TABLE DATA(parts).
         file_name = parts[ lines( parts ) ].
 
-        cl_gui_frontend_services=>gui_upload( EXPORTING  filename = path
-                                              CHANGING   data_tab = data_tab
-                                              EXCEPTIONS OTHERS   = 1 ).
+        IF file_name CP '*.zip'.
+          DATA(zip) = NEW cl_abap_zip( ).
+          DATA zip_file_content TYPE TABLE OF x255.
+          DATA zip_file_length TYPE i.
+          DATA zip_file_data TYPE xstring.
 
-        IF sy-subrc <> 0.
-          MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
-          WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+          cl_gui_frontend_services=>gui_upload( EXPORTING  filename   = path
+                                                           filetype   = 'BIN'
+                                                IMPORTING  filelength = zip_file_length
+                                                CHANGING   data_tab   = zip_file_content
+                                                EXCEPTIONS OTHERS     = 1 ).
+
+          IF sy-subrc <> 0.
+            MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+            WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+          ENDIF.
+
+          CALL FUNCTION 'SCMS_BINARY_TO_XSTRING'
+            EXPORTING
+              input_length = zip_file_length
+            IMPORTING
+              buffer       = zip_file_data
+            TABLES
+              binary_tab   = zip_file_content
+            EXCEPTIONS
+              failed       = 1
+              OTHERS       = 2.
+
+          zip->load( zip_file_data ).
+
+          IF lines( zip->files ) <> 1.
+            MESSAGE ID 'ZKNSF' TYPE 'E' NUMBER 001.
+          ENDIF.
+          IF NOT zip->files[ 1 ]-name CP '*.json'.
+            MESSAGE ID 'ZKNSF' TYPE 'E' NUMBER 002.
+          ENDIF.
+
+          zip->get( EXPORTING name    = zip->files[ 1 ]-name
+                    IMPORTING content = file_content ).
+        ELSE.
+          DATA file_string_table TYPE TABLE OF string.
+          cl_gui_frontend_services=>gui_upload( EXPORTING  filename = path
+                                                CHANGING   data_tab = file_string_table
+                                                EXCEPTIONS OTHERS   = 1 ).
+          IF sy-subrc <> 0.
+            MESSAGE ID sy-msgid TYPE sy-msgty NUMBER sy-msgno
+            WITH sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+          ENDIF.
+
+          DATA(file_string) = concat_lines_of( file_string_table ).
+          file_content = cl_abap_codepage=>convert_to( file_string ).
         ENDIF.
-
 
 
         TRY.
@@ -444,7 +486,7 @@ CLASS classification_manager IMPLEMENTATION.
             ENDLOOP.
 
             " Then add the new ones
-            class_program->upload_custom_file( file_content = data_tab
+            class_program->upload_custom_file( file_content = file_content
                                                file_name    = file_name
                                                file_type    = file_type
                                                uploader     = sy-uname ).
