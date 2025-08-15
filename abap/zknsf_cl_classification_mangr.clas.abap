@@ -9,7 +9,7 @@ CLASS zknsf_cl_classification_mangr DEFINITION
       BEGIN OF ENUM custom_file_type STRUCTURE ty_custom_file_type,
         kernseife_custom,
         kernseife_legacy,
-      END OF ENUM  custom_file_type STRUCTURE ty_custom_file_type .
+      END OF ENUM  custom_file_type STRUCTURE ty_custom_file_type.
 
     METHODS constructor
       IMPORTING
@@ -18,7 +18,7 @@ CLASS zknsf_cl_classification_mangr DEFINITION
       IMPORTING
         !file_type    TYPE custom_file_type
         !file_name    TYPE string
-        !file_content TYPE string_table
+        !file_content TYPE xstring
         !uploader     TYPE syuname OPTIONAL
       RAISING
         cx_ycm_cc_provider_error .
@@ -74,10 +74,9 @@ CLASS ZKNSF_CL_CLASSIFICATION_MANGR IMPLEMENTATION.
 
 
   METHOD upload_custom_file.
-    DATA(content) = concat_lines_of( file_content ).
-    DATA(content_xstring) = cl_abap_codepage=>convert_to( content ).
 
-    upload_xstring( content   = content_xstring
+
+    upload_xstring( content   = file_content
                     url       = file_name
                     file_type = file_type
                     source    = source_local
