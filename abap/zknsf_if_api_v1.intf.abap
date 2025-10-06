@@ -3,7 +3,7 @@ INTERFACE zknsf_if_api_v1
   TYPES:
     BEGIN OF ty_rating,
       "! $required
-      code        TYPE c LENGTH 3,
+      code        TYPE c LENGTH 10,
       "! $required
       title       TYPE string,
       "! $required

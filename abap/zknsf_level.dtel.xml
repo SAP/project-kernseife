@@ -3,21 +3,20 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>ZKNSF_REF_OBJECT_TYPE</ROLLNAME>
+    <ROLLNAME>ZKNSF_LEVEL</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>CHAR1</DOMNAME>
     <HEADLEN>55</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>Kernseife: Object Type</DDTEXT>
-    <REPTEXT>refObjectType</REPTEXT>
-    <SCRTEXT_S>objectType</SCRTEXT_S>
-    <SCRTEXT_M>refObjectType</SCRTEXT_M>
-    <SCRTEXT_L>refObjectType</SCRTEXT_L>
+    <DDTEXT>Kernseife: Clean Core Level</DDTEXT>
+    <REPTEXT>Level</REPTEXT>
+    <SCRTEXT_S>Level</SCRTEXT_S>
+    <SCRTEXT_M>Level</SCRTEXT_M>
+    <SCRTEXT_L>Level</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
-    <DATATYPE>CHAR</DATATYPE>
-    <LENG>000016</LENG>
-    <OUTPUTLEN>000016</OUTPUTLEN>
+    <REFKIND>D</REFKIND>
    </DD04V>
   </asx:values>
  </asx:abap>

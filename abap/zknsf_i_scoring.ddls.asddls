@@ -23,7 +23,9 @@ define view entity ZKNSF_I_SCORING
   key    cast( fnd.refObjectName as zknsf_ref_object_name )          as refObjectName,
          cast( fnd.devClass as zknsf_dev_class )                     as devClass,
          cast( rating.code as zknsf_rating_code )                    as ratingCode,
-         cast( rating.score as zknsf_rating_score)                   as score
+         cast( rating.score as zknsf_rating_score)                   as score,
+         cast( case rating.code when 'TBL' then case substring(fnd.messageId,4,3) when 'UPD' then 'D' when 'TYP' then 'A' else 'C' end else case rating.criticality when 'S' then 'A' when 'I' then 'B' when 'W' then 'C' else 'D' end end as zknsf_level ) as cleanCoreLevel
+         
         
 }
 where

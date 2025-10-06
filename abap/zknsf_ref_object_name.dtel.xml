@@ -11,7 +11,7 @@
     <SCRLEN3>40</SCRLEN3>
     <DDTEXT>Kernseife: Object Name</DDTEXT>
     <REPTEXT>refObjectName</REPTEXT>
-    <SCRTEXT_S>ObjectName</SCRTEXT_S>
+    <SCRTEXT_S>refObjName</SCRTEXT_S>
     <SCRTEXT_M>refObjectName</SCRTEXT_M>
     <SCRTEXT_L>refObjectName</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
