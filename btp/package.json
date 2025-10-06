@@ -22,7 +22,8 @@
     "generate-cds-types": "npx @cap-js/cds-typer \"*\" --outputDirectory @cds-models",
     "test": "jest --silent",
     "mbt": "mbt build -t gen/mtar -m=verbose -j=8",
-    "deploy-dev": "cf deploy gen/mtar/kernseife_1.0.0.mtar -e=BTP_DEV.mtaext"
+    "deploy-dev": "cf deploy gen/mtar/kernseife_1.0.0.mtar -e=BTP_DEV.mtaext",
+    "deploy-production": "cf deploy gen/mtar/kernseife_1.0.0.mtar -e=BTP_PROD.mtaext"
   },
   "dependencies": {
     "@cap-js/hana": "^2.1.2",
