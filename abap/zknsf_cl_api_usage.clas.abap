@@ -1,13 +1,13 @@
-class ZKNSF_CL_API_USAGE definition
-  public
-  inheriting from CL_YCM_CC_CHECK_API_USAGE
-  final
-  create public .
+CLASS zknsf_cl_api_usage DEFINITION
+  PUBLIC
+  INHERITING FROM cl_ycm_cc_check_api_usage
+  FINAL
+  CREATE PUBLIC .
 
-public section.
+  PUBLIC SECTION.
 
-  constants:
-    BEGIN OF custom_message_codes,
+    CONSTANTS:
+      BEGIN OF custom_message_codes,
         no_class                    TYPE sci_errc VALUE 'NOC',
         missing                     TYPE sci_errc VALUE 'MISSING',
         db_tables_generic           TYPE sci_errc VALUE 'TBL',
@@ -21,58 +21,57 @@ public section.
         db_tables_as_type_successor TYPE sci_errc VALUE 'TBLTYP_SUC',
       END OF custom_message_codes .
 
-  methods CONSTRUCTOR .
+    METHODS constructor .
 
-  methods GET_ATTRIBUTES
-    redefinition .
-  methods IF_CI_TEST~QUERY_ATTRIBUTES
-    redefinition .
-  methods PUT_ATTRIBUTES
-    redefinition .
-protected section.
+    METHODS get_attributes
+        REDEFINITION .
+    METHODS if_ci_test~query_attributes
+        REDEFINITION .
+    METHODS put_attributes
+        REDEFINITION .
+  PROTECTED SECTION.
 
-  data:
-    ratings TYPE SORTED TABLE OF zknsf_i_ratings WITH NON-UNIQUE  KEY primary_key COMPONENTS code .
+    DATA:
+      ratings TYPE SORTED TABLE OF zknsf_i_ratings WITH NON-UNIQUE  KEY primary_key COMPONENTS code .
 
-  methods GET_MESSAGE_CODES
-    returning
-      value(RESULT) type SCIMESSAGES .
-  methods INFORM_LANGUAGE_VERSION
-    importing
-      !LANGUAGE_VERSION type IF_ABAP_LANGUAGE_VERSION=>TY_VERSION .
-  methods GET_MESSAGE_CODE
-    importing
-      !CODE type ZKNSF_RATING_CODE
-      !TITLE type ZKNSF_RATING_TITLE
-      !SUCCESSOR type ABAP_BOOLEAN
-      !KIND type SYCHAR01 default 'E'
-    returning
-      value(RESULT) type SCIMESSAGE .
+    METHODS get_message_codes
+      RETURNING
+        VALUE(result) TYPE scimessages .
+    METHODS inform_language_version
+      IMPORTING
+        !language_version TYPE if_abap_language_version=>ty_version .
+    METHODS get_message_code
+      IMPORTING
+        !code         TYPE zknsf_rating_code
+        !title        TYPE zknsf_rating_title
+        !kind         TYPE sychar01 DEFAULT 'E'
+      RETURNING
+        VALUE(result) TYPE scimessage .
 
-  methods COLLECT_ALL_SUCCESSORS
-    redefinition .
-  methods EVALUATE_MESSAGE_CODE
-    redefinition .
-  methods EVALUATE_TABL_MESSAGE_CODE
-    redefinition .
-  methods GET_ALLOWED_USAGE_OBJECT_TYPES
-    redefinition .
-  methods GET_OBJECT_LANGUAGE_VERSION
-    redefinition .
-  methods GET_USAGE_PREPROCESSOR
-    redefinition .
-  methods INFORM_ATC
-    redefinition .
-private section.
-
-  data:
-    sw_component_list TYPE SORTED TABLE OF dlvunit WITH UNIQUE DEFAULT KEY .
-  data TRACK_LANGUAGE_VERSION_ATTR type ABAP_BOOLEAN .
+    METHODS collect_all_successors
+        REDEFINITION .
+    METHODS evaluate_message_code
+        REDEFINITION .
+    METHODS evaluate_tabl_message_code
+        REDEFINITION .
+    METHODS get_allowed_usage_object_types
+        REDEFINITION .
+    METHODS get_object_language_version
+        REDEFINITION .
+    METHODS get_usage_preprocessor
+        REDEFINITION .
+    METHODS inform_atc
+        REDEFINITION .
+  PRIVATE SECTION.
+    DATA: usage_preprocessor TYPE REF TO zknsf_cl_usage_preprocessor.
+    DATA:
+      sw_component_list TYPE SORTED TABLE OF dlvunit WITH UNIQUE DEFAULT KEY .
+    DATA track_language_version_attr TYPE abap_boolean .
 ENDCLASS.
 
 
 
-CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
+CLASS zknsf_cl_api_usage IMPLEMENTATION.
 
 
   METHOD constructor.
@@ -113,33 +112,18 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
     ENDIF.
 
     LOOP AT ratings INTO DATA(rating).
-      " Add Code with and without Successor
-      INSERT get_message_code(  code = rating-code kind = rating-criticality title = rating-title successor = abap_false ) INTO TABLE result.
-      INSERT get_message_code(  code = rating-code kind = rating-criticality title = rating-title successor = abap_true ) INTO TABLE result.
+      INSERT get_message_code(  code = rating-code kind = rating-criticality title = rating-title ) INTO TABLE result.
     ENDLOOP.
 
-    " Table Usage special Messages
-    INSERT get_message_code(  code = custom_message_codes-db_tables_select title = 'Reading from SAP database tables or table views'(016) kind = warning successor = abap_false ) INTO TABLE result.
-    INSERT get_message_code(  code = custom_message_codes-db_tables_select title = 'Reading from SAP database tables or table views'(016) kind = error   successor = abap_true  ) INTO TABLE result.
-
-    INSERT get_message_code(  code = custom_message_codes-db_tables_update title = 'Updating SAP database tables or table views'(017) kind = error successor = abap_false ) INTO TABLE result.
-    INSERT get_message_code(  code = custom_message_codes-db_tables_update title = 'Updating SAP database tables or table views'(017) kind = error successor = abap_true  ) INTO TABLE result.
-
-    INSERT get_message_code(  code = custom_message_codes-db_tables_in_cds title = 'Usage of SAP database tables in CDS views'(018) kind = warning successor = abap_false ) INTO TABLE result.
-    INSERT get_message_code(  code = custom_message_codes-db_tables_in_cds title = 'Usage of SAP database tables in CDS views'(018) kind = error   successor = abap_true  ) INTO TABLE result.
-
-    INSERT get_message_code(  code = custom_message_codes-db_tables_as_type title = 'Usage of SAP database tables as type definition'(019) kind = info successor = abap_false ) INTO TABLE result.
-    INSERT get_message_code(  code = custom_message_codes-db_tables_as_type title = 'Usage of SAP database tables as type definition'(019) kind = info   successor = abap_true  ) INTO TABLE result.
-
     " Error Message Codes
-    INSERT get_message_code(  code = custom_message_codes-no_class title =  'Missing Classification'(001) successor = abap_false ) INTO TABLE result.
-    INSERT get_message_code(  code = custom_message_codes-missing  title =  'Missing Rating'(002) successor = abap_false ) INTO TABLE result.
+    INSERT get_message_code(  code = custom_message_codes-no_class title =  'Missing Classification'(001) ) INTO TABLE result.
+    INSERT get_message_code(  code = custom_message_codes-missing  title =  'Missing Rating'(002) ) INTO TABLE result.
 
 
     " Language Version Message Codes
-    INSERT get_message_code( code = CONV zknsf_rating_code( if_abap_language_version=>gc_version-standard )           title = 'Standard ABAP'(010)               successor = abap_false ) INTO TABLE result.
-    INSERT get_message_code( code = CONV zknsf_rating_code( if_abap_language_version=>gc_version-key_user )           title = 'ABAP for Key Users'(011)          successor = abap_false ) INTO TABLE result.
-    INSERT get_message_code( code = CONV zknsf_rating_code( if_abap_language_version=>gc_version-sap_cloud_platform ) title = 'ABAP for Cloud Development'(012)  successor = abap_false ) INTO TABLE result.
+    INSERT get_message_code( code = CONV zknsf_rating_code( if_abap_language_version=>gc_version-standard_source_code ) title = 'Standard ABAP'(010)                ) INTO TABLE result.
+    INSERT get_message_code( code = CONV zknsf_rating_code( if_abap_language_version=>gc_version-key_user )             title = 'ABAP for Key Users'(011)           ) INTO TABLE result.
+    INSERT get_message_code( code = CONV zknsf_rating_code( if_abap_language_version=>gc_version-sap_cloud_platform )   title = 'ABAP for Cloud Development'(012)   ) INTO TABLE result.
 
 
   ENDMETHOD.
@@ -312,6 +296,16 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
       code = language_version.
     ENDIF.
 
+    IF object_type EQ 'APIS'. " Release Contracts don't have a language Version, so we ignore them completly
+      RETURN.
+    ENDIF.
+
+
+    IF language_version = if_abap_language_version=>gc_version-standard_source_code
+    AND usage_preprocessor->is_key_user_generated( object_type = object_type object_name = object_name ) = abap_true.
+      code = if_abap_language_version=>gc_version-key_user.
+    ENDIF.
+
     inform(
       p_code         = code
       p_test         = myname
@@ -370,14 +364,17 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
 
   METHOD get_message_code.
     result = VALUE scimessage( test = myname
-                               code = COND #( WHEN successor = abap_true THEN |{ code }_SUC| ELSE code )
+                               code = code
                                kind = kind
-                               text = COND #( WHEN successor = abap_true THEN |{ title } (successor available)| ELSE title )
+                               text = title
                              ).
   ENDMETHOD.
 
 
-  METHOD get_usage_preprocessor.
-    RETURN NEW zknsf_cl_usage_preprocessor( rfc_destination ).
+ METHOD get_usage_preprocessor.
+    IF usage_preprocessor IS INITIAL.
+      usage_preprocessor = NEW zknsf_cl_usage_preprocessor( rfc_destination ).
+    ENDIF.
+    RETURN usage_preprocessor.
   ENDMETHOD.
 ENDCLASS.

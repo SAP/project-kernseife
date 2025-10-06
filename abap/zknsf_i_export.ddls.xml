@@ -3,13 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DDLS>
-<<<<<<<< HEAD:abap/zknsf_i_export.ddls.xml
     <DDLNAME>ZKNSF_I_EXPORT</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DDTEXT>Kernseife: Export</DDTEXT>
-========
-    <DDLNAME>ZKNSF_I_ATC_UNCLASSIFIED</DDLNAME>
->>>>>>>> 4676312e (change folder structure):abap/zknsf_i_atc_unclassified.ddls.xml
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
