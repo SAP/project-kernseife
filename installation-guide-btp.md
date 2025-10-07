@@ -57,4 +57,17 @@ https://developers.sap.com/tutorials/spa-configure-workzone..html
 > If you don't have a custom IdP Tenant, I suggest getting one, otherwise the Workzone Subscription might fail.
 > As a customer/partner I don't think you can even have a BTP Account without one anyway. Feel free to correct me on this.
 
+Assign yourself the Launchpad_Admin Role
 
+Open the Workzone Application and create a new Site
+
+Go to the Channel Manager and update the HTML5 App Repository
+
+Go to the Content Explorer and add all the Kernseife Apps from the HTML5 Repository
+
+We suggest you create a custom Role and assign the Apps accordingly
+Don't forget to assign your user to that role. Otherwise you will wonder for hours why you can't see any apps. True story.
+
+Feel free to now define Groups and assign Apps to them.
+We have the Following Groups in our tenant: Manage, Analyze, Configure and Import.
+You might be able to figure out which Apps belongs in which group by the App ID (hint: apps starting with "manage" go into the "Manage" Group)
