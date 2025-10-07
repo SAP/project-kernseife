@@ -24,3 +24,6 @@ You most likely forgot to execute the manual step of this [note](https://me.sap.
 "Start report RS_ABAP_SETUP_ANALYSIS. You will be asked for transports request.
 Please enter the transport request which is used for correction instructions."
 ```
+
+## "A PROCESS statement is missing." during Import of the latest Kernseife release in ABAPGit
+"A PROCESS statement is missing." => see [Issue](https://github.com/SAP/project-kernseife/issues/33) => Update to the latest ABAPGit Version
