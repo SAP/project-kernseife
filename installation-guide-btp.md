@@ -45,6 +45,8 @@ For this you need to define the Environment in Github with these variables/secre
 After the deployment is finished the console should show this:
 ![Deployment Success](res/img/deployment_success.png)
 
+Now you need to assign your user to the "kernseife-admin-${space}" role (depending on the cf space name).
+
 ## Setup Workzone
 As we don't use a standalone approuter we use the integrated one inside workzone.
 Technically you can also use a standalone approuter and a launchpad, but we suggest using workzone as it makes all the role, tile, etc. management way easier.
@@ -65,9 +67,17 @@ Go to the Channel Manager and update the HTML5 App Repository
 
 Go to the Content Explorer and add all the Kernseife Apps from the HTML5 Repository
 
-We suggest you create a custom Role and assign the Apps accordingly
+We suggest you create a custom Role and assign the Apps accordingly and not use the "Everyone" Role.
 Don't forget to assign your user to that role. Otherwise you will wonder for hours why you can't see any apps. True story.
+Also you need to assign the Role to the Site via the Site Studio => Role Assignments
 
 Feel free to now define Groups and assign Apps to them.
 We have the Following Groups in our tenant: Manage, Analyze, Configure and Import.
 You might be able to figure out which Apps belongs in which group by the App ID (hint: apps starting with "manage" go into the "Manage" Group)
+
+Congratulations, you should now be able to use your Kernseife BTP Tenant!
+
+## Initial Kernseife Setup
+
+
+
