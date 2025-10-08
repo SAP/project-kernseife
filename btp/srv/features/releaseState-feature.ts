@@ -239,7 +239,7 @@ export const loadReleaseState = async () => {
 
   // Classic API
   const responseClassicInfo = await client.get(
-    'SAP/abap-atc-cr-cv-s4hc/refs/heads/main/src/objectClassifications_3TierModel.json'
+    'SAP/abap-atc-cr-cv-s4hc/refs/heads/main/src/objectClassifications_SAP.json'
   );
 
   responseClassicInfo.data.objectClassifications.forEach(
