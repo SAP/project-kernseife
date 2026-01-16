@@ -146,4 +146,7 @@ service DevelopmentService @(requires: ['development-viewer']) {
     }
 
     function getTileInfo(appName: String) returns types.DynamicAppLauncher;
+
+    @readonly
+    entity Exemptions                        as projection on db.Exemptions;
 }

@@ -141,7 +141,8 @@
     "app/monitor-job",
     "app/manage-release-state",
     "app/manage-classification",
-    "app/manage-extension"
+    "app/manage-extension",
+    "app/manage-exemption"
   ],
   "workspaces": [
     "app/*",

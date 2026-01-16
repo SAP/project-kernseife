@@ -1,0 +1,26 @@
+{
+  "name": "manage-exemption",
+  "version": "1.0.1",
+  "description": "Exemptions App",
+  "keywords": [
+    "ui5",
+    "openui5",
+    "sapui5"
+  ],
+  "main": "webapp/index.html",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "ui5 build preload --clean-dest --include-task=generateCachebusterInfo",
+    "start": "ui5 serve"
+  },
+  "devDependencies": {
+    "@sap/eslint-plugin-ui5-jsdocs": "2.0.8",
+    "@sap/ux-specification": "^1.139.4",
+   
+    "@ui5/cli": "^4.0.39",
+    "eslint": "9.25.1",
+    "ui5-task-zipper": "^3.4.4"
+  }
+}

@@ -88,6 +88,9 @@ service AdminService @(requires: 'admin') {
     action importFindingsBTP( @mandatory systemId: inSystemBTP:systemId, );
 
     @(Common.SideEffects: {TargetEntities: ['/AdminService.EntityContainer/Jobs'], })
+    action importExemptionsBTP( @mandatory systemId: inSystemBTP:systemId, );
+
+    @(Common.SideEffects: {TargetEntities: ['/AdminService.EntityContainer/Jobs'], })
     action importClassifications( @mandatory file: inFileType not null, @Common.Label: '{i18n>overwriteExisting}' overwriteExisting: Boolean);
 
     @(Common.SideEffects: {TargetEntities: ['/AdminService.EntityContainer/Jobs'], })

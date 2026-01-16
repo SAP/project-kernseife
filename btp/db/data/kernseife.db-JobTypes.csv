@@ -3,6 +3,7 @@ IMPORT_MISSING_CLASSIFICATION,"Import Missing Classifications (CSV)"
 IMPORT_FINDINGS,"Import Findings (CSV)"
 IMPORT_EXTERNAL_CLASSIFICATION,"Import Classifications (External)"
 IMPORT_BTP_FINDINGS,"Findings Import (BTP)"
+IMPORT_BTP_EXEMPTIONS,"Exemptions Import (BTP)"
 IMPORT_BTP_MISSING_CLASSIFICATION,"Import Missing Classifications (BTP)"
 EXPORT_SYSTEM_CLASSIFICATION,Export Classifications (System)
 EXPORT_EXTERNAL_CLASSIFICATION,Export Classifications (External)

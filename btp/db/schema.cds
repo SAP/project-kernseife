@@ -991,6 +991,37 @@ entity FindingsAggregated                as
         r.score;
 
 
+entity Exemptions {
+    key exemptionId            : String;
+    key systemId               : String;
+        checkClass             : String;
+        objectScope            : String;
+        checkScope             : String;
+        messageId              : String;
+        objectName             : String;
+        objectType             : String;
+        subObjectName          : String;
+        subObjectType          : String;
+        checksumVersion        : Integer;
+        checksumValue          : Integer;
+        validUntil             : Date;
+        applicantUserId        : String;
+        applicantUserName      : String;
+        applicantLastChangedAt : Date;
+        applicantReason        : String;
+        applicantComment       : String;
+        approverUserId         : String;
+        approverUserName       : String;
+        approverLastChangedAt  : Date;
+        approverComment        : String;
+        lastChangedAt          : DateTime;
+        exemptionChecksum      : Integer;
+
+        system                 : Association to Systems
+                                     on system.sid = $self.systemId;
+}
+
+
 // Value List Entities
 @cds.odata.valuelist
 entity JobStatus {

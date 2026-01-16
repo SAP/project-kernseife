@@ -22,6 +22,8 @@ import {
   getDestinationBySystemId,
   getDevelopmentObjects,
   getDevelopmentObjectsCount,
+  getExemptions,
+  getExemptionsCount,
   getFindings,
   getFindingsCount,
   getProject
@@ -674,12 +676,136 @@ const importFindingsBTPBySystem = async (
 
     if (updateProgress)
       await updateProgress(
-        50 + Math.round((50 / project.totalObjectCount) * insertCount)
+        50 + Math.round((35 / project.totalObjectCount) * insertCount)
       );
     skip += top;
   }
 
+  const checkClass = 'ZKNSF_CL_API_USAGE';
+
+  // Process Exemptions
+  const exemptionsCount = await getExemptionsCount({ destination }, checkClass);
+  top = 100;
+  skip = 0;
+  // Delete existing Exemptions for this System
+  await DELETE.from('kernseife.db.Exemptions').where({ systemId: systemId });
+  if (tx) {
+    await tx.commit();
+  }
+
+  while (skip < exemptionsCount) {
+    const exemptionList = await getExemptions(
+      { destination },
+      checkClass,
+      0,
+      0
+    );
+    if (exemptionList && exemptionList.length > 0) {
+      // Insert Exemptions
+      exemptionList.forEach((exemption) => {
+        exemption.systemId = systemId;
+      });
+      LOG.error(`ExemptionList`, { exemptionList });
+      await INSERT.into('kernseife.db.Exemptions').entries(exemptionList);
+      if (tx) {
+        await tx.commit();
+      }
+    }
+    skip += top;
+  }
+
   return insertCount;
+};
+
+const importExemptionsBTPBySystem = async (
+  importId: string,
+  systemId: string,
+  tx: Transaction,
+  updateProgress?: (progress: number) => Promise<void>
+): Promise<number> => {
+  // Get Destination from System
+  const destination = await getDestinationBySystemId(systemId);
+
+  const checkClass = 'ZKNSF_CL_API_USAGE';
+
+  // Process Exemptions
+  const exemptionsCount = await getExemptionsCount({ destination }, checkClass);
+  const top = 100;
+  let skip = 0;
+  let insertCount = 0;
+  // Delete existing Exemptions for this System
+  await DELETE.from('kernseife.db.Exemptions').where({ systemId: systemId });
+  if (tx) {
+    await tx.commit();
+  }
+
+  while (skip < exemptionsCount) {
+    const exemptionList = await getExemptions(
+      { destination },
+      checkClass,
+      0,
+      0
+    );
+    if (exemptionList && exemptionList.length > 0) {
+      // Insert Exemptions
+      exemptionList.forEach((exemption) => {
+        exemption.systemId = systemId;
+      });
+      LOG.error(`ExemptionList`, { exemptionList });
+      await INSERT.into('kernseife.db.Exemptions').entries(exemptionList);
+      if (tx) {
+        await tx.commit();
+      }
+
+      insertCount += exemptionList.length;
+      if (updateProgress)
+        await updateProgress(Math.round((100 / exemptionsCount) * insertCount));
+    }
+    skip += top;
+  }
+
+  return insertCount;
+};
+
+export const importExemptionsBTP = async (
+  importId: string,
+  tx: Transaction,
+  updateProgress?: (progress: number) => Promise<void>
+): Promise<JobResult> => {
+  const exemptionsImport = await SELECT.one
+    .from('kernseife.db.Imports', (d: Import) => {
+      d.ID, d.title, d.systemId, d.createdAt;
+    })
+    .where({ ID: importId });
+
+  const systemId = exemptionsImport.systemId;
+  let insertCount = 0;
+
+  if (systemId == 'ALL') {
+    const systemList = await SELECT.from('AdminService.BTPSystems').columns(
+      'sid'
+    );
+    for (const system of systemList) {
+      insertCount += await importExemptionsBTPBySystem(
+        importId,
+        system.sid,
+        tx,
+        updateProgress
+      );
+    }
+  } else {
+    insertCount = await importExemptionsBTPBySystem(
+      importId,
+      systemId,
+      tx,
+      updateProgress
+    );
+  }
+
+  return {
+    message: `Inserted ${insertCount} DevelopmentObject(s)`,
+    exportIdList: []
+  } as JobResult;
 };
 
 export const importFindingsBTP = async (
@@ -709,7 +835,7 @@ export const importFindingsBTP = async (
         system.sid,
         successorMap,
         tx,
-        updateProgress
+        updateProgress //TODO Adjust for overall progress
       );
     }
   } else {
