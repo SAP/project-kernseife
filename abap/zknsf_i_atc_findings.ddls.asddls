@@ -95,13 +95,13 @@ define view entity ZKNSF_I_ATC_FINDINGS
       cmm.message_id             as messageId,
       cmm.quality_standard       as qualityStandard,
 
-      fnd_v.exc_kind             as excemptionKind,
-      fnd_v.exc_validity         as excemptionValidity,
-      fnd_v.exc_approval         as excemptionApproval,
+      fnd_v.exc_kind             as exemptionKind,
+      fnd_v.exc_validity         as exemptionValidity,
+      fnd_v.exc_approval         as exemptionApproval,
 
-      fnd.exc_kind               as excemptionKindItem,
-      fnd.exc_validity           as excemptionValidityItem,
-      fnd.exc_approval           as excemptionApprovalItem,
+      fnd.exc_kind               as exemptionKindItem,
+      fnd.exc_validity           as exemptionValidityItem,
+      fnd.exc_approval           as exemptionApprovalItem,
       fnd.has_quickfixes         as hasQuickfixes,
 
       fnd.checksum               as checksumValue,
