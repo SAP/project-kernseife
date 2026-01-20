@@ -4,6 +4,7 @@ using {kernseife_btp as btp} from './external/kernseife_btp';
 service AdminService @(requires: 'admin') {
 
     type inSystemBTP                  : {
+        @UI.ParameterDefaultValue       : 'ALL'
         @Common.ValueListWithFixedValues: true
         @(Common                        : {
             Label    : '{i18n>system}',
