@@ -70,6 +70,7 @@ annotate service.DevelopmentObjects with @(
     },
     UI.Identification #scoreShare                                     : [{
         $Type         : 'UI.DataFieldForIntentBasedNavigation',
+        Label         : '{i18n>score}',
         SemanticObject: 'DevelopmentObjects',
         Action        : 'manage',
     }, ],
@@ -399,7 +400,6 @@ annotate service.Classifications with @(
 
 
 annotate service.DevClasses with @(
-
     UI.LineItem #topPackagesByScoreSum                   : [
         {
             $Type            : 'UI.DataField',
@@ -607,7 +607,7 @@ annotate service.DevClasses with @(
     UI.Chart #cleanupPotential                           : {
         $Type              : 'UI.ChartDefinitionType',
         Title              : '{i18n>cleanupPotential}',
-        ChartType          : #ColumnStacked,
+        ChartType          : #Column,
         Dimensions         : [],
         DimensionAttributes: [{
             $Type    : 'UI.ChartDimensionAttributeType',
@@ -695,42 +695,64 @@ annotate service.ScoreHistory with @(UI.Chart #scoreHistory: {
     }],
 });
 
-annotate service.ExemptionHistory with @(
-    UI.DataPoint #objectCount : {
+annotate service.Exemptions with @(
+    UI.PresentationVariant #exemptionHistory: {
+        MaxItems      : 8,
+        GroupBy       : [
+            systemId,
+            state
+        ],
+        SortOrder     : [{
+            $Type     : 'Common.SortOrderType',
+            Property  : objectCount,
+            Descending: true,
+
+        }],
+        Visualizations: ['@UI.Chart#exemptionHistory']
+    },
+    UI.Identification #exemptionHistory     : [{
+        $Type         : 'UI.DataFieldForIntentBasedNavigation',
+        SemanticObject: 'Exemptions',
+        Action        : 'manage',
+
+    }, ],
+    UI.DataPoint #exemptionHistory          : {
         $Type      : 'UI.DataPointType',
+        Title      : '{i18n>exemtions}',
+        Description: '{i18n>exemtions}',
+        value      : objectCount,
         ValueFormat: {
             ScaleFactor             : 1000,
             NumberOfFractionalDigits: 0
         },
     },
-    UI.Chart #exemptionHistory: {
+    UI.Chart #exemptionHistory              : {
         $Type              : 'UI.ChartDefinitionType',
         Title              : '{i18n>exemptionHistory}',
-        ChartType          : #Line,
+        ChartType          : #ColumnStacked,
         Dimensions         : [
-            lastChangedAt,
-            systemId
+            systemId,
+            state
         ],
+        Measures           : [objectCount],
         DimensionAttributes: [
             {
                 $Type    : 'UI.ChartDimensionAttributeType',
-                Dimension: lastChangedAt,
+                Dimension: systemId,
                 Role     : #Category,
-
             },
             {
                 $Type    : 'UI.ChartDimensionAttributeType',
-                Dimension: systemId,
+                Dimension: state,
                 Role     : #Series,
             }
         ],
-        Measures           : [objectCount],
         MeasureAttributes  : [{
-            $Type  : 'UI.ChartMeasureAttributeType',
-            Measure: objectCount,
-            Role   : #Axis1,
-            DataPoint: '@UI.DataPoint#objectCount',
-        }],
+            $Type    : 'UI.ChartMeasureAttributeType',
+            Measure  : objectCount,
+            Role     : #Axis1,
+            DataPoint: '@UI.DataPoint#exemptionHistory',
+        }, ],
 
     }
 );

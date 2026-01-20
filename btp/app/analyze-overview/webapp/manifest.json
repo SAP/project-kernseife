@@ -149,20 +149,6 @@
             }
           },
           "bEnableStableColors": true,
-          "colorPalette": [
-            {
-              "color": "sapUiChartPaletteSemanticNeutralDark2",
-              "dimensionValue": "X"
-            },
-            {
-              "color": "sapUiChartPaletteSemanticGood",
-              "dimensionValue": "2"
-            },
-            {
-              "color": "sapUiChartPaletteSemanticGoodDark2",
-              "dimensionValue": "5"
-            }
-          ],
           "defaultSpan": {
             "rows": 1,
             "cols": 1
@@ -176,6 +162,7 @@
           "title": "{{scoreShare}}",
           "subTitle": "{{scoreShareSubTitle}}",
           "entitySet": "DevelopmentObjects",
+          "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#scoreShare",
           "valueSelectionInfo": "{{scoreShareValueSelectionInfo}}",
           "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#scoreShare",
           "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#scoreShare",
@@ -188,24 +175,6 @@
             }
           },
           "bEnableStableColors": true,
-          "colorPalette": [
-            {
-              "color": "sapUiChartPaletteSemanticGoodDark2",
-              "dimensionValue": "A"
-            },
-            {
-              "color": "sapUiChartPaletteSemanticGood",
-              "dimensionValue": "B"
-            },
-            {
-              "color": "sapUiChartPaletteSemanticCritical",
-              "dimensionValue": "C"
-            },
-            {
-              "color": "sapUiChartPaletteSemanticBad",
-              "dimensionValue": "D"
-            }
-          ],
           "defaultSpan": {
             "rows": 1,
             "cols": 1
@@ -231,24 +200,6 @@
             }
           },
           "bEnableStableColors": true,
-          "colorPalette": [
-            {
-              "color": "sapUiChartPaletteSemanticGoodDark2",
-              "dimensionValue": "A"
-            },
-            {
-              "color": "sapUiChartPaletteSemanticGood",
-              "dimensionValue": "B"
-            },
-            {
-              "color": "sapUiChartPaletteSemanticCritical",
-              "dimensionValue": "C"
-            },
-            {
-              "color": "sapUiChartPaletteSemanticBad",
-              "dimensionValue": "D"
-            }
-          ],
           "defaultSpan": {
             "rows": 1,
             "cols": 1
@@ -274,24 +225,6 @@
             }
           },
           "bEnableStableColors": true,
-          "colorPalette": [
-            {
-              "color": "sapUiChartPaletteSemanticGoodDark2",
-              "dimensionValue": "A"
-            },
-            {
-              "color": "sapUiChartPaletteSemanticGood",
-              "dimensionValue": "B"
-            },
-            {
-              "color": "sapUiChartPaletteSemanticCritical",
-              "dimensionValue": "C"
-            },
-            {
-              "color": "sapUiChartPaletteSemanticBad",
-              "dimensionValue": "D"
-            }
-          ],
           "defaultSpan": {
             "rows": 1,
             "cols": 1
@@ -348,6 +281,7 @@
           "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#ratingShare",
           "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#ratingShare",
           "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#ratingShare",
+          "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#ratingShare",
           "bEnableStableColors": true,
           "measureAggregate": {
             "Axis1": "sum"
@@ -407,10 +341,7 @@
         "model": "mainModel",
         "template": "sap.ovp.cards.v4.table",
         "settings": {
-          "defaultSpan": {
-            "rows": 3,
-            "cols": 4
-          },
+          "defaultSpan": "auto",
           "title": "{{topDevelopmentObjects}}",
           "subTitle": "{{topDevelopmentObjectsSubTitle}}",
           "listFlavor": "carousel",
@@ -463,8 +394,14 @@
         "template": "sap.ovp.cards.v4.charts.analytical",
         "settings": {
           "title": "{{exemptionHistory}}",
-          "entitySet": "ExemptionHistory",
+          "subTitle": "{{exemptionHistorySubTitle}}",
+          "entitySet": "Exemptions",
           "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#exemptionHistory",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#exemptionHistory",
+          "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#exemptionHistory",
+          "measureAggregate": {
+            "Axis1": "sum"
+          },
           "chartProperties": {
             "timeAxis": {
               "levels": [
