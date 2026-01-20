@@ -160,7 +160,12 @@ entity DevelopmentObjects : managed, DevelopmentObjectAspect {
                            on  $self.objectType = history.objectType
                            and $self.objectName = history.objectName
                            // Devclass does not decide history...
-                           and $self.systemId   = history.systemId
+                           and $self.systemId   = history.systemId;
+
+    exemptionList    : Association to many Exemptions
+                           on  exemptionList.objectType = $self.objectType
+                           and exemptionList.objectName = $self.objectName
+                           and exemptionList.systemId   = $self.systemId;
 }
 
 @cds.persistence.journal
@@ -990,13 +995,14 @@ entity FindingsAggregated                as
         f.softwareComponent,
         r.score;
 
-
+@cds.persistence.journal
 entity Exemptions {
     key exemptionId            : String;
     key systemId               : String;
+        state_code             : String;
         checkClass             : String;
-        objectScope            : String;
-        checkScope             : String;
+        objectScope_code       : String;
+        checkScope_code        : String;
         messageId              : String;
         objectName             : String;
         objectType             : String;
@@ -1019,6 +1025,17 @@ entity Exemptions {
 
         system                 : Association to Systems
                                      on system.sid = $self.systemId;
+
+        rating                 : Association to Ratings
+                                     on rating.code = $self.messageId;
+
+        state                  : Association to ExemptionStates
+                                     on state.code = $self.state_code;
+
+        objectScope            : Association to ExemptionObjectScopes
+                                     on objectScope.code = $self.objectScope_code;
+        checkScope             : Association to ExemptionCheckScopes
+                                     on checkScope.code = $self.checkScope_code;
 }
 
 
@@ -1114,6 +1131,27 @@ entity Criticality {
 
 @cds.odata.valuelist
 entity ModificationTypes {
+    key code        : String;
+        criticality : Association to Criticality;
+        title       : String;
+}
+
+@cds.odata.valuelist
+entity ExemptionStates {
+    key code        : String;
+        criticality : Association to Criticality;
+        title       : String;
+}
+
+@cds.odata.valuelist
+entity ExemptionObjectScopes {
+    key code        : String;
+        criticality : Association to Criticality;
+        title       : String;
+}
+
+@cds.odata.valuelist
+entity ExemptionCheckScopes {
     key code        : String;
         criticality : Association to Criticality;
         title       : String;

@@ -743,15 +743,14 @@ const importExemptionsBTPBySystem = async (
     const exemptionList = await getExemptions(
       { destination },
       checkClass,
-      0,
-      0
+      top,
+      skip
     );
     if (exemptionList && exemptionList.length > 0) {
       // Insert Exemptions
       exemptionList.forEach((exemption) => {
         exemption.systemId = systemId;
       });
-      LOG.error(`ExemptionList`, { exemptionList });
       await INSERT.into('kernseife.db.Exemptions').entries(exemptionList);
       if (tx) {
         await tx.commit();
@@ -803,7 +802,7 @@ export const importExemptionsBTP = async (
   }
 
   return {
-    message: `Inserted ${insertCount} DevelopmentObject(s)`,
+    message: `Inserted ${insertCount} Exemption(s)`,
     exportIdList: []
   } as JobResult;
 };

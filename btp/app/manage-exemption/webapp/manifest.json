@@ -166,12 +166,5 @@
   "sap.cloud": {
     "public": true,
     "service": "kernseife"
-  },
-  "sap.fe": {
-    "app": {
-      "hideDraft": {
-        "enabled": true
-      }
-    }
   }
 }

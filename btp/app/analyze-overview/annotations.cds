@@ -657,7 +657,7 @@ annotate service.DevClasses with @(
         }],
         Visualizations: ['@UI.Chart#cleanupPotential']
     },
-    
+
     UI.Identification #cleanupPotential                  : [{
         $Type         : 'UI.DataFieldForIntentBasedNavigation',
         SemanticObject: 'DevelopmentObjects',
@@ -694,3 +694,43 @@ annotate service.ScoreHistory with @(UI.Chart #scoreHistory: {
         Role   : #Axis1,
     }],
 });
+
+annotate service.ExemptionHistory with @(
+    UI.DataPoint #objectCount : {
+        $Type      : 'UI.DataPointType',
+        ValueFormat: {
+            ScaleFactor             : 1000,
+            NumberOfFractionalDigits: 0
+        },
+    },
+    UI.Chart #exemptionHistory: {
+        $Type              : 'UI.ChartDefinitionType',
+        Title              : '{i18n>exemptionHistory}',
+        ChartType          : #Line,
+        Dimensions         : [
+            lastChangedAt,
+            systemId
+        ],
+        DimensionAttributes: [
+            {
+                $Type    : 'UI.ChartDimensionAttributeType',
+                Dimension: lastChangedAt,
+                Role     : #Category,
+
+            },
+            {
+                $Type    : 'UI.ChartDimensionAttributeType',
+                Dimension: systemId,
+                Role     : #Series,
+            }
+        ],
+        Measures           : [objectCount],
+        MeasureAttributes  : [{
+            $Type  : 'UI.ChartMeasureAttributeType',
+            Measure: objectCount,
+            Role   : #Axis1,
+            DataPoint: '@UI.DataPoint#objectCount',
+        }],
+
+    }
+);

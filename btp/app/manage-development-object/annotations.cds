@@ -280,6 +280,12 @@ annotate service.DevelopmentObjects with @(
         },
         {
             $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>exemptions}',
+            ID    : 'exemptionList',
+            Target: 'exemptionList/@UI.SelectionPresentationVariant#exemptionList',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
             Label : '{i18n>scoreHistory}',
             ID    : 'ScoreHistory',
             Target: 'history/@UI.LineItem#ScoreHistory',
@@ -350,13 +356,13 @@ annotate service.DevelopmentObjects with @(UI.HeaderInfo: {
     TypeNamePlural: '',
 });
 
+
 annotate service.DevelopmentObjects with {
     languageVersion_code @Common.Text: {
         $value                : languageVersion.title,
         ![@UI.TextArrangement]: #TextFirst,
     }
 };
-
 
 annotate service.DevelopmentObjectsFindings with @(
     UI.LineItem #findingList                    : [
@@ -565,6 +571,58 @@ annotate service.HistoricDevelopmentObjects with @(
             $Type: 'UI.DataField',
             Value: level,
             Label: '{i18n>level}',
+        },
+    ],
+);
+
+annotate service.Exemptions with @(
+    UI.SelectionPresentationVariant #exemptionList: {
+        $Type              : 'UI.SelectionPresentationVariantType',
+        PresentationVariant: {
+            $Type         : 'UI.PresentationVariantType',
+            Visualizations: ['@UI.LineItem#exemptionList',
+            ],
+            SortOrder     : [{
+                $Type     : 'Common.SortOrderType',
+                Property  : rating.score,
+                Descending: true,
+            }, ],
+        },
+        SelectionVariant   : {
+            $Type        : 'UI.SelectionVariantType',
+            SelectOptions: [],
+        },
+    },
+    UI.LineItem #exemptionList                    : [
+        {
+            $Type: 'UI.DataField',
+            Value: state_code,
+            Label: '{i18n>state}',
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: rating.code,
+            Label: '{i18n>rating}',
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: checkScope_code,
+            Label: '{i18n>checkScope}',
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: objectScope_code,
+            Label: '{i18n>objectScope}',
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: checkClass,
+            Label: '{i18n>checkClass}',
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: applicantUserId,
+            Label: '{i18n>applicantUserId}',
         },
     ],
 );

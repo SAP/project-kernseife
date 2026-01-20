@@ -452,8 +452,24 @@
             "timeAxis": {
               "levels": [
                 "year",
-                "month",
-                "day"
+                "month"
+              ]
+            }
+          }
+        }
+      },
+      "exemptionsHistory": {
+        "model": "mainModel",
+        "template": "sap.ovp.cards.v4.charts.analytical",
+        "settings": {
+          "title": "{{exemptionHistory}}",
+          "entitySet": "ExemptionHistory",
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#exemptionHistory",
+          "chartProperties": {
+            "timeAxis": {
+              "levels": [
+                "year",
+                "month"
               ]
             }
           }
@@ -462,7 +478,7 @@
     },
     "disableTableCardFlexibility": false,
     "chartSettings": {
-      "showDataLabel": false
+      "showDataLabel": true
     },
     "refreshIntervalInMinutes": 5,
     "dataLoadSettings": {

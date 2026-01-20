@@ -1,0 +1,8 @@
+code,title,criticality_code
+APPL,"In Process by Requester",2
+OPEN,"Open",0
+APPR,"In Process by Approver",2
+OK,"Approved",3
+REJ,"Rejected",1
+OVER,"Approved (rejection overridden)",3
+RED,"Approved (redundant)",3

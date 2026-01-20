@@ -1,0 +1,5 @@
+code,title,criticality_code
+PCKG,"Package",1
+OBJ,"Object",2
+SUB,"Sub Object",2
+FND,"Finding",0

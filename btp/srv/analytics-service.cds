@@ -102,6 +102,16 @@ service AnalyticsService @(requires: ['analyst']) {
             v.systemId,
             v.createdAt;
 
+    entity ExemptionHistory              as
+        projection on db.Exemptions {
+            key exemptionId,
+                systemId,
+                lastChangedAt,
+                @Analytics.Measure: true  @Aggregation.default: #SUM
+                @Common.Label     : '{i18n>objectCount}'
+                1 as objectCount : Integer
+        }
+
     @readonly
     entity Ratings                       as projection on db.Ratings;
 
