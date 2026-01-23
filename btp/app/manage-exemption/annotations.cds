@@ -1,18 +1,145 @@
 using DevelopmentService as service from '../../srv/development-service';
 
-annotate service.Exemptions with @(UI.SelectionFields: [
-    objectType,
-    objectName,
-    state_code,
-    applicantUserId,
-    approverUserId,
-    validUntil,
-    messageId,
-    lastChangedAt,
-    checkScope_code,
-    objectScope_code,
-    checkClass
-]);
+annotate service.Exemptions with @(
+    UI.SelectionFields                   : [
+        exemptionId,
+        objectType,
+        objectName,
+        state_code,
+        applicantUserId,
+        approverUserId,
+        validUntil,
+        messageId,
+        lastChangedAt,
+        checkScope_code,
+        objectScope_code,
+        checkClass
+    ],
+    UI.HeaderInfo                        : {
+        TypeName      : '{i18n>exemption}',
+        TypeNamePlural: '{i18n>exemptions}',
+        Title         : {
+            $Type: 'UI.DataField',
+            Value: '{objectType} - {objectName}: {messageId}'
+        },
+    },
+    UI.HeaderFacets                      : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>generalInformation}',
+            ID    : 'i18ngeneralInformation',
+            Target: '@UI.FieldGroup#i18ngeneralInformation',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>exemption}',
+            ID    : 'i18nexemption',
+            Target: '@UI.FieldGroup#i18nexemption',
+        },
+    ],
+    UI.FieldGroup #i18ngeneralInformation: {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: systemId,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: objectType,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: objectName,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: subObjectType,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: subObjectName,
+            }
+        ],
+    },
+    UI.Facets                            : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>applicant}',
+            ID    : 'i18napplicant',
+            Target: '@UI.FieldGroup#i18napplicant',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>approver}',
+            ID    : 'i18napprover',
+            Target: '@UI.FieldGroup#i18napprover',
+        },
+    ],
+    UI.FieldGroup #i18napplicant         : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: applicantUserId,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: applicantReason,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: applicantComment,
+            },
+        ],
+    },
+    UI.FieldGroup #i18napprover          : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: approverUserId,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: approverComment,
+            },
+        ],
+    },
+    UI.FieldGroup #i18nexemption         : {
+        $Type: 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type: 'UI.DataField',
+                Value: checkClass,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: messageId,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: checkScope_code,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: objectScope_code,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: state_code,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: lastChangedAt,
+            },
+            {
+                $Type: 'UI.DataField',
+                Value: validUntil,
+            },
+        ],
+    },
+);
 
 annotate service.Exemptions with {
     state_code
@@ -55,7 +182,18 @@ annotate service.Exemptions with {
         Label         : '{i18n>chooseTadirObjectType}'
     }
                            @Common.ValueListWithFixedValues: true;
-    objectName             @Common.Label: '{i18n>objectName}';
+    objectName             @(
+        Common.Label: '{i18n>objectName}',
+        Common.SemanticObject : 'DevelopmentObjects',
+        Common.SemanticObjectMapping : [
+            {
+                $Type : 'Common.SemanticObjectMappingType',
+                LocalProperty : objectName,
+                SemanticObjectProperty : 'objectName',
+            },
+        ],
+
+        );
     objectScope_code       @Common.Label                   : '{i18n>objectScope}'
                            @Common.Text                    : objectScope.title
                            @Common.Text.@UI.TextArrangement: #TextOnly;
@@ -65,7 +203,11 @@ annotate service.Exemptions with {
     applicantUserId        @Common.Label                   : '{i18n>applicantUserId}'
                            @Common.Text                    : applicantUserName
                            @Common.Text.@UI.TextArrangement: #TextFirst;
-    applicantReason        @Common.Label: '{i18n>applicantReason}';
+    applicantReason        @(
+        Common.Label                   : '{i18n>applicantReason}',
+        Common.Text                    : applicantReasonText,
+        Common.Text.@UI.TextArrangement: #TextFirst,
+    );
     applicantComment       @Common.Label: '{i18n>applicantComment}';
     approverUserId         @Common.Label                   : '{i18n>approverUserId}'
                            @Common.Text                    : approverUserName
@@ -86,12 +228,19 @@ annotate service.Exemptions with {
     subObjectType          @Common.Label: '{i18n>subObjectType}';
     applicantUserName      @Common.Label: '{i18n>applicantUserName}';
     approverUserName       @Common.Label: '{i18n>approverUserName}';
+    systemId               @Common.Label: '{i18n>system}';
 }
 
 annotate service.Exemptions with @(
     Capabilities: {FilterFunctions: ['tolower',
     ]},
     UI.LineItem : [
+        {
+            $Type                : 'UI.DataField',
+            Value                : systemId,
+            ![@UI.Importance]    : #High,
+            ![@HTML5.CssDefaults]: {width: '4rem'},
+        },
         {
             $Type                : 'UI.DataField',
             Value                : objectType,

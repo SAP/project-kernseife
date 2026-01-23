@@ -1015,6 +1015,7 @@ entity Exemptions {
         applicantUserName      : String;
         applicantLastChangedAt : Date;
         applicantReason        : String;
+        applicantReasonText    : String;
         applicantComment       : String;
         approverUserId         : String;
         approverUserName       : String;

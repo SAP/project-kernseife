@@ -83,6 +83,7 @@ service AnalyticsService @(requires: ['analyst']) {
     entity Classifications               as
         projection on db.Classifications {
             *,
+            @Common.Label: '{i18n>objectCount}'
             1 as objectCount : Integer
         }
         excluding {
@@ -111,11 +112,16 @@ service AnalyticsService @(requires: ['analyst']) {
             key exemptionId,
                 systemId,
                 lastChangedAt,
-                state.title as state       : String,
+                @Common.Label: '{i18n>objectScope}'
+                objectScope.title   as objectScope,
+                @Common.Label: '{i18n>checkScope}'
+                checkScope.title    as checkScope,
+                applicantReasonText as reason,
+                state.title         as state       : String,
                 @Analytics.Measure    : true  @Aggregation.default: #SUM
                 @Aggregation.Groupable: true
                 @Common.Label         : '{i18n>exemptions}'
-                1           as objectCount : Integer
+                1                   as objectCount : Integer
         }
 
     @readonly

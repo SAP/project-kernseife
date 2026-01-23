@@ -411,6 +411,78 @@
             }
           }
         }
+      },
+      "objectScope": {
+        "model": "mainModel",
+        "template": "sap.ovp.cards.v4.charts.analytical",
+        "settings": {
+          "title": "{{objectScope}}",
+          "subTitle": "{{objectScopeSubTitle}}",
+          "entitySet": "Exemptions",
+          "valueSelectionInfo": "{{objectScopeValueSelectionInfo}}",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#objectScope",
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#objectScope",
+          "chartProperties": {
+            "plotArea": {
+              "dataLabel": {
+                "type": "percentage"
+              }
+            }
+          },
+          "bEnableStableColors": true,
+          "defaultSpan": {
+            "rows": 1,
+            "cols": 1
+          }
+        }
+      },
+      "checkScope": {
+        "model": "mainModel",
+        "template": "sap.ovp.cards.v4.charts.analytical",
+        "settings": {
+          "title": "{{checkScope}}",
+          "subTitle": "{{checkScopeSubTitle}}",
+          "entitySet": "Exemptions",
+          "valueSelectionInfo": "{{checkScopeValueSelectionInfo}}",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#checkScope",
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#checkScope",
+          "chartProperties": {
+            "plotArea": {
+              "dataLabel": {
+                "type": "percentage"
+              }
+            }
+          },
+          "bEnableStableColors": true,
+          "defaultSpan": {
+            "rows": 1,
+            "cols": 1
+          }
+        }
+      },
+      "reason": {
+        "model": "mainModel",
+        "template": "sap.ovp.cards.v4.charts.analytical",
+        "settings": {
+          "title": "{{reason}}",
+          "subTitle": "{{reasonSubTitle}}",
+          "entitySet": "Exemptions",
+          "valueSelectionInfo": "{{reasonValueSelectionInfo}}",
+          "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#reason",
+          "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#reason",
+          "chartProperties": {
+            "plotArea": {
+              "dataLabel": {
+                "type": "percentage"
+              }
+            }
+          },
+          "bEnableStableColors": true,
+          "defaultSpan": {
+            "rows": 1,
+            "cols": 1
+          }
+        }
       }
     },
     "disableTableCardFlexibility": false,

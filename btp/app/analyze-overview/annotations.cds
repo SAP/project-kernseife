@@ -607,7 +607,7 @@ annotate service.DevClasses with @(
     UI.Chart #cleanupPotential                           : {
         $Type              : 'UI.ChartDefinitionType',
         Title              : '{i18n>cleanupPotential}',
-        ChartType          : #Column,
+        ChartType          : #ColumnStacked,
         Dimensions         : [],
         DimensionAttributes: [{
             $Type    : 'UI.ChartDimensionAttributeType',
@@ -754,5 +754,98 @@ annotate service.Exemptions with @(
             DataPoint: '@UI.DataPoint#exemptionHistory',
         }, ],
 
-    }
+    },
+    UI.Chart #objectScope                   : {
+        $Type              : 'UI.ChartDefinitionType',
+        Title              : '{i18n>objectScope}',
+        ChartType          : #Donut,
+        Dimensions         : [objectScope],
+        DimensionAttributes: [{
+            $Type    : 'UI.ChartDimensionAttributeType',
+            Dimension: objectScope,
+            Role     : #Category
+        }],
+        Measures           : [objectCount],
+        MeasureAttributes  : [{
+            $Type  : 'UI.ChartMeasureAttributeType',
+            Measure: objectCount,
+            Role   : #Axis1
+        }]
+    },
+    UI.PresentationVariant #objectScope     : {
+        SortOrder     : [{
+            $Type     : 'Common.SortOrderType',
+            Property  : objectScope,
+            Descending: false,
+
+        }],
+        Visualizations: ['@UI.Chart#objectScope']
+    },
+    UI.DataPoint #objectScope                : {
+        $Type: 'UI.DataPointType',
+        Value: objectCount,
+        Title: '{i18n>checkScope}',
+    },
+    UI.Chart #checkScope                    : {
+        $Type              : 'UI.ChartDefinitionType',
+        Title              : '{i18n>checkScope}',
+        ChartType          : #Donut,
+        Dimensions         : [checkScope],
+        DimensionAttributes: [{
+            $Type    : 'UI.ChartDimensionAttributeType',
+            Dimension: checkScope,
+            Role     : #Category
+        }],
+        Measures           : [objectCount],
+        MeasureAttributes  : [{
+            $Type  : 'UI.ChartMeasureAttributeType',
+            Measure: objectCount,
+            Role   : #Axis1
+        }]
+    },
+    UI.PresentationVariant #checkScope      : {
+        SortOrder     : [{
+            $Type     : 'Common.SortOrderType',
+            Property  : checkScope,
+            Descending: false,
+
+        }],
+        Visualizations: ['@UI.Chart#checkScope']
+    },
+    UI.DataPoint #checkScope              : {
+        $Type: 'UI.DataPointType',
+        Value: objectCount,
+        Title: '{i18n>reason}',
+    },
+     UI.Chart #reason                    : {
+        $Type              : 'UI.ChartDefinitionType',
+        Title              : '{i18n>reason}',
+        ChartType          : #Donut,
+        Dimensions         : [reason],
+        DimensionAttributes: [{
+            $Type    : 'UI.ChartDimensionAttributeType',
+            Dimension: reason,
+            Role     : #Category
+        }],
+        Measures           : [objectCount],
+        MeasureAttributes  : [{
+            $Type  : 'UI.ChartMeasureAttributeType',
+            Measure: objectCount,
+            Role   : #Axis1
+        }]
+    },
+    UI.PresentationVariant #reason      : {
+        SortOrder     : [{
+            $Type     : 'Common.SortOrderType',
+            Property  : reason,
+            Descending: false,
+
+        }],
+        Visualizations: ['@UI.Chart#reason']
+    },
+    UI.DataPoint #reason                : {
+        $Type: 'UI.DataPointType',
+        Value: objectCount,
+        Title: '{i18n>reason}',
+    },
 );

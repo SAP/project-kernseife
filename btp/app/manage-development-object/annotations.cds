@@ -295,9 +295,10 @@ annotate service.DevelopmentObjects with @(
 
 annotate service.DevelopmentObjects with @(UI.SelectionFields: [
     systemId,
+    objectType,
+    objectName,
     devClass,
     namespace,
-    objectType,
     languageVersion_code
 ]);
 
@@ -595,34 +596,89 @@ annotate service.Exemptions with @(
     },
     UI.LineItem #exemptionList                    : [
         {
-            $Type: 'UI.DataField',
-            Value: state_code,
-            Label: '{i18n>state}',
+            $Type                    : 'UI.DataField',
+            Value                    : state_code,
+            ![@UI.Importance]        : #High,
+            ![@HTML5.CssDefaults]    : {width: '4rem'},
+            CriticalityRepresentation: #WithoutIcon,
+            Criticality              : state.criticality.criticality,
         },
         {
-            $Type: 'UI.DataField',
-            Value: rating.code,
-            Label: '{i18n>rating}',
+            $Type                    : 'UI.DataField',
+            Value                    : messageId,
+            ![@UI.Importance]        : #High,
+            ![@HTML5.CssDefaults]    : {width: '12rem'},
+            CriticalityRepresentation: #WithoutIcon,
+            Criticality              : rating.criticality.criticality,
         },
         {
-            $Type: 'UI.DataField',
-            Value: checkScope_code,
-            Label: '{i18n>checkScope}',
+            $Type                    : 'UI.DataField',
+            Value                    : checkScope_code,
+            ![@UI.Importance]        : #Medium,
+            ![@HTML5.CssDefaults]    : {width: '4rem'},
+            CriticalityRepresentation: #WithoutIcon,
+            Criticality              : checkScope.criticality.criticality,
         },
         {
-            $Type: 'UI.DataField',
-            Value: objectScope_code,
-            Label: '{i18n>objectScope}',
+            $Type                    : 'UI.DataField',
+            Value                    : objectScope_code,
+            Label                    : '{i18n>objectScope}',
+            ![@UI.Importance]        : #Medium,
+            ![@HTML5.CssDefaults]    : {width: '4rem'},
+            CriticalityRepresentation: #WithoutIcon,
+            Criticality              : objectScope.criticality.criticality,
+        },
+
+        {
+            $Type                : 'UI.DataField',
+            Value                : applicantUserId,
+            ![@UI.Importance]    : #Medium,
+            ![@HTML5.CssDefaults]: {width: '8rem'},
         },
         {
-            $Type: 'UI.DataField',
-            Value: checkClass,
-            Label: '{i18n>checkClass}',
+            $Type                : 'UI.DataField',
+            Value                : applicantReason,
+            ![@UI.Importance]    : #High,
+            ![@HTML5.CssDefaults]: {width: '4rem'},
         },
         {
-            $Type: 'UI.DataField',
-            Value: applicantUserId,
-            Label: '{i18n>applicantUserId}',
+            $Type                : 'UI.DataField',
+            Value                : applicantComment,
+            ![@UI.Importance]    : #High,
+            ![@HTML5.CssDefaults]: {width: '15rem'},
+        },
+        {
+            $Type                : 'UI.DataField',
+            Value                : approverUserId,
+            ![@UI.Importance]    : #Medium,
+            ![@HTML5.CssDefaults]: {width: '8rem'},
+        },
+        {
+            $Type                : 'UI.DataField',
+            Value                : approverComment,
+            ![@UI.Importance]    : #High,
+            ![@HTML5.CssDefaults]: {width: '15rem'},
+        },
+        {
+            $Type            : 'UI.DataField',
+            Value            : checkClass,
+            Label            : '{i18n>checkClass}',
+            ![@UI.Importance]: #Low,
+        },
+        {
+            $Type          : 'UI.DataFieldForIntentBasedNavigation',
+            SemanticObject : 'Exemptions',
+            Action         : 'manage',
+            Label          : 'Manage Exemptions',
+            Inline         : false,
+            RequiresContext: false,
+            Mapping        : [
+                {
+                    $Type                 : 'Common.SemanticObjectMappingType',
+                    LocalProperty         : objectName,
+                    SemanticObjectProperty: 'objectName',
+                }
+            ]
         },
     ],
 );

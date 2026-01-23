@@ -1609,25 +1609,25 @@
           "length": 5000,
           "@cds.persistence.name": "SYSTEMID"
         },
-        "state": {
+        "state_code": {
           "type": "cds.String",
           "length": 5000,
-          "@cds.persistence.name": "STATE"
+          "@cds.persistence.name": "STATE_CODE"
         },
         "checkClass": {
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "CHECKCLASS"
         },
-        "objectScope": {
+        "objectScope_code": {
           "type": "cds.String",
           "length": 5000,
-          "@cds.persistence.name": "OBJECTSCOPE"
+          "@cds.persistence.name": "OBJECTSCOPE_CODE"
         },
-        "checkScope": {
+        "checkScope_code": {
           "type": "cds.String",
           "length": 5000,
-          "@cds.persistence.name": "CHECKSCOPE"
+          "@cds.persistence.name": "CHECKSCOPE_CODE"
         },
         "messageId": {
           "type": "cds.String",
@@ -1684,6 +1684,11 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "APPLICANTREASON"
+        },
+        "applicantReasonText": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "APPLICANTREASONTEXT"
         },
         "applicantComment": {
           "type": "cds.String",
