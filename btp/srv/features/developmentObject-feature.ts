@@ -116,10 +116,10 @@ export const calculateScores = async () => {
   // Calculate Total Score for all Development Objects
   await db.run(
     'UPDATE kernseife_db_DEVELOPMENTOBJECTS as d SET score = IFNULL(' +
-      'SELECT sum(IFNULL(f.total,0))) AS sum_score ' +
-      'FROM kernseife_db_DEVELOPMENTOBJECTFINDINGS as f ' +
-      'WHERE f.objectType = d.objectType AND f.objectName = d.objectName AND f.devClass = d.devClass AND f.systemId = d.systemId ' +
-      ',0)'
+    '(SELECT sum(IFNULL(f.total,0)) AS sum_score ' +
+    'FROM kernseife_db_DEVELOPMENTOBJECTFINDINGS as f ' +
+    'WHERE f.objectType = d.objectType AND f.objectName = d.objectName AND f.devClass = d.devClass AND f.systemId = d.systemId)' +
+    ',0)'
   );
 
   // Calculate Name spaces
@@ -127,8 +127,8 @@ export const calculateScores = async () => {
   // Calculate Reference Count & Score
   await db.run(
     'UPDATE kernseife_db_CLASSIFICATIONS as c SET ' +
-      'referenceCount =  IFNULL((SELECT SUM(count) FROM kernseife_db_DEVELOPMENTOBJECTFINDINGS as f WHERE f.refObjectType = c.objectType AND f.refObjectName = c.objectName),0),' +
-      'totalScore = IFNULL((SELECT SUM(total) FROM kernseife_db_DEVELOPMENTOBJECTFINDINGS as f WHERE f.refObjectType = c.objectType AND f.refObjectName = c.objectName),0)'
+    'referenceCount =  IFNULL((SELECT SUM(count) FROM kernseife_db_DEVELOPMENTOBJECTFINDINGS as f WHERE f.refObjectType = c.objectType AND f.refObjectName = c.objectName),0),' +
+    'totalScore = IFNULL((SELECT SUM(total) FROM kernseife_db_DEVELOPMENTOBJECTFINDINGS as f WHERE f.refObjectType = c.objectType AND f.refObjectName = c.objectName),0)'
   );
 };
 
@@ -239,7 +239,7 @@ export const importFindingsCSV = async (
         // duplicate!
         throw new Error(
           'Duplicate ItemId ' +
-            (finding.itemId || finding.ITEMID || finding.itemID)
+          (finding.itemId || finding.ITEMID || finding.itemID)
         );
       }
 
@@ -378,8 +378,8 @@ export const importFindingsCSV = async (
 
       developmentObject.level =
         level == CleanCoreLevel.A &&
-        findingRecord.messageId != '5' &&
-        findingRecord.messageId != '2' // Key-User is also Part of ABAP Cloud => Level A as well
+          findingRecord.messageId != '5' &&
+          findingRecord.messageId != '2' // Key-User is also Part of ABAP Cloud => Level A as well
           ? CleanCoreLevel.B
           : level;
 
@@ -582,8 +582,8 @@ const importFindingsBTPBySystem = async (
 
       developmentObject.level =
         level == CleanCoreLevel.A &&
-        developmentObjectImport.languageVersion != '5' &&
-        developmentObjectImport.languageVersion != '2' // Key-User is also Part of ABAP Cloud => Level A as well
+          developmentObjectImport.languageVersion != '5' &&
+          developmentObjectImport.languageVersion != '2' // Key-User is also Part of ABAP Cloud => Level A as well
           ? CleanCoreLevel.B
           : level;
 
