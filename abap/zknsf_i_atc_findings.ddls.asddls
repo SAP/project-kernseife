@@ -10,8 +10,11 @@
 define view entity ZKNSF_I_ATC_FINDINGS
   as select from    satc_ac_resulth      as h
     inner join      satc_ac_fnd_v        as fnd_v                on h.check_run_ix = fnd_v.check_run_ix
-    inner join      satc_ac_itm          as itm                  on itm.item_id = fnd_v.item_id   // item
-    and ( itm.status = '1' or itm.status = '2' )
+    inner join      satc_ac_itm          as itm                  on itm.item_id  = fnd_v.item_id  // item
+                                                                 and(
+                                                                   itm.status    = '1'
+                                                                   or itm.status = '2'
+                                                                 )
     inner join      satc_ac_fnd          as fnd                  on fnd.item_id = fnd_v.item_id   // finding
     inner join      satc_ac_obj          as obj                  on obj.object_ix = fnd.object_ix // object
     inner join      satc_ac_osy          as osy // package and contact person
@@ -28,7 +31,7 @@ define view entity ZKNSF_I_ATC_FINDINGS
     left outer join satc_ac_msgt         as checkMsg             on  checkMsg.module_ix  = fnd.module_ix
                                                                  and checkMsg.message_ix = fnd.message_ix
                                                                  and checkMsg.langu      = $session.system_language
-                                                                 
+
 
 
     left outer join SATC_AC_ATT_VAL_DDLV as refObjType           on  refObjType.item_id = fnd.item_id
@@ -36,7 +39,7 @@ define view entity ZKNSF_I_ATC_FINDINGS
 
     left outer join SATC_AC_ATT_VAL_DDLV as refObjName           on  refObjName.item_id = fnd.item_id
                                                                  and refObjName.name    = 'REF_OBJ_NAME'
-                                                                
+
 
     left outer join SATC_AC_ATT_VAL_DDLV as sItemState           on  sItemState.item_id = fnd.item_id
                                                                  and sItemState.name    = 'SITEM_STATE'
@@ -101,10 +104,13 @@ define view entity ZKNSF_I_ATC_FINDINGS
       fnd.exc_approval           as excemptionApprovalItem,
       fnd.has_quickfixes         as hasQuickfixes,
 
+      fnd.checksum               as checksumValue,
+      fnd.checksum_version       as checksumVersion,
+
       checkTitle.title           as checkTitle,
       checkMsg.title             as checkMessage,
-      
-      
+
+
 
       refObjType.value           as refObjectType,
       refObjName.value           as refObjectName,
@@ -123,6 +129,8 @@ define view entity ZKNSF_I_ATC_FINDINGS
       sNote.value                as simplificationNote,
       addInfo.value              as additionalInfo,
 
+
+
       fnd_v.last_changed_by      as lastChangedBy,
       fnd_v.last_changed_on      as lastCangedOn,
       fnd_v.priority             as priority,
@@ -131,4 +139,6 @@ define view entity ZKNSF_I_ATC_FINDINGS
       fnd_v.status_new           as statusNew,
       fnd_v.status_old           as statusOld,
       fnd_v.sub_index            as subIndex
-} where chm.ci_id    = 'ZKNSF_CL_API_USAGE';
+}
+where
+  chm.ci_id = 'ZKNSF_CL_API_USAGE';

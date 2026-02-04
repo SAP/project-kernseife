@@ -6,5 +6,6 @@ define service ZKNSF_BTP_CONNECTOR {
   expose ZKNSF_I_METRICS;
   expose ZKNSF_I_RUN_STATE;
   expose ZKNSF_I_MISSING;
+  expose ZKNSF_I_EXEMPTIONS;
   expose sycm_aps_i_usage;
 }
