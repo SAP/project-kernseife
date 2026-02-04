@@ -60,6 +60,8 @@ CLASS zknsf_cl_api_usage DEFINITION
         REDEFINITION .
     METHODS get_usage_preprocessor
         REDEFINITION .
+    METHODS get_skipped_object_types
+        REDEFINITION .
     METHODS inform_atc
         REDEFINITION .
   PRIVATE SECTION.
@@ -91,8 +93,6 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
 
     INSERT LINES OF get_message_codes( ) INTO TABLE scimessages.
 
-    " Include Packages / DevClasses to have them tracked for Reporting
-    DELETE typelist WHERE sign = 'E' AND option = 'EQ' AND low = 'DEVC'.
 
 
     track_language_version_attr = abap_false.
@@ -104,6 +104,13 @@ CLASS ZKNSF_CL_API_USAGE IMPLEMENTATION.
     release_source_attr = classification_source-checked_system.
   ENDMETHOD.
 
+  METHOD get_skipped_object_types.
+    "requires SAP Note 3710789
+    result = super->get_skipped_object_types( ).
+
+    " Include Packages / DevClasses to have them tracked for Reporting
+    DELETE result WHERE sign = 'I' AND option = 'EQ' AND low = 'DEVC'.
+  ENDMETHOD.
 
   METHOD get_message_codes.
     CONSTANTS:
