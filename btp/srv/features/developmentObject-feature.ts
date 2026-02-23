@@ -29,7 +29,7 @@ import {
 import { CleanCoreLevel } from '#cds-models/kernseife/enums';
 import JSZip from 'jszip';
 import { PassThrough } from 'node:stream';
-import { streamToBuffer } from '../lib/files';
+import { isZipFile, streamToBuffer } from '../lib/files';
 
 const LOG = log('DevelopmentObjectFeature');
 
@@ -213,7 +213,7 @@ export const importFindingsCSV = async (
 ): Promise<JobResult> => {
   if (!findingImport.file) throw new Error('File broken');
   let csv: string;
-  if (findingImport.fileType == 'application/zip') {
+  if (isZipFile(findingImport.fileType!)) {
     // Unzip file and get CSV content
     const zip = new JSZip();
 
@@ -461,7 +461,7 @@ export const importFindingsCSVById = async (
 ): Promise<JobResult> => {
   const findingsRunImport = await SELECT.one
     .from('kernseife.db.Imports', (d: Import) => {
-      d.ID, d.title, d.file, d.systemId, d.createdAt;
+      d.ID, d.title, d.file, d.fileType, d.systemId, d.createdAt;
     })
     .where({ ID: findingImportId });
   return await importFindingsCSV(findingsRunImport, tx, updateProgress);
