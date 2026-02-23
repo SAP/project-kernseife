@@ -100,7 +100,7 @@ export default (srv: Service) => {
   srv.on('importFindingsFile', async (req: any) => {
     LOG.info('importFindingsFile');
 
-    if (req.data.file.mimeType != 'text/csv') {
+    if (req.data.file.mimeType != 'text/csv' && req.data.file.mimeType != 'application/zip') {
       req.error(400, 'FILE_TYPE_NOT_SUPPORTED');
       return;
     }

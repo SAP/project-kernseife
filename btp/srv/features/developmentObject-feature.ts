@@ -27,12 +27,14 @@ import {
   getProject
 } from './btp-connector-feature';
 import { CleanCoreLevel } from '#cds-models/kernseife/enums';
+import JSZip from 'jszip';
+import { PassThrough } from 'node:stream';
+import { streamToBuffer } from '../lib/files';
 
 const LOG = log('DevelopmentObjectFeature');
 
 // Required fields for FINDINGS import
 const REQUIRED_FINDINGS_FIELDS = [
-  'runId',
   'itemId',
   'objectType',
   'objectName',
@@ -55,13 +57,20 @@ export const validateFindingsCsvColumns = (
   csvHeaders: string[]
 ): CsvValidationResult => {
   const errors: string[] = [];
-  const headers = csvHeaders.map((h) => h.trim());
+  const headers = csvHeaders.map((h) => h.trim().toUpperCase());
 
   // Check required fields
   for (const requiredField of REQUIRED_FINDINGS_FIELDS) {
-    if (!headers.includes(requiredField)) {
+    if (!headers.includes(requiredField.toUpperCase())) {
       errors.push(`Missing required column '${requiredField}'`);
     }
+  }
+
+  if (errors.length > 0) {
+    LOG.error('CSV Validation Failed', {
+      errors,
+      headers
+    });
   }
 
   return {
@@ -203,8 +212,28 @@ export const importFindingsCSV = async (
   updateProgress?: (progress: number) => Promise<void>
 ): Promise<JobResult> => {
   if (!findingImport.file) throw new Error('File broken');
+  let csv: string;
+  if (findingImport.fileType == 'application/zip') {
+    // Unzip file and get CSV content
+    const zip = new JSZip();
 
-  const csv = await text(findingImport.file);
+    const stream = new PassThrough();
+    findingImport.file.pipe(stream);
+    const buffer = await streamToBuffer(stream);
+
+    try {
+      const content = await zip.loadAsync(buffer);
+      const file = Object.keys(content.files)[0]; // Only take the first file, as we expect only one
+      LOG.error('Unzipping file', { file });
+      csv = await content.files[file].async('text');
+    } catch (e) {
+      LOG.error('Error unzipping file', { error: e });
+      throw new Error('Error unzipping file: ' + e);
+    }
+  } else {
+    csv = await text(findingImport.file);
+  }
+
   const result = papa.parse<any>(csv, {
     header: true,
     skipEmptyLines: true
