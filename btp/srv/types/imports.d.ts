@@ -104,6 +104,8 @@ export type FindingImport = {
   devClass: string;
   softwareComponent: string;
   messageId: string;
+  checksumVersion: number;
+  checksumValue: number;
   refObjectType: string;
   refObjectName: string;
   refApplicationComponent: string;

@@ -1043,6 +1043,11 @@
           "length": 5000,
           "@cds.persistence.name": "SYSTEMID"
         },
+        "exemptionLinkId": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "EXEMPTIONLINKID"
+        },
         "potentialCode": {
           "type": "cds.String",
           "length": 5000,
@@ -1827,6 +1832,14 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "MESSAGEID"
+        },
+        "checksumVersion": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "CHECKSUMVERSION"
+        },
+        "checksumValue": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "CHECKSUMVALUE"
         },
         "potentialMessageId": {
           "type": "cds.String",

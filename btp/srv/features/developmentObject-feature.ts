@@ -8,7 +8,7 @@ import {
   DevelopmentObjectFinding,
   FindingsAggregated
 } from '#cds-models/kernseife/db';
-import { db, log, Transaction } from '@sap/cds';
+import { db, log, Transaction, utils } from '@sap/cds';
 import { text } from 'node:stream/consumers';
 import papa from 'papaparse';
 import {
@@ -292,7 +292,9 @@ export const importFindingsCSV = async (
           finding.messageId ||
           finding.MESSAGEID ||
           finding.messageid ||
-          finding.MESSAGE_ID
+          finding.MESSAGE_ID,
+        checksumValue: finding.checksumValue,
+        checksumVersion: finding.checksumVersion
       } as FindingRecord;
 
       // Calculate Potential Message Id
@@ -909,7 +911,8 @@ const getDevelopmentObjectFindings = async (
       'code',
       'potentialCode',
       'count',
-      'total'
+      'total',
+      'checksumList'
     )
     .where({
       importId: versionId, // as we use the same UUID for both
@@ -920,24 +923,47 @@ const getDevelopmentObjectFindings = async (
     });
 
   // Convert to Development ObjectFindings
-  return findingList.map(
-    (finding) =>
-      ({
-        version_ID: versionId,
-        objectType: developmentObject.objectType,
-        objectName: developmentObject.objectName,
-        devClass: developmentObject.devClass,
-        systemId: developmentObject.systemId,
-        softwareComponent: developmentObject.softwareComponent,
-        refObjectType: finding.refObjectType,
-        refObjectName: finding.refObjectName,
-        code: finding.code,
-        potentialCode: finding.potentialCode,
-        count: finding.count,
-        total: finding.total,
-        totalPercentage: 0
-      }) as DevelopmentObjectFinding
-  );
+  return findingList.map((finding) => {
+    const developmentObjectFinding = {
+      version_ID: versionId,
+      objectType: developmentObject.objectType,
+      objectName: developmentObject.objectName,
+      devClass: developmentObject.devClass,
+      systemId: developmentObject.systemId,
+      softwareComponent: developmentObject.softwareComponent,
+      refObjectType: finding.refObjectType,
+      refObjectName: finding.refObjectName,
+      code: finding.code,
+      potentialCode: finding.potentialCode,
+      count: finding.count,
+      total: finding.total,
+      totalPercentage: 0,
+      exemptionLinkId: utils.uuid()
+    } as DevelopmentObjectFinding;
+
+    // Set Exemptions to reference that finding
+    if(finding.checksumList){
+      // split checksumList by - and then by | to get version and value
+      (finding.checksumList as string).split('-').forEach(async (checksum) => {
+        const [version, value] = checksum.split('|');
+        // Update all Exemptions with the same checksum value and version to link to this finding
+        await UPDATE('kernseife.db.Exemptions')
+          .set({ exemptionLinkId: developmentObjectFinding.exemptionLinkId })
+          .where({
+            systemId: developmentObject.systemId,
+            objectType: developmentObject.objectType,
+            objectName: developmentObject.objectName,
+            devClass: developmentObject.devClass,
+            checksumVersion: version,
+            checksumValue: value
+          });
+      });
+    }
+
+    // 
+
+    return developmentObjectFinding;
+  });
 };
 
 export const calculateTotalPercent = (

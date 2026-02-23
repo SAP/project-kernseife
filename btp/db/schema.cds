@@ -197,6 +197,8 @@ entity DevelopmentObjectFindings {
         softwareComponent : String;
         systemId          : String;
 
+        exemptionLinkId   : String;
+
         potentialCode     : String;
 
         // Pre-Calculated for performance
@@ -560,6 +562,8 @@ entity FindingRecords {
         softwareComponent  : String;
         systemId           : String;
         messageId          : String;
+        checksumVersion    : Integer;
+        checksumValue      : Integer;
         potentialMessageId : String;
         import             : Association to Imports
                                  on import.ID = $self.import_ID;
@@ -974,6 +978,13 @@ entity FindingsAggregated                as
         key f.messageId          as code,
             f.potentialMessageId as potentialCode,
             f.softwareComponent  as softwareComponent,
+            string_agg(
+                concat(
+                    concat(
+                        f.checksumVersion, '|'
+                    ), f.checksumValue
+                ), '-'
+            )                    as checksumList,
             count( * )           as count : Integer,
             count( * ) * r.score as total : Integer
     }
@@ -999,6 +1010,7 @@ entity FindingsAggregated                as
 entity Exemptions {
     key exemptionId            : String;
     key systemId               : String;
+        exemptionLinkId        : String;
         state_code             : String;
         checkClass             : String;
         objectScope_code       : String;
@@ -1037,6 +1049,43 @@ entity Exemptions {
                                      on objectScope.code = $self.objectScope_code;
         checkScope             : Association to ExemptionCheckScopes
                                      on checkScope.code = $self.checkScope_code;
+
+        findingList            : Association to many DevelopmentObjectFindings
+                                     on          findingList.systemId   = $self.systemId
+                                     and (
+                                         (
+                                                 $self.objectScope_code = 'OBJ'
+                                             and $self.objectType       = findingList.objectType
+                                             and $self.objectName       = findingList.objectName
+                                         )
+                                         or (
+                                                 $self.objectScope_code = 'PCKG'
+                                             and $self.objectName       = findingList.devClass
+                                         )
+                                         or (
+                                                 $self.objectScope_code = 'SUB'
+                                             and $self.objectType       = findingList.objectType
+                                             and $self.objectName       = findingList.objectName
+                                         )
+                                         or (
+                                                 $self.objectScope_code = 'FND'
+                                             and $self.exemptionLinkId  = findingList.exemptionLinkId
+                                         )
+                                     )
+                                     and (
+                                         (
+                                                 $self.checkScope_code  = 'FND'
+                                             and $self.exemptionLinkId  = findingList.exemptionLinkId // Double, but FND/FND anyway is the only combo for FND
+                                         )
+
+                                         or      $self.checkScope_code  = 'CHK' // as we only have one Check
+
+                                         or (
+                                                 $self.checkScope_code  = 'MSG'
+                                             and $self.messageId        = findingList.code
+                                         )
+
+                                     )
 }
 
 
