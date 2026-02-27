@@ -34,6 +34,7 @@ import {
   triggerAtcRun
 } from './features/btp-connector-feature';
 import { System } from '#cds-models/kernseife/db';
+import { isZipFile } from './lib/files';
 
 export default (srv: Service) => {
   const LOG = log('AdminService');
@@ -100,7 +101,10 @@ export default (srv: Service) => {
   srv.on('importFindingsFile', async (req: any) => {
     LOG.info('importFindingsFile');
 
-    if (req.data.file.mimeType != 'text/csv') {
+    if (
+      req.data.file.mimeType != 'text/csv' &&
+      !isZipFile(req.data.file.mimeType)
+    ) {
       req.error(400, 'FILE_TYPE_NOT_SUPPORTED');
       return;
     }
