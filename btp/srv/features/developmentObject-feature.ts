@@ -664,7 +664,7 @@ const importFindingsBTPBySystem = async (
     }
 
     if (usageInsert.length > 0) {
-      await INSERT.into('kernseife.db.DevelopmentObjectUsages').entries(
+      await UPSERT.into('kernseife.db.DevelopmentObjectUsages').entries(
         usageInsert
       );
       if (tx) {
