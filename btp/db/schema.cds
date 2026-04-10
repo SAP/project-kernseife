@@ -950,7 +950,7 @@ entity DevelopmentObjectUsages {
     key objectType           : String;
     key objectName           : String;
     key systemId             : String;
-        counter              : Integer;
+        counter              : Int64;
         lastUsed             : DateTime;
 }
 
