@@ -650,6 +650,7 @@ const importFindingsBTPBySystem = async (
             entryPointObjectName: usage.entry_point_name,
             objectType: usage.obj_type,
             objectName: usage.obj_name,
+            systemId: systemId,
             counter: usage.counter,
             lastUsed: usage.last_used
           }))
@@ -763,6 +764,11 @@ const prepareNewDevelopmentObjectsImport = async (
   await DELETE.from('kernseife.db.DevelopmentObjectFindings').where({
     systemId: systemId
   });
+
+  await DELETE.from('kernseife.db.DevelopmentObjectUsages').where({
+    systemId: systemId
+  });
+
   // Create new DevelopmentObjectVersion
   await INSERT.into('kernseife.db.DevelopmentObjectVersions').entries([
     { ID: importID, systemId: systemId }

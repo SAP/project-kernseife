@@ -1376,6 +1376,12 @@
           "length": 5000,
           "@cds.persistence.name": "OBJECTNAME"
         },
+        "systemId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SYSTEMID"
+        },
         "counter": {
           "type": "cds.Integer",
           "@cds.persistence.name": "COUNTER"

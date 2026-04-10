@@ -949,6 +949,7 @@ entity DevelopmentObjectUsages {
     key entryPointObjectName : String;
     key objectType           : String;
     key objectName           : String;
+    key systemId             : String;
         counter              : Integer;
         lastUsed             : DateTime;
 }
