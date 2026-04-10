@@ -86,7 +86,7 @@ service DevelopmentService @(requires: ['development-viewer']) {
     entity Extensions                              @(restrict: [
         {grant: 'READ'},
         {
-            grant: 'WRITE',
+            grant: '*',
             to   : 'development-manager'
         }
     ])                                       as projection on db.Extensions
