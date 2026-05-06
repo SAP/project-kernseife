@@ -127,7 +127,7 @@ export const calculateScores = async () => {
     'UPDATE kernseife_db_DEVELOPMENTOBJECTS as d SET score = IFNULL(' +
       '(SELECT sum(IFNULL(f.total,0)) AS sum_score ' +
       'FROM kernseife_db_DEVELOPMENTOBJECTFINDINGS as f ' +
-      'WHERE f.objectType = d.objectType AND f.objectName = d.objectName AND f.devClass = d.devClass AND f.systemId = d.systemId ' +
+      'WHERE f.objectType = d.objectType AND f.objectName = d.objectName AND f.devClass = d.devClass AND f.systemId = d.systemId)' +
       ',0)'
   );
 
