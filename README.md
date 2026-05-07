@@ -13,6 +13,9 @@
 
 Project Kernseife is an open-source custom ABAP Test Cockpit (ATC) Check for ABAP systems that enables you to flexibly score the usage of SAP objects in your system, e.g. to score the technical debt regarding clean core based on a custom, adjustable classification.
 This check is an enhanced version of the "Usage of APIs" Check (see [SAP Note 3565942](https://me.sap.com/notes/3565942)), where you can introduce a custom classification in a JSON format. A description of the  classification can be found in the [Classification Guide](https://github.com/SAP/project-kernseife/wiki/Classification-Guide).
+More details on the idea behind this tool can be found in two blog posts in SAP Community: 
+- [Project Kernseife - improving the measurement of Clean Core in ABAP](https://community.sap.com/t5/technology-blog-posts-by-sap/project-kernseife-improving-the-measurement-of-clean-core-in-abap/ba-p/14099819)
+- [Taking Control of Clean Core: When to Use Project Kernseife in addition to Standard SAP Tools](https://community.sap.com/t5/technology-blog-posts-by-sap/taking-control-of-clean-core-when-to-use-project-kernseife-in-addition-to/ba-p/14258229)
 
 ## 🚀 Requirements and Setup
 
