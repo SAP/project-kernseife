@@ -29,6 +29,7 @@ service AnalyticsService @(requires: ['analyst']) {
             version_ID,
             namespace,
             @Analytics.Measure: true                     @Aggregation.default: #SUM
+            @Common.Label     : '{i18n>score}'
             score,
             @Analytics.Measure: true                     @Aggregation.default: #SUM
             @Common.Label     : '{i18n>cleanupPotential}'
@@ -47,6 +48,7 @@ service AnalyticsService @(requires: ['analyst']) {
             }
             level,
             @Analytics.Measure: true                     @Aggregation.default: #SUM
+            @Common.Label     : '{i18n>objectCount}'
             1 as objectCount        : Integer,
         }
 
@@ -81,8 +83,7 @@ service AnalyticsService @(requires: ['analyst']) {
     entity Classifications               as
         projection on db.Classifications {
             *,
-            @Analytics.Measure: true  @Aggregation.default: #SUM
-            @Common.Label     : '{i18n>objectCount}'
+            @Common.Label: '{i18n>objectCount}'
             1 as objectCount : Integer
         }
         excluding {
@@ -96,11 +97,32 @@ service AnalyticsService @(requires: ['analyst']) {
         {
             key v.systemId,
             key v.createdAt           : DateTime,
+                @Analytics.Measure    : true  @Aggregation.default: #SUM
+                @Aggregation.Groupable: true
+                @Common.Label         : '{i18n>score}'
                 sum(h.score) as score : Integer,
         }
         group by
             v.systemId,
             v.createdAt;
+
+    @readonly
+    entity Exemptions                    as
+        projection on db.Exemptions {
+            key exemptionId,
+                systemId,
+                lastChangedAt,
+                @Common.Label: '{i18n>objectScope}'
+                objectScope.title   as objectScope,
+                @Common.Label: '{i18n>checkScope}'
+                checkScope.title    as checkScope,
+                applicantReasonText as reason,
+                state.title         as state       : String,
+                @Analytics.Measure    : true  @Aggregation.default: #SUM
+                @Aggregation.Groupable: true
+                @Common.Label         : '{i18n>exemptions}'
+                1                   as objectCount : Integer
+        }
 
     @readonly
     entity Ratings                       as projection on db.Ratings;

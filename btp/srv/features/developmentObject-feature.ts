@@ -8,7 +8,7 @@ import {
   DevelopmentObjectFinding,
   FindingsAggregated
 } from '#cds-models/kernseife/db';
-import { db, log, Transaction } from '@sap/cds';
+import { db, log, Transaction, utils } from '@sap/cds';
 import { text } from 'node:stream/consumers';
 import papa from 'papaparse';
 import {
@@ -22,6 +22,8 @@ import {
   getDestinationBySystemId,
   getDevelopmentObjects,
   getDevelopmentObjectsCount,
+  getExemptions,
+  getExemptionsCount,
   getFindings,
   getFindingsCount,
   getProject
@@ -290,7 +292,9 @@ export const importFindingsCSV = async (
           finding.messageId ||
           finding.MESSAGEID ||
           finding.messageid ||
-          finding.MESSAGE_ID
+          finding.MESSAGE_ID,
+        checksumValue: finding.checksumValue,
+        checksumVersion: finding.checksumVersion
       } as FindingRecord;
 
       // Calculate Potential Message Id
@@ -674,12 +678,135 @@ const importFindingsBTPBySystem = async (
 
     if (updateProgress)
       await updateProgress(
-        50 + Math.round((50 / project.totalObjectCount) * insertCount)
+        50 + Math.round((35 / project.totalObjectCount) * insertCount)
       );
     skip += top;
   }
 
+  const checkClass = 'ZKNSF_CL_API_USAGE';
+
+  // Process Exemptions
+  const exemptionsCount = await getExemptionsCount({ destination }, checkClass);
+  top = 100;
+  skip = 0;
+  // Delete existing Exemptions for this System
+  await DELETE.from('kernseife.db.Exemptions').where({ systemId: systemId });
+  if (tx) {
+    await tx.commit();
+  }
+
+  while (skip < exemptionsCount) {
+    const exemptionList = await getExemptions(
+      { destination },
+      checkClass,
+      0,
+      0
+    );
+    if (exemptionList && exemptionList.length > 0) {
+      // Insert Exemptions
+      exemptionList.forEach((exemption) => {
+        exemption.systemId = systemId;
+      });
+      LOG.error(`ExemptionList`, { exemptionList });
+      await INSERT.into('kernseife.db.Exemptions').entries(exemptionList);
+      if (tx) {
+        await tx.commit();
+      }
+    }
+    skip += top;
+  }
+
   return insertCount;
+};
+
+const importExemptionsBTPBySystem = async (
+  importId: string,
+  systemId: string,
+  tx: Transaction,
+  updateProgress?: (progress: number) => Promise<void>
+): Promise<number> => {
+  // Get Destination from System
+  const destination = await getDestinationBySystemId(systemId);
+
+  const checkClass = 'ZKNSF_CL_API_USAGE';
+
+  // Process Exemptions
+  const exemptionsCount = await getExemptionsCount({ destination }, checkClass);
+  const top = 100;
+  let skip = 0;
+  let insertCount = 0;
+  // Delete existing Exemptions for this System
+  await DELETE.from('kernseife.db.Exemptions').where({ systemId: systemId });
+  if (tx) {
+    await tx.commit();
+  }
+
+  while (skip < exemptionsCount) {
+    const exemptionList = await getExemptions(
+      { destination },
+      checkClass,
+      top,
+      skip
+    );
+    if (exemptionList && exemptionList.length > 0) {
+      // Insert Exemptions
+      exemptionList.forEach((exemption) => {
+        exemption.systemId = systemId;
+      });
+      await INSERT.into('kernseife.db.Exemptions').entries(exemptionList);
+      if (tx) {
+        await tx.commit();
+      }
+
+      insertCount += exemptionList.length;
+      if (updateProgress)
+        await updateProgress(Math.round((100 / exemptionsCount) * insertCount));
+    }
+    skip += top;
+  }
+
+  return insertCount;
+};
+
+export const importExemptionsBTP = async (
+  importId: string,
+  tx: Transaction,
+  updateProgress?: (progress: number) => Promise<void>
+): Promise<JobResult> => {
+  const exemptionsImport = await SELECT.one
+    .from('kernseife.db.Imports', (d: Import) => {
+      d.ID, d.title, d.systemId, d.createdAt;
+    })
+    .where({ ID: importId });
+
+  const systemId = exemptionsImport.systemId;
+  let insertCount = 0;
+
+  if (systemId == 'ALL') {
+    const systemList = await SELECT.from('AdminService.BTPSystems').columns(
+      'sid'
+    );
+    for (const system of systemList) {
+      insertCount += await importExemptionsBTPBySystem(
+        importId,
+        system.sid,
+        tx,
+        updateProgress
+      );
+    }
+  } else {
+    insertCount = await importExemptionsBTPBySystem(
+      importId,
+      systemId,
+      tx,
+      updateProgress
+    );
+  }
+
+  return {
+    message: `Inserted ${insertCount} Exemption(s)`,
+    exportIdList: []
+  } as JobResult;
 };
 
 export const importFindingsBTP = async (
@@ -709,7 +836,7 @@ export const importFindingsBTP = async (
         system.sid,
         successorMap,
         tx,
-        updateProgress
+        updateProgress //TODO Adjust for overall progress
       );
     }
   } else {
@@ -784,7 +911,8 @@ const getDevelopmentObjectFindings = async (
       'code',
       'potentialCode',
       'count',
-      'total'
+      'total',
+      'checksumList'
     )
     .where({
       importId: versionId, // as we use the same UUID for both
@@ -795,24 +923,47 @@ const getDevelopmentObjectFindings = async (
     });
 
   // Convert to Development ObjectFindings
-  return findingList.map(
-    (finding) =>
-      ({
-        version_ID: versionId,
-        objectType: developmentObject.objectType,
-        objectName: developmentObject.objectName,
-        devClass: developmentObject.devClass,
-        systemId: developmentObject.systemId,
-        softwareComponent: developmentObject.softwareComponent,
-        refObjectType: finding.refObjectType,
-        refObjectName: finding.refObjectName,
-        code: finding.code,
-        potentialCode: finding.potentialCode,
-        count: finding.count,
-        total: finding.total,
-        totalPercentage: 0
-      }) as DevelopmentObjectFinding
-  );
+  return findingList.map((finding) => {
+    const developmentObjectFinding = {
+      version_ID: versionId,
+      objectType: developmentObject.objectType,
+      objectName: developmentObject.objectName,
+      devClass: developmentObject.devClass,
+      systemId: developmentObject.systemId,
+      softwareComponent: developmentObject.softwareComponent,
+      refObjectType: finding.refObjectType,
+      refObjectName: finding.refObjectName,
+      code: finding.code,
+      potentialCode: finding.potentialCode,
+      count: finding.count,
+      total: finding.total,
+      totalPercentage: 0,
+      exemptionLinkId: utils.uuid()
+    } as DevelopmentObjectFinding;
+
+    // Set Exemptions to reference that finding
+    if(finding.checksumList){
+      // split checksumList by - and then by | to get version and value
+      (finding.checksumList as string).split('-').forEach(async (checksum) => {
+        const [version, value] = checksum.split('|');
+        // Update all Exemptions with the same checksum value and version to link to this finding
+        await UPDATE('kernseife.db.Exemptions')
+          .set({ exemptionLinkId: developmentObjectFinding.exemptionLinkId })
+          .where({
+            systemId: developmentObject.systemId,
+            objectType: developmentObject.objectType,
+            objectName: developmentObject.objectName,
+            devClass: developmentObject.devClass,
+            checksumVersion: version,
+            checksumValue: value
+          });
+      });
+    }
+
+    // 
+
+    return developmentObjectFinding;
+  });
 };
 
 export const calculateTotalPercent = (

@@ -280,6 +280,12 @@ annotate service.DevelopmentObjects with @(
         },
         {
             $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>exemptions}',
+            ID    : 'exemptionList',
+            Target: 'exemptionList/@UI.SelectionPresentationVariant#exemptionList',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
             Label : '{i18n>scoreHistory}',
             ID    : 'ScoreHistory',
             Target: 'history/@UI.LineItem#ScoreHistory',
@@ -289,9 +295,10 @@ annotate service.DevelopmentObjects with @(
 
 annotate service.DevelopmentObjects with @(UI.SelectionFields: [
     systemId,
+    objectType,
+    objectName,
     devClass,
     namespace,
-    objectType,
     languageVersion_code
 ]);
 
@@ -350,13 +357,13 @@ annotate service.DevelopmentObjects with @(UI.HeaderInfo: {
     TypeNamePlural: '',
 });
 
+
 annotate service.DevelopmentObjects with {
     languageVersion_code @Common.Text: {
         $value                : languageVersion.title,
         ![@UI.TextArrangement]: #TextFirst,
     }
 };
-
 
 annotate service.DevelopmentObjectsFindings with @(
     UI.LineItem #findingList                    : [
@@ -565,6 +572,113 @@ annotate service.HistoricDevelopmentObjects with @(
             $Type: 'UI.DataField',
             Value: level,
             Label: '{i18n>level}',
+        },
+    ],
+);
+
+annotate service.Exemptions with @(
+    UI.SelectionPresentationVariant #exemptionList: {
+        $Type              : 'UI.SelectionPresentationVariantType',
+        PresentationVariant: {
+            $Type         : 'UI.PresentationVariantType',
+            Visualizations: ['@UI.LineItem#exemptionList',
+            ],
+            SortOrder     : [{
+                $Type     : 'Common.SortOrderType',
+                Property  : rating.score,
+                Descending: true,
+            }, ],
+        },
+        SelectionVariant   : {
+            $Type        : 'UI.SelectionVariantType',
+            SelectOptions: [],
+        },
+    },
+    UI.LineItem #exemptionList                    : [
+        {
+            $Type                    : 'UI.DataField',
+            Value                    : state_code,
+            ![@UI.Importance]        : #High,
+            ![@HTML5.CssDefaults]    : {width: '4rem'},
+            CriticalityRepresentation: #WithoutIcon,
+            Criticality              : state.criticality.criticality,
+        },
+        {
+            $Type                    : 'UI.DataField',
+            Value                    : messageId,
+            ![@UI.Importance]        : #High,
+            ![@HTML5.CssDefaults]    : {width: '12rem'},
+            CriticalityRepresentation: #WithoutIcon,
+            Criticality              : rating.criticality.criticality,
+        },
+        {
+            $Type                    : 'UI.DataField',
+            Value                    : checkScope_code,
+            ![@UI.Importance]        : #Medium,
+            ![@HTML5.CssDefaults]    : {width: '4rem'},
+            CriticalityRepresentation: #WithoutIcon,
+            Criticality              : checkScope.criticality.criticality,
+        },
+        {
+            $Type                    : 'UI.DataField',
+            Value                    : objectScope_code,
+            Label                    : '{i18n>objectScope}',
+            ![@UI.Importance]        : #Medium,
+            ![@HTML5.CssDefaults]    : {width: '4rem'},
+            CriticalityRepresentation: #WithoutIcon,
+            Criticality              : objectScope.criticality.criticality,
+        },
+
+        {
+            $Type                : 'UI.DataField',
+            Value                : applicantUserId,
+            ![@UI.Importance]    : #Medium,
+            ![@HTML5.CssDefaults]: {width: '8rem'},
+        },
+        {
+            $Type                : 'UI.DataField',
+            Value                : applicantReason,
+            ![@UI.Importance]    : #High,
+            ![@HTML5.CssDefaults]: {width: '4rem'},
+        },
+        {
+            $Type                : 'UI.DataField',
+            Value                : applicantComment,
+            ![@UI.Importance]    : #High,
+            ![@HTML5.CssDefaults]: {width: '15rem'},
+        },
+        {
+            $Type                : 'UI.DataField',
+            Value                : approverUserId,
+            ![@UI.Importance]    : #Medium,
+            ![@HTML5.CssDefaults]: {width: '8rem'},
+        },
+        {
+            $Type                : 'UI.DataField',
+            Value                : approverComment,
+            ![@UI.Importance]    : #High,
+            ![@HTML5.CssDefaults]: {width: '15rem'},
+        },
+        {
+            $Type            : 'UI.DataField',
+            Value            : checkClass,
+            Label            : '{i18n>checkClass}',
+            ![@UI.Importance]: #Low,
+        },
+        {
+            $Type          : 'UI.DataFieldForIntentBasedNavigation',
+            SemanticObject : 'Exemptions',
+            Action         : 'manage',
+            Label          : 'Manage Exemptions',
+            Inline         : false,
+            RequiresContext: false,
+            Mapping        : [
+                {
+                    $Type                 : 'Common.SemanticObjectMappingType',
+                    LocalProperty         : objectName,
+                    SemanticObjectProperty: 'objectName',
+                }
+            ]
         },
     ],
 );

@@ -101,6 +101,10 @@ modules:
           artifacts:
             - manage-extension.zip
           target-path: resources/
+        - name: manage-exemption-app
+          artifacts:
+            - manage-exemption.zip
+          target-path: resources/
         - name: manage-development-object-app
           artifacts:
             - manage-development-object.zip
@@ -181,6 +185,18 @@ modules:
     # ------------------------------------------------------------
     type: html5
     path: app/manage-extension
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms: []
+
+  # ------------- APPLICATION: Manage Exemptions ----------------
+  - name: manage-exemption-app
+    # ------------------------------------------------------------
+    type: html5
+    path: app/manage-exemption
     build-parameters:
       build-result: dist
       builder: custom

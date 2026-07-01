@@ -12,7 +12,8 @@ import {
 } from './features/classification-feature';
 import {
   importFindingsCSVById,
-  importFindingsBTP
+  importFindingsBTP,
+  importExemptionsBTP
 } from './features/developmentObject-feature';
 
 import {
@@ -157,6 +158,34 @@ export default (srv: Service) => {
     });
   });
 
+  srv.on('importExemptionsBTP', async (req: any) => {
+    LOG.info('importExemptionsBTP');
+
+    const importId = await createImport(
+      'BTP_EXEMPTIONS',
+      '',
+      null,
+      '',
+      req.data.systemId,
+      false
+    );
+
+    if (importId) {
+      await srv.emit('Imported', {
+        ID: importId,
+        type: 'BTP_EXEMPTIONS'
+      });
+    } else {
+      req.error(400, 'IMPORT_CREATION_FAILED');
+      return;
+    }
+
+    req.notify({
+      message: 'IMPORT_STARTED',
+      status: 200
+    });
+  });
+
   srv.on('importClassifications', async (req: any) => {
     LOG.info('importClassifications');
 
@@ -230,6 +259,8 @@ export default (srv: Service) => {
             );
           case 'BTP_FINDINGS':
             return await importFindingsBTP(ID, tx, updateProgress);
+          case 'BTP_EXEMPTIONS':
+            return await importExemptionsBTP(ID, tx, updateProgress);
           case 'BTP_MISSING_CLASSIFICATION':
             return await importMissingClassificationsBTP(
               ID,

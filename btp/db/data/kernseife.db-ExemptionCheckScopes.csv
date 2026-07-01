@@ -1,0 +1,5 @@
+code,title,criticality_code
+MSG,"Message",1
+CHK,"Check",1
+ALL,"All Checks",1
+FND,"Finding",0

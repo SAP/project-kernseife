@@ -1,8 +1,24 @@
 {
   "ratingList": [
+        {
+      "code": "BF8",
+      "title": "Business Function - Avoid",
+      "criticality": "E",
+      "score": 8,
+      "level": "C",
+      "usableInClassification": true
+    },
+    {
+      "code": "BF8_SUC",
+      "title": "Business Function - Avoid  (with Successor)",
+      "criticality": "E",
+      "score": 8,
+      "level": "C",
+      "usableInClassification": false
+    },
     {
       "code": "BF9",
-      "title": "Business Function - Avoid",
+      "title": "Business Function - No API",
       "criticality": "E",
       "score": 9,
       "level": "D",
@@ -10,7 +26,7 @@
     },
     {
       "code": "BF9_SUC",
-      "title": "Business Function - Avoid  (with Successor)",
+      "title": "Business Function - No Api  (with Successor)",
       "criticality": "E",
       "score": 9,
       "level": "D",
@@ -18,7 +34,7 @@
     },
     {
       "code": "BF1",
-      "title": "Business Function - Recommended",
+      "title": "Business Function - Classic API",
       "criticality": "I",
       "score": 1,
       "level": "B",
@@ -26,10 +42,26 @@
     },
     {
       "code": "BF1_SUC",
-      "title": "Business Function - Recommended (with Successor)",
+      "title": "Business Function - Classic API (with Successor)",
       "criticality": "I",
       "score": 1,
       "level": "B",
+      "usableInClassification": false
+    },
+    {
+      "code": "BF4",
+      "title": "Business Function - Recommend",
+      "criticality": "I",
+      "score": 4,
+      "level": "C",
+      "usableInClassification": true
+    },
+    {
+      "code": "BF4_SUC",
+      "title": "Business Function - Recommend (with Successor)",
+      "criticality": "I",
+      "score": 4,
+      "level": "C",
       "usableInClassification": false
     },
     {
@@ -66,7 +98,7 @@
     },
     {
       "code": "FW1",
-      "title": "Framework - Recommended",
+      "title": "Framework - Classic API",
       "criticality": "I",
       "score": 1,
       "level": "B",
@@ -74,10 +106,26 @@
     },
     {
       "code": "FW1_SUC",
-      "title": "Framework - Recommended (with Successor)",
+      "title": "Framework - Classic API (with Successor)",
       "criticality": "I",
       "score": 1,
       "level": "B",
+      "usableInClassification": false
+    },
+    {
+      "code": "FW4",
+      "title": "Framework - Recommend",
+      "criticality": "I",
+      "score": 4,
+      "level": "C",
+      "usableInClassification": true
+    },
+    {
+      "code": "FW4_SUC",
+      "title": "Framework - Recommend (with Successor)",
+      "criticality": "I",
+      "score": 4,
+      "level": "C",
       "usableInClassification": false
     },
     {
@@ -240,9 +288,25 @@
       "level": "B",
       "usableInClassification": false
     },
+     {
+      "code": "FW8",
+      "title": "Framework - Avoid",
+      "criticality": "W",
+      "score": 8,
+      "level": "C",
+      "usableInClassification": true
+    },
+    {
+      "code": "FW8_SUC",
+      "title": "Framework - Avoid (with Successor)",
+      "criticality": "E",
+      "score": 8,
+      "level": "C",
+      "usableInClassification": false
+    },
     {
       "code": "FW9",
-      "title": "Framework - Avoid",
+      "title": "Framework - No API",
       "criticality": "E",
       "score": 9,
       "level": "D",
@@ -250,7 +314,7 @@
     },
     {
       "code": "FW9_SUC",
-      "title": "Framework - Avoid (with Successor)",
+      "title": "Framework - No API (with Successor)",
       "criticality": "E",
       "score": 9,
       "level": "D",

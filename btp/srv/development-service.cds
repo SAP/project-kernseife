@@ -45,6 +45,18 @@ service DevelopmentService @(requires: ['development-viewer']) {
     entity DevelopmentObjectUsages           as projection on db.DevelopmentObjectUsages;
 
     @readonly
+    entity Exemptions                        as projection on db.Exemptions;
+
+    @readonly
+    entity ExemptionCheckScopes              as projection on db.ExemptionCheckScopes;
+
+    @readonly
+    entity ExemptionObjectScopes             as projection on db.ExemptionObjectScopes;
+
+    @readonly
+    entity ExemptionStates                   as projection on db.ExemptionStates;
+
+    @readonly
     entity Classifications                   as projection on db.Classifications;
 
     @readonly
@@ -137,6 +149,16 @@ service DevelopmentService @(requires: ['development-viewer']) {
 
     entity AdoptionEffort                    as projection on db.AdoptionEffort;
     entity ObjectTypes                       as projection on db.ObjectTypes;
+
+    entity ExemptionObjectTypes              as
+        select from db.ObjectTypes as o
+        inner join db.Exemptions as e
+            on e.objectType = o.objectType
+        {
+            key o.objectType,
+                o.title
+        };
+
     entity Criticality                       as projection on db.Criticality;
 
     @odata.singleton
@@ -145,5 +167,8 @@ service DevelopmentService @(requires: ['development-viewer']) {
         isNotManager : Boolean;
     }
 
+
     function getTileInfo(appName: String) returns types.DynamicAppLauncher;
+
+
 }

@@ -1,6 +1,6 @@
 import { log } from '@sap/cds';
 import { remoteServiceCall } from '../lib/connectivity';
-import { System } from '#cds-models/kernseife/db';
+import { Exemptions, System } from '#cds-models/kernseife/db';
 import {
   DevelopmentObjectImport,
   FindingImport,
@@ -215,4 +215,44 @@ export const getDestinationBySystemId = async (systemId: string) => {
     throw new Error(`System ${systemId} not found or no destination assigned`);
   }
   return system.destination;
+};
+
+export const getExemptions = async (
+  connection: Connection,
+  checkClass: string,
+  top: number,
+  skip: number
+): Promise<Exemptions> => {
+  // Read Development Objects
+  const response = await remoteServiceCall({
+    destinationName: connection.destination,
+    jwtToken: connection.jwtToken,
+    method: 'GET',
+    url:
+      BTP_CONNECTOR_PATH +
+      `ZKNSF_I_EXEMPTIONS?$top=${top}&$skip=${skip}&$filter=checkClass eq '${checkClass}'`
+  });
+  // LOG.info(
+  //   `Received response from Destination ${destination}: ${JSON.stringify(response?.result?.value)}`
+  // );
+  return response.result.value as Exemptions;
+};
+
+export const getExemptionsCount = async (
+  connection: Connection,
+  checkClass: string
+): Promise<number> => {
+  // Read Development Objects
+  const response = await remoteServiceCall({
+    destinationName: connection.destination,
+    jwtToken: connection.jwtToken,
+    method: 'GET',
+    url:
+      BTP_CONNECTOR_PATH +
+      `ZKNSF_I_EXEMPTIONS/$count?$filter=checkClass eq '${checkClass}'`
+  });
+  LOG.info(
+    `Received response from Destination ${connection.destination}: ${JSON.stringify(response?.result)}`
+  );
+  return response.result as number;
 };

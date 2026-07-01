@@ -1043,6 +1043,11 @@
           "length": 5000,
           "@cds.persistence.name": "SYSTEMID"
         },
+        "exemptionLinkId": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "EXEMPTIONLINKID"
+        },
         "potentialCode": {
           "type": "cds.String",
           "length": 5000,
@@ -1593,6 +1598,143 @@
       },
       "@cds.persistence.name": "KERNSEIFE_DB_HISTORICDEVELOPMENTOBJECTS"
     },
+    "kernseife.db.Exemptions": {
+      "kind": "entity",
+      "@cds.persistence.journal": true,
+      "elements": {
+        "exemptionId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "EXEMPTIONID"
+        },
+        "systemId": {
+          "key": true,
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SYSTEMID"
+        },
+        "exemptionLinkId": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "EXEMPTIONLINKID"
+        },
+        "state_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "STATE_CODE"
+        },
+        "checkClass": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "CHECKCLASS"
+        },
+        "objectScope_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTSCOPE_CODE"
+        },
+        "checkScope_code": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "CHECKSCOPE_CODE"
+        },
+        "messageId": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "MESSAGEID"
+        },
+        "objectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTNAME"
+        },
+        "objectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "OBJECTTYPE"
+        },
+        "subObjectName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SUBOBJECTNAME"
+        },
+        "subObjectType": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "SUBOBJECTTYPE"
+        },
+        "checksumVersion": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "CHECKSUMVERSION"
+        },
+        "checksumValue": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "CHECKSUMVALUE"
+        },
+        "validUntil": {
+          "type": "cds.Date",
+          "@cds.persistence.name": "VALIDUNTIL"
+        },
+        "applicantUserId": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "APPLICANTUSERID"
+        },
+        "applicantUserName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "APPLICANTUSERNAME"
+        },
+        "applicantLastChangedAt": {
+          "type": "cds.Date",
+          "@cds.persistence.name": "APPLICANTLASTCHANGEDAT"
+        },
+        "applicantReason": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "APPLICANTREASON"
+        },
+        "applicantReasonText": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "APPLICANTREASONTEXT"
+        },
+        "applicantComment": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "APPLICANTCOMMENT"
+        },
+        "approverUserId": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "APPROVERUSERID"
+        },
+        "approverUserName": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "APPROVERUSERNAME"
+        },
+        "approverLastChangedAt": {
+          "type": "cds.Date",
+          "@cds.persistence.name": "APPROVERLASTCHANGEDAT"
+        },
+        "approverComment": {
+          "type": "cds.String",
+          "length": 5000,
+          "@cds.persistence.name": "APPROVERCOMMENT"
+        },
+        "lastChangedAt": {
+          "type": "cds.DateTime",
+          "@cds.persistence.name": "LASTCHANGEDAT"
+        },
+        "exemptionChecksum": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "EXEMPTIONCHECKSUM"
+        }
+      },
+      "@cds.persistence.name": "KERNSEIFE_DB_EXEMPTIONS"
+    },
     "kernseife.db.NoteClassifications": {
       "kind": "entity",
       "@cds.persistence.journal": true,
@@ -1695,6 +1837,14 @@
           "type": "cds.String",
           "length": 5000,
           "@cds.persistence.name": "MESSAGEID"
+        },
+        "checksumVersion": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "CHECKSUMVERSION"
+        },
+        "checksumValue": {
+          "type": "cds.Integer",
+          "@cds.persistence.name": "CHECKSUMVALUE"
         },
         "potentialMessageId": {
           "type": "cds.String",
@@ -1826,7 +1976,7 @@
     "creator": "CDS Compiler v6.4.2",
     "flavor": "inferred",
     "minified": true,
-    "build": "CDS Build v9.6.0"
+    "build": "CDS Build v9.9.2"
   },
   "$version": "2.0"
 }

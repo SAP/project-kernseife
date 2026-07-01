@@ -117,6 +117,11 @@ annotate service.Jobs with @(
                 },
                 {
                     $Type : 'UI.DataFieldForAction',
+                    Action: 'AdminService.EntityContainer/importExemptionsBTP',
+                    Label : '{i18n>importExemptionsBTP}',
+                },
+                {
+                    $Type : 'UI.DataFieldForAction',
                     Action: 'AdminService.EntityContainer/importClassifications',
                     Label : '{i18n>importClassifications}',
                 },

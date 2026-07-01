@@ -65,6 +65,15 @@
                                         "subtitle": "Explorer",
                                         "targetURL": "#Extensions-manage"
                                     }
+                                },
+                                {
+                                    "id": "ManageExemptions",
+                                    "tileType": "sap.ushell.ui.tile.StaticTile",
+                                    "properties": {
+                                        "title": "Exemptions",
+                                        "subtitle": "Explorer",
+                                        "targetURL": "#Exemptions-manage"
+                                    }
                                 }
                             ]
                         },
@@ -190,6 +199,20 @@
                                 "applicationType": "SAPUI5",
                                 "additionalInformation": "SAPUI5.Component=manageextension",
                                 "url": "manage-extension/webapp"
+                            }
+                        },
+                        "Exemptions-manage": {
+                            "semanticObject": "Exemptions",
+                            "action": "manage",
+                            "title": "Manage Exemptions",
+                            "signature": {
+                                "parameters": {},
+                                "additionalParameters": "ignored"
+                            },
+                            "resolutionResult": {
+                                "applicationType": "SAPUI5",
+                                "additionalInformation": "SAPUI5.Component=manageexemption",
+                                "url": "manage-exemption/webapp"
                             }
                         },
                         "Settings-configure": {

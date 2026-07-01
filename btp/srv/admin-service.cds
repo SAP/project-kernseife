@@ -4,6 +4,7 @@ using {kernseife_btp as btp} from './external/kernseife_btp';
 service AdminService @(requires: 'admin') {
 
     type inSystemBTP                  : {
+        @UI.ParameterDefaultValue       : 'ALL'
         @Common.ValueListWithFixedValues: true
         @(Common                        : {
             Label    : '{i18n>system}',
@@ -86,6 +87,9 @@ service AdminService @(requires: 'admin') {
 
     @(Common.SideEffects: {TargetEntities: ['/AdminService.EntityContainer/Jobs'], })
     action importFindingsBTP( @mandatory systemId: inSystemBTP:systemId, );
+
+    @(Common.SideEffects: {TargetEntities: ['/AdminService.EntityContainer/Jobs'], })
+    action importExemptionsBTP( @mandatory systemId: inSystemBTP:systemId, );
 
     @(Common.SideEffects: {TargetEntities: ['/AdminService.EntityContainer/Jobs'], })
     action importClassifications( @mandatory file: inFileType not null, @Common.Label: '{i18n>overwriteExisting}' overwriteExisting: Boolean);

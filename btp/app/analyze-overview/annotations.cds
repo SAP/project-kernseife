@@ -70,6 +70,7 @@ annotate service.DevelopmentObjects with @(
     },
     UI.Identification #scoreShare                                     : [{
         $Type         : 'UI.DataFieldForIntentBasedNavigation',
+        Label         : '{i18n>score}',
         SemanticObject: 'DevelopmentObjects',
         Action        : 'manage',
     }, ],
@@ -399,7 +400,6 @@ annotate service.Classifications with @(
 
 
 annotate service.DevClasses with @(
-
     UI.LineItem #topPackagesByScoreSum                   : [
         {
             $Type            : 'UI.DataField',
@@ -657,7 +657,7 @@ annotate service.DevClasses with @(
         }],
         Visualizations: ['@UI.Chart#cleanupPotential']
     },
-    
+
     UI.Identification #cleanupPotential                  : [{
         $Type         : 'UI.DataFieldForIntentBasedNavigation',
         SemanticObject: 'DevelopmentObjects',
@@ -694,3 +694,158 @@ annotate service.ScoreHistory with @(UI.Chart #scoreHistory: {
         Role   : #Axis1,
     }],
 });
+
+annotate service.Exemptions with @(
+    UI.PresentationVariant #exemptionHistory: {
+        MaxItems      : 8,
+        GroupBy       : [
+            systemId,
+            state
+        ],
+        SortOrder     : [{
+            $Type     : 'Common.SortOrderType',
+            Property  : objectCount,
+            Descending: true,
+
+        }],
+        Visualizations: ['@UI.Chart#exemptionHistory']
+    },
+    UI.Identification #exemptionHistory     : [{
+        $Type         : 'UI.DataFieldForIntentBasedNavigation',
+        SemanticObject: 'Exemptions',
+        Action        : 'manage',
+
+    }, ],
+    UI.DataPoint #exemptionHistory          : {
+        $Type      : 'UI.DataPointType',
+        Title      : '{i18n>exemtions}',
+        Description: '{i18n>exemtions}',
+        value      : objectCount,
+        ValueFormat: {
+            ScaleFactor             : 1000,
+            NumberOfFractionalDigits: 0
+        },
+    },
+    UI.Chart #exemptionHistory              : {
+        $Type              : 'UI.ChartDefinitionType',
+        Title              : '{i18n>exemptionHistory}',
+        ChartType          : #ColumnStacked,
+        Dimensions         : [
+            systemId,
+            state
+        ],
+        Measures           : [objectCount],
+        DimensionAttributes: [
+            {
+                $Type    : 'UI.ChartDimensionAttributeType',
+                Dimension: systemId,
+                Role     : #Category,
+            },
+            {
+                $Type    : 'UI.ChartDimensionAttributeType',
+                Dimension: state,
+                Role     : #Series,
+            }
+        ],
+        MeasureAttributes  : [{
+            $Type    : 'UI.ChartMeasureAttributeType',
+            Measure  : objectCount,
+            Role     : #Axis1,
+            DataPoint: '@UI.DataPoint#exemptionHistory',
+        }, ],
+
+    },
+    UI.Chart #objectScope                   : {
+        $Type              : 'UI.ChartDefinitionType',
+        Title              : '{i18n>objectScope}',
+        ChartType          : #Donut,
+        Dimensions         : [objectScope],
+        DimensionAttributes: [{
+            $Type    : 'UI.ChartDimensionAttributeType',
+            Dimension: objectScope,
+            Role     : #Category
+        }],
+        Measures           : [objectCount],
+        MeasureAttributes  : [{
+            $Type  : 'UI.ChartMeasureAttributeType',
+            Measure: objectCount,
+            Role   : #Axis1
+        }]
+    },
+    UI.PresentationVariant #objectScope     : {
+        SortOrder     : [{
+            $Type     : 'Common.SortOrderType',
+            Property  : objectScope,
+            Descending: false,
+
+        }],
+        Visualizations: ['@UI.Chart#objectScope']
+    },
+    UI.DataPoint #objectScope                : {
+        $Type: 'UI.DataPointType',
+        Value: objectCount,
+        Title: '{i18n>checkScope}',
+    },
+    UI.Chart #checkScope                    : {
+        $Type              : 'UI.ChartDefinitionType',
+        Title              : '{i18n>checkScope}',
+        ChartType          : #Donut,
+        Dimensions         : [checkScope],
+        DimensionAttributes: [{
+            $Type    : 'UI.ChartDimensionAttributeType',
+            Dimension: checkScope,
+            Role     : #Category
+        }],
+        Measures           : [objectCount],
+        MeasureAttributes  : [{
+            $Type  : 'UI.ChartMeasureAttributeType',
+            Measure: objectCount,
+            Role   : #Axis1
+        }]
+    },
+    UI.PresentationVariant #checkScope      : {
+        SortOrder     : [{
+            $Type     : 'Common.SortOrderType',
+            Property  : checkScope,
+            Descending: false,
+
+        }],
+        Visualizations: ['@UI.Chart#checkScope']
+    },
+    UI.DataPoint #checkScope              : {
+        $Type: 'UI.DataPointType',
+        Value: objectCount,
+        Title: '{i18n>reason}',
+    },
+     UI.Chart #reason                    : {
+        $Type              : 'UI.ChartDefinitionType',
+        Title              : '{i18n>reason}',
+        ChartType          : #Donut,
+        Dimensions         : [reason],
+        DimensionAttributes: [{
+            $Type    : 'UI.ChartDimensionAttributeType',
+            Dimension: reason,
+            Role     : #Category
+        }],
+        Measures           : [objectCount],
+        MeasureAttributes  : [{
+            $Type  : 'UI.ChartMeasureAttributeType',
+            Measure: objectCount,
+            Role   : #Axis1
+        }]
+    },
+    UI.PresentationVariant #reason      : {
+        SortOrder     : [{
+            $Type     : 'Common.SortOrderType',
+            Property  : reason,
+            Descending: false,
+
+        }],
+        Visualizations: ['@UI.Chart#reason']
+    },
+    UI.DataPoint #reason                : {
+        $Type: 'UI.DataPointType',
+        Value: objectCount,
+        Title: '{i18n>reason}',
+    },
+);
