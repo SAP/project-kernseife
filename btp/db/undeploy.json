@@ -9,5 +9,7 @@
   "src/kernseife.db.Clusters.hdbmigrationtable",
   "src/kernseife.db.DefaultRatingMappings.hdbmigrationtable",
   "src/kernseife.db.LegacyRatings.hdbmigrationtable",
-  "src/kernseife.db.ScoringRecords.hdbmigrationtable"
+  "src/kernseife.db.ScoringRecords.hdbmigrationtable",
+  "src/kernseife.db.Exemptions.hdbtable",
+  "src/gen/kernseife.db.Exemptions.hdbtable"
 ]
