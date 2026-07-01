@@ -18,14 +18,15 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "types": [
-      "node"
+      "node",
+      "@cap-js/cds-types"
     ],
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "paths": {
       "#cds-models/*": [
-        "./@cds-models/*/index.ts"
+        "./@cds-models/*/index.d.ts"
       ]
     }
   },
