@@ -28,9 +28,9 @@
     "deploy-production": "cf deploy gen/mtar/kernseife_$npm_package_version.mtar -e=BTP_PROD.mtaext"
   },
   "dependencies": {
-    "@cap-js/hana": "2.8.0",
     "@cap-js/cds-typer": "0.40.0",
     "@cap-js/cds-types": "0.18.0",
+    "@cap-js/hana": "2.8.0",
     "@grpc/grpc-js": "1.14.4",
     "@sap-cloud-sdk/connectivity": "4.7.0",
     "@sap-cloud-sdk/http-client": "4.7.0",
@@ -150,5 +150,16 @@
   ],
   "imports": {
     "#cds-models/*": "./@cds-models/*/index.js"
+  },
+  "allowScripts": {
+    "@cap-js/cds-types@": true,
+    "esbuild@0.28.1": true,
+    "fsevents@2.3.3": true,
+    "fsevents@2.3.2": true,
+    "mbt@1.2.49": true,
+    "tree-sitter": true,
+    "tree-sitter-java": true,
+    "better-sqlite3": true,
+    "protobufjs": true
   }
 }
