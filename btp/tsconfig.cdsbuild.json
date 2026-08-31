@@ -1,7 +1,8 @@
 {
     "extends": "./tsconfig.deployment.json",
     "compilerOptions": {
-        "outDir": "./gen/srv"
+        "outDir": "./gen/srv",
+        "rootDir": "."
     },
     "exclude": [
         "app",
