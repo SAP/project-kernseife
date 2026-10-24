@@ -13,5 +13,5 @@ export const streamToBuffer = async (stream: PassThrough): Promise<Buffer> => {
 };
 
 export const isZipFile = (mimeType: string): boolean => {
-  return mimeType === 'application/zip' || mimeType === 'application/x-zip-compressed' || mimeType === 'application/x-zip' || mimeType === 'multipart/x-zip';
+  return mimeType === 'application/zip' || mimeType === 'application/x-zip-compressed' || mimeType === 'application/x-zip' || mimeType === 'application/x-compressed' || mimeType === 'multipart/x-zip';
 }
