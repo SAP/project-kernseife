@@ -123,7 +123,7 @@ CLASS lhc_project IMPLEMENTATION.
       RETURN.
     ENDIF.
 
-    reported-%other = VALUE #( ( new_message_with_text( severity = if_abap_behv_message=>severity-error text = |Success: Started ATC Run| ) ) ).
+    reported-%other = VALUE #( ( new_message_with_text( severity = if_abap_behv_message=>severity-success text = |Success: Started ATC Run| ) ) ).
   ENDMETHOD.
 
   METHOD run_atc_finish.
