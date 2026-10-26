@@ -31,16 +31,16 @@
     "@cap-js/cds-typer": "0.40.0",
     "@cap-js/cds-types": "0.18.0",
     "@cap-js/hana": "2.8.0",
-    "@grpc/grpc-js": "1.14.4",
+    "@grpc/grpc-js": "1.14.6",
     "@sap-cloud-sdk/connectivity": "4.7.0",
     "@sap-cloud-sdk/http-client": "4.7.0",
     "@sap-cloud-sdk/resilience": "4.7.0",
     "@sap-cloud-sdk/util": "4.7.0",
     "@sap/cds": "9.9.2",
     "@sap/xssec": "4.13.0",
-    "axios": "1.18.1",
+    "axios": "1.20.0",
     "dayjs": "1.11.21",
-    "express": "4.22.2",
+    "express": "4.22.3",
     "helmet": "8.2.0",
     "is-ci": "4.1.0",
     "jszip": "3.10.1",
@@ -52,14 +52,14 @@
     "@eslint/js": "9.34.0",
     "@jest/globals": "29.7.0",
     "@sap/eslint-plugin-cds": "4.2.4",
-    "@sap/ux-specification": "1.144.6",
+    "@sap/ux-specification": "1.144.13",
     "@types/express": "4.17.21",
     "@types/jest": "29.5.14",
     "@types/multer": "1.4.12",
     "@types/node": "22.20.0",
     "@types/papaparse": "5.5.2",
     "@types/sap__xsenv": "3.3.2",
-    "@ui5/cli": "4.0.57",
+    "@ui5/cli": "4.0.71",
     "eslint": "9.34.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jest": "29.15.4",
@@ -74,6 +74,15 @@
     "tsx": "4.22.4",
     "typescript": "5.9.3",
     "typescript-eslint": "8.62.1"
+  },
+  "overrides": {
+    "@ui5/project": {
+      "pacote": "21.5.1"
+    },
+    "lodash": "4.18.1",
+    "pacote": {
+      "sigstore": "4.1.1"
+    }
   },
   "cds": {
     "requires": {
