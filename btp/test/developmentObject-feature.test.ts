@@ -4,8 +4,8 @@ import {
   getDevelopmentObjectIdentifier,
   validateFindingsCsvColumns
 } from '../srv/features/developmentObject-feature';
-import {
-  CleanCoreLevel,
+import { CleanCoreLevel } from '#cds-models/kernseife/enums';
+import type {
   DevelopmentObject,
   FindingRecord,
   DevelopmentObjectFinding

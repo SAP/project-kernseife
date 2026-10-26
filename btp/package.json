@@ -22,7 +22,10 @@
     "cleanup:build": "npx rimraf resources mta_archives app/resources app/**/dist",
     "cleanup:ts": "npx rimraf gen/**/*.ts",
     "generate-cds-types": "npx @cap-js/cds-typer \"*\" --outputDirectory @cds-models",
+    "pretest": "npm run generate-cds-types",
     "test": "jest --silent",
+    "pretest:typecheck": "npm run generate-cds-types",
+    "test:typecheck": "tsc --project tsconfig.test.json",
     "mbt": "npm run update:version && mbt build -t gen/mtar -m=verbose -j=8",
     "deploy-dev": "cf deploy gen/mtar/kernseife_$npm_package_version.mtar -e=BTP_DEV.mtaext",
     "deploy-production": "cf deploy gen/mtar/kernseife_$npm_package_version.mtar -e=BTP_PROD.mtaext"

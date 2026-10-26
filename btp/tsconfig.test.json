@@ -4,7 +4,8 @@
     "rootDir": ".",
     "isolatedModules": true,
     "noEmit": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "types": ["node", "jest", "@cap-js/cds-types"]
   },
   "include": ["test/**/*"],
   "exclude": ["node_modules"]
