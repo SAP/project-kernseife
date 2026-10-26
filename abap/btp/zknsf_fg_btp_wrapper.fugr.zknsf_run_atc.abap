@@ -53,14 +53,20 @@ FUNCTION zknsf_run_atc.
         IF messages IS BOUND.
           messages->get( IMPORTING et_message = DATA(message_table) ).
           IF lines( message_table ) > 0.
-            CLEAR e_message.
+            DATA(bopf_text) = ``.
             LOOP AT message_table INTO DATA(message).
-              IF e_message IS INITIAL.
-                e_message = message->get_text( ).
-              ELSE.
-                e_message = |{ e_message }; { message->get_text( ) }|.
+              DATA(message_text) = message->get_text( ).
+              IF message_text IS NOT INITIAL.
+                IF bopf_text IS INITIAL.
+                  bopf_text = message_text.
+                ELSE.
+                  bopf_text = |{ bopf_text }; { message_text }|.
+                ENDIF.
               ENDIF.
             ENDLOOP.
+            IF bopf_text IS NOT INITIAL.
+              e_message = bopf_text.
+            ENDIF.
           ENDIF.
         ENDIF.
         RETURN.
