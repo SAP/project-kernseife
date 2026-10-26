@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /btp
+    schedule:
+      interval: weekly
+    groups:
+      security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+      compatible-updates:
+        applies-to: version-updates
+        update-types:
+          - minor
+          - patch
+  - package-ecosystem: npm
+    directory: /btp/db
+    schedule:
+      interval: weekly
+    groups:
+      security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

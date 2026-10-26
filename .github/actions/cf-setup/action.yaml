@@ -26,11 +26,14 @@ runs:
   using: composite
   steps:
     - shell: bash
+      env:
+        CF_VERSION: ${{ inputs.cf-version }}
+        CF_API: ${{ inputs.cf-api }}
       run: |
-        set -e
-        echo "Using CF_VERSION=${{ inputs.cf-version }}"
-        echo "Using CF_API=${{ inputs.cf-api }}"
-        curl -L "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=${{ inputs.cf-version }}&source=github" -o cf-cli.tgz
+        set -euo pipefail
+        echo "Using CF_VERSION=$CF_VERSION"
+        echo "Using CF_API=$CF_API"
+        curl --fail --show-error --silent --location "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=$CF_VERSION&source=github" -o cf-cli.tgz
         mkdir cf-cli && tar -xzf cf-cli.tgz -C cf-cli
         chmod +x cf-cli/cf
         echo "${PWD}/cf-cli" >> $GITHUB_PATH
@@ -46,8 +49,15 @@ runs:
         cf install-plugin multiapps -f
 
     - shell: bash
+      env:
+        CF_API: ${{ inputs.cf-api }}
+        CF_USERNAME: ${{ inputs.cf-username }}
+        CF_PASSWORD: ${{ inputs.cf-password }}
+        CF_ORG: ${{ inputs.cf-org }}
+        CF_SPACE: ${{ inputs.cf-space }}
       run: |
+        set -euo pipefail
         echo "Authenticating to Cloud Foundry..."
-        cf api "${{ inputs.cf-api }}"
-        cf auth "${{ inputs.cf-username }}" "${{ inputs.cf-password }}"
-        cf target -o "${{ inputs.cf-org }}" -s "${{ inputs.cf-space }}"
+        cf api "$CF_API"
+        cf auth "$CF_USERNAME" "$CF_PASSWORD"
+        cf target -o "$CF_ORG" -s "$CF_SPACE"

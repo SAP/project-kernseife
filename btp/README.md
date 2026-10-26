@@ -37,3 +37,23 @@ If you run the project for the first time run `nvm install` to install the requi
 ```sh
 npm i -g @sap/cds-dk typescript ts-node
 ```
+
+## Dependency security maintenance
+
+Use Node.js 22 for local development, matching the deployment workflow. Install
+dependencies with `npm ci` in this directory; the HANA deployer has its own
+lockfile in `db/`. Audit both with `npm audit` and `npm audit --prefix db`.
+
+The root package overrides Lodash to a patched 4.x release and the UI5 Project
+Pacote dependency to 21.5.1 with Sigstore 4.1.1. These address vulnerabilities
+in the versions pinned by upstream build tooling. Keep the overrides until
+upstream versions include those fixes, and validate all UI5 builds when changing
+them. The unused UI5 JSDoc lint plugin was removed because it installed legacy
+ESLint and vulnerable dependencies; linting uses the root `eslint.config.mjs`.
+
+As of 26 October 2026, `node-forge` 1.4.0 remains affected by
+[GHSA-86w9-cpqp-85rv](https://github.com/advisories/GHSA-86w9-cpqp-85rv),
+with no published patched version. It is pulled in by the Cloud SDK `jks-js`
+dependency. Track the upstream fix and review destinations using JKS
+certificates before rollout. An audit may consequently still report this
+advisory and its dependent packages.
