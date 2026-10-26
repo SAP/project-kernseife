@@ -2,7 +2,7 @@
   "name": "deploy",
   "dependencies": {
     "@sap/hdi-deploy": "5.5.1",
-    "@sap/hana-client": "2.26.18",
+    "@sap/hana-client": "2.30.27",
     "hdb": "2.26.1"
   },
   "scripts": {
