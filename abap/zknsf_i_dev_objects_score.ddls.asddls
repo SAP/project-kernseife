@@ -9,7 +9,7 @@
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 define view entity ZKNSF_I_DEV_OBJECTS_SCORE
   as select from     ZKNSF_I_ATC_FINDINGS as fnd
-    right outer join ZKNSF_I_SCORING      as score on  fnd.displayId  = score.runId
+    left outer join  ZKNSF_I_SCORING      as score on  fnd.displayId  = score.runId
                                                    and fnd.objectType = score.objectType
                                                    and fnd.objectName = score.objectName
 
@@ -19,8 +19,11 @@ define view entity ZKNSF_I_DEV_OBJECTS_SCORE
   key   fnd.objectName                                                                                                                         as objectName,
         fnd.devClass                                                                                                                           as devClass,
         fnd.messageId                                                                                                                          as languageVersion,
-        sum( score.score )                                                                                                                     as cleanCoreScore,
-        case max( score.cleanCoreLevel ) when 'A' then case fnd.messageId when '5' then 'A' else 'B' end else max( score.cleanCoreLevel )  end as cleanCoreLevel
+        coalesce( sum( score.score ), 0 )                                                                                                       as cleanCoreScore,
+        case coalesce( max( score.cleanCoreLevel ), 'A' )
+          when 'A' then case fnd.messageId when '5' then 'A' else 'B' end
+          else max( score.cleanCoreLevel )
+        end                                                                                                                                    as cleanCoreLevel
 }
 where
      fnd.messageId = '5'
