@@ -10,7 +10,7 @@ import type {
   FindingRecord,
   DevelopmentObjectFinding
 } from '#cds-models/kernseife/db';
-import {describe, expect, it} from '@jest/globals';
+import { describe, expect, it } from '@jest/globals';
 
 describe('developmentObject-feature', () => {
   describe('calculateScoreAndLevel', () => {
@@ -139,7 +139,34 @@ describe('developmentObject-feature', () => {
 
   describe('validateFindingsCsvColumns', () => {
     it('should validate correct column headers', () => {
-      const headers = ['runId', 'itemId', 'objectType', 'objectName', 'devClass', 'softwareComponent', 'messageId', 'refObjectType', 'refObjectName'];
+      const headers = [
+        'runId',
+        'itemId',
+        'objectType',
+        'objectName',
+        'devClass',
+        'softwareComponent',
+        'messageId',
+        'refObjectType',
+        'refObjectName'
+      ];
+      const result = validateFindingsCsvColumns(headers);
+
+      expect(result.isValid).toBe(true);
+      expect(result.errors).toHaveLength(0);
+    });
+
+    it('should accept findings CSV headers without an optional runId', () => {
+      const headers = [
+        'itemId',
+        'objectType',
+        'objectName',
+        'devClass',
+        'softwareComponent',
+        'messageId',
+        'refObjectType',
+        'refObjectName'
+      ];
       const result = validateFindingsCsvColumns(headers);
 
       expect(result.isValid).toBe(true);
@@ -152,9 +179,9 @@ describe('developmentObject-feature', () => {
 
       expect(result.isValid).toBe(false);
       expect(result.errors.length).toBeGreaterThan(0);
-      expect(result.errors.some(e => e.includes('runId'))).toBe(true);
-      expect(result.errors.some(e => e.includes('itemId'))).toBe(true);
-      expect(result.errors.some(e => e.includes('messageId'))).toBe(true);
+      expect(result.errors.some((e) => e.includes('runId'))).toBe(false);
+      expect(result.errors.some((e) => e.includes('itemId'))).toBe(true);
+      expect(result.errors.some((e) => e.includes('messageId'))).toBe(true);
     });
 
     it('should return all missing column errors at once', () => {
@@ -162,7 +189,7 @@ describe('developmentObject-feature', () => {
       const result = validateFindingsCsvColumns(headers);
 
       expect(result.isValid).toBe(false);
-      expect(result.errors.length).toBe(9); // All required fields missing
+      expect(result.errors.length).toBe(8); // All required fields missing; runId is optional
     });
   });
 });
