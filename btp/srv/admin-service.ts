@@ -189,7 +189,7 @@ export default (srv: Service) => {
   srv.on('importClassifications', async (req: any) => {
     LOG.info('importClassifications');
 
-    if (req.data.file.mimeType != 'application/zip') {
+    if (!isZipFile(req.data.file.mimeType)) {
       req.error(400, 'FILE_TYPE_NOT_SUPPORTED');
       return;
     }
