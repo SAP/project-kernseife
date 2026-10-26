@@ -30,7 +30,7 @@
   "dependencies": {
     "@cap-js/cds-typer": "0.40.0",
     "@cap-js/cds-types": "0.18.0",
-    "@cap-js/hana": "2.8.0",
+    "@cap-js/hana": "3.1.2",
     "@grpc/grpc-js": "1.14.6",
     "@sap-cloud-sdk/connectivity": "4.7.0",
     "@sap-cloud-sdk/http-client": "4.7.0",
