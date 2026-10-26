@@ -12,11 +12,18 @@ import {
 import { updateTotalScoreAndReferenceCount } from '../srv/features/classification-feature';
 
 describe('classification score aggregation (#97)', () => {
-  let database: Service;
+  // CAP exposes these APIs at runtime, but cds-types does not declare them yet.
+  type TestDatabase = Service & { disconnect(): Promise<void> };
+  const runtime = cds as typeof cds & {
+    deploy(model: Awaited<ReturnType<typeof cds.load>>): {
+      to(destination: string): Promise<TestDatabase>;
+    };
+  };
+  let database: TestDatabase;
 
   beforeAll(async () => {
     const model = await cds.load('db/schema.cds');
-    database = await cds.deploy(model).to('sqlite::memory:');
+    database = await runtime.deploy(model).to('sqlite::memory:');
   });
 
   beforeEach(async () => {

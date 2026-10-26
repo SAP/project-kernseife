@@ -5,7 +5,7 @@ inputs:
   cf-version:
     description: "The version of the Cloud Foundry CLI to install"
     required: false
-    default: "8.8.3"
+    default: "8.19.0"
   cf-api:
     description: "The Cloud Foundry API endpoint to connect to"
     required: true
@@ -37,11 +37,6 @@ runs:
         mkdir cf-cli && tar -xzf cf-cli.tgz -C cf-cli
         chmod +x cf-cli/cf
         echo "${PWD}/cf-cli" >> $GITHUB_PATH
-
-    - shell: bash
-      run: |
-        echo "Installing MBT..."
-        npm install -g mbt
 
     - shell: bash
       run: |

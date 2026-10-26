@@ -1,27 +1,26 @@
 {
-    "name": "manage-classification",
-    "version": "1.0.1",
-    "description": "Classification App",
-    "keywords": [
-        "ui5",
-        "openui5",
-        "sapui5"
-    ],
-    "main": "webapp/index.html",
-    "engines": {
-        "node": ">=20"
-    },
-    "scripts": {
-        "build": "ui5 build preload --clean-dest --include-task=generateCachebusterInfo",
-        "start": "ui5 serve",
-        "test": "npm run test:node && npm run test:java",
-        "test:java": "karma start --server=java --single-run"
-    },
-    "devDependencies": {
-        "@sap/ux-specification": "^1.139.4",
-       
-        "@ui5/cli": "^4.0.39",
-        "eslint": "9.34.0",
-        "ui5-task-zipper": "^3.4.4"
-    }
+  "name": "manage-classification",
+  "version": "1.0.1",
+  "description": "Classification App",
+  "keywords": [
+    "ui5",
+    "openui5",
+    "sapui5"
+  ],
+  "main": "webapp/index.html",
+  "engines": {
+    "node": "^22.22.2 || ^24.18.0 || >=26.0.0"
+  },
+  "scripts": {
+    "build": "ui5 build preload --clean-dest --include-task=generateCachebusterInfo",
+    "start": "ui5 serve",
+    "test": "npm run test:node && npm run test:java",
+    "test:java": "karma start --server=java --single-run"
+  },
+  "devDependencies": {
+    "@sap/ux-specification": "1.144.13",
+    "@ui5/cli": "4.0.71",
+    "eslint": "10.13.0",
+    "ui5-task-zipper": "3.7.0"
+  }
 }
