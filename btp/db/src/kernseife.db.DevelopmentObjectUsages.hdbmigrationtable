@@ -1,10 +1,21 @@
-== version=1
+== version=2
 COLUMN TABLE kernseife_db_DevelopmentObjectUsages (
+  systemId NVARCHAR(5000) NOT NULL,
   entryPointObjectType NVARCHAR(5000) NOT NULL,
   entryPointObjectName NVARCHAR(5000) NOT NULL,
   objectType NVARCHAR(5000) NOT NULL,
   objectName NVARCHAR(5000) NOT NULL,
-  counter INTEGER,
+  counter BIGINT,
   lastUsed SECONDDATE,
-  PRIMARY KEY(entryPointObjectType, entryPointObjectName, objectType, objectName)
+  PRIMARY KEY(systemId, entryPointObjectType, entryPointObjectName, objectType, objectName)
 )
+
+== migration=2
+-- Existing rows have unknown provenance. Preserve them under an empty systemId
+-- instead of assigning them to a configured system or deleting their data.
+ALTER TABLE kernseife_db_DevelopmentObjectUsages ADD (systemId NVARCHAR(5000));
+UPDATE kernseife_db_DevelopmentObjectUsages SET systemId = '' WHERE systemId IS NULL;
+ALTER TABLE kernseife_db_DevelopmentObjectUsages ALTER (systemId NVARCHAR(5000) NOT NULL);
+ALTER TABLE kernseife_db_DevelopmentObjectUsages ALTER (counter BIGINT);
+ALTER TABLE kernseife_db_DevelopmentObjectUsages DROP PRIMARY KEY;
+ALTER TABLE kernseife_db_DevelopmentObjectUsages ADD PRIMARY KEY(systemId, entryPointObjectType, entryPointObjectName, objectType, objectName);

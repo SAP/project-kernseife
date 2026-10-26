@@ -3,6 +3,14 @@ import { ql, Transaction } from '@sap/cds';
 
 const CURRENT = 'kernseife.db.DevelopmentObjectUsages';
 const STAGING = 'kernseife.db.DevelopmentObjectUsageImports';
+
+const requireSystemId = (systemId: string) => {
+  if (!systemId) {
+    throw new Error(
+      'Usage imports require a system ID; unassigned legacy rows cannot be replaced'
+    );
+  }
+};
 const columns = [
   'systemId',
   'entryPointObjectType',
@@ -18,6 +26,7 @@ export const clearUsageImport = async (
   importId: string,
   systemId: string
 ) => {
+  requireSystemId(systemId);
   await tx.run(
     ql.DELETE.from(STAGING).where({ import_ID: importId, systemId })
   );
@@ -29,6 +38,7 @@ export const stageUsageImport = async (
   systemId: string,
   usages: Partial<DevelopmentObjectUsage>[]
 ) => {
+  requireSystemId(systemId);
   if (usages.length === 0) return;
 
   // A usage can appear under more than one development object/page. Keep the
@@ -61,6 +71,7 @@ export const publishUsageImport = async (
   importId: string,
   systemId: string
 ) => {
+  requireSystemId(systemId);
   await tx.run(ql.DELETE.from(CURRENT).where({ systemId }));
   await tx.run(
     ql.INSERT.into(CURRENT).from(

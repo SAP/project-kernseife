@@ -1,0 +1,12 @@
+== version=1
+COLUMN TABLE kernseife_db_DevelopmentObjectUsageImports (
+  systemId NVARCHAR(5000) NOT NULL,
+  entryPointObjectType NVARCHAR(5000) NOT NULL,
+  entryPointObjectName NVARCHAR(5000) NOT NULL,
+  objectType NVARCHAR(5000) NOT NULL,
+  objectName NVARCHAR(5000) NOT NULL,
+  counter BIGINT,
+  lastUsed SECONDDATE,
+  import_ID NVARCHAR(36) NOT NULL,
+  PRIMARY KEY(systemId, entryPointObjectType, entryPointObjectName, objectType, objectName, import_ID)
+)

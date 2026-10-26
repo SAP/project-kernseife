@@ -6,14 +6,16 @@ Pages are upserted into an internal staging table scoped by import and system. O
 
 This does not make the entire import atomic: development objects, findings and exemptions still commit during the import. Different import IDs isolate usage staging, but concurrent jobs for the same system remain outside the verified behavior. The existing `ALL` import path shares one DevelopmentObjectVersions ID across systems; its separate version-key collision is not resolved here. Test sequential system imports separately.
 
-## Required migration decision before merge/deployment
+## Migration of existing rows
 
-Existing DevelopmentObjectUsages rows have no source system. Adding a column cannot recover their provenance. The maintainer has been asked whether to preserve these rows as unassigned until systems are reimported, or supply a known system ID applying to all existing rows. No migration may discard or attribute them without that answer.
+The maintainer confirmed that existing DevelopmentObjectUsages rows must be preserved as unassigned. Version 2 of the HANA migration adds systemId as a nullable column, backfills the empty string, then makes the column non-null and includes it in the primary key. No row is deleted or assigned to a configured system. Counter is widened from INTEGER to BIGINT to match the existing CDS Int64 declaration.
 
-The draft intentionally does not update `db/src/kernseife.db.DevelopmentObjectUsages.hdbmigrationtable` or `db/last-dev/csn.json`. Those artifacts still describe the old key. After the decision, add a reviewed HANA migration that backfills the chosen value, enforces non-null systemId and replaces the primary key; generate the staging-table artifact and update the CDS migration snapshot together. Do not deploy the draft schema against an existing HANA container.
+Unassigned rows remain stored after any system is reimported, including successful empty snapshots. They do not join to a particular system's development objects. Staging and publication reject an empty system ID, so imports cannot replace the preserved rows. Their provenance is still unknown; any future attribution/removal requires a separate decision.
+
+The current and staging migration tables and `db/last-dev/csn.json` are updated together. Compile/build checks must confirm that another build produces no migration version changes. Validate version 1 to 2 against a populated HANA test container before deployment to an existing landscape: compare row counts, all natural-key fields, counters and timestamps; every pre-existing row must have an empty systemId afterward. Then import one real system and verify that those legacy rows remain alongside the new snapshot. The fresh-install table definition must also deploy successfully.
 
 ## Validation
 
 SQLite tests deploy the actual CDS schema. They exercise duplicate keys within/across pages, per-system replacement and navigation, discarded staging on restart, empty snapshots, transaction rollback, full import failure after a committed page, restarting the same/fresh import, missing pages, and failure of the later exemptions request. Both server and test TypeScript checks are required. The server check supplies `rootDir: .`, matching the independent proposal in PR #99.
 
-Before marking ready, validate the HANA migration against a populated test container, run import/retry from the Jobs application with real S/4HANA 2025 connector data, and verify that identical usage object keys in two systems remain separate. ABAP activation/runtime testing is performed by the maintainer.
+Runtime validation remains required: validate the HANA migration against a populated test container, run import/retry from the Jobs application with real S/4HANA 2025 connector data, and verify that identical usage object keys in two systems remain separate. ABAP activation/runtime testing is performed by the maintainer.

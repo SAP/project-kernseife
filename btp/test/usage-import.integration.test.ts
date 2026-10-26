@@ -30,8 +30,9 @@ describe('usage snapshots (#82)', () => {
   let importId: string;
 
   beforeAll(async () => {
-    database = await deploy(await cds.load('db/schema.cds'))
-      .to('sqlite::memory:');
+    database = await deploy(await cds.load('db/schema.cds')).to(
+      'sqlite::memory:'
+    );
   });
   beforeEach(async () => {
     importId = cds.utils.uuid();
@@ -111,6 +112,32 @@ describe('usage snapshots (#82)', () => {
     ]);
   });
 
+  it('preserves unassigned legacy rows across replacement and empty system snapshots', async () => {
+    const legacy = { ...usage(), systemId: '' };
+    await database.run(cds.ql.INSERT.into(CURRENT).entries(legacy));
+    await database.tx(async (tx) => {
+      await stageUsageImport(tx, importId, 'AAA', [usage()]);
+      await publishUsageImport(tx, importId, 'AAA');
+    });
+    expect(await database.run(cds.ql.SELECT.from(CURRENT))).toHaveLength(2);
+    await database.tx((tx) => publishUsageImport(tx, importId, 'AAA'));
+    await database.tx((tx) => publishUsageImport(tx, importId, 'BBB'));
+    expect(await database.run(cds.ql.SELECT.from(CURRENT))).toEqual([legacy]);
+  });
+
+  it('rejects imports without a system ID before they can change unassigned data', async () => {
+    const legacy = { ...usage(), systemId: '' };
+    await database.run(cds.ql.INSERT.into(CURRENT).entries(legacy));
+    await expect(
+      database.tx((tx) => stageUsageImport(tx, importId, '', [usage()]))
+    ).rejects.toThrow('require a system ID');
+    await expect(
+      database.tx((tx) => publishUsageImport(tx, importId, ''))
+    ).rejects.toThrow('require a system ID');
+    expect(await database.run(cds.ql.SELECT.from(CURRENT))).toEqual([legacy]);
+    expect(await database.run(cds.ql.SELECT.from(STAGING))).toHaveLength(0);
+  });
+
   it('rolls back publication together, restoring the previous snapshot and staging', async () => {
     await database.run(
       cds.ql.INSERT.into(CURRENT).entries({ ...usage(), systemId: 'AAA' })
@@ -134,6 +161,7 @@ describe('usage snapshots (#82)', () => {
     await database.run(
       cds.ql.INSERT.into(CURRENT).entries([
         { ...usage(), systemId: 'AAA' },
+        { ...usage('ZOBJECT', 55), systemId: '' },
         { ...usage('ZOBJECT', 99), systemId: 'BBB' }
       ])
     );
