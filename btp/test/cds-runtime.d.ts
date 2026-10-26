@@ -1,4 +1,5 @@
-import type { csn, DatabaseService } from '@sap/cds';
+/* eslint-disable no-unused-vars -- parameter names describe the runtime API */
+import type { csn } from '@sap/cds';
 
 // @cap-js/cds-types 0.18 omits these runtime database APIs. Keep the
 // declarations scoped to tests that deploy and close an in-memory database.

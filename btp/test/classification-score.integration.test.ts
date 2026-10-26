@@ -1,4 +1,4 @@
-import cds from '@sap/cds';
+import cds, { deploy } from '@sap/cds';
 import type { DatabaseService } from '@sap/cds';
 import type { Classification } from '#cds-models/kernseife/db';
 import {
@@ -16,7 +16,7 @@ describe('classification score aggregation (#97)', () => {
 
   beforeAll(async () => {
     const model = await cds.load('db/schema.cds');
-    database = await cds.deploy(model).to('sqlite::memory:');
+    database = await deploy(model).to('sqlite::memory:');
   });
 
   beforeEach(async () => {
