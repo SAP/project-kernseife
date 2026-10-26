@@ -5,6 +5,9 @@ FUNCTION zknsf_run_atc.
 *"     VALUE(E_MESSAGE) TYPE  STRING
 *"     VALUE(E_ERROR) TYPE  ABAP_BOOLEAN
 *"----------------------------------------------------------------------
+  CLEAR e_message.
+  CLEAR e_error.
+
   TRY.
       DATA(transaction_manager) =
     /bobf/cl_tra_trans_mgr_factory=>get_transaction_manager(  ).
@@ -36,11 +39,36 @@ FUNCTION zknsf_run_atc.
 
       service_manager->do_action( EXPORTING iv_act_key = if_sycm_aps_i_project_c=>sc_action-sycm_aps_i_project-run_atc
                                             it_key     = key_table
-                                  IMPORTING eo_message = DATA(messages) ).
+                                  IMPORTING eo_message = DATA(messages)
+                                            et_failed_key = DATA(failed_keys) ).
+
+      DATA(has_errors) = xsdbool( failed_keys IS NOT INITIAL ).
+      IF messages IS BOUND AND messages->check( ) = abap_true.
+        has_errors = abap_true.
+      ENDIF.
+
+      IF has_errors = abap_true.
+        e_error = abap_true.
+        e_message = |ATC scheduling action failed|.
+        IF messages IS BOUND.
+          messages->get( IMPORTING et_message = DATA(message_table) ).
+          IF lines( message_table ) > 0.
+            CLEAR e_message.
+            LOOP AT message_table INTO DATA(message).
+              IF e_message IS INITIAL.
+                e_message = message->get_text( ).
+              ELSE.
+                e_message = |{ e_message }; { message->get_text( ) }|.
+              ENDIF.
+            ENDLOOP.
+          ENDIF.
+        ENDIF.
+        RETURN.
+      ENDIF.
 
 
-    CATCH cx_root.
-      e_message = |Unkown Error|.
+    CATCH cx_root INTO DATA(exception_root).
+      e_message = exception_root->get_text( ).
       e_error = abap_true.
       RETURN.
   ENDTRY.
