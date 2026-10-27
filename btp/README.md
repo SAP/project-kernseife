@@ -57,3 +57,15 @@ with no published patched version. It is pulled in by the Cloud SDK `jks-js`
 dependency. Track the upstream fix and review destinations using JKS
 certificates before rollout. An audit may consequently still report this
 advisory and its dependent packages.
+
+## Project checks
+
+The `Project checks` GitHub workflow runs for pull requests and pushes to main. It installs dependencies from the lockfile, generates models through the test scripts, runs Jest, type-checks tests and application code, and lints without applying fixes. It builds the production bundle, verifies that all four custom CAP handlers are discovered and initialized, then builds the UI5 workspaces.
+
+The workflow reads Node from `.nvmrc`, pins npm to the validated version 12.0.2, and prefers the lockfile-installed CAP toolkit. Until the toolkit is added to the project lockfile, it uses the pinned version 10.0.7 that was validated with CAP 9. The bundled-handler check installs the generated server's production dependencies and uses that bundle's CAP service factory for regression coverage of #96/#99; it does not require a database, destination credentials or a Cloud Foundry deployment.
+
+To run that check locally after a production build:
+
+```sh
+node scripts/checkServiceHandlers.cjs
+```

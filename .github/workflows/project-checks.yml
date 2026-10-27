@@ -1,0 +1,53 @@
+name: Project checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: project-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: btp
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: btp/.nvmrc
+          cache: npm
+          cache-dependency-path: btp/package-lock.json
+      - name: Use the validated npm version
+        run: npm install --global npm@12.0.2
+      - run: npm ci
+      - name: Tests
+        run: npm test -- --runInBand
+      - name: Type-check tests
+        run: npm run test:typecheck
+      - name: Type-check application
+        run: npx tsc --project tsconfig.cdsbuild.json --noEmit
+      - name: Lint without modifying sources
+        run: npx eslint .
+      - name: Build the production service
+        run: |
+          if [ -x node_modules/.bin/cds ]; then
+            node_modules/.bin/cds build --production
+          else
+            # CAP 9 main has no toolkit in its lockfile; use the validated version.
+            npm exec --yes --package=@sap/cds-dk@10.0.7 -- cds build --production
+          fi
+      - name: Check packaged custom handlers
+        run: |
+          npm ci --omit=dev --prefix gen/srv
+          node scripts/checkServiceHandlers.cjs
+      - name: Build UI5 applications
+        run: npm run build --workspaces --if-present
