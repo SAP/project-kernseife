@@ -2,3 +2,6 @@
 
 # added by cds
 .cdsrc-private.json
+
+# GitHub Pages output
+_site/
