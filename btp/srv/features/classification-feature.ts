@@ -1249,14 +1249,13 @@ export const getClassificationJsonCustom = async (
     legacy: false
   }
 ) => {
-  let ratings: Ratings = [];
   let whereClause: any = {};
 
   if (options.legacy) {
     whereClause = { usableInClassification: true };
   }
 
-  ratings = await SELECT.from('kernseife.db.Ratings', (r: any) => {
+  const ratings: Ratings = await SELECT.from('kernseife.db.Ratings', (r: any) => {
     r.code, r.title, r.criticality_code.as('criticality'), r.score;
   }).where(whereClause);
 
@@ -1738,7 +1737,7 @@ export const importExternalClassificationById = async (
     };
   } catch (e) {
     LOG.error('Error loading ZIP file', { error: e });
-    throw new Error('Invalid ZIP file format');
+    throw new Error('Invalid ZIP file format', { cause: e });
   }
 };
 

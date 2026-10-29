@@ -485,7 +485,7 @@ export default (srv: Service) => {
         tx: Transaction,
         updateProgress: (progress: number) => Promise<void>
       ): Promise<JobResult> => {
-        let systemList: BTPSystems = [];
+        let systemList: BTPSystems;
         if (req.data.systemId == 'ALL') {
           systemList = await SELECT.from('AdminService.BTPSystems');
         } else {

@@ -7,7 +7,7 @@
       "./srv",
       "./@cds-models"
     ],
-    "baseUrl": "./",
+    "rootDir": ".",
     "moduleResolution": "Node16",
     "target": "ES2022",
     "module": "Node16",

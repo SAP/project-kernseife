@@ -230,7 +230,7 @@ export const importFindingsCSV = async (
       csv = await content.files[file].async('text');
     } catch (e) {
       LOG.error('Error unzipping file', { error: e });
-      throw new Error('Error unzipping file: ' + e);
+      throw new Error('Error unzipping file: ' + e, { cause: e });
     }
   } else {
     csv = await text(findingImport.file);
@@ -495,7 +495,6 @@ const importFindingsBTPBySystem = async (
   LOG.info(`Found ${findingsCount} Findings for Project ${project.projectId}`);
 
   let findingsCounter = 0;
-  skip = 0;
   while (findingsCount > findingsCounter) {
     const findingsImportList = await getFindings(
       { destination },
