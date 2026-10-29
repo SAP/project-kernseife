@@ -1,5 +1,5 @@
-import cds from '@sap/cds';
-import type { Service } from '@sap/cds';
+import cds, { deploy } from '@sap/cds';
+import type { DatabaseService } from '@sap/cds';
 import type { Classification } from '#cds-models/kernseife/db';
 import {
   afterAll,
@@ -12,11 +12,11 @@ import {
 import { updateTotalScoreAndReferenceCount } from '../srv/features/classification-feature';
 
 describe('classification score aggregation (#97)', () => {
-  let database: Service;
+  let database: DatabaseService;
 
   beforeAll(async () => {
     const model = await cds.load('db/schema.cds');
-    database = await cds.deploy(model).to('sqlite::memory:');
+    database = await deploy(model).to('sqlite::memory:');
   });
 
   beforeEach(async () => {
