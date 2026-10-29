@@ -1,0 +1,47 @@
+name: CDS Mapper report
+
+on:
+  pull_request:
+    paths:
+      - tools/cds-mapper/table-cds-mapper-analysis.zip
+      - tools/cds-mapper/build-pages.py
+      - .github/workflows/cds-mapper-pages.yml
+  push:
+    branches: [main]
+    paths:
+      - tools/cds-mapper/table-cds-mapper-analysis.zip
+      - tools/cds-mapper/build-pages.py
+      - .github/workflows/cds-mapper-pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cds-mapper-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Prepare the static report
+        run: python3 tools/cds-mapper/build-pages.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
