@@ -32,6 +32,11 @@ import { CleanCoreLevel } from '#cds-models/kernseife/enums';
 import JSZip from 'jszip';
 import { PassThrough } from 'node:stream';
 import { isZipFile, streamToBuffer } from '../lib/files';
+import {
+  clearUsageImport,
+  publishUsageImport,
+  stageUsageImport
+} from './usage-import-feature';
 
 const LOG = log('DevelopmentObjectFeature');
 
@@ -475,7 +480,48 @@ const importFindingsBTPBySystem = async (
   importId: string,
   systemId: string,
   successorMap: Map<string, string>,
-  tx: Transaction,
+  updateProgress?: (progress: number) => Promise<void>
+): Promise<number> => {
+  await db.tx(async (resetTx) => {
+    await clearUsageImport(resetTx, importId, systemId);
+    // Replaying an import starts from its first page. Remove only artifacts
+    // belonging to this import/system; older history and other systems remain.
+    await resetTx.run(
+      DELETE.from('kernseife.db.FindingRecords').where({ import_ID: importId, systemId })
+    );
+    await resetTx.run(
+      DELETE.from('kernseife.db.HistoricDevelopmentObjects').where({ version_ID: importId, systemId })
+    );
+    await resetTx.run(
+      DELETE.from('kernseife.db.DevelopmentObjectVersions').where({ ID: importId, systemId })
+    );
+  });
+  try {
+    return await performFindingsBTPBySystem(
+      importId,
+      systemId,
+      successorMap,
+      updateProgress
+    );
+  } catch (error) {
+    // Remove committed staging pages in a fresh transaction. The previous
+    // published usage snapshot remains untouched when an import fails.
+    try {
+      await db.tx((cleanupTx) => clearUsageImport(cleanupTx, importId, systemId));
+    } catch (cleanupError) {
+      LOG.error(
+        'Failed to clear usage staging; it will be cleared on restart',
+        cleanupError
+      );
+    }
+    throw error;
+  }
+};
+
+const performFindingsBTPBySystem = async (
+  importId: string,
+  systemId: string,
+  successorMap: Map<string, string>,
   updateProgress?: (progress: number) => Promise<void>
 ): Promise<number> => {
   // Get Destination from System
@@ -506,7 +552,7 @@ const importFindingsBTPBySystem = async (
     );
 
     if (!findingsImportList || findingsImportList.length == 0) {
-      findingsCounter = findingsCount;
+      throw new Error(`Findings page missing for system ${systemId} at ${skip}`);
     }
     // Insert Findings
     const findingRecordList = findingsImportList.map((finding) => {
@@ -541,9 +587,6 @@ const importFindingsBTPBySystem = async (
     });
 
     await INSERT.into('kernseife.db.FindingRecords').entries(findingRecordList);
-    if (tx) {
-      await tx.commit();
-    }
 
     findingsCounter += findingsImportList.length;
     skip += top;
@@ -552,9 +595,6 @@ const importFindingsBTPBySystem = async (
   }
 
   await prepareNewDevelopmentObjectsImport(importId, systemId);
-  if (tx) {
-    await tx.commit();
-  }
 
   // Get Development Objects
   let insertCount = 0;
@@ -575,6 +615,11 @@ const importFindingsBTPBySystem = async (
       top,
       skip
     );
+    if (!developmentObjectImportList || developmentObjectImportList.length === 0) {
+      throw new Error(
+        `Development objects page missing for system ${systemId} at ${skip}`
+      );
+    }
 
     const developmentObjectInsert = [] as Partial<DevelopmentObject>[];
     const usageInsert = [] as Partial<DevelopmentObjectUsage>[];
@@ -662,18 +707,12 @@ const importFindingsBTPBySystem = async (
     }
     if (developmentObjectInsert.length > 0) {
       await createDevelopmentObjects(developmentObjectInsert);
-      if (tx) {
-        await tx.commit();
-      }
     }
 
     if (usageInsert.length > 0) {
-      await INSERT.into('kernseife.db.DevelopmentObjectUsages').entries(
-        usageInsert
+      await db.tx((usageTx) =>
+        stageUsageImport(usageTx, importId, systemId, usageInsert)
       );
-      if (tx) {
-        await tx.commit();
-      }
     }
 
     if (updateProgress)
@@ -691,9 +730,6 @@ const importFindingsBTPBySystem = async (
   skip = 0;
   // Delete existing Exemptions for this System
   await DELETE.from('kernseife.db.Exemptions').where({ systemId: systemId });
-  if (tx) {
-    await tx.commit();
-  }
 
   while (skip < exemptionsCount) {
     const exemptionList = await getExemptions(
@@ -709,13 +745,11 @@ const importFindingsBTPBySystem = async (
       });
       LOG.error(`ExemptionList`, { exemptionList });
       await INSERT.into('kernseife.db.Exemptions').entries(exemptionList);
-      if (tx) {
-        await tx.commit();
-      }
     }
     skip += top;
   }
 
+  await db.tx((usageTx) => publishUsageImport(usageTx, importId, systemId));
   return insertCount;
 };
 
@@ -823,6 +857,9 @@ export const importFindingsBTP = async (
   const systemId = developmentObjectsImport.systemId;
 
   const successorMap = await getSuccessorRatingMap();
+  // Release the job transaction before using independent page/snapshot
+  // transactions. A CAP transaction cannot be reused after commit.
+  await tx.commit();
 
   let insertCount = 0;
 
@@ -835,7 +872,6 @@ export const importFindingsBTP = async (
         importId,
         system.sid,
         successorMap,
-        tx,
         updateProgress //TODO Adjust for overall progress
       );
     }
@@ -844,7 +880,6 @@ export const importFindingsBTP = async (
       importId,
       systemId,
       successorMap,
-      tx,
       updateProgress
     );
   }

@@ -131,7 +131,8 @@ aspect DevelopmentObjectAspect {
 
         usageList               : Association to many DevelopmentObjectUsages
                                       on  usageList.objectType = $self.objectType
-                                      and usageList.objectName = $self.objectName;
+                                      and usageList.objectName = $self.objectName
+                                      and usageList.systemId = $self.systemId;
 
 }
 
@@ -954,12 +955,18 @@ entity Destinations {
 
 @cds.persistence.journal
 entity DevelopmentObjectUsages {
+    key systemId             : String;
     key entryPointObjectType : String;
     key entryPointObjectName : String;
     key objectType           : String;
     key objectName           : String;
         counter              : Int64;
         lastUsed             : DateTime;
+}
+
+// Internal staging: only completed system imports replace the current usages.
+entity DevelopmentObjectUsageImports : DevelopmentObjectUsages {
+    key import_ID : UUID;
 }
 
 
