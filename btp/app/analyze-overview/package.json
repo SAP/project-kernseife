@@ -19,6 +19,6 @@
     "@sap/ux-specification": "^1.139.4",
     "@ui5/cli": "^4.0.39",
     "eslint": "9.34.0",
-    "ui5-task-zipper": "^3.4.4"
+    "ui5-task-zipper": "^3.7.0"
   }
 }
