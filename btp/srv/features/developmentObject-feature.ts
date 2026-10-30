@@ -411,8 +411,7 @@ export const importFindingsCSV = async (
 
       developmentObject.level =
         level == CleanCoreLevel.A &&
-        findingRecord.messageId != '5' &&
-        findingRecord.messageId != '2' // Key-User is also Part of ABAP Cloud => Level A as well
+        findingRecord.messageId != '5'
           ? CleanCoreLevel.B
           : level;
 
@@ -615,8 +614,7 @@ const importFindingsBTPBySystem = async (
 
       developmentObject.level =
         level == CleanCoreLevel.A &&
-        developmentObjectImport.languageVersion != '5' &&
-        developmentObjectImport.languageVersion != '2' // Key-User is also Part of ABAP Cloud => Level A as well
+        developmentObjectImport.languageVersion != '5'
           ? CleanCoreLevel.B
           : level;
 
