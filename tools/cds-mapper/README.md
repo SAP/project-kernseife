@@ -29,6 +29,28 @@ python3 -m http.server 8000 --directory _site
 
 Open `http://localhost:8000/cds-mapper/`. The build uses a new output directory, preserves the HTML and data bytes from the checked-in archive, and keeps all data shards beside the report. No ABAP/BTP deployment or external runtime dependency is needed.
 
+### JSON data for tools and agents
+
+The same build also publishes the report data as plain JSON, so scripts and AI agents can read it without parsing the report's JavaScript shards. An `llms.txt` guide for agents describes the layout and how to read a record. It is published at the site root and beside the report, for example at https://sap.github.io/project-kernseife/cds-mapper/llms.txt.
+
+| Path | Content |
+| --- | --- |
+| `cds-mapper/json/index.json` | The DB tables found in the lineage of the CDS views in the analysis, each with its coverage and successor flags, plus the run statistics and a `meta` snapshot stamp. The report's overview chart data is left out. |
+| `cds-mapper/json/tables/<TABLE>.json` | One DB table: its `fields`, `mappedFields`, `unmappedFields`, and ranked `candidates`, each with its field-to-element `mappings`. |
+| `cds-mapper/json/schema/*.schema.json` | JSON Schemas for the index and table records, including the `category`, `state`, and `contract` values. |
+
+Table names are uppercase, and lookups are case-sensitive. In a file name, each `/` of an SAP namespace becomes `~`, which is safe in a URL: `/1BS/TEST_TABLE` is served as `tables/~1BS~TEST_TABLE.json`. For example, `cds-mapper/json/tables/DFKKOP.json` lists `I_CADOCUMENTBPITEMPHYSICAL` as the official successor.
+
+Every record carries the same `meta` stamp: the analyzed release, the compilation date, the analysis run, the license, and the disclaimer. A record read on its own keeps its source and its limits. The output uses sorted keys and no whitespace, so two snapshots can be compared file by file.
+
+The Pages workflow runs `check-pages.py` after the build. It validates every file against the schemas, checks the table count against `stats.tables`, and checks that each file name maps back to its table name. To run it locally after a build:
+
+```sh
+python3 tools/cds-mapper/check-pages.py
+```
+
+When a new analysis replaces `table-cds-mapper-analysis.zip`, rebuild and run the check. A new `category`, `state`, or `contract` value fails the check until the schema lists it, so a change in the analysis output is noticed before it is published.
+
 ## External classification import
 
 `classification-good-c1-candidates-bf5.zip` contains 2,071 external-classification JSON records for standard database tables with good CDS-successor candidates. Import the archive through the External Classification import in Kernseife.

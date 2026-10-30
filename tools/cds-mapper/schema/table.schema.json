@@ -1,0 +1,306 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "table.schema.json",
+  "title": "CDS Mapper table record",
+  "description": "One DB table: its fields and the candidate CDS views that expose them. Served at cds-mapper/json/tables/<TABLE>.json, where each '/' of a namespace becomes '~'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "description",
+    "fieldCount",
+    "mapped",
+    "coverage",
+    "candidateCount",
+    "c1",
+    "official",
+    "has_official_successor",
+    "has_good_candidate",
+    "good_candidate",
+    "mappings",
+    "fields",
+    "mappedFields",
+    "unmappedFields",
+    "candidates",
+    "meta"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "DB table name, uppercase."
+    },
+    "description": {
+      "type": "string"
+    },
+    "fieldCount": {
+      "type": "integer",
+      "description": "Persisted fields of the table."
+    },
+    "mapped": {
+      "type": "integer",
+      "description": "Fields mapped directly by at least one candidate."
+    },
+    "coverage": {
+      "type": "number",
+      "description": "mapped / fieldCount, as a percentage."
+    },
+    "candidateCount": {
+      "type": "integer"
+    },
+    "c1": {
+      "type": "integer",
+      "description": "A count of the candidates that are C1-released in the Cloudification Repository baseline. On a candidate, c1 is a boolean."
+    },
+    "official": {
+      "type": "boolean",
+      "description": "True when at least one candidate is official."
+    },
+    "has_official_successor": {
+      "type": "boolean",
+      "description": "True when the repository metadata names a successor for the table. It can be true while no candidate is official; the successor's name is then not in this data."
+    },
+    "has_good_candidate": {
+      "type": "boolean",
+      "description": "The report's cautious 'Good C1 candidate' signal: no official successor, a C1-release signal, at least three directly mapped fields and 30% direct coverage."
+    },
+    "good_candidate": {
+      "description": "The candidate behind the 'Good C1 candidate' signal, or null.",
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "mapped",
+            "coverage"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "mapped": {
+              "type": "integer"
+            },
+            "coverage": {
+              "type": "number"
+            }
+          }
+        }
+      ]
+    },
+    "mappings": {
+      "type": "integer",
+      "description": "A count of field-to-element mappings across all candidates. On a candidate, mappings is the list itself."
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "text"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "mappedFields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unmappedFields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Table fields that no candidate maps directly, in field order."
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/candidate"
+      },
+      "description": "Ordered official first, then c1, then coverage, highest first. other_c1 is not a ranking tier."
+    },
+    "meta": {
+      "$ref": "#/$defs/meta"
+    }
+  },
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "official",
+        "c1",
+        "other_c1",
+        "coverage",
+        "mapped",
+        "fields",
+        "category",
+        "state",
+        "mappings"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "CDS view name, uppercase."
+        },
+        "official": {
+          "type": "boolean",
+          "description": "Repository metadata names this view as the table's successor. Usually, but not always, C1-released: check c1 and state."
+        },
+        "c1": {
+          "type": "boolean",
+          "description": "C1-released and listed in the SAP Cloudification Repository baseline. Filter on this, not on category, to find baseline-released views."
+        },
+        "other_c1": {
+          "type": "boolean",
+          "description": "The analyzed system reports a C1 release that the baseline does not list."
+        },
+        "coverage": {
+          "type": "number",
+          "description": "mapped / fields, as a percentage."
+        },
+        "mapped": {
+          "type": "integer"
+        },
+        "fields": {
+          "type": "integer",
+          "description": "fieldCount of the table."
+        },
+        "category": {
+          "enum": [
+            "OFFICIAL_SUCCESSOR",
+            "C1_HIGH_COVERAGE",
+            "C1_PARTIAL_COVERAGE",
+            "UNRELEASED_CANDIDATE"
+          ],
+          "description": "The two C1_ categories also include other_c1 views, where c1 is false."
+        },
+        "state": {
+          "$ref": "#/$defs/state"
+        },
+        "mappings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "field",
+              "element",
+              "contract",
+              "state"
+            ],
+            "properties": {
+              "field": {
+                "type": "string",
+                "description": "Table field."
+              },
+              "element": {
+                "type": "string",
+                "description": "CDS element exposing the field."
+              },
+              "contract": {
+                "enum": [
+                  "",
+                  "C0",
+                  "C1",
+                  "C2"
+                ],
+                "description": "The release contract reported for the element; empty when none is reported."
+              },
+              "state": {
+                "$ref": "#/$defs/state"
+              }
+            }
+          }
+        }
+      }
+    },
+    "state": {
+      "enum": [
+        "",
+        "RELEASED",
+        "DEPRECATED",
+        "NOT_TO_BE_RELEASED",
+        "NOT_TO_BE_RELEASED_STABLE"
+      ],
+      "description": "Release state; empty when none is recorded. Skip DEPRECATED candidates for new code."
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "compiled",
+        "run",
+        "license",
+        "disclaimer"
+      ],
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Analyzed release, for example 'SAP S/4HANA 2025 (FPS01)'."
+        },
+        "compiled": {
+          "type": "string"
+        },
+        "run": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "created",
+            "finished",
+            "total",
+            "successful",
+            "failed"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "created": {
+              "type": "string",
+              "description": "SAP timestamp, YYYYMMDDhhmmss.sss."
+            },
+            "finished": {
+              "type": "string",
+              "description": "SAP timestamp, YYYYMMDDhhmmss.sss."
+            },
+            "total": {
+              "type": "integer",
+              "description": "Analyses in the run, as the report records them."
+            },
+            "successful": {
+              "type": "integer"
+            },
+            "failed": {
+              "type": "integer"
+            }
+          }
+        },
+        "license": {
+          "type": "string"
+        },
+        "disclaimer": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

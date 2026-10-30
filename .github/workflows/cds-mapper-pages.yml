@@ -5,12 +5,16 @@ on:
     paths:
       - tools/cds-mapper/table-cds-mapper-analysis.zip
       - tools/cds-mapper/build-pages.py
+      - tools/cds-mapper/check-pages.py
+      - tools/cds-mapper/schema/**
       - .github/workflows/cds-mapper-pages.yml
   push:
     branches: [main]
     paths:
       - tools/cds-mapper/table-cds-mapper-analysis.zip
       - tools/cds-mapper/build-pages.py
+      - tools/cds-mapper/check-pages.py
+      - tools/cds-mapper/schema/**
       - .github/workflows/cds-mapper-pages.yml
   workflow_dispatch:
 
@@ -28,6 +32,8 @@ jobs:
       - uses: actions/checkout@v5
       - name: Prepare the static report
         run: python3 tools/cds-mapper/build-pages.py
+      - name: Check the JSON export
+        run: python3 tools/cds-mapper/check-pages.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

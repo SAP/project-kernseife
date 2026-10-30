@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "index.schema.json",
+  "title": "CDS Mapper table index",
+  "description": "The DB tables found in the lineage of the analyzed CDS views, with their summary figures and the run statistics. Served at cds-mapper/json/index.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "meta",
+    "stats",
+    "tables"
+  ],
+  "properties": {
+    "meta": {
+      "$ref": "table.schema.json#/$defs/meta"
+    },
+    "stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tables",
+        "mappings",
+        "candidates",
+        "c1",
+        "official",
+        "good_candidates",
+        "mapped",
+        "mappedPct"
+      ],
+      "properties": {
+        "tables": {
+          "type": "integer"
+        },
+        "mappings": {
+          "type": "integer"
+        },
+        "candidates": {
+          "type": "integer"
+        },
+        "c1": {
+          "type": "integer"
+        },
+        "official": {
+          "type": "integer",
+          "description": "Tables with at least one official candidate."
+        },
+        "good_candidates": {
+          "type": "integer"
+        },
+        "mapped": {
+          "type": "integer"
+        },
+        "mappedPct": {
+          "type": "number"
+        }
+      }
+    },
+    "tables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "description",
+          "fieldCount",
+          "mapped",
+          "coverage",
+          "candidateCount",
+          "c1",
+          "official",
+          "has_official_successor",
+          "has_good_candidate",
+          "good_candidate",
+          "mappings"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "fieldCount": {
+            "type": "integer"
+          },
+          "mapped": {
+            "type": "integer"
+          },
+          "coverage": {
+            "type": "number"
+          },
+          "candidateCount": {
+            "type": "integer"
+          },
+          "c1": {
+            "type": "integer"
+          },
+          "official": {
+            "type": "boolean"
+          },
+          "has_official_successor": {
+            "type": "boolean"
+          },
+          "has_good_candidate": {
+            "type": "boolean"
+          },
+          "good_candidate": {
+            "$ref": "table.schema.json#/properties/good_candidate"
+          },
+          "mappings": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}
